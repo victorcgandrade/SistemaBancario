@@ -2,6 +2,7 @@ U:\CodingPCS\SistemaBancario\SistemaBancario\bin\Debug\SistemaBancario.exe.confi
 U:\CodingPCS\SistemaBancario\SistemaBancario\bin\Debug\SistemaBancario.exe
 U:\CodingPCS\SistemaBancario\SistemaBancario\bin\Debug\SistemaBancario.pdb
 U:\CodingPCS\SistemaBancario\SistemaBancario\obj\Debug\SistemaBancario.Properties.Resources.resources
+U:\CodingPCS\SistemaBancario\SistemaBancario\obj\Debug\SistemaBancario.Views.AdicionarCliente.resources
 U:\CodingPCS\SistemaBancario\SistemaBancario\obj\Debug\SistemaBancario.Views.TemplateInicialAdministrador.resources
 U:\CodingPCS\SistemaBancario\SistemaBancario\obj\Debug\SistemaBancario.csproj.GenerateResource.cache
 U:\CodingPCS\SistemaBancario\SistemaBancario\obj\Debug\SistemaBancario.csproj.CoreCompileInputs.cache
