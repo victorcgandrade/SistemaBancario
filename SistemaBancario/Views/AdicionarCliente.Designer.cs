@@ -45,14 +45,12 @@
             this.dtp_DataCadastro = new System.Windows.Forms.DateTimePicker();
             this.cb_Status = new System.Windows.Forms.ComboBox();
             this.lb_VariaveisControle = new System.Windows.Forms.Label();
-            this.cb_Pais = new System.Windows.Forms.ComboBox();
             this.cb_Estado = new System.Windows.Forms.ComboBox();
             this.tb_Cidade = new System.Windows.Forms.TextBox();
             this.tb_Cep = new System.Windows.Forms.TextBox();
             this.tb_Complemento = new System.Windows.Forms.TextBox();
             this.tb_Bairro = new System.Windows.Forms.TextBox();
             this.tb_Numero = new System.Windows.Forms.TextBox();
-            this.tb_Logradouro = new System.Windows.Forms.TextBox();
             this.lb_Endereco = new System.Windows.Forms.Label();
             this.tb_RendaMensal = new System.Windows.Forms.TextBox();
             this.tb_Profissao = new System.Windows.Forms.TextBox();
@@ -69,12 +67,21 @@
             this.lb_Contato = new System.Windows.Forms.Label();
             this.tb_Sobrenome = new System.Windows.Forms.TextBox();
             this.tb_PrimeiroNome = new System.Windows.Forms.TextBox();
+            this.tb_Rua = new System.Windows.Forms.TextBox();
+            this.cb_Logradouro = new System.Windows.Forms.ComboBox();
             this.p_Content.SuspendLayout();
             this.SuspendLayout();
             // 
             // p_Content
             // 
+            this.p_Content.Controls.Add(this.cb_Logradouro);
+            this.p_Content.Controls.Add(this.tb_Rua);
             this.p_Content.Controls.Add(this.btn_Cancelar);
+            this.p_Content.Controls.Add(this.lb_Endereco);
+            this.p_Content.Controls.Add(this.tb_Complemento);
+            this.p_Content.Controls.Add(this.cb_Estado);
+            this.p_Content.Controls.Add(this.tb_Cidade);
+            this.p_Content.Paint += new System.Windows.Forms.PaintEventHandler(this.p_Content_Paint);
             // 
             // btn_Cancelar
             // 
@@ -287,35 +294,30 @@
             this.lb_VariaveisControle.TabIndex = 70;
             this.lb_VariaveisControle.Text = "Variáveis de controle";
             // 
-            // cb_Pais
-            // 
-            this.cb_Pais.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cb_Pais.ForeColor = System.Drawing.SystemColors.AppWorkspace;
-            this.cb_Pais.FormattingEnabled = true;
-            this.cb_Pais.Location = new System.Drawing.Point(1037, 287);
-            this.cb_Pais.Name = "cb_Pais";
-            this.cb_Pais.Size = new System.Drawing.Size(116, 21);
-            this.cb_Pais.TabIndex = 69;
-            this.cb_Pais.Text = "País";
-            // 
             // cb_Estado
             // 
             this.cb_Estado.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cb_Estado.ForeColor = System.Drawing.SystemColors.AppWorkspace;
             this.cb_Estado.FormattingEnabled = true;
-            this.cb_Estado.Location = new System.Drawing.Point(910, 286);
+            this.cb_Estado.Items.AddRange(new object[] {
+            "RJ",
+            "SP",
+            "MG",
+            "ES",
+            "BA"});
+            this.cb_Estado.Location = new System.Drawing.Point(833, 204);
             this.cb_Estado.Name = "cb_Estado";
-            this.cb_Estado.Size = new System.Drawing.Size(121, 21);
+            this.cb_Estado.Size = new System.Drawing.Size(105, 21);
             this.cb_Estado.TabIndex = 68;
-            this.cb_Estado.Text = "Estado";
+            this.cb_Estado.Text = "Estado (Sigla)";
             // 
             // tb_Cidade
             // 
             this.tb_Cidade.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tb_Cidade.ForeColor = System.Drawing.SystemColors.AppWorkspace;
-            this.tb_Cidade.Location = new System.Drawing.Point(782, 286);
+            this.tb_Cidade.Location = new System.Drawing.Point(695, 204);
             this.tb_Cidade.Name = "tb_Cidade";
-            this.tb_Cidade.Size = new System.Drawing.Size(122, 22);
+            this.tb_Cidade.Size = new System.Drawing.Size(132, 22);
             this.tb_Cidade.TabIndex = 67;
             this.tb_Cidade.Text = "Cidade";
             // 
@@ -333,9 +335,9 @@
             // 
             this.tb_Complemento.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tb_Complemento.ForeColor = System.Drawing.SystemColors.AppWorkspace;
-            this.tb_Complemento.Location = new System.Drawing.Point(910, 247);
+            this.tb_Complemento.Location = new System.Drawing.Point(567, 244);
             this.tb_Complemento.Name = "tb_Complemento";
-            this.tb_Complemento.Size = new System.Drawing.Size(244, 22);
+            this.tb_Complemento.Size = new System.Drawing.Size(371, 22);
             this.tb_Complemento.TabIndex = 65;
             this.tb_Complemento.Text = "Complemento";
             // 
@@ -359,22 +361,12 @@
             this.tb_Numero.TabIndex = 63;
             this.tb_Numero.Text = "Número";
             // 
-            // tb_Logradouro
-            // 
-            this.tb_Logradouro.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tb_Logradouro.ForeColor = System.Drawing.SystemColors.AppWorkspace;
-            this.tb_Logradouro.Location = new System.Drawing.Point(949, 161);
-            this.tb_Logradouro.Name = "tb_Logradouro";
-            this.tb_Logradouro.Size = new System.Drawing.Size(204, 22);
-            this.tb_Logradouro.TabIndex = 61;
-            this.tb_Logradouro.Text = "Logradouro";
-            // 
             // lb_Endereco
             // 
             this.lb_Endereco.AutoSize = true;
             this.lb_Endereco.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(246)))), ((int)(((byte)(246)))), ((int)(((byte)(246)))));
             this.lb_Endereco.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lb_Endereco.Location = new System.Drawing.Point(779, 130);
+            this.lb_Endereco.Location = new System.Drawing.Point(564, 87);
             this.lb_Endereco.Name = "lb_Endereco";
             this.lb_Endereco.Size = new System.Drawing.Size(64, 17);
             this.lb_Endereco.TabIndex = 60;
@@ -544,6 +536,36 @@
             this.tb_PrimeiroNome.Size = new System.Drawing.Size(166, 22);
             this.tb_PrimeiroNome.TabIndex = 44;
             this.tb_PrimeiroNome.Text = "Primeiro Nome";
+            this.tb_PrimeiroNome.Enter += new System.EventHandler(this.tb_PrimeiroNome_Enter);
+            this.tb_PrimeiroNome.Leave += new System.EventHandler(this.tb_PrimeiroNome_Leave);
+            // 
+            // tb_Rua
+            // 
+            this.tb_Rua.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tb_Rua.ForeColor = System.Drawing.SystemColors.AppWorkspace;
+            this.tb_Rua.Location = new System.Drawing.Point(567, 166);
+            this.tb_Rua.Name = "tb_Rua";
+            this.tb_Rua.Size = new System.Drawing.Size(290, 22);
+            this.tb_Rua.TabIndex = 85;
+            this.tb_Rua.Text = "Rua";
+            // 
+            // cb_Logradouro
+            // 
+            this.cb_Logradouro.Font = new System.Drawing.Font("Segoe UI", 8.25F);
+            this.cb_Logradouro.ForeColor = System.Drawing.SystemColors.AppWorkspace;
+            this.cb_Logradouro.FormattingEnabled = true;
+            this.cb_Logradouro.Items.AddRange(new object[] {
+            "Rua",
+            "Rodovia",
+            "Avenida",
+            "Favela",
+            "Vila",
+            "Travessa"});
+            this.cb_Logradouro.Location = new System.Drawing.Point(734, 118);
+            this.cb_Logradouro.Name = "cb_Logradouro";
+            this.cb_Logradouro.Size = new System.Drawing.Size(110, 21);
+            this.cb_Logradouro.TabIndex = 86;
+            this.cb_Logradouro.Text = "Logradouro";
             // 
             // AdicionarCliente
             // 
@@ -566,15 +588,9 @@
             this.Controls.Add(this.dtp_DataCadastro);
             this.Controls.Add(this.cb_Status);
             this.Controls.Add(this.lb_VariaveisControle);
-            this.Controls.Add(this.cb_Pais);
-            this.Controls.Add(this.cb_Estado);
-            this.Controls.Add(this.tb_Cidade);
             this.Controls.Add(this.tb_Cep);
-            this.Controls.Add(this.tb_Complemento);
             this.Controls.Add(this.tb_Bairro);
             this.Controls.Add(this.tb_Numero);
-            this.Controls.Add(this.tb_Logradouro);
-            this.Controls.Add(this.lb_Endereco);
             this.Controls.Add(this.tb_RendaMensal);
             this.Controls.Add(this.tb_Profissao);
             this.Controls.Add(this.lb_InformacaoEconomica);
@@ -608,15 +624,9 @@
             this.Controls.SetChildIndex(this.lb_InformacaoEconomica, 0);
             this.Controls.SetChildIndex(this.tb_Profissao, 0);
             this.Controls.SetChildIndex(this.tb_RendaMensal, 0);
-            this.Controls.SetChildIndex(this.lb_Endereco, 0);
-            this.Controls.SetChildIndex(this.tb_Logradouro, 0);
             this.Controls.SetChildIndex(this.tb_Numero, 0);
             this.Controls.SetChildIndex(this.tb_Bairro, 0);
-            this.Controls.SetChildIndex(this.tb_Complemento, 0);
             this.Controls.SetChildIndex(this.tb_Cep, 0);
-            this.Controls.SetChildIndex(this.tb_Cidade, 0);
-            this.Controls.SetChildIndex(this.cb_Estado, 0);
-            this.Controls.SetChildIndex(this.cb_Pais, 0);
             this.Controls.SetChildIndex(this.lb_VariaveisControle, 0);
             this.Controls.SetChildIndex(this.cb_Status, 0);
             this.Controls.SetChildIndex(this.dtp_DataCadastro, 0);
@@ -634,6 +644,7 @@
             this.Controls.SetChildIndex(this.btn_Confirmar, 0);
             this.Controls.SetChildIndex(this.btn_Limpar, 0);
             this.p_Content.ResumeLayout(false);
+            this.p_Content.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -658,14 +669,12 @@
         private System.Windows.Forms.DateTimePicker dtp_DataCadastro;
         private System.Windows.Forms.ComboBox cb_Status;
         private System.Windows.Forms.Label lb_VariaveisControle;
-        private System.Windows.Forms.ComboBox cb_Pais;
         private System.Windows.Forms.ComboBox cb_Estado;
         private System.Windows.Forms.TextBox tb_Cidade;
         private System.Windows.Forms.TextBox tb_Cep;
         private System.Windows.Forms.TextBox tb_Complemento;
         private System.Windows.Forms.TextBox tb_Bairro;
         private System.Windows.Forms.TextBox tb_Numero;
-        private System.Windows.Forms.TextBox tb_Logradouro;
         private System.Windows.Forms.Label lb_Endereco;
         private System.Windows.Forms.TextBox tb_RendaMensal;
         private System.Windows.Forms.TextBox tb_Profissao;
@@ -682,5 +691,7 @@
         private System.Windows.Forms.Label lb_Contato;
         private System.Windows.Forms.TextBox tb_Sobrenome;
         private System.Windows.Forms.TextBox tb_PrimeiroNome;
+        private System.Windows.Forms.ComboBox cb_Logradouro;
+        private System.Windows.Forms.TextBox tb_Rua;
     }
 }

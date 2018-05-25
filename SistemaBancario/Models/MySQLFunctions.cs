@@ -46,17 +46,43 @@ namespace SistemaBancario.Models
             return sucesso;
         }
 
-        //Criar novo cliente no banco de dados
-        static public void InserirCliente()
+        //Criar novo endereco no banco de dados
+        static public Boolean InserirEndereco(string logradouro, string rua, int numero, string bairro, string complemento, string cep, string cidade, string estado)
         {
+            Boolean sucesso;
 
+            try
+            {
+                if (connection.State == ConnectionState.Closed)
+                    connection.Open();
+                MySqlCommand inserirEndereco = new MySqlCommand(
+                    "INSERT INTO Endereco(logradouro, rua, numero, bairro, complemento, cep, cidade, estado_id) VALUES(@logradouro, @rua, @numero, @bairro, @complemento, @cep, @cidade, (SELECT id FROM Estado WHERE sigla = @estado))", connection);
+                inserirEndereco.Parameters.AddWithValue("@logradouro", logradouro);
+                inserirEndereco.Parameters.AddWithValue("@rua", rua);
+                inserirEndereco.Parameters.AddWithValue("@numero", numero);
+                inserirEndereco.Parameters.AddWithValue("@bairro", bairro);
+                inserirEndereco.Parameters.AddWithValue("@complemento", complemento);
+                inserirEndereco.Parameters.AddWithValue("@cep", cep);
+                inserirEndereco.Parameters.AddWithValue("@cidade", cidade);
+                inserirEndereco.Parameters.AddWithValue("@estado", estado);
+
+                inserirEndereco.ExecuteNonQuery();
+                inserirEndereco.Parameters.Clear();
+
+                sucesso = true;
+            }
+            catch (MySqlException exception)
+            {
+                sucesso = false;
+                Console.WriteLine(exception.ToString());
+            }
+            finally
+            {
+                connection.Close();
+            }
+
+            return sucesso;
         }
-
-        //Criar novo Titular Pessoa Fisica
-        static public void InserirTitularPessoaFisica()
-        {
-
-        }
-      
+     
     }
 }
