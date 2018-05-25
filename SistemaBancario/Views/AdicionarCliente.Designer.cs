@@ -81,7 +81,6 @@
             this.p_Content.Controls.Add(this.tb_Complemento);
             this.p_Content.Controls.Add(this.cb_Estado);
             this.p_Content.Controls.Add(this.tb_Cidade);
-            this.p_Content.Paint += new System.Windows.Forms.PaintEventHandler(this.p_Content_Paint);
             // 
             // btn_Cancelar
             // 
@@ -260,7 +259,6 @@
             this.dtp_DataCadastro.CalendarTrailingForeColor = System.Drawing.SystemColors.GradientActiveCaption;
             this.dtp_DataCadastro.Checked = false;
             this.dtp_DataCadastro.DropDownAlign = System.Windows.Forms.LeftRightAlignment.Right;
-            this.dtp_DataCadastro.Enabled = false;
             this.dtp_DataCadastro.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dtp_DataCadastro.Format = System.Windows.Forms.DateTimePickerFormat.Short;
             this.dtp_DataCadastro.ImeMode = System.Windows.Forms.ImeMode.On;
@@ -277,6 +275,10 @@
             this.cb_Status.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cb_Status.ForeColor = System.Drawing.SystemColors.AppWorkspace;
             this.cb_Status.FormattingEnabled = true;
+            this.cb_Status.Items.AddRange(new object[] {
+            "Ativo",
+            "Bloqueado",
+            "Inativo"});
             this.cb_Status.Location = new System.Drawing.Point(782, 380);
             this.cb_Status.Name = "cb_Status";
             this.cb_Status.Size = new System.Drawing.Size(121, 21);
@@ -411,7 +413,6 @@
             this.dtp_DataNascimento.CalendarTrailingForeColor = System.Drawing.SystemColors.GradientActiveCaption;
             this.dtp_DataNascimento.Checked = false;
             this.dtp_DataNascimento.DropDownAlign = System.Windows.Forms.LeftRightAlignment.Right;
-            this.dtp_DataNascimento.Enabled = false;
             this.dtp_DataNascimento.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dtp_DataNascimento.Format = System.Windows.Forms.DateTimePickerFormat.Short;
             this.dtp_DataNascimento.ImeMode = System.Windows.Forms.ImeMode.On;
@@ -439,6 +440,12 @@
             this.cb_EstadoCivil.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cb_EstadoCivil.ForeColor = System.Drawing.SystemColors.AppWorkspace;
             this.cb_EstadoCivil.FormattingEnabled = true;
+            this.cb_EstadoCivil.Items.AddRange(new object[] {
+            "Solteiro(a)",
+            "Casado(a)",
+            "Divorciado(a)",
+            "Viuvo(a)",
+            "Separado(a)"});
             this.cb_EstadoCivil.Location = new System.Drawing.Point(353, 293);
             this.cb_EstadoCivil.Name = "cb_EstadoCivil";
             this.cb_EstadoCivil.Size = new System.Drawing.Size(121, 21);

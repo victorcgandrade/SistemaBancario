@@ -37,8 +37,10 @@ namespace SistemaBancario.Views
 
 
         //Metodo para adicionar uma linha na tabela Usuario no banco de dados remoto online
-        private void CriarUsuario()
+        private Boolean CriarUsuario()
         {
+            bool sucesso = false;
+
             string primeiroNome = tb_PrimeiroNome.Text;
             string sobrenome = tb_Sobrenome.Text;
             string cpf = tb_CpfCliente.Text;
@@ -48,15 +50,19 @@ namespace SistemaBancario.Views
             {
                 if(SistemaBancario.Models.MySQLFunctions.InserirUsuario(primeiroNome, sobrenome, cpf, rg))
                 {
-                    MessageBox.Show("Sucesso!");
+                    sucesso = true;
+                    MessageBox.Show("USUARIO SUCESSO");
                 }
-                MessageBox.Show("Houve algum problema: Usuario não pôde ser inserido");
             }
+
+            return sucesso;
         }
 
         //Metodo para adicionar uma linha na tabela Endereco no banco de dados remoto online
-        private void CriarEndereco()
+        private Boolean CriarEndereco()
         {
+            bool sucesso = false;
+
             string cep = tb_Cep.Text;
             string logradouro = cb_Logradouro.Text;
             string rua = tb_Rua.Text;
@@ -70,21 +76,59 @@ namespace SistemaBancario.Views
             {
                 if (SistemaBancario.Models.MySQLFunctions.InserirEndereco(logradouro, rua, numero, bairro, complemento, cep, cidade, estado))
                 {
-                    MessageBox.Show("Sucesso!");
+                    sucesso = true;
+                    MessageBox.Show("ENDERECO SUCESSO");
                 }
-                MessageBox.Show("Houve algum problema: Endereco não pôde ser inserido");
             }
+
+            return sucesso;
+        }
+
+        //Metodo para adicionar uma linha na tabela Cliente no banco de dados remoto online
+        private Boolean CriarCliente()
+        {
+            bool sucesso = false;
+
+            string cpf = tb_CpfCliente.Text;
+            string cep = tb_Cep.Text;
+            string email = tb_Email.Text;
+            string telefone = tb_Telefone.Text;
+            string celular = tb_Celular.Text;
+            string dataNascimento = dtp_DataNascimento.Text;
+            string dataCadastro = dtp_DataCadastro.Text;
+            string estado = cb_Estado.Text;
+            string estadoCivil = cb_EstadoCivil.Text;
+
+            if (cpf != "" && cep != "" && email != "" && telefone != "" && celular != "" && dataNascimento != "" && dataCadastro != "" && estado != "" && estadoCivil != "")
+            {
+                if (SistemaBancario.Models.MySQLFunctions.InserirCliente(dataNascimento, email, telefone, celular, dataCadastro, cep, estado, estadoCivil, cpf))
+                {
+                    sucesso = true;
+                }
+            }
+
+            return sucesso;
         }
 
         private void btn_Confirmar_Click(object sender, EventArgs e)
         {
-            CriarUsuario();
-            CriarEndereco();
-        }
+            if (MessageBox.Show("Tem certeza que deseja adicionar este cliente?", "Confirmacao", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes) {
 
-        private void p_Content_Paint(object sender, PaintEventArgs e)
-        {
-
+                //Para criar algum tipo de cliente eh preciso seguir a seguinte ordem
+                if (CriarUsuario())
+                {
+                    if (CriarEndereco())
+                    {
+                        if (CriarCliente())
+                        {
+                            MessageBox.Show("Cliente criado com sucesso!");
+                        } else
+                        {
+                            MessageBox.Show("Cliente não pôde ser inserido.");
+                        }
+                    }
+                }
+            }
         }
     }
 }

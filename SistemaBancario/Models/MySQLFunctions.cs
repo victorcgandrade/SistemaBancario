@@ -83,6 +83,51 @@ namespace SistemaBancario.Models
 
             return sucesso;
         }
-     
+
+        //Criar novo cliente no banco de dados
+        static public Boolean InserirCliente(string dataNascimento, string email, string telefone, string celular, string dataCadastro, string estado, string estadoCivil, string cep, string cpf)
+        {
+            Boolean sucesso;
+
+            try
+            {
+                if (connection.State == ConnectionState.Closed)
+                    connection.Open();
+                MySqlCommand inserirCliente = new MySqlCommand(
+                    "INSERT INTO Cliente(data_nascimento, email, telefone, celular, data_cadastro, id_endereco, estado_cliente, estado_civil, id_usuario) VALUES(STR_TO_DATE(@dataNascimento, \"%d/%m/%Y\"), @email, @telefone, @celular, STR_TO_DATE(@dataCadastro, \"%d/%m/%Y\"), (SELECT id FROM Endereco WHERE cep = @cep), @estado, @estadoCivil, (SELECT id FROM Usuario WHERE cpf = @cpf))", connection);
+                inserirCliente.Parameters.AddWithValue("@dataNascimento", dataNascimento);
+                inserirCliente.Parameters.AddWithValue("@email", email);
+                inserirCliente.Parameters.AddWithValue("@telefone", telefone);
+                inserirCliente.Parameters.AddWithValue("@celular", celular);
+                inserirCliente.Parameters.AddWithValue("@dataCadastro", dataCadastro);
+                inserirCliente.Parameters.AddWithValue("@cep", cep);
+                inserirCliente.Parameters.AddWithValue("@estado", estado);
+                inserirCliente.Parameters.AddWithValue("@estadoCivil", estadoCivil);
+                inserirCliente.Parameters.AddWithValue("@cpf", cpf);
+
+                inserirCliente.ExecuteNonQuery();
+                inserirCliente.Parameters.Clear();
+
+                sucesso = true;
+            }
+            catch (MySqlException exception)
+            {
+                sucesso = false;
+                Console.WriteLine(exception.ToString());
+            }
+            finally
+            {
+                connection.Close();
+            }
+
+            return sucesso;
+        }
+
+        //Criar novo Titular Pessoa Fisica
+       // static public Boolean InserirTitularPessoaFisica()
+      //  {
+      //
+        //}
+      
     }
 }
