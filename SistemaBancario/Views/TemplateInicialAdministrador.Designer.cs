@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(TemplateInicialAdministrador));
             this.p_Footer = new System.Windows.Forms.Panel();
             this.pb_IconeUsuario = new System.Windows.Forms.PictureBox();
             this.btn_Sair = new System.Windows.Forms.Button();
@@ -102,7 +101,7 @@
             // 
             // pb_IconeUsuario
             // 
-            this.pb_IconeUsuario.Image = ((System.Drawing.Image)(resources.GetObject("pb_IconeUsuario.Image")));
+            this.pb_IconeUsuario.Image = global::SistemaBancario.Properties.Resources.usuario;
             this.pb_IconeUsuario.Location = new System.Drawing.Point(849, 6);
             this.pb_IconeUsuario.Name = "pb_IconeUsuario";
             this.pb_IconeUsuario.Size = new System.Drawing.Size(36, 36);
@@ -172,7 +171,7 @@
             // 
             // pb_IconeLogDados
             // 
-            this.pb_IconeLogDados.Image = ((System.Drawing.Image)(resources.GetObject("pb_IconeLogDados.Image")));
+            this.pb_IconeLogDados.Image = global::SistemaBancario.Properties.Resources.folder;
             this.pb_IconeLogDados.Location = new System.Drawing.Point(39, 6);
             this.pb_IconeLogDados.Name = "pb_IconeLogDados";
             this.pb_IconeLogDados.Size = new System.Drawing.Size(39, 36);
@@ -202,7 +201,7 @@
             // 
             // pb_IconeAgencias
             // 
-            this.pb_IconeAgencias.Image = ((System.Drawing.Image)(resources.GetObject("pb_IconeAgencias.Image")));
+            this.pb_IconeAgencias.Image = global::SistemaBancario.Properties.Resources.agencias;
             this.pb_IconeAgencias.Location = new System.Drawing.Point(39, 3);
             this.pb_IconeAgencias.Name = "pb_IconeAgencias";
             this.pb_IconeAgencias.Size = new System.Drawing.Size(39, 39);
@@ -232,7 +231,7 @@
             // 
             // pb_IconeAplicacoes
             // 
-            this.pb_IconeAplicacoes.Image = ((System.Drawing.Image)(resources.GetObject("pb_IconeAplicacoes.Image")));
+            this.pb_IconeAplicacoes.Image = global::SistemaBancario.Properties.Resources.aplicacoes;
             this.pb_IconeAplicacoes.Location = new System.Drawing.Point(39, 3);
             this.pb_IconeAplicacoes.Name = "pb_IconeAplicacoes";
             this.pb_IconeAplicacoes.Size = new System.Drawing.Size(38, 42);
@@ -262,7 +261,7 @@
             // 
             // pb_IconeContas
             // 
-            this.pb_IconeContas.Image = ((System.Drawing.Image)(resources.GetObject("pb_IconeContas.Image")));
+            this.pb_IconeContas.Image = global::SistemaBancario.Properties.Resources.credit_card;
             this.pb_IconeContas.Location = new System.Drawing.Point(39, 6);
             this.pb_IconeContas.Name = "pb_IconeContas";
             this.pb_IconeContas.Size = new System.Drawing.Size(39, 33);
@@ -282,7 +281,7 @@
             // 
             // pb_Logo
             // 
-            this.pb_Logo.Image = ((System.Drawing.Image)(resources.GetObject("pb_Logo.Image")));
+            this.pb_Logo.Image = global::SistemaBancario.Properties.Resources.logo;
             this.pb_Logo.Location = new System.Drawing.Point(29, 46);
             this.pb_Logo.Name = "pb_Logo";
             this.pb_Logo.Size = new System.Drawing.Size(151, 149);
@@ -309,7 +308,7 @@
             // 
             // pb_IconeClientes
             // 
-            this.pb_IconeClientes.Image = ((System.Drawing.Image)(resources.GetObject("pb_IconeClientes.Image")));
+            this.pb_IconeClientes.Image = global::SistemaBancario.Properties.Resources.clientes;
             this.pb_IconeClientes.Location = new System.Drawing.Point(43, 6);
             this.pb_IconeClientes.Name = "pb_IconeClientes";
             this.pb_IconeClientes.Size = new System.Drawing.Size(31, 32);
