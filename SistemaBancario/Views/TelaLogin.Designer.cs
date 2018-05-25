@@ -41,7 +41,7 @@ namespace Main
             this.txtBoxConta = new System.Windows.Forms.TextBox();
             this.txtBoxAgencia = new System.Windows.Forms.TextBox();
             this.tlpDadosAdm = new System.Windows.Forms.TableLayoutPanel();
-            this.txtBoxCodigo = new System.Windows.Forms.TextBox();
+            this.txtBoxLogin = new System.Windows.Forms.TextBox();
             this.txtBoxSenha = new System.Windows.Forms.TextBox();
             this.tlpFooter = new System.Windows.Forms.TableLayoutPanel();
             this.tlpHeader = new System.Windows.Forms.TableLayoutPanel();
@@ -173,7 +173,7 @@ namespace Main
             this.tlpDadosAdm.ColumnCount = 2;
             this.tlpDadosAdm.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tlpDadosAdm.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tlpDadosAdm.Controls.Add(this.txtBoxCodigo, 0, 0);
+            this.tlpDadosAdm.Controls.Add(this.txtBoxLogin, 0, 0);
             this.tlpDadosAdm.Controls.Add(this.txtBoxSenha, 1, 0);
             this.tlpDadosAdm.Location = new System.Drawing.Point(632, 230);
             this.tlpDadosAdm.Margin = new System.Windows.Forms.Padding(0);
@@ -184,15 +184,15 @@ namespace Main
             this.tlpDadosAdm.Size = new System.Drawing.Size(200, 30);
             this.tlpDadosAdm.TabIndex = 3;
             // 
-            // txtBoxCodigo
+            // txtBoxLogin
             // 
-            this.txtBoxCodigo.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtBoxCodigo.Font = new System.Drawing.Font("Candara", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtBoxCodigo.Location = new System.Drawing.Point(3, 3);
-            this.txtBoxCodigo.Name = "txtBoxCodigo";
-            this.txtBoxCodigo.Size = new System.Drawing.Size(94, 23);
-            this.txtBoxCodigo.TabIndex = 0;
-            this.txtBoxCodigo.Text = "Código";
+            this.txtBoxLogin.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtBoxLogin.Font = new System.Drawing.Font("Candara", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtBoxLogin.Location = new System.Drawing.Point(3, 3);
+            this.txtBoxLogin.Name = "txtBoxLogin";
+            this.txtBoxLogin.Size = new System.Drawing.Size(94, 23);
+            this.txtBoxLogin.TabIndex = 0;
+            this.txtBoxLogin.Text = "Login";
             // 
             // txtBoxSenha
             // 
@@ -278,7 +278,7 @@ namespace Main
         private System.Windows.Forms.Label lblIdentificacao;
         private System.Windows.Forms.ComboBox cmbBoxTipoUser;
         private System.Windows.Forms.TableLayoutPanel tlpDadosAdm;
-        private System.Windows.Forms.TextBox txtBoxCodigo;
+        private System.Windows.Forms.TextBox txtBoxLogin;
         private System.Windows.Forms.TextBox txtBoxSenha;
         private System.Windows.Forms.Button btnAcessar;
         private System.Windows.Forms.Panel pnlDadosUser;

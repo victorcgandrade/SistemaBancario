@@ -27,28 +27,50 @@ namespace Main
         private bool ChecaLogin()
         {
             string treatment = "Sem alteração";
-
+            string treatment2 = "Sem alteração";
             try
             {
 
-                MySqlConnection connection = new MySqlConnection("SERVER=db4free.net;PORT=3306;DATABASE=sistemabancario;UID=bancario;PWD=sb100001");
-                connection.Open();
+
                 if (cmbBoxTipoUser.SelectedItem == "Cliente")
                 {
-                    MySqlCommand command = new MySqlCommand("SELECT Conta.id, Agencia.id FROM Conta JOIN Agencia ON Conta.id_agencia = Agencia.id AND Conta.numero= @conta AND Agencia.numero= @agencia;", connection);
-                    command.Parameters.AddWithValue("@conta", txtBoxConta.Text);
-                    command.Parameters.AddWithValue("@agencia", txtBoxAgencia.Text);
-                    MySqlDataReader reader = command.ExecuteReader();
-                    while (reader.Read())
+                    using (MySqlConnection connection = new MySqlConnection("SERVER=db4free.net;PORT=3306;DATABASE=sistemabancario;UID=bancario;PWD=sb100001"))
                     {
-                        treatment = reader[0].ToString();
+                        connection.Open();
+                        MySqlCommand command = new MySqlCommand("SELECT Conta.id, Agencia.id FROM Conta JOIN Agencia ON Conta.id_agencia = Agencia.id AND Conta.numero= @conta AND Agencia.numero= @agencia;", connection);
+                        command.Parameters.AddWithValue("@conta", txtBoxConta.Text);
+                        command.Parameters.AddWithValue("@agencia", txtBoxAgencia.Text);
+                        using (MySqlDataReader reader = command.ExecuteReader())
+                        {
+                            while (reader.Read())
+                            {
+                                treatment = reader[0].ToString();
 
+                            }
+                            reader.Close();
+                        }
+                        connection.Close();
                     }
-                    connection.Close();
                 }
                 else
                 {
-                    //parte login administrador
+                    using (MySqlConnection connection = new MySqlConnection("SERVER=db4free.net;PORT=3306;DATABASE=sistemabancario;UID=bancario;PWD=sb100001"))
+                    {
+                        connection.Open();
+                        MySqlCommand command = new MySqlCommand("SELECT Administrador.login FROM Administrador WHERE login = @login AND senha=@senha;", connection);
+                        command.Parameters.AddWithValue("@login", txtBoxLogin.Text);
+                        command.Parameters.AddWithValue("@senha", txtBoxSenha.Text);
+                        using (MySqlDataReader reader = command.ExecuteReader())
+                        {
+                            while (reader.Read())
+                            {
+                                treatment2 = reader[0].ToString();
+
+                            }
+                            reader.Close();
+                        }
+                        connection.Close();
+                    }
                 }
             }
 
@@ -56,7 +78,7 @@ namespace Main
             {
                 Console.WriteLine(ex.ToString());
             }
-            if (treatment.Equals("Sem alteração"))
+            if (treatment.Equals("Sem alteração") && treatment2.Equals("Sem alteração"))
             {
                 MessageBox.Show("Dados inválidos");
                 return false;
@@ -64,12 +86,18 @@ namespace Main
             else
             {
                 MessageBox.Show("Logado com sucesso");
-                
+
                 if (cmbBoxTipoUser.SelectedItem == "Cliente")
                 {
                     this.Hide();
                     TelaSenhaCliente tsc = new TelaSenhaCliente(txtBoxConta.Text);
                     tsc.Show();
+                }
+                else
+                {
+                    this.Hide();
+                    TelaInicialAdministrador tia = new TelaInicialAdministrador();
+                    tia.Show();
                 }
                 return true;
             }

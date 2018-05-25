@@ -125,18 +125,20 @@ namespace SistemaBancario.Views
             try
             {
 
-                MySqlConnection connection = new MySqlConnection("SERVER=db4free.net;PORT=3306;DATABASE=sistemabancario;UID=bancario;PWD=sb100001");
-                connection.Open();
+                
                 if (senha.Length == 4)
                 {
+                    MySqlConnection connection = new MySqlConnection("SERVER=db4free.net;PORT=3306;DATABASE=sistemabancario;UID=bancario;PWD=sb100001");
+                    connection.Open();
                     MySqlCommand command = new MySqlCommand("SELECT Conta.senha FROM Conta WHERE Conta.numero = @conta;", connection);
                     command.Parameters.AddWithValue("@conta", _numeroConta);
-                    MySqlDataReader reader = command.ExecuteReader();
-                    while (reader.Read())
+                    MySqlDataReader reader3 = command.ExecuteReader();
+                    while (reader3.Read())
                     {
-                        treatment = reader[0].ToString();
+                        treatment = reader3[0].ToString();
 
                     }
+                    reader3.Close();
                     connection.Close();
                 }
                 else
@@ -158,7 +160,7 @@ namespace SistemaBancario.Views
             else
             {
                 MessageBox.Show("Logado com sucesso");
-               
+                
             }
         }
 
