@@ -8,3 +8,5 @@ U:\CodingPCS\SistemaBancario\SistemaBancario\obj\Debug\SistemaBancario.csproj.Ge
 U:\CodingPCS\SistemaBancario\SistemaBancario\obj\Debug\SistemaBancario.csproj.CoreCompileInputs.cache
 U:\CodingPCS\SistemaBancario\SistemaBancario\obj\Debug\SistemaBancario.exe
 U:\CodingPCS\SistemaBancario\SistemaBancario\obj\Debug\SistemaBancario.pdb
+U:\CodingPCS\SistemaBancario\SistemaBancario\obj\Debug\SistemaBancario.Views.InicialAdministrador.resources
+U:\CodingPCS\SistemaBancario\SistemaBancario\obj\Debug\SistemaBancario.csprojAssemblyReference.cache

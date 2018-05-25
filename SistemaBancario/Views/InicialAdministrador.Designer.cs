@@ -47,6 +47,7 @@
             // btn_AdicionarCliente
             // 
             this.btn_AdicionarCliente.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(191)))), ((int)(((byte)(0)))));
+            this.btn_AdicionarCliente.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btn_AdicionarCliente.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_AdicionarCliente.ForeColor = System.Drawing.SystemColors.ButtonFace;
             this.btn_AdicionarCliente.Image = global::SistemaBancario.Properties.Resources.add;
@@ -58,10 +59,12 @@
             this.btn_AdicionarCliente.Text = "ADICIONAR CLIENTE";
             this.btn_AdicionarCliente.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.btn_AdicionarCliente.UseVisualStyleBackColor = false;
+            this.btn_AdicionarCliente.Click += new System.EventHandler(this.btn_AdicionarCliente_Click);
             // 
             // btn_ConsultarCliente
             // 
             this.btn_ConsultarCliente.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(191)))), ((int)(((byte)(0)))));
+            this.btn_ConsultarCliente.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btn_ConsultarCliente.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold);
             this.btn_ConsultarCliente.ForeColor = System.Drawing.SystemColors.ButtonFace;
             this.btn_ConsultarCliente.Image = global::SistemaBancario.Properties.Resources.magnifying_glass;
@@ -77,6 +80,7 @@
             // btn_AlterarCliente
             // 
             this.btn_AlterarCliente.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(191)))), ((int)(((byte)(0)))));
+            this.btn_AlterarCliente.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btn_AlterarCliente.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold);
             this.btn_AlterarCliente.ForeColor = System.Drawing.SystemColors.ButtonFace;
             this.btn_AlterarCliente.Image = global::SistemaBancario.Properties.Resources.pencil_edit_button;
@@ -92,6 +96,7 @@
             // btn_ListarClientes
             // 
             this.btn_ListarClientes.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(191)))), ((int)(((byte)(0)))));
+            this.btn_ListarClientes.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btn_ListarClientes.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold);
             this.btn_ListarClientes.ForeColor = System.Drawing.SystemColors.ButtonFace;
             this.btn_ListarClientes.Image = global::SistemaBancario.Properties.Resources.list;
@@ -107,6 +112,7 @@
             // btn_RemoverCliente
             // 
             this.btn_RemoverCliente.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(191)))), ((int)(((byte)(0)))));
+            this.btn_RemoverCliente.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btn_RemoverCliente.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold);
             this.btn_RemoverCliente.ForeColor = System.Drawing.SystemColors.ButtonFace;
             this.btn_RemoverCliente.Image = global::SistemaBancario.Properties.Resources.garbage;
