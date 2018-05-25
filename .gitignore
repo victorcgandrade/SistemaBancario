@@ -261,3 +261,9 @@ __pycache__/
 *.pyc
 
 
+# Folder bin in project
+bin/
+
+# Folder obj in project
+obj/
+
