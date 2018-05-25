@@ -62,6 +62,8 @@
     <Compile Include="Views\TemplateInicialAdministrador.Designer.cs">
       <DependentUpon>TemplateInicialAdministrador.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="obj\Debug\SistemaBancario.Properties.Resources.resources" />
+    <EmbeddedResource Include="obj\Debug\SistemaBancario.Views.TemplateInicialAdministrador.resources" />
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -75,8 +77,12 @@
     <EmbeddedResource Include="Views\TemplateInicialAdministrador.resx">
       <DependentUpon>TemplateInicialAdministrador.cs</DependentUpon>
     </EmbeddedResource>
+    <None Include="bin\Debug\SistemaBancario.exe.config" />
+    <None Include="obj\Debug\DesignTimeResolveAssemblyReferences.cache" />
     <None Include="obj\Debug\DesignTimeResolveAssemblyReferencesInput.cache" />
     <None Include="obj\Debug\SistemaBancario.csproj.CoreCompileInputs.cache" />
+    <None Include="obj\Debug\SistemaBancario.csproj.GenerateResource.cache" />
+    <None Include="obj\Debug\SistemaBancario.csprojAssemblyReference.cache" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -91,10 +97,15 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="bin\Debug\" />
+    <Folder Include="bin\Release\" />
     <Folder Include="Models\" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="bin\Debug\SistemaBancario.exe" />
+    <Content Include="bin\Debug\SistemaBancario.pdb" />
+    <Content Include="obj\Debug\SistemaBancario.csproj.FileListAbsolute.txt" />
+    <Content Include="obj\Debug\SistemaBancario.exe" />
+    <Content Include="obj\Debug\SistemaBancario.pdb" />
     <Content Include="obj\Debug\TempPE\Properties.Resources.Designer.cs.dll" />
     <None Include="Resources\credit-card.png" />
     <None Include="Resources\usuario.png" />
