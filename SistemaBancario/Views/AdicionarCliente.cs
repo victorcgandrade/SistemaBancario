@@ -110,6 +110,38 @@ namespace SistemaBancario.Views
             return sucesso;
         }
 
+        private Boolean SelecionarTipoCliente()
+        {
+            bool sucesso = false;
+
+            if (cb_TipoCliente.Text == "Titular Pessoa Física")
+            {
+                if(CriarTitularPessoaFisica())
+                {
+                    sucesso = true;
+                } 
+           
+            }
+            else if (cb_TipoCliente.Text == "Titular Pessoa Jurídica")
+            {
+                if(CriarTitularPessoaJuridica())
+                {
+                    sucesso = true;
+                }
+            }
+            else if (cb_TipoCliente.Text == "Dependente")
+            {
+                if(CriarDependente())
+                {
+                    sucesso = true;
+                }
+            } else
+            {
+                MessageBox.Show("Tipo de Cliente está incorreto!");
+            }
+            return sucesso;
+        }
+
         private void btn_Confirmar_Click(object sender, EventArgs e)
         {
             if (MessageBox.Show("Tem certeza que deseja adicionar este cliente?", "Confirmacao", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes) {
@@ -121,14 +153,43 @@ namespace SistemaBancario.Views
                     {
                         if (CriarCliente())
                         {
-                            MessageBox.Show("Cliente criado com sucesso!");
-                        } else
-                        {
-                            MessageBox.Show("Cliente não pôde ser inserido.");
+                            if(SelecionarTipoCliente())
+                            {
+                                MessageBox.Show("O Cliente foi inserido com sucesso!");
+                            }
                         }
                     }
                 }
             }
+        }
+
+        private Boolean CriarTitularPessoaFisica()
+        {
+            bool sucesso = false;
+
+            string cpf = tb_CpfCliente.Text;
+            string profissao = tb_Profissao.Text;
+            Decimal rendaMensal = Decimal.Parse(tb_RendaMensal.Text);
+
+            if (profissao != "" && cpf != "")
+            {
+                if (SistemaBancario.Models.MySQLFunctions.InserirTitularPessoaFisica(profissao, rendaMensal, cpf))
+                {
+                    sucesso = true;
+                }
+            }
+
+            return sucesso;
+        }
+
+        private Boolean CriarTitularPessoaJuridica()
+        {
+            return false;
+        }
+
+        private Boolean CriarDependente()
+        {
+            return false;
         }
     }
 }

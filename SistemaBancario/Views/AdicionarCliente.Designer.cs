@@ -136,6 +136,7 @@
             this.cb_TipoPessoaJuridica.Size = new System.Drawing.Size(145, 21);
             this.cb_TipoPessoaJuridica.TabIndex = 83;
             this.cb_TipoPessoaJuridica.Text = "Tipo de Pessoa Jurídica";
+            this.cb_TipoPessoaJuridica.Visible = false;
             // 
             // tb_RazaoSocial
             // 
@@ -146,6 +147,7 @@
             this.tb_RazaoSocial.Size = new System.Drawing.Size(371, 22);
             this.tb_RazaoSocial.TabIndex = 82;
             this.tb_RazaoSocial.Text = "Razão Social";
+            this.tb_RazaoSocial.Visible = false;
             // 
             // tb_Cnpj
             // 
@@ -156,6 +158,7 @@
             this.tb_Cnpj.Size = new System.Drawing.Size(220, 22);
             this.tb_Cnpj.TabIndex = 81;
             this.tb_Cnpj.Text = "CNPJ (apenas números)";
+            this.tb_Cnpj.Visible = false;
             // 
             // lb_TitularAssociado
             // 
@@ -167,6 +170,7 @@
             this.lb_TitularAssociado.Size = new System.Drawing.Size(125, 17);
             this.lb_TitularAssociado.TabIndex = 80;
             this.lb_TitularAssociado.Text = "Titular Responsável";
+            this.lb_TitularAssociado.Visible = false;
             // 
             // tb_CpfTitularAssociado
             // 
@@ -177,6 +181,7 @@
             this.tb_CpfTitularAssociado.Size = new System.Drawing.Size(134, 22);
             this.tb_CpfTitularAssociado.TabIndex = 79;
             this.tb_CpfTitularAssociado.Text = "CPF (apenas números)";
+            this.tb_CpfTitularAssociado.Visible = false;
             // 
             // lb_InformacaoJuridica
             // 
@@ -188,6 +193,7 @@
             this.lb_InformacaoJuridica.Size = new System.Drawing.Size(126, 17);
             this.lb_InformacaoJuridica.TabIndex = 78;
             this.lb_InformacaoJuridica.Text = "Informação Jurídica";
+            this.lb_InformacaoJuridica.Visible = false;
             // 
             // lb_TituloAdicionarCliente
             // 

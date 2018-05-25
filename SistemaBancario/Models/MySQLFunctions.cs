@@ -124,10 +124,34 @@ namespace SistemaBancario.Models
         }
 
         //Criar novo Titular Pessoa Fisica
-       // static public Boolean InserirTitularPessoaFisica()
-      //  {
-      //
-        //}
+        static public Boolean InserirTitularPessoaFisica(string profissao, decimal rendaMensal, string cpf)
+        {
+            Boolean sucesso;
+
+            try
+            {
+                if (connection.State == ConnectionState.Closed)
+                    connection.Open();
+                MySqlCommand inserirTitularPessoaFisica = new MySqlCommand(
+                    "INSERT INTO PessoaFisica(profissao, rendaMensal, id_cliente) VALUES(@profissao, @rendaMensal, (SELECT Usuario.id FROM Cliente, Usuario WHERE Cliente.id_usuario = Usuario.id AND Usuario.cpf = @cpf))", connection);
+
+                inserirTitularPessoaFisica.ExecuteNonQuery();
+                inserirTitularPessoaFisica.Parameters.Clear();
+
+                sucesso = true;
+            }
+            catch (MySqlException exception)
+            {
+                sucesso = false;
+                Console.WriteLine(exception.ToString());
+            }
+            finally
+            {
+                connection.Close();
+            }
+
+            return sucesso;
+        }
       
     }
 }
