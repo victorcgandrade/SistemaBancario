@@ -56,6 +56,12 @@
     <Compile Include="Views\AdicionarCliente.Designer.cs">
       <DependentUpon>AdicionarCliente.cs</DependentUpon>
     </Compile>
+    <Compile Include="Views\InicialAdministrador.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\InicialAdministrador.Designer.cs">
+      <DependentUpon>InicialAdministrador.cs</DependentUpon>
+    </Compile>
     <Compile Include="Views\TemplateInicialAdministrador.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -76,6 +82,9 @@
     </Compile>
     <EmbeddedResource Include="Views\AdicionarCliente.resx">
       <DependentUpon>AdicionarCliente.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\InicialAdministrador.resx">
+      <DependentUpon>InicialAdministrador.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Views\TemplateInicialAdministrador.resx">
       <DependentUpon>TemplateInicialAdministrador.cs</DependentUpon>

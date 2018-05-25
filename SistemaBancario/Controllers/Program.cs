@@ -16,7 +16,7 @@ namespace SistemaBancario
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new SistemaBancario.Views.TemplateInicialAdministrador());
+            Application.Run(new SistemaBancario.Views.InicialAdministrador());
         }
     }
 }
