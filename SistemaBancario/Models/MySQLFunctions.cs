@@ -100,9 +100,9 @@ namespace SistemaBancario.Models
                 inserirCliente.Parameters.AddWithValue("@telefone", telefone);
                 inserirCliente.Parameters.AddWithValue("@celular", celular);
                 inserirCliente.Parameters.AddWithValue("@dataCadastro", dataCadastro);
-                inserirCliente.Parameters.AddWithValue("@cep", cep);
                 inserirCliente.Parameters.AddWithValue("@estado", estado);
                 inserirCliente.Parameters.AddWithValue("@estadoCivil", estadoCivil);
+                inserirCliente.Parameters.AddWithValue("@cep", cep);
                 inserirCliente.Parameters.AddWithValue("@cpf", cpf);
 
                 inserirCliente.ExecuteNonQuery();

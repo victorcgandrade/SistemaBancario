@@ -96,12 +96,12 @@ namespace SistemaBancario.Views
             string celular = tb_Celular.Text;
             string dataNascimento = dtp_DataNascimento.Text;
             string dataCadastro = dtp_DataCadastro.Text;
-            string estado = cb_Estado.Text;
+            string status = cb_Status.Text;
             string estadoCivil = cb_EstadoCivil.Text;
 
-            if (cpf != "" && cep != "" && email != "" && telefone != "" && celular != "" && dataNascimento != "" && dataCadastro != "" && estado != "" && estadoCivil != "")
+            if (cpf != "" && cep != "" && email != "" && telefone != "" && celular != "" && dataNascimento != "" && dataCadastro != "" && status != "" && estadoCivil != "")
             {
-                if (SistemaBancario.Models.MySQLFunctions.InserirCliente(dataNascimento, email, telefone, celular, dataCadastro, cep, estado, estadoCivil, cpf))
+                if (SistemaBancario.Models.MySQLFunctions.InserirCliente (dataNascimento,  email,  telefone,  celular, dataCadastro, status, estadoCivil, cep, cpf))
                 {
                     sucesso = true;
                 }
