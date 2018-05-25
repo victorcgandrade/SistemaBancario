@@ -54,6 +54,12 @@
     <Compile Include="Views\TelaLogin.Designer.cs">
       <DependentUpon>TelaLogin.cs</DependentUpon>
     </Compile>
+    <Compile Include="Views\TelaSenhaCliente.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\TelaSenhaCliente.Designer.cs">
+      <DependentUpon>TelaSenhaCliente.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -65,6 +71,9 @@
     </Compile>
     <EmbeddedResource Include="Views\TelaLogin.resx">
       <DependentUpon>TelaLogin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\TelaSenhaCliente.resx">
+      <DependentUpon>TelaSenhaCliente.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

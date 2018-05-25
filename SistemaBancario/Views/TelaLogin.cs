@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using MySql.Data.MySqlClient;
+using SistemaBancario.Views;
 
 namespace Main
 {
@@ -18,7 +19,7 @@ namespace Main
             InitializeComponent();
             cmbBoxTipoUser.Items.Add("Administrador");
             cmbBoxTipoUser.Items.Add("Cliente");
-            
+
 
 
         }
@@ -63,6 +64,13 @@ namespace Main
             else
             {
                 MessageBox.Show("Logado com sucesso");
+                
+                if (cmbBoxTipoUser.SelectedItem == "Cliente")
+                {
+                    this.Hide();
+                    TelaSenhaCliente tsc = new TelaSenhaCliente(txtBoxConta.Text);
+                    tsc.Show();
+                }
                 return true;
             }
 
@@ -85,13 +93,7 @@ namespace Main
 
         private void btnAcessar_Click_1(object sender, EventArgs e)
         {
-            if (ChecaLogin() == true)
-            {
-                if (cmbBoxTipoUser.SelectedItem == "Cliente")
-                {
-                    //Application.Run(new ());
-                }
-            }
+            ChecaLogin();
         }
     }
 }
