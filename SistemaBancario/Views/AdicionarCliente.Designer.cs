@@ -114,6 +114,7 @@
             this.btn_Confirmar.TabIndex = 45;
             this.btn_Confirmar.Text = "Confirmar";
             this.btn_Confirmar.UseVisualStyleBackColor = false;
+            this.btn_Confirmar.Click += new System.EventHandler(this.btn_Confirmar_Click);
             // 
             // cb_TipoPessoaJuridica
             // 
