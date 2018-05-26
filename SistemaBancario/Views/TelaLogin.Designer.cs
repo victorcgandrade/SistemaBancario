@@ -30,7 +30,6 @@ namespace Main
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(TelaLogin));
             this.tlpMenu = new System.Windows.Forms.TableLayoutPanel();
             this.lblIdentificacao = new System.Windows.Forms.Label();
             this.cmbBoxTipoUser = new System.Windows.Forms.ComboBox();
@@ -60,10 +59,10 @@ namespace Main
             this.tlpMenu.Controls.Add(this.lblIdentificacao, 0, 1);
             this.tlpMenu.Controls.Add(this.cmbBoxTipoUser, 0, 2);
             this.tlpMenu.Controls.Add(this.btnAcessar, 0, 4);
-            this.tlpMenu.Controls.Add(this.picBoxIcone, 0, 0);
             this.tlpMenu.Controls.Add(this.pnlDadosUser, 0, 3);
+            this.tlpMenu.Controls.Add(this.picBoxIcone, 0, 0);
             this.tlpMenu.Dock = System.Windows.Forms.DockStyle.Right;
-            this.tlpMenu.Location = new System.Drawing.Point(632, 0);
+            this.tlpMenu.Location = new System.Drawing.Point(723, 0);
             this.tlpMenu.Margin = new System.Windows.Forms.Padding(0);
             this.tlpMenu.Name = "tlpMenu";
             this.tlpMenu.RowCount = 6;
@@ -73,7 +72,7 @@ namespace Main
             this.tlpMenu.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 40F));
             this.tlpMenu.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 40F));
             this.tlpMenu.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tlpMenu.Size = new System.Drawing.Size(200, 450);
+            this.tlpMenu.Size = new System.Drawing.Size(200, 580);
             this.tlpMenu.TabIndex = 0;
             // 
             // lblIdentificacao
@@ -93,6 +92,7 @@ namespace Main
             // cmbBoxTipoUser
             // 
             this.cmbBoxTipoUser.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.cmbBoxTipoUser.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.cmbBoxTipoUser.Font = new System.Drawing.Font("Candara", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cmbBoxTipoUser.FormattingEnabled = true;
             this.cmbBoxTipoUser.Location = new System.Drawing.Point(3, 188);
@@ -104,6 +104,8 @@ namespace Main
             // btnAcessar
             // 
             this.btnAcessar.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.btnAcessar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnAcessar.ForeColor = System.Drawing.SystemColors.ButtonFace;
             this.btnAcessar.Location = new System.Drawing.Point(62, 268);
             this.btnAcessar.Name = "btnAcessar";
             this.btnAcessar.Size = new System.Drawing.Size(75, 23);
@@ -115,15 +117,16 @@ namespace Main
             // picBoxIcone
             // 
             this.picBoxIcone.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.picBoxIcone.Image = ((System.Drawing.Image)(resources.GetObject("picBoxIcone.Image")));
+            this.picBoxIcone.Image = global::SistemaBancario.Properties.Resources.logo;
             this.picBoxIcone.Location = new System.Drawing.Point(30, 5);
             this.picBoxIcone.Name = "picBoxIcone";
-            this.picBoxIcone.Size = new System.Drawing.Size(140, 140);
+            this.picBoxIcone.Size = new System.Drawing.Size(147, 147);
             this.picBoxIcone.TabIndex = 0;
             this.picBoxIcone.TabStop = false;
             // 
             // pnlDadosUser
             // 
+            this.pnlDadosUser.Controls.Add(this.tlpDadosAdm);
             this.pnlDadosUser.Controls.Add(this.tlpDadosCliente);
             this.pnlDadosUser.Location = new System.Drawing.Point(0, 220);
             this.pnlDadosUser.Margin = new System.Windows.Forms.Padding(0);
@@ -175,7 +178,7 @@ namespace Main
             this.tlpDadosAdm.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tlpDadosAdm.Controls.Add(this.txtBoxLogin, 0, 0);
             this.tlpDadosAdm.Controls.Add(this.txtBoxSenha, 1, 0);
-            this.tlpDadosAdm.Location = new System.Drawing.Point(632, 230);
+            this.tlpDadosAdm.Location = new System.Drawing.Point(0, 10);
             this.tlpDadosAdm.Margin = new System.Windows.Forms.Padding(0);
             this.tlpDadosAdm.Name = "tlpDadosAdm";
             this.tlpDadosAdm.RowCount = 1;
@@ -211,13 +214,13 @@ namespace Main
             this.tlpFooter.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tlpFooter.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tlpFooter.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.tlpFooter.Location = new System.Drawing.Point(0, 422);
+            this.tlpFooter.Location = new System.Drawing.Point(0, 552);
             this.tlpFooter.Margin = new System.Windows.Forms.Padding(0);
             this.tlpFooter.Name = "tlpFooter";
             this.tlpFooter.RowCount = 1;
             this.tlpFooter.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tlpFooter.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 28F));
-            this.tlpFooter.Size = new System.Drawing.Size(632, 28);
+            this.tlpFooter.Size = new System.Drawing.Size(723, 28);
             this.tlpFooter.TabIndex = 1;
             // 
             // tlpHeader
@@ -232,15 +235,14 @@ namespace Main
             this.tlpHeader.Name = "tlpHeader";
             this.tlpHeader.RowCount = 1;
             this.tlpHeader.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tlpHeader.Size = new System.Drawing.Size(632, 30);
+            this.tlpHeader.Size = new System.Drawing.Size(723, 30);
             this.tlpHeader.TabIndex = 2;
             // 
             // TelaLogin
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(832, 450);
-            this.Controls.Add(this.tlpDadosAdm);
+            this.ClientSize = new System.Drawing.Size(923, 580);
             this.Controls.Add(this.tlpHeader);
             this.Controls.Add(this.tlpFooter);
             this.Controls.Add(this.tlpMenu);

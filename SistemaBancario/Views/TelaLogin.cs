@@ -96,7 +96,7 @@ namespace Main
                 else
                 {
                     this.Hide();
-                    TelaInicialAdministrador tia = new TelaInicialAdministrador();
+                    InicialAdministrador tia = new InicialAdministrador();
                     tia.Show();
                 }
                 return true;
