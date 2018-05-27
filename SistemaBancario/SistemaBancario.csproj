@@ -72,6 +72,9 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="Views\Agencia.resx">
+      <DependentUpon>Agencia.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Views\TemplateInicialAdministrador.resx">
       <DependentUpon>TemplateInicialAdministrador.cs</DependentUpon>
     </EmbeddedResource>
