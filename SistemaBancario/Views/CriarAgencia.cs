@@ -63,5 +63,10 @@ namespace SistemaBancario.Views
                 }
             }
         }
+
+        private void btn_Retornar_Click(object sender, EventArgs e)
+        {
+            this.Close();         
+        }
     }
 }

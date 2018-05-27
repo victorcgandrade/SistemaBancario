@@ -56,13 +56,13 @@
             this.lb_DataHoraAtual = new System.Windows.Forms.Label();
             this.lb_DuvidasApp = new System.Windows.Forms.Label();
             this.p_Content = new System.Windows.Forms.Panel();
+            this.buttonListarAgencia = new System.Windows.Forms.Button();
+            this.buttonRemoverAgencia = new System.Windows.Forms.Button();
+            this.buttonAlterarAgencia = new System.Windows.Forms.Button();
+            this.buttonConsultarAgencia = new System.Windows.Forms.Button();
+            this.buttonCriarAgencia = new System.Windows.Forms.Button();
             this.btn_Retornar = new System.Windows.Forms.Button();
             this.lb_TituloAgencias = new System.Windows.Forms.Label();
-            this.buttonCriarAgencia = new System.Windows.Forms.Button();
-            this.buttonConsultarAgencia = new System.Windows.Forms.Button();
-            this.buttonAlterarAgencia = new System.Windows.Forms.Button();
-            this.buttonRemoverAgencia = new System.Windows.Forms.Button();
-            this.buttonListarAgencia = new System.Windows.Forms.Button();
             this.p_Footer.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pb_IconeUsuario)).BeginInit();
             this.p_SideMenu.SuspendLayout();
@@ -382,6 +382,67 @@
             this.p_Content.Size = new System.Drawing.Size(1110, 624);
             this.p_Content.TabIndex = 13;
             // 
+            // buttonListarAgencia
+            // 
+            this.buttonListarAgencia.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(191)))), ((int)(((byte)(0)))));
+            this.buttonListarAgencia.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonListarAgencia.ForeColor = System.Drawing.Color.OldLace;
+            this.buttonListarAgencia.Location = new System.Drawing.Point(339, 424);
+            this.buttonListarAgencia.Name = "buttonListarAgencia";
+            this.buttonListarAgencia.Size = new System.Drawing.Size(215, 45);
+            this.buttonListarAgencia.TabIndex = 105;
+            this.buttonListarAgencia.Text = "LISTAR AGÊNCIA";
+            this.buttonListarAgencia.UseVisualStyleBackColor = false;
+            // 
+            // buttonRemoverAgencia
+            // 
+            this.buttonRemoverAgencia.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(191)))), ((int)(((byte)(0)))));
+            this.buttonRemoverAgencia.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonRemoverAgencia.ForeColor = System.Drawing.Color.OldLace;
+            this.buttonRemoverAgencia.Location = new System.Drawing.Point(339, 365);
+            this.buttonRemoverAgencia.Name = "buttonRemoverAgencia";
+            this.buttonRemoverAgencia.Size = new System.Drawing.Size(215, 45);
+            this.buttonRemoverAgencia.TabIndex = 104;
+            this.buttonRemoverAgencia.Text = "REMOVER AGÊNCIA";
+            this.buttonRemoverAgencia.UseVisualStyleBackColor = false;
+            // 
+            // buttonAlterarAgencia
+            // 
+            this.buttonAlterarAgencia.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(191)))), ((int)(((byte)(0)))));
+            this.buttonAlterarAgencia.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonAlterarAgencia.ForeColor = System.Drawing.Color.OldLace;
+            this.buttonAlterarAgencia.Location = new System.Drawing.Point(339, 307);
+            this.buttonAlterarAgencia.Name = "buttonAlterarAgencia";
+            this.buttonAlterarAgencia.Size = new System.Drawing.Size(215, 45);
+            this.buttonAlterarAgencia.TabIndex = 103;
+            this.buttonAlterarAgencia.Text = "ALTERAR AGÊNCIA";
+            this.buttonAlterarAgencia.UseVisualStyleBackColor = false;
+            // 
+            // buttonConsultarAgencia
+            // 
+            this.buttonConsultarAgencia.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(191)))), ((int)(((byte)(0)))));
+            this.buttonConsultarAgencia.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonConsultarAgencia.ForeColor = System.Drawing.Color.OldLace;
+            this.buttonConsultarAgencia.Location = new System.Drawing.Point(339, 249);
+            this.buttonConsultarAgencia.Name = "buttonConsultarAgencia";
+            this.buttonConsultarAgencia.Size = new System.Drawing.Size(215, 45);
+            this.buttonConsultarAgencia.TabIndex = 102;
+            this.buttonConsultarAgencia.Text = "CONSULTAR AGÊNCIA";
+            this.buttonConsultarAgencia.UseVisualStyleBackColor = false;
+            // 
+            // buttonCriarAgencia
+            // 
+            this.buttonCriarAgencia.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(191)))), ((int)(((byte)(0)))));
+            this.buttonCriarAgencia.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonCriarAgencia.ForeColor = System.Drawing.Color.OldLace;
+            this.buttonCriarAgencia.Location = new System.Drawing.Point(339, 192);
+            this.buttonCriarAgencia.Name = "buttonCriarAgencia";
+            this.buttonCriarAgencia.Size = new System.Drawing.Size(215, 45);
+            this.buttonCriarAgencia.TabIndex = 101;
+            this.buttonCriarAgencia.Text = "CRIAR AGÊNCIA";
+            this.buttonCriarAgencia.UseVisualStyleBackColor = false;
+            this.buttonCriarAgencia.Click += new System.EventHandler(this.buttonCriarAgencia_Click);
+            // 
             // btn_Retornar
             // 
             this.btn_Retornar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(175)))), ((int)(((byte)(174)))), ((int)(((byte)(170)))));
@@ -406,66 +467,6 @@
             this.lb_TituloAgencias.Size = new System.Drawing.Size(134, 32);
             this.lb_TituloAgencias.TabIndex = 93;
             this.lb_TituloAgencias.Text = "AGÊNCIAS";
-            // 
-            // buttonCriarAgencia
-            // 
-            this.buttonCriarAgencia.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(191)))), ((int)(((byte)(0)))));
-            this.buttonCriarAgencia.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonCriarAgencia.ForeColor = System.Drawing.Color.OldLace;
-            this.buttonCriarAgencia.Location = new System.Drawing.Point(339, 192);
-            this.buttonCriarAgencia.Name = "buttonCriarAgencia";
-            this.buttonCriarAgencia.Size = new System.Drawing.Size(215, 45);
-            this.buttonCriarAgencia.TabIndex = 101;
-            this.buttonCriarAgencia.Text = "CRIAR AGÊNCIA";
-            this.buttonCriarAgencia.UseVisualStyleBackColor = false;
-            // 
-            // buttonConsultarAgencia
-            // 
-            this.buttonConsultarAgencia.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(191)))), ((int)(((byte)(0)))));
-            this.buttonConsultarAgencia.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonConsultarAgencia.ForeColor = System.Drawing.Color.OldLace;
-            this.buttonConsultarAgencia.Location = new System.Drawing.Point(339, 249);
-            this.buttonConsultarAgencia.Name = "buttonConsultarAgencia";
-            this.buttonConsultarAgencia.Size = new System.Drawing.Size(215, 45);
-            this.buttonConsultarAgencia.TabIndex = 102;
-            this.buttonConsultarAgencia.Text = "CONSULTAR AGÊNCIA";
-            this.buttonConsultarAgencia.UseVisualStyleBackColor = false;
-            // 
-            // buttonAlterarAgencia
-            // 
-            this.buttonAlterarAgencia.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(191)))), ((int)(((byte)(0)))));
-            this.buttonAlterarAgencia.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonAlterarAgencia.ForeColor = System.Drawing.Color.OldLace;
-            this.buttonAlterarAgencia.Location = new System.Drawing.Point(339, 307);
-            this.buttonAlterarAgencia.Name = "buttonAlterarAgencia";
-            this.buttonAlterarAgencia.Size = new System.Drawing.Size(215, 45);
-            this.buttonAlterarAgencia.TabIndex = 103;
-            this.buttonAlterarAgencia.Text = "ALTERAR AGÊNCIA";
-            this.buttonAlterarAgencia.UseVisualStyleBackColor = false;
-            // 
-            // buttonRemoverAgencia
-            // 
-            this.buttonRemoverAgencia.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(191)))), ((int)(((byte)(0)))));
-            this.buttonRemoverAgencia.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonRemoverAgencia.ForeColor = System.Drawing.Color.OldLace;
-            this.buttonRemoverAgencia.Location = new System.Drawing.Point(339, 365);
-            this.buttonRemoverAgencia.Name = "buttonRemoverAgencia";
-            this.buttonRemoverAgencia.Size = new System.Drawing.Size(215, 45);
-            this.buttonRemoverAgencia.TabIndex = 104;
-            this.buttonRemoverAgencia.Text = "REMOVER AGÊNCIA";
-            this.buttonRemoverAgencia.UseVisualStyleBackColor = false;
-            // 
-            // buttonListarAgencia
-            // 
-            this.buttonListarAgencia.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(191)))), ((int)(((byte)(0)))));
-            this.buttonListarAgencia.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonListarAgencia.ForeColor = System.Drawing.Color.OldLace;
-            this.buttonListarAgencia.Location = new System.Drawing.Point(339, 424);
-            this.buttonListarAgencia.Name = "buttonListarAgencia";
-            this.buttonListarAgencia.Size = new System.Drawing.Size(215, 45);
-            this.buttonListarAgencia.TabIndex = 105;
-            this.buttonListarAgencia.Text = "LISTAR AGÊNCIA";
-            this.buttonListarAgencia.UseVisualStyleBackColor = false;
             // 
             // Agencia
             // 

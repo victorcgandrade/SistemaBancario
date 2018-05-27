@@ -56,27 +56,27 @@
             this.lb_DataHoraAtual = new System.Windows.Forms.Label();
             this.lb_DuvidasApp = new System.Windows.Forms.Label();
             this.p_Content = new System.Windows.Forms.Panel();
+            this.textBox_Bairro = new System.Windows.Forms.TextBox();
+            this.label_Bairro = new System.Windows.Forms.Label();
+            this.textBox_Rua = new System.Windows.Forms.TextBox();
+            this.label_Rua = new System.Windows.Forms.Label();
+            this.textBox_Numero = new System.Windows.Forms.TextBox();
+            this.label_Numero = new System.Windows.Forms.Label();
+            this.comboBox_Estado = new System.Windows.Forms.ComboBox();
+            this.textBox_Complemento = new System.Windows.Forms.TextBox();
+            this.label_Complemento = new System.Windows.Forms.Label();
+            this.textBox_Logradouro = new System.Windows.Forms.TextBox();
+            this.label_Logradouro = new System.Windows.Forms.Label();
+            this.textBox_Cidade = new System.Windows.Forms.TextBox();
+            this.label_Cidade = new System.Windows.Forms.Label();
+            this.label_Estado = new System.Windows.Forms.Label();
+            this.textBox_Cep = new System.Windows.Forms.TextBox();
+            this.label_cep = new System.Windows.Forms.Label();
+            this.textBox_NumeroAgencia = new System.Windows.Forms.TextBox();
+            this.label_NumeroAgencia = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
             this.btn_Retornar = new System.Windows.Forms.Button();
             this.lb_TituloCriarAgencia = new System.Windows.Forms.Label();
-            this.label_NumeroAgencia = new System.Windows.Forms.Label();
-            this.textBox_NumeroAgencia = new System.Windows.Forms.TextBox();
-            this.textBox_Cep = new System.Windows.Forms.TextBox();
-            this.label_cep = new System.Windows.Forms.Label();
-            this.label_Estado = new System.Windows.Forms.Label();
-            this.textBox_Cidade = new System.Windows.Forms.TextBox();
-            this.label_Cidade = new System.Windows.Forms.Label();
-            this.textBox_Logradouro = new System.Windows.Forms.TextBox();
-            this.label_Logradouro = new System.Windows.Forms.Label();
-            this.textBox_Complemento = new System.Windows.Forms.TextBox();
-            this.label_Complemento = new System.Windows.Forms.Label();
-            this.comboBox_Estado = new System.Windows.Forms.ComboBox();
-            this.textBox_Numero = new System.Windows.Forms.TextBox();
-            this.label_Numero = new System.Windows.Forms.Label();
-            this.textBox_Rua = new System.Windows.Forms.TextBox();
-            this.label_Rua = new System.Windows.Forms.Label();
-            this.textBox_Bairro = new System.Windows.Forms.TextBox();
-            this.label_Bairro = new System.Windows.Forms.Label();
             this.p_Footer.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pb_IconeUsuario)).BeginInit();
             this.p_SideMenu.SuspendLayout();
@@ -410,6 +410,202 @@
             this.p_Content.Size = new System.Drawing.Size(1110, 624);
             this.p_Content.TabIndex = 13;
             // 
+            // textBox_Bairro
+            // 
+            this.textBox_Bairro.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox_Bairro.ForeColor = System.Drawing.SystemColors.AppWorkspace;
+            this.textBox_Bairro.Location = new System.Drawing.Point(435, 298);
+            this.textBox_Bairro.Name = "textBox_Bairro";
+            this.textBox_Bairro.Size = new System.Drawing.Size(134, 22);
+            this.textBox_Bairro.TabIndex = 119;
+            this.textBox_Bairro.Text = "Nome do Bairro";
+            // 
+            // label_Bairro
+            // 
+            this.label_Bairro.AutoSize = true;
+            this.label_Bairro.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(246)))), ((int)(((byte)(246)))), ((int)(((byte)(246)))));
+            this.label_Bairro.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label_Bairro.Location = new System.Drawing.Point(301, 298);
+            this.label_Bairro.Name = "label_Bairro";
+            this.label_Bairro.Size = new System.Drawing.Size(44, 17);
+            this.label_Bairro.TabIndex = 118;
+            this.label_Bairro.Text = "Bairro";
+            // 
+            // textBox_Rua
+            // 
+            this.textBox_Rua.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox_Rua.ForeColor = System.Drawing.SystemColors.AppWorkspace;
+            this.textBox_Rua.Location = new System.Drawing.Point(435, 368);
+            this.textBox_Rua.Name = "textBox_Rua";
+            this.textBox_Rua.Size = new System.Drawing.Size(134, 22);
+            this.textBox_Rua.TabIndex = 117;
+            this.textBox_Rua.Text = "Nome da Rua";
+            // 
+            // label_Rua
+            // 
+            this.label_Rua.AutoSize = true;
+            this.label_Rua.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(246)))), ((int)(((byte)(246)))), ((int)(((byte)(246)))));
+            this.label_Rua.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label_Rua.Location = new System.Drawing.Point(301, 368);
+            this.label_Rua.Name = "label_Rua";
+            this.label_Rua.Size = new System.Drawing.Size(31, 17);
+            this.label_Rua.TabIndex = 116;
+            this.label_Rua.Text = "Rua";
+            // 
+            // textBox_Numero
+            // 
+            this.textBox_Numero.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox_Numero.ForeColor = System.Drawing.SystemColors.AppWorkspace;
+            this.textBox_Numero.Location = new System.Drawing.Point(435, 451);
+            this.textBox_Numero.Name = "textBox_Numero";
+            this.textBox_Numero.Size = new System.Drawing.Size(134, 22);
+            this.textBox_Numero.TabIndex = 115;
+            this.textBox_Numero.Text = "Número";
+            // 
+            // label_Numero
+            // 
+            this.label_Numero.AutoSize = true;
+            this.label_Numero.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(246)))), ((int)(((byte)(246)))), ((int)(((byte)(246)))));
+            this.label_Numero.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label_Numero.Location = new System.Drawing.Point(301, 451);
+            this.label_Numero.Name = "label_Numero";
+            this.label_Numero.Size = new System.Drawing.Size(58, 17);
+            this.label_Numero.TabIndex = 114;
+            this.label_Numero.Text = "Número";
+            // 
+            // comboBox_Estado
+            // 
+            this.comboBox_Estado.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.comboBox_Estado.ForeColor = System.Drawing.SystemColors.AppWorkspace;
+            this.comboBox_Estado.FormattingEnabled = true;
+            this.comboBox_Estado.Items.AddRange(new object[] {
+            "RJ",
+            "SP",
+            "MG",
+            "ES",
+            "BA"});
+            this.comboBox_Estado.Location = new System.Drawing.Point(435, 223);
+            this.comboBox_Estado.Name = "comboBox_Estado";
+            this.comboBox_Estado.Size = new System.Drawing.Size(134, 23);
+            this.comboBox_Estado.TabIndex = 113;
+            this.comboBox_Estado.Text = "Selecione";
+            // 
+            // textBox_Complemento
+            // 
+            this.textBox_Complemento.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox_Complemento.ForeColor = System.Drawing.SystemColors.AppWorkspace;
+            this.textBox_Complemento.Location = new System.Drawing.Point(435, 409);
+            this.textBox_Complemento.Name = "textBox_Complemento";
+            this.textBox_Complemento.Size = new System.Drawing.Size(134, 22);
+            this.textBox_Complemento.TabIndex = 112;
+            this.textBox_Complemento.Text = "Complemento";
+            // 
+            // label_Complemento
+            // 
+            this.label_Complemento.AutoSize = true;
+            this.label_Complemento.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(246)))), ((int)(((byte)(246)))), ((int)(((byte)(246)))));
+            this.label_Complemento.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label_Complemento.Location = new System.Drawing.Point(301, 409);
+            this.label_Complemento.Name = "label_Complemento";
+            this.label_Complemento.Size = new System.Drawing.Size(94, 17);
+            this.label_Complemento.TabIndex = 111;
+            this.label_Complemento.Text = "Complemento";
+            // 
+            // textBox_Logradouro
+            // 
+            this.textBox_Logradouro.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox_Logradouro.ForeColor = System.Drawing.SystemColors.AppWorkspace;
+            this.textBox_Logradouro.Location = new System.Drawing.Point(435, 331);
+            this.textBox_Logradouro.Name = "textBox_Logradouro";
+            this.textBox_Logradouro.Size = new System.Drawing.Size(134, 22);
+            this.textBox_Logradouro.TabIndex = 110;
+            this.textBox_Logradouro.Text = "Logradouro";
+            // 
+            // label_Logradouro
+            // 
+            this.label_Logradouro.AutoSize = true;
+            this.label_Logradouro.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(246)))), ((int)(((byte)(246)))), ((int)(((byte)(246)))));
+            this.label_Logradouro.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label_Logradouro.Location = new System.Drawing.Point(301, 331);
+            this.label_Logradouro.Name = "label_Logradouro";
+            this.label_Logradouro.Size = new System.Drawing.Size(79, 17);
+            this.label_Logradouro.TabIndex = 109;
+            this.label_Logradouro.Text = "Logradouro";
+            // 
+            // textBox_Cidade
+            // 
+            this.textBox_Cidade.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox_Cidade.ForeColor = System.Drawing.SystemColors.AppWorkspace;
+            this.textBox_Cidade.Location = new System.Drawing.Point(435, 264);
+            this.textBox_Cidade.Name = "textBox_Cidade";
+            this.textBox_Cidade.Size = new System.Drawing.Size(134, 22);
+            this.textBox_Cidade.TabIndex = 108;
+            this.textBox_Cidade.Text = "Nome da Cidade";
+            // 
+            // label_Cidade
+            // 
+            this.label_Cidade.AutoSize = true;
+            this.label_Cidade.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(246)))), ((int)(((byte)(246)))), ((int)(((byte)(246)))));
+            this.label_Cidade.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label_Cidade.Location = new System.Drawing.Point(301, 264);
+            this.label_Cidade.Name = "label_Cidade";
+            this.label_Cidade.Size = new System.Drawing.Size(49, 17);
+            this.label_Cidade.TabIndex = 107;
+            this.label_Cidade.Text = "Cidade";
+            // 
+            // label_Estado
+            // 
+            this.label_Estado.AutoSize = true;
+            this.label_Estado.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(246)))), ((int)(((byte)(246)))), ((int)(((byte)(246)))));
+            this.label_Estado.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label_Estado.Location = new System.Drawing.Point(301, 223);
+            this.label_Estado.Name = "label_Estado";
+            this.label_Estado.Size = new System.Drawing.Size(49, 17);
+            this.label_Estado.TabIndex = 105;
+            this.label_Estado.Text = "Estado";
+            // 
+            // textBox_Cep
+            // 
+            this.textBox_Cep.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox_Cep.ForeColor = System.Drawing.SystemColors.AppWorkspace;
+            this.textBox_Cep.Location = new System.Drawing.Point(435, 184);
+            this.textBox_Cep.Name = "textBox_Cep";
+            this.textBox_Cep.Size = new System.Drawing.Size(134, 22);
+            this.textBox_Cep.TabIndex = 104;
+            this.textBox_Cep.Text = "Número do CEP";
+            // 
+            // label_cep
+            // 
+            this.label_cep.AutoSize = true;
+            this.label_cep.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(246)))), ((int)(((byte)(246)))), ((int)(((byte)(246)))));
+            this.label_cep.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label_cep.Location = new System.Drawing.Point(301, 184);
+            this.label_cep.Name = "label_cep";
+            this.label_cep.Size = new System.Drawing.Size(31, 17);
+            this.label_cep.TabIndex = 103;
+            this.label_cep.Text = "CEP";
+            // 
+            // textBox_NumeroAgencia
+            // 
+            this.textBox_NumeroAgencia.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox_NumeroAgencia.ForeColor = System.Drawing.SystemColors.AppWorkspace;
+            this.textBox_NumeroAgencia.Location = new System.Drawing.Point(435, 149);
+            this.textBox_NumeroAgencia.Name = "textBox_NumeroAgencia";
+            this.textBox_NumeroAgencia.Size = new System.Drawing.Size(134, 22);
+            this.textBox_NumeroAgencia.TabIndex = 102;
+            this.textBox_NumeroAgencia.Text = "Número da Agência";
+            // 
+            // label_NumeroAgencia
+            // 
+            this.label_NumeroAgencia.AutoSize = true;
+            this.label_NumeroAgencia.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(246)))), ((int)(((byte)(246)))), ((int)(((byte)(246)))));
+            this.label_NumeroAgencia.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label_NumeroAgencia.Location = new System.Drawing.Point(301, 149);
+            this.label_NumeroAgencia.Name = "label_NumeroAgencia";
+            this.label_NumeroAgencia.Size = new System.Drawing.Size(110, 17);
+            this.label_NumeroAgencia.TabIndex = 100;
+            this.label_NumeroAgencia.Text = "Número Agência";
+            // 
             // button1
             // 
             this.button1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(187)))), ((int)(((byte)(117)))));
@@ -435,6 +631,7 @@
             this.btn_Retornar.TabIndex = 96;
             this.btn_Retornar.Text = "Retornar";
             this.btn_Retornar.UseVisualStyleBackColor = false;
+            this.btn_Retornar.Click += new System.EventHandler(this.btn_Retornar_Click);
             // 
             // lb_TituloCriarAgencia
             // 
@@ -448,196 +645,6 @@
             this.lb_TituloCriarAgencia.TabIndex = 93;
             this.lb_TituloCriarAgencia.Text = "CRIAR AGÊNCIA";
             this.lb_TituloCriarAgencia.TextAlign = System.Drawing.ContentAlignment.BottomRight;
-            // 
-            // label_NumeroAgencia
-            // 
-            this.label_NumeroAgencia.AutoSize = true;
-            this.label_NumeroAgencia.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(246)))), ((int)(((byte)(246)))), ((int)(((byte)(246)))));
-            this.label_NumeroAgencia.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label_NumeroAgencia.Location = new System.Drawing.Point(301, 149);
-            this.label_NumeroAgencia.Name = "label_NumeroAgencia";
-            this.label_NumeroAgencia.Size = new System.Drawing.Size(110, 17);
-            this.label_NumeroAgencia.TabIndex = 100;
-            this.label_NumeroAgencia.Text = "Número Agência";
-            // 
-            // textBox_NumeroAgencia
-            // 
-            this.textBox_NumeroAgencia.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox_NumeroAgencia.ForeColor = System.Drawing.SystemColors.AppWorkspace;
-            this.textBox_NumeroAgencia.Location = new System.Drawing.Point(435, 149);
-            this.textBox_NumeroAgencia.Name = "textBox_NumeroAgencia";
-            this.textBox_NumeroAgencia.Size = new System.Drawing.Size(134, 22);
-            this.textBox_NumeroAgencia.TabIndex = 102;
-            this.textBox_NumeroAgencia.Text = "Número da Agência";
-            // 
-            // textBox_Cep
-            // 
-            this.textBox_Cep.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox_Cep.ForeColor = System.Drawing.SystemColors.AppWorkspace;
-            this.textBox_Cep.Location = new System.Drawing.Point(435, 184);
-            this.textBox_Cep.Name = "textBox_Cep";
-            this.textBox_Cep.Size = new System.Drawing.Size(134, 22);
-            this.textBox_Cep.TabIndex = 104;
-            this.textBox_Cep.Text = "Número do CEP";
-            // 
-            // label_cep
-            // 
-            this.label_cep.AutoSize = true;
-            this.label_cep.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(246)))), ((int)(((byte)(246)))), ((int)(((byte)(246)))));
-            this.label_cep.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label_cep.Location = new System.Drawing.Point(301, 184);
-            this.label_cep.Name = "label_cep";
-            this.label_cep.Size = new System.Drawing.Size(31, 17);
-            this.label_cep.TabIndex = 103;
-            this.label_cep.Text = "CEP";
-            // 
-            // label_Estado
-            // 
-            this.label_Estado.AutoSize = true;
-            this.label_Estado.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(246)))), ((int)(((byte)(246)))), ((int)(((byte)(246)))));
-            this.label_Estado.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label_Estado.Location = new System.Drawing.Point(301, 223);
-            this.label_Estado.Name = "label_Estado";
-            this.label_Estado.Size = new System.Drawing.Size(49, 17);
-            this.label_Estado.TabIndex = 105;
-            this.label_Estado.Text = "Estado";
-            // 
-            // textBox_Cidade
-            // 
-            this.textBox_Cidade.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox_Cidade.ForeColor = System.Drawing.SystemColors.AppWorkspace;
-            this.textBox_Cidade.Location = new System.Drawing.Point(435, 264);
-            this.textBox_Cidade.Name = "textBox_Cidade";
-            this.textBox_Cidade.Size = new System.Drawing.Size(134, 22);
-            this.textBox_Cidade.TabIndex = 108;
-            this.textBox_Cidade.Text = "Nome da Cidade";
-            // 
-            // label_Cidade
-            // 
-            this.label_Cidade.AutoSize = true;
-            this.label_Cidade.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(246)))), ((int)(((byte)(246)))), ((int)(((byte)(246)))));
-            this.label_Cidade.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label_Cidade.Location = new System.Drawing.Point(301, 264);
-            this.label_Cidade.Name = "label_Cidade";
-            this.label_Cidade.Size = new System.Drawing.Size(49, 17);
-            this.label_Cidade.TabIndex = 107;
-            this.label_Cidade.Text = "Cidade";
-            // 
-            // textBox_Logradouro
-            // 
-            this.textBox_Logradouro.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox_Logradouro.ForeColor = System.Drawing.SystemColors.AppWorkspace;
-            this.textBox_Logradouro.Location = new System.Drawing.Point(435, 331);
-            this.textBox_Logradouro.Name = "textBox_Logradouro";
-            this.textBox_Logradouro.Size = new System.Drawing.Size(134, 22);
-            this.textBox_Logradouro.TabIndex = 110;
-            this.textBox_Logradouro.Text = "Logradouro";
-            // 
-            // label_Logradouro
-            // 
-            this.label_Logradouro.AutoSize = true;
-            this.label_Logradouro.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(246)))), ((int)(((byte)(246)))), ((int)(((byte)(246)))));
-            this.label_Logradouro.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label_Logradouro.Location = new System.Drawing.Point(301, 331);
-            this.label_Logradouro.Name = "label_Logradouro";
-            this.label_Logradouro.Size = new System.Drawing.Size(79, 17);
-            this.label_Logradouro.TabIndex = 109;
-            this.label_Logradouro.Text = "Logradouro";
-            // 
-            // textBox_Complemento
-            // 
-            this.textBox_Complemento.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox_Complemento.ForeColor = System.Drawing.SystemColors.AppWorkspace;
-            this.textBox_Complemento.Location = new System.Drawing.Point(435, 409);
-            this.textBox_Complemento.Name = "textBox_Complemento";
-            this.textBox_Complemento.Size = new System.Drawing.Size(134, 22);
-            this.textBox_Complemento.TabIndex = 112;
-            this.textBox_Complemento.Text = "Complemento";
-            // 
-            // label_Complemento
-            // 
-            this.label_Complemento.AutoSize = true;
-            this.label_Complemento.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(246)))), ((int)(((byte)(246)))), ((int)(((byte)(246)))));
-            this.label_Complemento.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label_Complemento.Location = new System.Drawing.Point(301, 409);
-            this.label_Complemento.Name = "label_Complemento";
-            this.label_Complemento.Size = new System.Drawing.Size(94, 17);
-            this.label_Complemento.TabIndex = 111;
-            this.label_Complemento.Text = "Complemento";
-            // 
-            // comboBox_Estado
-            // 
-            this.comboBox_Estado.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.comboBox_Estado.ForeColor = System.Drawing.SystemColors.AppWorkspace;
-            this.comboBox_Estado.FormattingEnabled = true;
-            this.comboBox_Estado.Location = new System.Drawing.Point(435, 223);
-            this.comboBox_Estado.Name = "comboBox_Estado";
-            this.comboBox_Estado.Size = new System.Drawing.Size(134, 23);
-            this.comboBox_Estado.TabIndex = 113;
-            this.comboBox_Estado.Text = "Selecione";
-            // 
-            // textBox_Numero
-            // 
-            this.textBox_Numero.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox_Numero.ForeColor = System.Drawing.SystemColors.AppWorkspace;
-            this.textBox_Numero.Location = new System.Drawing.Point(435, 451);
-            this.textBox_Numero.Name = "textBox_Numero";
-            this.textBox_Numero.Size = new System.Drawing.Size(134, 22);
-            this.textBox_Numero.TabIndex = 115;
-            this.textBox_Numero.Text = "Número";
-            // 
-            // label_Numero
-            // 
-            this.label_Numero.AutoSize = true;
-            this.label_Numero.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(246)))), ((int)(((byte)(246)))), ((int)(((byte)(246)))));
-            this.label_Numero.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label_Numero.Location = new System.Drawing.Point(301, 451);
-            this.label_Numero.Name = "label_Numero";
-            this.label_Numero.Size = new System.Drawing.Size(58, 17);
-            this.label_Numero.TabIndex = 114;
-            this.label_Numero.Text = "Número";
-            // 
-            // textBox_Rua
-            // 
-            this.textBox_Rua.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox_Rua.ForeColor = System.Drawing.SystemColors.AppWorkspace;
-            this.textBox_Rua.Location = new System.Drawing.Point(435, 368);
-            this.textBox_Rua.Name = "textBox_Rua";
-            this.textBox_Rua.Size = new System.Drawing.Size(134, 22);
-            this.textBox_Rua.TabIndex = 117;
-            this.textBox_Rua.Text = "Nome da Rua";
-            // 
-            // label_Rua
-            // 
-            this.label_Rua.AutoSize = true;
-            this.label_Rua.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(246)))), ((int)(((byte)(246)))), ((int)(((byte)(246)))));
-            this.label_Rua.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label_Rua.Location = new System.Drawing.Point(301, 368);
-            this.label_Rua.Name = "label_Rua";
-            this.label_Rua.Size = new System.Drawing.Size(31, 17);
-            this.label_Rua.TabIndex = 116;
-            this.label_Rua.Text = "Rua";
-            // 
-            // textBox_Bairro
-            // 
-            this.textBox_Bairro.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox_Bairro.ForeColor = System.Drawing.SystemColors.AppWorkspace;
-            this.textBox_Bairro.Location = new System.Drawing.Point(435, 298);
-            this.textBox_Bairro.Name = "textBox_Bairro";
-            this.textBox_Bairro.Size = new System.Drawing.Size(134, 22);
-            this.textBox_Bairro.TabIndex = 119;
-            this.textBox_Bairro.Text = "Nome do Bairro";
-            // 
-            // label_Bairro
-            // 
-            this.label_Bairro.AutoSize = true;
-            this.label_Bairro.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(246)))), ((int)(((byte)(246)))), ((int)(((byte)(246)))));
-            this.label_Bairro.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label_Bairro.Location = new System.Drawing.Point(301, 298);
-            this.label_Bairro.Name = "label_Bairro";
-            this.label_Bairro.Size = new System.Drawing.Size(44, 17);
-            this.label_Bairro.TabIndex = 118;
-            this.label_Bairro.Text = "Bairro";
             // 
             // CriarAgencia
             // 

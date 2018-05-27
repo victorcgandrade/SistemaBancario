@@ -16,5 +16,11 @@ namespace SistemaBancario.Views
         {
             InitializeComponent();
         }
+
+        private void buttonCriarAgencia_Click(object sender, EventArgs e)
+        {
+            CriarAgencia formCriarAgencia = new CriarAgencia();
+            formCriarAgencia.Show();
+        }
     }
 }
