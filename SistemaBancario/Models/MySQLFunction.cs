@@ -153,5 +153,36 @@ namespace SistemaBancario.Models
             return sucesso;
         }
 
+        static public Boolean InserirAgencia(string numeroAgencia, string cep)
+        {
+            Boolean sucesso;
+
+            try
+            {
+                if (connection.State == ConnectionState.Closed)
+                    connection.Open();
+                MySqlCommand inserirCliente = new MySqlCommand(
+                    "INSERT INTO Agencia(numero, id_endereco) VALUES(@numeroAgencia, (SELECT id FROM Endereco WHERE cep = @cep))", connection);
+                inserirCliente.Parameters.AddWithValue("@numeroAgencia", numeroAgencia);
+                inserirCliente.Parameters.AddWithValue("@cep", cep);
+
+                inserirCliente.ExecuteNonQuery();
+                inserirCliente.Parameters.Clear();
+
+                sucesso = true;
+            }
+            catch (MySqlException exception)
+            {
+                sucesso = false;
+                Console.WriteLine(exception.ToString());
+            }
+            finally
+            {
+                connection.Close();
+            }
+
+            return sucesso;
+        }
+
     }
 }
