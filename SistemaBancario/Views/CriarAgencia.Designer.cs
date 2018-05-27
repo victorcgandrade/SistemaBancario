@@ -74,7 +74,7 @@
             this.label_cep = new System.Windows.Forms.Label();
             this.textBox_NumeroAgencia = new System.Windows.Forms.TextBox();
             this.label_NumeroAgencia = new System.Windows.Forms.Label();
-            this.button1 = new System.Windows.Forms.Button();
+            this.button_Confirmar = new System.Windows.Forms.Button();
             this.btn_Retornar = new System.Windows.Forms.Button();
             this.lb_TituloCriarAgencia = new System.Windows.Forms.Label();
             this.p_Footer.SuspendLayout();
@@ -401,7 +401,7 @@
             this.p_Content.Controls.Add(this.label_cep);
             this.p_Content.Controls.Add(this.textBox_NumeroAgencia);
             this.p_Content.Controls.Add(this.label_NumeroAgencia);
-            this.p_Content.Controls.Add(this.button1);
+            this.p_Content.Controls.Add(this.button_Confirmar);
             this.p_Content.Controls.Add(this.btn_Retornar);
             this.p_Content.Controls.Add(this.lb_TituloCriarAgencia);
             this.p_Content.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -606,18 +606,19 @@
             this.label_NumeroAgencia.TabIndex = 100;
             this.label_NumeroAgencia.Text = "Número Agência";
             // 
-            // button1
+            // button_Confirmar
             // 
-            this.button1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(187)))), ((int)(((byte)(117)))));
-            this.button1.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.button1.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.button1.Location = new System.Drawing.Point(435, 508);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(90, 29);
-            this.button1.TabIndex = 97;
-            this.button1.Text = "Confirmar";
-            this.button1.UseVisualStyleBackColor = false;
+            this.button_Confirmar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(187)))), ((int)(((byte)(117)))));
+            this.button_Confirmar.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.button_Confirmar.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button_Confirmar.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.button_Confirmar.Location = new System.Drawing.Point(435, 508);
+            this.button_Confirmar.Name = "button_Confirmar";
+            this.button_Confirmar.Size = new System.Drawing.Size(90, 29);
+            this.button_Confirmar.TabIndex = 97;
+            this.button_Confirmar.Text = "Confirmar";
+            this.button_Confirmar.UseVisualStyleBackColor = false;
+            this.button_Confirmar.Click += new System.EventHandler(this.button_Confirmar_Click);
             // 
             // btn_Retornar
             // 
@@ -717,7 +718,7 @@
         private System.Windows.Forms.Label lb_Contas;
         private System.Windows.Forms.Button btn_Retornar;
         private System.Windows.Forms.Label lb_TituloCriarAgencia;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button button_Confirmar;
         private System.Windows.Forms.Label label_NumeroAgencia;
         private System.Windows.Forms.TextBox textBox_Rua;
         private System.Windows.Forms.Label label_Rua;
