@@ -28,5 +28,11 @@ namespace SistemaBancario.Views
             ListarAgencia formListarAgencia = new ListarAgencia();
             formListarAgencia.Show();
         }
+
+        private void buttonRemoverAgencia_Click(object sender, EventArgs e)
+        {
+            RemoverAgencia formListarAgencia = new RemoverAgencia();
+            formListarAgencia.Show();
+        }
     }
 }

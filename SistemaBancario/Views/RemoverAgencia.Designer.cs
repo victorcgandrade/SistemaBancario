@@ -1,6 +1,6 @@
 ﻿namespace SistemaBancario.Views
 {
-    partial class Agencia
+    partial class RemoverAgencia
     {
         /// <summary>
         /// Required designer variable.
@@ -29,56 +29,56 @@
         private void InitializeComponent()
         {
             this.p_Footer = new System.Windows.Forms.Panel();
-            this.pb_IconeUsuario = new System.Windows.Forms.PictureBox();
             this.btn_Sair = new System.Windows.Forms.Button();
             this.lb_LoginAdmin = new System.Windows.Forms.Label();
             this.lb_NomeAdmin = new System.Windows.Forms.Label();
             this.p_SideMenu = new System.Windows.Forms.Panel();
             this.p_FundoLinkHoverLogDados = new System.Windows.Forms.Panel();
-            this.pb_IconeLogDados = new System.Windows.Forms.PictureBox();
             this.lb_LogDados = new System.Windows.Forms.Label();
             this.p_FundoLinkHoverAgencias = new System.Windows.Forms.Panel();
-            this.pb_IconeAgencias = new System.Windows.Forms.PictureBox();
             this.lb_Agencias = new System.Windows.Forms.Label();
             this.p_FundoLinkHoverAplicacoes = new System.Windows.Forms.Panel();
-            this.pb_IconeAplicacoes = new System.Windows.Forms.PictureBox();
             this.lb_Aplicacoes = new System.Windows.Forms.Label();
             this.p_FundoLinkHoverContas = new System.Windows.Forms.Panel();
-            this.pb_IconeContas = new System.Windows.Forms.PictureBox();
             this.lb_Contas = new System.Windows.Forms.Label();
-            this.pb_Logo = new System.Windows.Forms.PictureBox();
             this.p_LinkAtivo = new System.Windows.Forms.Panel();
             this.p_FundoLinkHoverClientes = new System.Windows.Forms.Panel();
-            this.pb_IconeClientes = new System.Windows.Forms.PictureBox();
             this.lb_Clientes = new System.Windows.Forms.Label();
             this.p_Header = new System.Windows.Forms.Panel();
             this.lb_Versao = new System.Windows.Forms.Label();
             this.lb_DataHoraAtual = new System.Windows.Forms.Label();
             this.lb_DuvidasApp = new System.Windows.Forms.Label();
             this.p_Content = new System.Windows.Forms.Panel();
-            this.buttonListarAgencia = new System.Windows.Forms.Button();
-            this.buttonRemoverAgencia = new System.Windows.Forms.Button();
-            this.buttonAlterarAgencia = new System.Windows.Forms.Button();
-            this.buttonConsultarAgencia = new System.Windows.Forms.Button();
-            this.buttonCriarAgencia = new System.Windows.Forms.Button();
+            this.dataGridView_ListarAgencias = new System.Windows.Forms.DataGridView();
             this.btn_Retornar = new System.Windows.Forms.Button();
-            this.lb_TituloAgencias = new System.Windows.Forms.Label();
+            this.lb_TituloRemoverAgencias = new System.Windows.Forms.Label();
+            this.pb_IconeUsuario = new System.Windows.Forms.PictureBox();
+            this.pb_IconeLogDados = new System.Windows.Forms.PictureBox();
+            this.pb_IconeAgencias = new System.Windows.Forms.PictureBox();
+            this.pb_IconeAplicacoes = new System.Windows.Forms.PictureBox();
+            this.pb_IconeContas = new System.Windows.Forms.PictureBox();
+            this.pb_Logo = new System.Windows.Forms.PictureBox();
+            this.pb_IconeClientes = new System.Windows.Forms.PictureBox();
+            this.label_RemoverAgencia = new System.Windows.Forms.Label();
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.button_ExcluirAgencia = new System.Windows.Forms.Button();
             this.p_Footer.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pb_IconeUsuario)).BeginInit();
             this.p_SideMenu.SuspendLayout();
             this.p_FundoLinkHoverLogDados.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pb_IconeLogDados)).BeginInit();
             this.p_FundoLinkHoverAgencias.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pb_IconeAgencias)).BeginInit();
             this.p_FundoLinkHoverAplicacoes.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pb_IconeAplicacoes)).BeginInit();
             this.p_FundoLinkHoverContas.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pb_IconeContas)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pb_Logo)).BeginInit();
             this.p_FundoLinkHoverClientes.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pb_IconeClientes)).BeginInit();
             this.p_Header.SuspendLayout();
             this.p_Content.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView_ListarAgencias)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pb_IconeUsuario)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pb_IconeLogDados)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pb_IconeAgencias)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pb_IconeAplicacoes)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pb_IconeContas)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pb_Logo)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pb_IconeClientes)).BeginInit();
             this.SuspendLayout();
             // 
             // p_Footer
@@ -93,15 +93,6 @@
             this.p_Footer.Name = "p_Footer";
             this.p_Footer.Size = new System.Drawing.Size(1110, 43);
             this.p_Footer.TabIndex = 12;
-            // 
-            // pb_IconeUsuario
-            // 
-            this.pb_IconeUsuario.Image = global::SistemaBancario.Properties.Resources.usuario;
-            this.pb_IconeUsuario.Location = new System.Drawing.Point(849, 6);
-            this.pb_IconeUsuario.Name = "pb_IconeUsuario";
-            this.pb_IconeUsuario.Size = new System.Drawing.Size(36, 36);
-            this.pb_IconeUsuario.TabIndex = 0;
-            this.pb_IconeUsuario.TabStop = false;
             // 
             // btn_Sair
             // 
@@ -164,15 +155,6 @@
             this.p_FundoLinkHoverLogDados.Size = new System.Drawing.Size(215, 45);
             this.p_FundoLinkHoverLogDados.TabIndex = 7;
             // 
-            // pb_IconeLogDados
-            // 
-            this.pb_IconeLogDados.Image = global::SistemaBancario.Properties.Resources.folder;
-            this.pb_IconeLogDados.Location = new System.Drawing.Point(39, 6);
-            this.pb_IconeLogDados.Name = "pb_IconeLogDados";
-            this.pb_IconeLogDados.Size = new System.Drawing.Size(39, 36);
-            this.pb_IconeLogDados.TabIndex = 0;
-            this.pb_IconeLogDados.TabStop = false;
-            // 
             // lb_LogDados
             // 
             this.lb_LogDados.AutoSize = true;
@@ -193,15 +175,6 @@
             this.p_FundoLinkHoverAgencias.Name = "p_FundoLinkHoverAgencias";
             this.p_FundoLinkHoverAgencias.Size = new System.Drawing.Size(215, 45);
             this.p_FundoLinkHoverAgencias.TabIndex = 6;
-            // 
-            // pb_IconeAgencias
-            // 
-            this.pb_IconeAgencias.Image = global::SistemaBancario.Properties.Resources.agencias;
-            this.pb_IconeAgencias.Location = new System.Drawing.Point(39, 3);
-            this.pb_IconeAgencias.Name = "pb_IconeAgencias";
-            this.pb_IconeAgencias.Size = new System.Drawing.Size(39, 39);
-            this.pb_IconeAgencias.TabIndex = 0;
-            this.pb_IconeAgencias.TabStop = false;
             // 
             // lb_Agencias
             // 
@@ -224,15 +197,6 @@
             this.p_FundoLinkHoverAplicacoes.Size = new System.Drawing.Size(215, 45);
             this.p_FundoLinkHoverAplicacoes.TabIndex = 5;
             // 
-            // pb_IconeAplicacoes
-            // 
-            this.pb_IconeAplicacoes.Image = global::SistemaBancario.Properties.Resources.aplicacoes;
-            this.pb_IconeAplicacoes.Location = new System.Drawing.Point(39, 3);
-            this.pb_IconeAplicacoes.Name = "pb_IconeAplicacoes";
-            this.pb_IconeAplicacoes.Size = new System.Drawing.Size(38, 42);
-            this.pb_IconeAplicacoes.TabIndex = 0;
-            this.pb_IconeAplicacoes.TabStop = false;
-            // 
             // lb_Aplicacoes
             // 
             this.lb_Aplicacoes.AutoSize = true;
@@ -254,15 +218,6 @@
             this.p_FundoLinkHoverContas.Size = new System.Drawing.Size(215, 45);
             this.p_FundoLinkHoverContas.TabIndex = 2;
             // 
-            // pb_IconeContas
-            // 
-            this.pb_IconeContas.Image = global::SistemaBancario.Properties.Resources.credit_card;
-            this.pb_IconeContas.Location = new System.Drawing.Point(39, 6);
-            this.pb_IconeContas.Name = "pb_IconeContas";
-            this.pb_IconeContas.Size = new System.Drawing.Size(39, 33);
-            this.pb_IconeContas.TabIndex = 0;
-            this.pb_IconeContas.TabStop = false;
-            // 
             // lb_Contas
             // 
             this.lb_Contas.AutoSize = true;
@@ -273,15 +228,6 @@
             this.lb_Contas.Size = new System.Drawing.Size(50, 17);
             this.lb_Contas.TabIndex = 4;
             this.lb_Contas.Text = "Contas";
-            // 
-            // pb_Logo
-            // 
-            this.pb_Logo.Image = global::SistemaBancario.Properties.Resources.logo;
-            this.pb_Logo.Location = new System.Drawing.Point(29, 46);
-            this.pb_Logo.Name = "pb_Logo";
-            this.pb_Logo.Size = new System.Drawing.Size(151, 149);
-            this.pb_Logo.TabIndex = 0;
-            this.pb_Logo.TabStop = false;
             // 
             // p_LinkAtivo
             // 
@@ -300,15 +246,6 @@
             this.p_FundoLinkHoverClientes.Name = "p_FundoLinkHoverClientes";
             this.p_FundoLinkHoverClientes.Size = new System.Drawing.Size(215, 45);
             this.p_FundoLinkHoverClientes.TabIndex = 1;
-            // 
-            // pb_IconeClientes
-            // 
-            this.pb_IconeClientes.Image = global::SistemaBancario.Properties.Resources.clientes;
-            this.pb_IconeClientes.Location = new System.Drawing.Point(43, 6);
-            this.pb_IconeClientes.Name = "pb_IconeClientes";
-            this.pb_IconeClientes.Size = new System.Drawing.Size(31, 32);
-            this.pb_IconeClientes.TabIndex = 0;
-            this.pb_IconeClientes.TabStop = false;
             // 
             // lb_Clientes
             // 
@@ -369,81 +306,25 @@
             // p_Content
             // 
             this.p_Content.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(246)))), ((int)(((byte)(246)))), ((int)(((byte)(246)))));
-            this.p_Content.Controls.Add(this.buttonListarAgencia);
-            this.p_Content.Controls.Add(this.buttonRemoverAgencia);
-            this.p_Content.Controls.Add(this.buttonAlterarAgencia);
-            this.p_Content.Controls.Add(this.buttonConsultarAgencia);
-            this.p_Content.Controls.Add(this.buttonCriarAgencia);
+            this.p_Content.Controls.Add(this.button_ExcluirAgencia);
+            this.p_Content.Controls.Add(this.textBox1);
+            this.p_Content.Controls.Add(this.label_RemoverAgencia);
+            this.p_Content.Controls.Add(this.dataGridView_ListarAgencias);
             this.p_Content.Controls.Add(this.btn_Retornar);
-            this.p_Content.Controls.Add(this.lb_TituloAgencias);
+            this.p_Content.Controls.Add(this.lb_TituloRemoverAgencias);
             this.p_Content.Dock = System.Windows.Forms.DockStyle.Fill;
             this.p_Content.Location = new System.Drawing.Point(215, 43);
             this.p_Content.Name = "p_Content";
             this.p_Content.Size = new System.Drawing.Size(1110, 624);
             this.p_Content.TabIndex = 13;
             // 
-            // buttonListarAgencia
+            // dataGridView_ListarAgencias
             // 
-            this.buttonListarAgencia.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(191)))), ((int)(((byte)(0)))));
-            this.buttonListarAgencia.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonListarAgencia.ForeColor = System.Drawing.Color.OldLace;
-            this.buttonListarAgencia.Location = new System.Drawing.Point(339, 424);
-            this.buttonListarAgencia.Name = "buttonListarAgencia";
-            this.buttonListarAgencia.Size = new System.Drawing.Size(215, 45);
-            this.buttonListarAgencia.TabIndex = 105;
-            this.buttonListarAgencia.Text = "LISTAR AGÊNCIA";
-            this.buttonListarAgencia.UseVisualStyleBackColor = false;
-            this.buttonListarAgencia.Click += new System.EventHandler(this.buttonListarAgencia_Click);
-            // 
-            // buttonRemoverAgencia
-            // 
-            this.buttonRemoverAgencia.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(191)))), ((int)(((byte)(0)))));
-            this.buttonRemoverAgencia.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonRemoverAgencia.ForeColor = System.Drawing.Color.OldLace;
-            this.buttonRemoverAgencia.Location = new System.Drawing.Point(339, 365);
-            this.buttonRemoverAgencia.Name = "buttonRemoverAgencia";
-            this.buttonRemoverAgencia.Size = new System.Drawing.Size(215, 45);
-            this.buttonRemoverAgencia.TabIndex = 104;
-            this.buttonRemoverAgencia.Text = "REMOVER AGÊNCIA";
-            this.buttonRemoverAgencia.UseVisualStyleBackColor = false;
-            this.buttonRemoverAgencia.Click += new System.EventHandler(this.buttonRemoverAgencia_Click);
-            // 
-            // buttonAlterarAgencia
-            // 
-            this.buttonAlterarAgencia.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(191)))), ((int)(((byte)(0)))));
-            this.buttonAlterarAgencia.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonAlterarAgencia.ForeColor = System.Drawing.Color.OldLace;
-            this.buttonAlterarAgencia.Location = new System.Drawing.Point(339, 307);
-            this.buttonAlterarAgencia.Name = "buttonAlterarAgencia";
-            this.buttonAlterarAgencia.Size = new System.Drawing.Size(215, 45);
-            this.buttonAlterarAgencia.TabIndex = 103;
-            this.buttonAlterarAgencia.Text = "ALTERAR AGÊNCIA";
-            this.buttonAlterarAgencia.UseVisualStyleBackColor = false;
-            // 
-            // buttonConsultarAgencia
-            // 
-            this.buttonConsultarAgencia.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(191)))), ((int)(((byte)(0)))));
-            this.buttonConsultarAgencia.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonConsultarAgencia.ForeColor = System.Drawing.Color.OldLace;
-            this.buttonConsultarAgencia.Location = new System.Drawing.Point(339, 249);
-            this.buttonConsultarAgencia.Name = "buttonConsultarAgencia";
-            this.buttonConsultarAgencia.Size = new System.Drawing.Size(215, 45);
-            this.buttonConsultarAgencia.TabIndex = 102;
-            this.buttonConsultarAgencia.Text = "CONSULTAR AGÊNCIA";
-            this.buttonConsultarAgencia.UseVisualStyleBackColor = false;
-            // 
-            // buttonCriarAgencia
-            // 
-            this.buttonCriarAgencia.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(191)))), ((int)(((byte)(0)))));
-            this.buttonCriarAgencia.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonCriarAgencia.ForeColor = System.Drawing.Color.OldLace;
-            this.buttonCriarAgencia.Location = new System.Drawing.Point(339, 192);
-            this.buttonCriarAgencia.Name = "buttonCriarAgencia";
-            this.buttonCriarAgencia.Size = new System.Drawing.Size(215, 45);
-            this.buttonCriarAgencia.TabIndex = 101;
-            this.buttonCriarAgencia.Text = "CRIAR AGÊNCIA";
-            this.buttonCriarAgencia.UseVisualStyleBackColor = false;
-            this.buttonCriarAgencia.Click += new System.EventHandler(this.buttonCriarAgencia_Click);
+            this.dataGridView_ListarAgencias.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView_ListarAgencias.Location = new System.Drawing.Point(131, 198);
+            this.dataGridView_ListarAgencias.Name = "dataGridView_ListarAgencias";
+            this.dataGridView_ListarAgencias.Size = new System.Drawing.Size(843, 198);
+            this.dataGridView_ListarAgencias.TabIndex = 97;
             // 
             // btn_Retornar
             // 
@@ -457,20 +338,115 @@
             this.btn_Retornar.TabIndex = 96;
             this.btn_Retornar.Text = "Retornar";
             this.btn_Retornar.UseVisualStyleBackColor = false;
+            this.btn_Retornar.Click += new System.EventHandler(this.btn_Retornar_Click);
             // 
-            // lb_TituloAgencias
+            // lb_TituloRemoverAgencias
             // 
-            this.lb_TituloAgencias.AutoSize = true;
-            this.lb_TituloAgencias.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(246)))), ((int)(((byte)(246)))), ((int)(((byte)(246)))));
-            this.lb_TituloAgencias.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Bold);
-            this.lb_TituloAgencias.ForeColor = System.Drawing.SystemColors.GrayText;
-            this.lb_TituloAgencias.Location = new System.Drawing.Point(333, 120);
-            this.lb_TituloAgencias.Name = "lb_TituloAgencias";
-            this.lb_TituloAgencias.Size = new System.Drawing.Size(134, 32);
-            this.lb_TituloAgencias.TabIndex = 93;
-            this.lb_TituloAgencias.Text = "AGÊNCIAS";
+            this.lb_TituloRemoverAgencias.AutoSize = true;
+            this.lb_TituloRemoverAgencias.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(246)))), ((int)(((byte)(246)))), ((int)(((byte)(246)))));
+            this.lb_TituloRemoverAgencias.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Bold);
+            this.lb_TituloRemoverAgencias.ForeColor = System.Drawing.SystemColors.GrayText;
+            this.lb_TituloRemoverAgencias.Location = new System.Drawing.Point(333, 120);
+            this.lb_TituloRemoverAgencias.Name = "lb_TituloRemoverAgencias";
+            this.lb_TituloRemoverAgencias.Size = new System.Drawing.Size(256, 32);
+            this.lb_TituloRemoverAgencias.TabIndex = 93;
+            this.lb_TituloRemoverAgencias.Text = "REMOVER AGÊNCIAS";
             // 
-            // Agencia
+            // pb_IconeUsuario
+            // 
+            this.pb_IconeUsuario.Image = global::SistemaBancario.Properties.Resources.usuario;
+            this.pb_IconeUsuario.Location = new System.Drawing.Point(849, 6);
+            this.pb_IconeUsuario.Name = "pb_IconeUsuario";
+            this.pb_IconeUsuario.Size = new System.Drawing.Size(36, 36);
+            this.pb_IconeUsuario.TabIndex = 0;
+            this.pb_IconeUsuario.TabStop = false;
+            // 
+            // pb_IconeLogDados
+            // 
+            this.pb_IconeLogDados.Image = global::SistemaBancario.Properties.Resources.folder;
+            this.pb_IconeLogDados.Location = new System.Drawing.Point(39, 6);
+            this.pb_IconeLogDados.Name = "pb_IconeLogDados";
+            this.pb_IconeLogDados.Size = new System.Drawing.Size(39, 36);
+            this.pb_IconeLogDados.TabIndex = 0;
+            this.pb_IconeLogDados.TabStop = false;
+            // 
+            // pb_IconeAgencias
+            // 
+            this.pb_IconeAgencias.Image = global::SistemaBancario.Properties.Resources.agencias;
+            this.pb_IconeAgencias.Location = new System.Drawing.Point(39, 3);
+            this.pb_IconeAgencias.Name = "pb_IconeAgencias";
+            this.pb_IconeAgencias.Size = new System.Drawing.Size(39, 39);
+            this.pb_IconeAgencias.TabIndex = 0;
+            this.pb_IconeAgencias.TabStop = false;
+            // 
+            // pb_IconeAplicacoes
+            // 
+            this.pb_IconeAplicacoes.Image = global::SistemaBancario.Properties.Resources.aplicacoes;
+            this.pb_IconeAplicacoes.Location = new System.Drawing.Point(39, 3);
+            this.pb_IconeAplicacoes.Name = "pb_IconeAplicacoes";
+            this.pb_IconeAplicacoes.Size = new System.Drawing.Size(38, 42);
+            this.pb_IconeAplicacoes.TabIndex = 0;
+            this.pb_IconeAplicacoes.TabStop = false;
+            // 
+            // pb_IconeContas
+            // 
+            this.pb_IconeContas.Image = global::SistemaBancario.Properties.Resources.credit_card;
+            this.pb_IconeContas.Location = new System.Drawing.Point(39, 6);
+            this.pb_IconeContas.Name = "pb_IconeContas";
+            this.pb_IconeContas.Size = new System.Drawing.Size(39, 33);
+            this.pb_IconeContas.TabIndex = 0;
+            this.pb_IconeContas.TabStop = false;
+            // 
+            // pb_Logo
+            // 
+            this.pb_Logo.Image = global::SistemaBancario.Properties.Resources.logo;
+            this.pb_Logo.Location = new System.Drawing.Point(29, 46);
+            this.pb_Logo.Name = "pb_Logo";
+            this.pb_Logo.Size = new System.Drawing.Size(151, 149);
+            this.pb_Logo.TabIndex = 0;
+            this.pb_Logo.TabStop = false;
+            // 
+            // pb_IconeClientes
+            // 
+            this.pb_IconeClientes.Image = global::SistemaBancario.Properties.Resources.clientes;
+            this.pb_IconeClientes.Location = new System.Drawing.Point(43, 6);
+            this.pb_IconeClientes.Name = "pb_IconeClientes";
+            this.pb_IconeClientes.Size = new System.Drawing.Size(31, 32);
+            this.pb_IconeClientes.TabIndex = 0;
+            this.pb_IconeClientes.TabStop = false;
+            // 
+            // label_RemoverAgencia
+            // 
+            this.label_RemoverAgencia.AutoSize = true;
+            this.label_RemoverAgencia.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(246)))), ((int)(((byte)(246)))), ((int)(((byte)(246)))));
+            this.label_RemoverAgencia.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label_RemoverAgencia.Location = new System.Drawing.Point(128, 438);
+            this.label_RemoverAgencia.Name = "label_RemoverAgencia";
+            this.label_RemoverAgencia.Size = new System.Drawing.Size(181, 17);
+            this.label_RemoverAgencia.TabIndex = 101;
+            this.label_RemoverAgencia.Text = "Insira o Número da Agência:";
+            // 
+            // textBox1
+            // 
+            this.textBox1.Location = new System.Drawing.Point(316, 438);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(100, 20);
+            this.textBox1.TabIndex = 102;
+            // 
+            // button_ExcluirAgencia
+            // 
+            this.button_ExcluirAgencia.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(78)))), ((int)(((byte)(88)))));
+            this.button_ExcluirAgencia.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.button_ExcluirAgencia.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button_ExcluirAgencia.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.button_ExcluirAgencia.Location = new System.Drawing.Point(600, 432);
+            this.button_ExcluirAgencia.Name = "button_ExcluirAgencia";
+            this.button_ExcluirAgencia.Size = new System.Drawing.Size(90, 29);
+            this.button_ExcluirAgencia.TabIndex = 103;
+            this.button_ExcluirAgencia.Text = "Excluir";
+            this.button_ExcluirAgencia.UseVisualStyleBackColor = false;
+            // 
+            // RemoverAgencia
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -479,32 +455,33 @@
             this.Controls.Add(this.p_Footer);
             this.Controls.Add(this.p_SideMenu);
             this.Controls.Add(this.p_Header);
-            this.Name = "Agencia";
+            this.Name = "RemoverAgencia";
             this.Text = "TemplateTelaAdministrador";
             this.p_Footer.ResumeLayout(false);
             this.p_Footer.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pb_IconeUsuario)).EndInit();
             this.p_SideMenu.ResumeLayout(false);
             this.p_FundoLinkHoverLogDados.ResumeLayout(false);
             this.p_FundoLinkHoverLogDados.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pb_IconeLogDados)).EndInit();
             this.p_FundoLinkHoverAgencias.ResumeLayout(false);
             this.p_FundoLinkHoverAgencias.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pb_IconeAgencias)).EndInit();
             this.p_FundoLinkHoverAplicacoes.ResumeLayout(false);
             this.p_FundoLinkHoverAplicacoes.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pb_IconeAplicacoes)).EndInit();
             this.p_FundoLinkHoverContas.ResumeLayout(false);
             this.p_FundoLinkHoverContas.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pb_IconeContas)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pb_Logo)).EndInit();
             this.p_FundoLinkHoverClientes.ResumeLayout(false);
             this.p_FundoLinkHoverClientes.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pb_IconeClientes)).EndInit();
             this.p_Header.ResumeLayout(false);
             this.p_Header.PerformLayout();
             this.p_Content.ResumeLayout(false);
             this.p_Content.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView_ListarAgencias)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pb_IconeUsuario)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pb_IconeLogDados)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pb_IconeAgencias)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pb_IconeAplicacoes)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pb_IconeContas)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pb_Logo)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pb_IconeClientes)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -540,11 +517,10 @@
         private System.Windows.Forms.PictureBox pb_IconeContas;
         private System.Windows.Forms.Label lb_Contas;
         private System.Windows.Forms.Button btn_Retornar;
-        private System.Windows.Forms.Label lb_TituloAgencias;
-        private System.Windows.Forms.Button buttonListarAgencia;
-        private System.Windows.Forms.Button buttonRemoverAgencia;
-        private System.Windows.Forms.Button buttonAlterarAgencia;
-        private System.Windows.Forms.Button buttonConsultarAgencia;
-        private System.Windows.Forms.Button buttonCriarAgencia;
+        private System.Windows.Forms.Label lb_TituloRemoverAgencias;
+        private System.Windows.Forms.DataGridView dataGridView_ListarAgencias;
+        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.Label label_RemoverAgencia;
+        private System.Windows.Forms.Button button_ExcluirAgencia;
     }
 }
