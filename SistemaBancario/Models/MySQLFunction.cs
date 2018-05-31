@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Data;
 using MySql.Data.MySqlClient;
+using System.Windows.Forms;
 
 namespace SistemaBancario.Models
 {
@@ -151,6 +152,31 @@ namespace SistemaBancario.Models
             }
 
             return sucesso;
+        }
+
+        static public void ListarAgencias(DataGridView dataGridView)
+        {
+            try
+            {
+                if (connection.State == ConnectionState.Closed)
+                    connection.Open();
+                //numero as 'Número da Agência', id_endereco as 'Código do Endereço', E.cep  
+                MySqlDataAdapter dataAdapter = new MySqlDataAdapter(
+                    "SELECT A.numero as 'Número da Agência', E.cidade as Cidade, E.bairro as Bairro, E.logradouro as Logradouro," +
+                    "E.rua as Rua, E.numero as Número, E.complemento as Complemento, E.cep as CEP FROM Agencia as A " +
+                    "INNER JOIN Endereco as E ON A.id_endereco = E.id", connection);
+                DataTable dataTable = new DataTable();
+                dataAdapter.Fill(dataTable);
+                dataGridView.DataSource = dataTable;
+            }
+            catch(MySqlException exception)
+            {
+                MessageBox.Show(exception.ToString());
+            }
+            finally
+            {
+                connection.Close();
+            }
         }
 
         static public Boolean InserirAgencia(string numeroAgencia, string cep)

@@ -22,5 +22,11 @@ namespace SistemaBancario.Views
             CriarAgencia formCriarAgencia = new CriarAgencia();
             formCriarAgencia.Show();
         }
+
+        private void buttonListarAgencia_Click(object sender, EventArgs e)
+        {
+            ListarAgencia formListarAgencia = new ListarAgencia();
+            formListarAgencia.Show();
+        }
     }
 }

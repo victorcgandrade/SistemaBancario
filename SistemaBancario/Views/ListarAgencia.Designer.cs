@@ -1,6 +1,6 @@
 ﻿namespace SistemaBancario.Views
 {
-    partial class Agencia
+    partial class ListarAgencia
     {
         /// <summary>
         /// Required designer variable.
@@ -56,13 +56,9 @@
             this.lb_DataHoraAtual = new System.Windows.Forms.Label();
             this.lb_DuvidasApp = new System.Windows.Forms.Label();
             this.p_Content = new System.Windows.Forms.Panel();
-            this.buttonListarAgencia = new System.Windows.Forms.Button();
-            this.buttonRemoverAgencia = new System.Windows.Forms.Button();
-            this.buttonAlterarAgencia = new System.Windows.Forms.Button();
-            this.buttonConsultarAgencia = new System.Windows.Forms.Button();
-            this.buttonCriarAgencia = new System.Windows.Forms.Button();
+            this.dataGridView_ListarAgencias = new System.Windows.Forms.DataGridView();
             this.btn_Retornar = new System.Windows.Forms.Button();
-            this.lb_TituloAgencias = new System.Windows.Forms.Label();
+            this.lb_TituloListarAgencias = new System.Windows.Forms.Label();
             this.p_Footer.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pb_IconeUsuario)).BeginInit();
             this.p_SideMenu.SuspendLayout();
@@ -79,6 +75,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.pb_IconeClientes)).BeginInit();
             this.p_Header.SuspendLayout();
             this.p_Content.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView_ListarAgencias)).BeginInit();
             this.SuspendLayout();
             // 
             // p_Footer
@@ -369,80 +366,22 @@
             // p_Content
             // 
             this.p_Content.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(246)))), ((int)(((byte)(246)))), ((int)(((byte)(246)))));
-            this.p_Content.Controls.Add(this.buttonListarAgencia);
-            this.p_Content.Controls.Add(this.buttonRemoverAgencia);
-            this.p_Content.Controls.Add(this.buttonAlterarAgencia);
-            this.p_Content.Controls.Add(this.buttonConsultarAgencia);
-            this.p_Content.Controls.Add(this.buttonCriarAgencia);
+            this.p_Content.Controls.Add(this.dataGridView_ListarAgencias);
             this.p_Content.Controls.Add(this.btn_Retornar);
-            this.p_Content.Controls.Add(this.lb_TituloAgencias);
+            this.p_Content.Controls.Add(this.lb_TituloListarAgencias);
             this.p_Content.Dock = System.Windows.Forms.DockStyle.Fill;
             this.p_Content.Location = new System.Drawing.Point(215, 43);
             this.p_Content.Name = "p_Content";
             this.p_Content.Size = new System.Drawing.Size(1110, 624);
             this.p_Content.TabIndex = 13;
             // 
-            // buttonListarAgencia
+            // dataGridView_ListarAgencias
             // 
-            this.buttonListarAgencia.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(191)))), ((int)(((byte)(0)))));
-            this.buttonListarAgencia.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonListarAgencia.ForeColor = System.Drawing.Color.OldLace;
-            this.buttonListarAgencia.Location = new System.Drawing.Point(339, 424);
-            this.buttonListarAgencia.Name = "buttonListarAgencia";
-            this.buttonListarAgencia.Size = new System.Drawing.Size(215, 45);
-            this.buttonListarAgencia.TabIndex = 105;
-            this.buttonListarAgencia.Text = "LISTAR AGÊNCIA";
-            this.buttonListarAgencia.UseVisualStyleBackColor = false;
-            this.buttonListarAgencia.Click += new System.EventHandler(this.buttonListarAgencia_Click);
-            // 
-            // buttonRemoverAgencia
-            // 
-            this.buttonRemoverAgencia.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(191)))), ((int)(((byte)(0)))));
-            this.buttonRemoverAgencia.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonRemoverAgencia.ForeColor = System.Drawing.Color.OldLace;
-            this.buttonRemoverAgencia.Location = new System.Drawing.Point(339, 365);
-            this.buttonRemoverAgencia.Name = "buttonRemoverAgencia";
-            this.buttonRemoverAgencia.Size = new System.Drawing.Size(215, 45);
-            this.buttonRemoverAgencia.TabIndex = 104;
-            this.buttonRemoverAgencia.Text = "REMOVER AGÊNCIA";
-            this.buttonRemoverAgencia.UseVisualStyleBackColor = false;
-            // 
-            // buttonAlterarAgencia
-            // 
-            this.buttonAlterarAgencia.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(191)))), ((int)(((byte)(0)))));
-            this.buttonAlterarAgencia.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonAlterarAgencia.ForeColor = System.Drawing.Color.OldLace;
-            this.buttonAlterarAgencia.Location = new System.Drawing.Point(339, 307);
-            this.buttonAlterarAgencia.Name = "buttonAlterarAgencia";
-            this.buttonAlterarAgencia.Size = new System.Drawing.Size(215, 45);
-            this.buttonAlterarAgencia.TabIndex = 103;
-            this.buttonAlterarAgencia.Text = "ALTERAR AGÊNCIA";
-            this.buttonAlterarAgencia.UseVisualStyleBackColor = false;
-            // 
-            // buttonConsultarAgencia
-            // 
-            this.buttonConsultarAgencia.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(191)))), ((int)(((byte)(0)))));
-            this.buttonConsultarAgencia.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonConsultarAgencia.ForeColor = System.Drawing.Color.OldLace;
-            this.buttonConsultarAgencia.Location = new System.Drawing.Point(339, 249);
-            this.buttonConsultarAgencia.Name = "buttonConsultarAgencia";
-            this.buttonConsultarAgencia.Size = new System.Drawing.Size(215, 45);
-            this.buttonConsultarAgencia.TabIndex = 102;
-            this.buttonConsultarAgencia.Text = "CONSULTAR AGÊNCIA";
-            this.buttonConsultarAgencia.UseVisualStyleBackColor = false;
-            // 
-            // buttonCriarAgencia
-            // 
-            this.buttonCriarAgencia.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(191)))), ((int)(((byte)(0)))));
-            this.buttonCriarAgencia.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonCriarAgencia.ForeColor = System.Drawing.Color.OldLace;
-            this.buttonCriarAgencia.Location = new System.Drawing.Point(339, 192);
-            this.buttonCriarAgencia.Name = "buttonCriarAgencia";
-            this.buttonCriarAgencia.Size = new System.Drawing.Size(215, 45);
-            this.buttonCriarAgencia.TabIndex = 101;
-            this.buttonCriarAgencia.Text = "CRIAR AGÊNCIA";
-            this.buttonCriarAgencia.UseVisualStyleBackColor = false;
-            this.buttonCriarAgencia.Click += new System.EventHandler(this.buttonCriarAgencia_Click);
+            this.dataGridView_ListarAgencias.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView_ListarAgencias.Location = new System.Drawing.Point(131, 198);
+            this.dataGridView_ListarAgencias.Name = "dataGridView_ListarAgencias";
+            this.dataGridView_ListarAgencias.Size = new System.Drawing.Size(843, 198);
+            this.dataGridView_ListarAgencias.TabIndex = 97;
             // 
             // btn_Retornar
             // 
@@ -456,20 +395,21 @@
             this.btn_Retornar.TabIndex = 96;
             this.btn_Retornar.Text = "Retornar";
             this.btn_Retornar.UseVisualStyleBackColor = false;
+            this.btn_Retornar.Click += new System.EventHandler(this.btn_Retornar_Click);
             // 
-            // lb_TituloAgencias
+            // lb_TituloListarAgencias
             // 
-            this.lb_TituloAgencias.AutoSize = true;
-            this.lb_TituloAgencias.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(246)))), ((int)(((byte)(246)))), ((int)(((byte)(246)))));
-            this.lb_TituloAgencias.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Bold);
-            this.lb_TituloAgencias.ForeColor = System.Drawing.SystemColors.GrayText;
-            this.lb_TituloAgencias.Location = new System.Drawing.Point(333, 120);
-            this.lb_TituloAgencias.Name = "lb_TituloAgencias";
-            this.lb_TituloAgencias.Size = new System.Drawing.Size(134, 32);
-            this.lb_TituloAgencias.TabIndex = 93;
-            this.lb_TituloAgencias.Text = "AGÊNCIAS";
+            this.lb_TituloListarAgencias.AutoSize = true;
+            this.lb_TituloListarAgencias.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(246)))), ((int)(((byte)(246)))), ((int)(((byte)(246)))));
+            this.lb_TituloListarAgencias.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Bold);
+            this.lb_TituloListarAgencias.ForeColor = System.Drawing.SystemColors.GrayText;
+            this.lb_TituloListarAgencias.Location = new System.Drawing.Point(333, 120);
+            this.lb_TituloListarAgencias.Name = "lb_TituloListarAgencias";
+            this.lb_TituloListarAgencias.Size = new System.Drawing.Size(219, 32);
+            this.lb_TituloListarAgencias.TabIndex = 93;
+            this.lb_TituloListarAgencias.Text = "LISTAR AGÊNCIAS";
             // 
-            // Agencia
+            // ListarAgencia
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -478,7 +418,7 @@
             this.Controls.Add(this.p_Footer);
             this.Controls.Add(this.p_SideMenu);
             this.Controls.Add(this.p_Header);
-            this.Name = "Agencia";
+            this.Name = "ListarAgencia";
             this.Text = "TemplateTelaAdministrador";
             this.p_Footer.ResumeLayout(false);
             this.p_Footer.PerformLayout();
@@ -504,6 +444,7 @@
             this.p_Header.PerformLayout();
             this.p_Content.ResumeLayout(false);
             this.p_Content.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView_ListarAgencias)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -539,11 +480,7 @@
         private System.Windows.Forms.PictureBox pb_IconeContas;
         private System.Windows.Forms.Label lb_Contas;
         private System.Windows.Forms.Button btn_Retornar;
-        private System.Windows.Forms.Label lb_TituloAgencias;
-        private System.Windows.Forms.Button buttonListarAgencia;
-        private System.Windows.Forms.Button buttonRemoverAgencia;
-        private System.Windows.Forms.Button buttonAlterarAgencia;
-        private System.Windows.Forms.Button buttonConsultarAgencia;
-        private System.Windows.Forms.Button buttonCriarAgencia;
+        private System.Windows.Forms.Label lb_TituloListarAgencias;
+        private System.Windows.Forms.DataGridView dataGridView_ListarAgencias;
     }
 }
