@@ -380,7 +380,7 @@
             this.dataGridView_ListarAgencias.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView_ListarAgencias.Location = new System.Drawing.Point(131, 198);
             this.dataGridView_ListarAgencias.Name = "dataGridView_ListarAgencias";
-            this.dataGridView_ListarAgencias.Size = new System.Drawing.Size(843, 198);
+            this.dataGridView_ListarAgencias.Size = new System.Drawing.Size(943, 198);
             this.dataGridView_ListarAgencias.TabIndex = 97;
             // 
             // btn_Retornar

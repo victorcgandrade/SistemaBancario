@@ -55,7 +55,7 @@ namespace SistemaBancario.Views
 
         private void button_Confirmar_Click(object sender, EventArgs e)
         {
-            if (MessageBox.Show("Tem certeza que deseja adicionar esta agência?", "Confirmacao", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+            if (MessageBox.Show("Tem certeza que deseja adicionar esta agência?", "Confirmação", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
             {
                 if (CriarEndereco() && AdicionarAgencia())
                 {

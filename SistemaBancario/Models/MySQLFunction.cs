@@ -47,6 +47,65 @@ namespace SistemaBancario.Models
             return sucesso;
         }
 
+        //Pode ser útil no futuro mas não foi implementado e pode conter erros, cuidado ao usar... bjs do brenao
+        //static public bool RemoverEnderecoByIdAgencia(int idAgencia)
+        //{
+        //    bool sucesso;
+
+        //    try
+        //    {
+        //        if (connection.State == ConnectionState.Closed)
+        //            connection.Open();
+
+        //        MySqlCommand removerEndereco = new MySqlCommand(
+        //            "DELETE FROM Endereco WHERE Endereco.id = (" +
+        //                "SELECT id_endereco FROM Agencia WHERE Agencia.id = @idAgencia)", connection);
+        //        removerEndereco.Parameters.AddWithValue("@idAgencia", idAgencia);
+        //        removerEndereco.ExecuteNonQuery();
+        //        removerEndereco.Parameters.Clear();
+
+        //        sucesso = true;
+        //    }
+        //    catch(Exception ex)
+        //    {
+        //        sucesso = false;
+        //        MessageBox.Show(ex.Message);
+        //    }
+        //    finally
+        //    {
+        //        connection.Close();
+        //    }
+
+        //    return sucesso;
+        //}
+
+        
+
+        //static private int BuscarEndereco(int idAgencia)
+        //{
+        //    try
+        //    {
+        //        if (connection.State == ConnectionState.Closed)
+        //            connection.Open();
+        //        MySqlCommand enderecoPorIdAgencia = new MySqlCommand(
+        //            "SELECT Endereco.id FROM Endereco INNER JOIN Agencia on Endereco.id = Agencia.id_endereco Where Agencia.id = @idAgencia", connection);
+        //        enderecoPorIdAgencia.Parameters.AddWithValue("@idAgencia", idAgencia);
+        //        enderecoPorIdAgencia.ExecuteNonQuery();
+        //        int id = (int)enderecoPorIdAgencia.ExecuteScalar();
+        //        return id;
+        //    }
+        //    catch(Exception ex)
+        //    {
+        //        MessageBox.Show(ex.Message);
+        //    }
+        //    finally
+        //    {
+        //        connection.Close();
+        //    }
+
+        //    return 0;
+        //}
+
         //Criar novo endereco no banco de dados
         static public Boolean InserirEndereco(string logradouro, string rua, int numero, string bairro, string complemento, string cep, string cidade, string estado)
         {
@@ -73,7 +132,7 @@ namespace SistemaBancario.Models
                 sucesso = true;
             }
             catch (MySqlException exception)
-            {
+                {
                 sucesso = false;
                 Console.WriteLine(exception.ToString());
             }
@@ -154,6 +213,7 @@ namespace SistemaBancario.Models
             return sucesso;
         }
 
+        #region Agencias
         static public void ListarAgencias(DataGridView dataGridView)
         {
             try
@@ -162,14 +222,14 @@ namespace SistemaBancario.Models
                     connection.Open();
                 //numero as 'Número da Agência', id_endereco as 'Código do Endereço', E.cep  
                 MySqlDataAdapter dataAdapter = new MySqlDataAdapter(
-                    "SELECT A.numero as 'Número da Agência', E.cidade as Cidade, E.bairro as Bairro, E.logradouro as Logradouro," +
+                    "SELECT A.id as 'Identificar da Agência', A.numero as 'Número da Agência', E.cidade as Cidade, E.bairro as Bairro, E.logradouro as Logradouro," +
                     "E.rua as Rua, E.numero as Número, E.complemento as Complemento, E.cep as CEP FROM Agencia as A " +
                     "INNER JOIN Endereco as E ON A.id_endereco = E.id", connection);
                 DataTable dataTable = new DataTable();
                 dataAdapter.Fill(dataTable);
                 dataGridView.DataSource = dataTable;
             }
-            catch(MySqlException exception)
+            catch (MySqlException exception)
             {
                 MessageBox.Show(exception.ToString());
             }
@@ -209,6 +269,43 @@ namespace SistemaBancario.Models
 
             return sucesso;
         }
+
+        static public void RemoverAgencia(int idAgencia)
+        {
+            bool sucesso;
+
+            try
+            {
+                if (connection.State == ConnectionState.Closed)
+                    connection.Open();
+
+                //int idEndereco = BuscarEndereco(idAgencia);
+
+                MySqlCommand removerAgencia = new MySqlCommand(
+                    "DELETE FROM Agencia WHERE id = @idAgencia", connection);
+                removerAgencia.Parameters.AddWithValue("@idAgencia", idAgencia);
+                removerAgencia.ExecuteNonQuery();
+                removerAgencia.Parameters.Clear();
+
+                sucesso = true;
+            }
+            catch (Exception ex)
+            {
+                sucesso = false;
+                MessageBox.Show(ex.Message);
+            }
+            finally
+            {
+                connection.Close();
+            }
+
+            if (sucesso)
+                MessageBox.Show("Agência removida com sucesso.");
+            else
+                MessageBox.Show("Ocorreu um erro ao remover a agência.");
+        }
+
+        #endregion
 
     }
 }
