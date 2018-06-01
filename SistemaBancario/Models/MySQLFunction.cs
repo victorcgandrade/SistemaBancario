@@ -47,6 +47,37 @@ namespace SistemaBancario.Models
             return sucesso;
         }
 
+        static void CarregarAgencia(int id, TextBox numeroAgencia, TextBox cep, ComboBox estado, TextBox cidade, TextBox bairro, TextBox logradouro, TextBox rua, TextBox complemento, TextBox numero)
+        {
+            numeroAgencia.Text = CarregaCampoTabela(id, "numero", numeroAgencia, "Agencia");
+
+            throw new NotImplementedException();
+        }
+
+        static private string CarregaCampoTabela(int id, string field, TextBox textBox, string tabela)
+        {
+            try
+            {
+                if (connection.State == ConnectionState.Closed)
+                    connection.Open();
+
+                MySqlCommand carregarCampoAgencia = new MySqlCommand(
+                    $"SELECT {field} FROM {tabela} WHERE id = @id");
+                carregarCampoAgencia.Parameters.AddWithValue("@id", id);
+                
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            finally
+            {
+                connection.Close();
+            }
+
+            return "";
+        }
+
         //Pode ser útil no futuro mas não foi implementado e pode conter erros, cuidado ao usar... bjs do brenao
         //static public bool RemoverEnderecoByIdAgencia(int idAgencia)
         //{
@@ -79,7 +110,7 @@ namespace SistemaBancario.Models
         //    return sucesso;
         //}
 
-        
+
 
         //static private int BuscarEndereco(int idAgencia)
         //{
