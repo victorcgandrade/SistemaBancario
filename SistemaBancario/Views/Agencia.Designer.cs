@@ -59,7 +59,6 @@
             this.buttonListarAgencia = new System.Windows.Forms.Button();
             this.buttonRemoverAgencia = new System.Windows.Forms.Button();
             this.buttonAlterarAgencia = new System.Windows.Forms.Button();
-            this.buttonConsultarAgencia = new System.Windows.Forms.Button();
             this.buttonCriarAgencia = new System.Windows.Forms.Button();
             this.btn_Retornar = new System.Windows.Forms.Button();
             this.lb_TituloAgencias = new System.Windows.Forms.Label();
@@ -372,7 +371,6 @@
             this.p_Content.Controls.Add(this.buttonListarAgencia);
             this.p_Content.Controls.Add(this.buttonRemoverAgencia);
             this.p_Content.Controls.Add(this.buttonAlterarAgencia);
-            this.p_Content.Controls.Add(this.buttonConsultarAgencia);
             this.p_Content.Controls.Add(this.buttonCriarAgencia);
             this.p_Content.Controls.Add(this.btn_Retornar);
             this.p_Content.Controls.Add(this.lb_TituloAgencias);
@@ -387,11 +385,11 @@
             this.buttonListarAgencia.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(191)))), ((int)(((byte)(0)))));
             this.buttonListarAgencia.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonListarAgencia.ForeColor = System.Drawing.Color.OldLace;
-            this.buttonListarAgencia.Location = new System.Drawing.Point(339, 424);
+            this.buttonListarAgencia.Location = new System.Drawing.Point(339, 249);
             this.buttonListarAgencia.Name = "buttonListarAgencia";
             this.buttonListarAgencia.Size = new System.Drawing.Size(215, 45);
             this.buttonListarAgencia.TabIndex = 105;
-            this.buttonListarAgencia.Text = "LISTAR AGÊNCIA";
+            this.buttonListarAgencia.Text = "LISTAR AGÊNCIAS";
             this.buttonListarAgencia.UseVisualStyleBackColor = false;
             this.buttonListarAgencia.Click += new System.EventHandler(this.buttonListarAgencia_Click);
             // 
@@ -404,7 +402,7 @@
             this.buttonRemoverAgencia.Name = "buttonRemoverAgencia";
             this.buttonRemoverAgencia.Size = new System.Drawing.Size(215, 45);
             this.buttonRemoverAgencia.TabIndex = 104;
-            this.buttonRemoverAgencia.Text = "REMOVER AGÊNCIA";
+            this.buttonRemoverAgencia.Text = "REMOVER AGÊNCIAS";
             this.buttonRemoverAgencia.UseVisualStyleBackColor = false;
             this.buttonRemoverAgencia.Click += new System.EventHandler(this.buttonRemoverAgencia_Click);
             // 
@@ -417,20 +415,8 @@
             this.buttonAlterarAgencia.Name = "buttonAlterarAgencia";
             this.buttonAlterarAgencia.Size = new System.Drawing.Size(215, 45);
             this.buttonAlterarAgencia.TabIndex = 103;
-            this.buttonAlterarAgencia.Text = "ALTERAR AGÊNCIA";
+            this.buttonAlterarAgencia.Text = "ALTERAR AGÊNCIAS";
             this.buttonAlterarAgencia.UseVisualStyleBackColor = false;
-            // 
-            // buttonConsultarAgencia
-            // 
-            this.buttonConsultarAgencia.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(191)))), ((int)(((byte)(0)))));
-            this.buttonConsultarAgencia.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonConsultarAgencia.ForeColor = System.Drawing.Color.OldLace;
-            this.buttonConsultarAgencia.Location = new System.Drawing.Point(339, 249);
-            this.buttonConsultarAgencia.Name = "buttonConsultarAgencia";
-            this.buttonConsultarAgencia.Size = new System.Drawing.Size(215, 45);
-            this.buttonConsultarAgencia.TabIndex = 102;
-            this.buttonConsultarAgencia.Text = "CONSULTAR AGÊNCIA";
-            this.buttonConsultarAgencia.UseVisualStyleBackColor = false;
             // 
             // buttonCriarAgencia
             // 
@@ -441,7 +427,7 @@
             this.buttonCriarAgencia.Name = "buttonCriarAgencia";
             this.buttonCriarAgencia.Size = new System.Drawing.Size(215, 45);
             this.buttonCriarAgencia.TabIndex = 101;
-            this.buttonCriarAgencia.Text = "CRIAR AGÊNCIA";
+            this.buttonCriarAgencia.Text = "CRIAR AGÊNCIAS";
             this.buttonCriarAgencia.UseVisualStyleBackColor = false;
             this.buttonCriarAgencia.Click += new System.EventHandler(this.buttonCriarAgencia_Click);
             // 
@@ -544,7 +530,6 @@
         private System.Windows.Forms.Button buttonListarAgencia;
         private System.Windows.Forms.Button buttonRemoverAgencia;
         private System.Windows.Forms.Button buttonAlterarAgencia;
-        private System.Windows.Forms.Button buttonConsultarAgencia;
         private System.Windows.Forms.Button buttonCriarAgencia;
     }
 }
