@@ -13,6 +13,8 @@ namespace SistemaBancario.Views
         public AdicionarCliente()
         {
             InitializeComponent();
+            cb_Status.SelectedItem = "Ativo";
+            cb_TipoCliente.SelectedItem = "Titular Pessoa Física";
         }
 
         //Metodo para adicionar uma linha na tabela Usuario no banco de dados remoto online
@@ -27,7 +29,7 @@ namespace SistemaBancario.Views
 
             if (primeiroNome != "" && sobrenome != "" && cpf != "" && rg != "")
             {
-                if(SistemaBancario.Models.MySQLFunctions.InserirUsuario(primeiroNome, sobrenome, cpf, rg))
+                if (SistemaBancario.Models.MySQLFunctions.InserirUsuario(primeiroNome, sobrenome, cpf, rg))
                 {
                     sucesso = true;
                     MessageBox.Show("USUARIO SUCESSO");
@@ -51,7 +53,7 @@ namespace SistemaBancario.Views
             string cidade = tb_Cidade.Text;
             string estado = cb_Estado.Text;
 
-            if (cep != "" && logradouro != "" && rua != "" && bairro != "" && complemento != "" && cidade != "" && estado != "")
+            if (cep != "" && logradouro != "" && rua != "" && bairro != "" && cidade != "" && estado != "")
             {
                 if (SistemaBancario.Models.MySQLFunctions.InserirEndereco(logradouro, rua, numero, bairro, complemento, cep, cidade, estado))
                 {
@@ -78,9 +80,9 @@ namespace SistemaBancario.Views
             string status = cb_Status.Text;
             string estadoCivil = cb_EstadoCivil.Text;
 
-            if (cpf != "" && cep != "" && email != "" && telefone != "" && celular != "" && dataNascimento != "" && dataCadastro != "" && status != "" && estadoCivil != "")
+            if (cpf != "" && cep != "" && email != "" && celular != "" && dataNascimento != "" && dataCadastro != "" && status != "" && estadoCivil != "")
             {
-                if (SistemaBancario.Models.MySQLFunctions.InserirCliente (dataNascimento,  email,  telefone,  celular, dataCadastro, status, estadoCivil, cep, cpf))
+                if (SistemaBancario.Models.MySQLFunctions.InserirCliente(dataNascimento, email, telefone, celular, dataCadastro, status, estadoCivil, cep, cpf))
                 {
                     sucesso = true;
                 }
@@ -95,26 +97,27 @@ namespace SistemaBancario.Views
 
             if (cb_TipoCliente.Text == "Titular Pessoa Física")
             {
-                if(CriarTitularPessoaFisica())
+                if (CriarTitularPessoaFisica())
                 {
                     sucesso = true;
-                } 
-           
+                }
+
             }
             else if (cb_TipoCliente.Text == "Titular Pessoa Jurídica")
             {
-                if(CriarTitularPessoaJuridica())
+                if (CriarTitularPessoaJuridica())
                 {
                     sucesso = true;
                 }
             }
             else if (cb_TipoCliente.Text == "Dependente")
             {
-                if(CriarDependente())
+                if (CriarDependente())
                 {
                     sucesso = true;
                 }
-            } else
+            }
+            else
             {
                 MessageBox.Show("Tipo de Cliente está incorreto!");
             }
@@ -123,21 +126,22 @@ namespace SistemaBancario.Views
 
         private void btn_Confirmar_Click(object sender, EventArgs e)
         {
-            if (MessageBox.Show("Tem certeza que deseja adicionar este cliente?", "Confirmacao", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes) {
+            if (MessageBox.Show("Tem certeza que deseja adicionar este cliente?", "Confirmacao", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+            {
 
                 //Para criar algum tipo de cliente eh preciso seguir a seguinte ordem
-                if (CriarUsuario())
+                if (CriarUsuario() && CriarEndereco() && CriarCliente())
                 {
-                    if (CriarEndereco())
+                   if (SelecionarTipoCliente())
+                   {
+                        MessageBox.Show("O Cliente foi inserido com sucesso!");
+                   } else
                     {
-                        if (CriarCliente())
-                        {
-                            if(SelecionarTipoCliente())
-                            {
-                                MessageBox.Show("O Cliente foi inserido com sucesso!");
-                            }
-                        }
+                        MessageBox.Show("Não foi possível criar o cliente.");
                     }
+                } else
+                {
+                    MessageBox.Show("Não foi possível criar o cliente.");
                 }
             }
         }
@@ -146,16 +150,24 @@ namespace SistemaBancario.Views
         {
             bool sucesso = false;
 
-            string cpf = tb_CpfCliente.Text;
+            string email = tb_Email.Text;
             string profissao = tb_Profissao.Text;
-            Decimal rendaMensal = Decimal.Parse(tb_RendaMensal.Text);
+            string textoRendaMensal = tb_RendaMensal.Text;
 
-            if (profissao != "" && cpf != "")
+            if (textoRendaMensal != "")
             {
-                if (SistemaBancario.Models.MySQLFunctions.InserirTitularPessoaFisica(profissao, rendaMensal, cpf))
+                Decimal rendaMensal = Decimal.Parse(textoRendaMensal);
+
+                if (profissao != "" && email != "")
                 {
-                    sucesso = true;
+                    if (SistemaBancario.Models.MySQLFunctions.InserirTitularPessoaFisica(profissao, rendaMensal, email))
+                    {
+                        sucesso = true;
+                    }
                 }
+            } else
+            {
+                MessageBox.Show("Renda Mensal inválida!");
             }
 
             return sucesso;
@@ -169,56 +181,6 @@ namespace SistemaBancario.Views
         private Boolean CriarDependente()
         {
             return false;
-        }
-
-        private void lb_TipoCliente_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void lb_TitularAssociado_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void cb_TipoCliente_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void tb_CpfTitularAssociado_TextChanged(object sender, EventArgs e)
-        {
-_
-        }
-
-        private void label1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void tb_CpfCliente_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void tb_RgCliente_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void cb_EstadoCivil_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void lb_DataNascimento_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void dtp_DataNascimento_ValueChanged(object sender, EventArgs e)
-        {
-
         }
     }
 }

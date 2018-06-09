@@ -133,7 +133,7 @@ namespace SistemaBancario.Models
                 if (connection.State == ConnectionState.Closed)
                     connection.Open();
                 MySqlCommand inserirTitularPessoaFisica = new MySqlCommand(
-                    "INSERT INTO PessoaFisica(profissao, rendaMensal, id_cliente) VALUES(@profissao, @rendaMensal, (SELECT Cliente.id FROM PessoaFisica, Cliente WHERE PessoaFisica.id_cliente = Cliente.id AND Cliente.email = @email))", connection);
+                    "INSERT INTO PessoaFisica(profissao, rendaMensal, id_cliente) VALUES(@profissao, @rendaMensal, (SELECT id FROM Cliente WHERE email = @email))", connection);
 
                 inserirTitularPessoaFisica.Parameters.AddWithValue("@profissao", profissao);
                 inserirTitularPessoaFisica.Parameters.AddWithValue("@rendaMensal", rendaMensal);
