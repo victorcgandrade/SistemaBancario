@@ -19,66 +19,40 @@ namespace Main
             InitializeComponent();
             cmbBoxTipoUser.Items.Add("Administrador");
             cmbBoxTipoUser.Items.Add("Cliente");
-
-
-
         }
 
         private bool ChecaLogin()
         {
-            string treatment = "Sem alteração";
-            string treatment2 = "Sem alteração";
-            try
+            bool sucessoCliente = false;
+            bool sucessoAdministrador = false;
+
+            if (cmbBoxTipoUser.SelectedItem == "Cliente")
             {
 
 
-                if (cmbBoxTipoUser.SelectedItem == "Cliente")
+                string agencia = txtBoxAgencia.Text;
+                string conta = txtBoxConta.Text;
+                if (agencia != "" && conta != "")
                 {
-                    using (MySqlConnection connection = new MySqlConnection("SERVER=db4free.net;PORT=3306;DATABASE=sistemabancario;UID=bancario;PWD=sb100001"))
+                    if (SistemaBancario.Models.MySQLFunctions.SelecionarCliente(agencia, conta))
                     {
-                        connection.Open();
-                        MySqlCommand command = new MySqlCommand("SELECT Conta.id, Agencia.id FROM Conta JOIN Agencia ON Conta.id_agencia = Agencia.id AND Conta.numero= @conta AND Agencia.numero= @agencia;", connection);
-                        command.Parameters.AddWithValue("@conta", txtBoxConta.Text);
-                        command.Parameters.AddWithValue("@agencia", txtBoxAgencia.Text);
-                        using (MySqlDataReader reader = command.ExecuteReader())
-                        {
-                            while (reader.Read())
-                            {
-                                treatment = reader[0].ToString();
-
-                            }
-                            reader.Close();
-                        }
-                        connection.Close();
-                    }
-                }
-                else
-                {
-                    using (MySqlConnection connection = new MySqlConnection("SERVER=db4free.net;PORT=3306;DATABASE=sistemabancario;UID=bancario;PWD=sb100001"))
-                    {
-                        connection.Open();
-                        MySqlCommand command = new MySqlCommand("SELECT Administrador.login FROM Administrador WHERE login = @login AND senha=@senha;", connection);
-                        command.Parameters.AddWithValue("@login", txtBoxLogin.Text);
-                        command.Parameters.AddWithValue("@senha", txtBoxSenha.Text);
-                        using (MySqlDataReader reader = command.ExecuteReader())
-                        {
-                            while (reader.Read())
-                            {
-                                treatment2 = reader[0].ToString();
-
-                            }
-                            reader.Close();
-                        }
-                        connection.Close();
+                        sucessoCliente = true;
                     }
                 }
             }
-
-            catch (MySqlException ex)
+            else
             {
-                Console.WriteLine(ex.ToString());
+                string login = txtBoxLogin.Text;
+                string senha = txtBoxSenha.Text;
+                if (login != "" && senha != "")
+                {
+                    if (SistemaBancario.Models.MySQLFunctions.SelecionarAdministrador(login, senha))
+                    {
+                        sucessoAdministrador = true;
+                    }
+                }
             }
-            if (treatment.Equals("Sem alteração") && treatment2.Equals("Sem alteração"))
+            if (sucessoCliente == false && sucessoAdministrador == false)
             {
                 MessageBox.Show("Dados inválidos");
                 return false;
@@ -101,27 +75,25 @@ namespace Main
                 }
                 return true;
             }
-
-
         }
 
-        private void cmbBoxTipoUser_SelectedIndexChanged_1(object sender, EventArgs e)
-        {
-            if (cmbBoxTipoUser.SelectedItem.Equals("Administrador"))
+            private void cmbBoxTipoUser_SelectedIndexChanged_1(object sender, EventArgs e)
             {
-                tlpDadosAdm.Visible = true;
-                tlpDadosCliente.Visible = false;
+                if (cmbBoxTipoUser.SelectedItem.Equals("Administrador"))
+                {
+                    tlpDadosAdm.Visible = true;
+                    tlpDadosCliente.Visible = false;
+                }
+                else if (cmbBoxTipoUser.SelectedItem.Equals("Cliente"))
+                {
+                    tlpDadosAdm.Visible = false;
+                    tlpDadosCliente.Visible = true;
+                }
             }
-            else if (cmbBoxTipoUser.SelectedItem.Equals("Cliente"))
-            {
-                tlpDadosAdm.Visible = false;
-                tlpDadosCliente.Visible = true;
-            }
-        }
 
-        private void btnAcessar_Click_1(object sender, EventArgs e)
-        {
-            ChecaLogin();
+            private void btnAcessar_Click_1(object sender, EventArgs e)
+            {
+                ChecaLogin();
+            }
         }
     }
-}

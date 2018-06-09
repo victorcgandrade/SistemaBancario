@@ -87,6 +87,7 @@
             this.btn_Sair.TabIndex = 0;
             this.btn_Sair.Text = "Sair";
             this.btn_Sair.UseVisualStyleBackColor = false;
+            this.btn_Sair.Click += new System.EventHandler(this.btn_Sair_Click);
             // 
             // lb_LoginAdmin
             // 
@@ -263,7 +264,7 @@
             this.lb_Versao.ForeColor = System.Drawing.SystemColors.ButtonFace;
             this.lb_Versao.Location = new System.Drawing.Point(11, 6);
             this.lb_Versao.Name = "lb_Versao";
-            this.lb_Versao.Size = new System.Drawing.Size(63, 15);
+            this.lb_Versao.Size = new System.Drawing.Size(66, 15);
             this.lb_Versao.TabIndex = 3;
             this.lb_Versao.Text = "Versão 0.1 ";
             // 
@@ -274,7 +275,7 @@
             this.lb_DataHoraAtual.ForeColor = System.Drawing.SystemColors.ButtonFace;
             this.lb_DataHoraAtual.Location = new System.Drawing.Point(74, 6);
             this.lb_DataHoraAtual.Name = "lb_DataHoraAtual";
-            this.lb_DataHoraAtual.Size = new System.Drawing.Size(106, 15);
+            this.lb_DataHoraAtual.Size = new System.Drawing.Size(110, 15);
             this.lb_DataHoraAtual.TabIndex = 1;
             this.lb_DataHoraAtual.Text = "22/05/2018 12:55 ";
             // 
@@ -309,7 +310,7 @@
             this.Controls.Add(this.p_SideMenu);
             this.Controls.Add(this.p_Header);
             this.Name = "TemplateInicialAdministrador";
-            this.Text = "TemplateTelaAdministrador";
+            this.Text = "Gerenciar Administrador";
             this.p_Footer.ResumeLayout(false);
             this.p_Footer.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pb_IconeUsuario)).EndInit();

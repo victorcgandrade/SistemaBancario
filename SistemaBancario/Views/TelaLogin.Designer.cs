@@ -280,7 +280,7 @@ namespace Main
         private System.Windows.Forms.Label lblIdentificacao;
         private System.Windows.Forms.ComboBox cmbBoxTipoUser;
         private System.Windows.Forms.TableLayoutPanel tlpDadosAdm;
-        private System.Windows.Forms.TextBox txtBoxLogin;
+        public System.Windows.Forms.TextBox txtBoxLogin;
         private System.Windows.Forms.TextBox txtBoxSenha;
         private System.Windows.Forms.Button btnAcessar;
         private System.Windows.Forms.Panel pnlDadosUser;

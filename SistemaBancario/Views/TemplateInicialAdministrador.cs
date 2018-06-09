@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Main;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -30,6 +31,17 @@ namespace SistemaBancario.Views
         private void p_Content_Paint(object sender, PaintEventArgs e)
         {
 
+        }
+
+        private void btn_Sair_Click(object sender, EventArgs e)
+        {
+            DialogResult res = MessageBox.Show("Tem certeza que deseja sair?", "Confirmação", MessageBoxButtons.OKCancel, MessageBoxIcon.Information);
+            if(res.Equals(DialogResult.OK))
+            {
+                this.Hide();
+                TelaLogin tl = new TelaLogin();
+                tl.Show();
+            }
         }
     }
 }
