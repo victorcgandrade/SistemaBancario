@@ -16,5 +16,20 @@ namespace SistemaBancario.Views
         {
             InitializeComponent();
         }
+
+        private void pb_IconeAgencias_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void pictureBox1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void p_Content_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
     }
 }
