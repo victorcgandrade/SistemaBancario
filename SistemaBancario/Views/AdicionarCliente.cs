@@ -15,27 +15,6 @@ namespace SistemaBancario.Views
             InitializeComponent();
         }
 
-        //------------------------Simulacao de Placeholder para textbox
-        private void tb_PrimeiroNome_Enter(object sender, EventArgs e)
-        {
-            if (tb_PrimeiroNome.Text == "Primeiro Nome")
-            {
-                tb_PrimeiroNome.Text = "";
-                tb_PrimeiroNome.ForeColor = Color.Black;
-            }
-        }
-
-        private void tb_PrimeiroNome_Leave(object sender, EventArgs e)
-        {
-            if (tb_PrimeiroNome.Text == "")
-            {
-                tb_PrimeiroNome.Text = "Primeiro Nome";
-                tb_PrimeiroNome.ForeColor = System.Drawing.SystemColors.AppWorkspace;
-            }
-        }
-        //Simulacao de Placeholder para textbox------------------------
-
-
         //Metodo para adicionar uma linha na tabela Usuario no banco de dados remoto online
         private Boolean CriarUsuario()
         {
@@ -190,6 +169,56 @@ namespace SistemaBancario.Views
         private Boolean CriarDependente()
         {
             return false;
+        }
+
+        private void lb_TipoCliente_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void lb_TitularAssociado_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void cb_TipoCliente_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void tb_CpfTitularAssociado_TextChanged(object sender, EventArgs e)
+        {
+_
+        }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void tb_CpfCliente_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void tb_RgCliente_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void cb_EstadoCivil_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void lb_DataNascimento_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void dtp_DataNascimento_ValueChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }
