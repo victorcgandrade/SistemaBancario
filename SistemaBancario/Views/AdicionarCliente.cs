@@ -5,6 +5,7 @@ using System.Data;
 using System.Drawing;
 using System.Text;
 using System.Windows.Forms;
+using SistemaBancario.Models;
 
 namespace SistemaBancario.Views
 {
@@ -31,7 +32,7 @@ namespace SistemaBancario.Views
 
             if (primeiroNome != "" && sobrenome != "" && cpf != "" && rg != "")
             {
-                if (SistemaBancario.Models.MySQLFunctions.InserirUsuario(primeiroNome, sobrenome, cpf, rg))
+                if (MySQLFunctions.InserirUsuario(primeiroNome, sobrenome, cpf, rg))
                 {
                     sucesso = true;
                 }
@@ -56,7 +57,7 @@ namespace SistemaBancario.Views
 
             if (cep != "" && logradouro != "" && rua != "" && bairro != "" && cidade != "" && estado != "")
             {
-                if (SistemaBancario.Models.MySQLFunctions.InserirEndereco(logradouro, rua, numero, bairro, complemento, cep, cidade, estado))
+                if (MySQLFunctions.InserirEndereco(logradouro, rua, numero, bairro, complemento, cep, cidade, estado))
                 {
                     sucesso = true;
                 }
@@ -82,7 +83,7 @@ namespace SistemaBancario.Views
 
             if (cpf != "" && cep != "" && email != "" && celular != "" && dataNascimento != "" && dataCadastro != "" && status != "" && estadoCivil != "")
             {
-                if (SistemaBancario.Models.MySQLFunctions.InserirCliente(dataNascimento, email, telefone, celular, dataCadastro, status, estadoCivil, cep, cpf))
+                if (MySQLFunctions.InserirCliente(dataNascimento, email, telefone, celular, dataCadastro, status, estadoCivil, cep, cpf))
                 {
                     sucesso = true;
                 }
@@ -106,7 +107,7 @@ namespace SistemaBancario.Views
 
                 if (profissao != "" && email != "")
                 {
-                    if (SistemaBancario.Models.MySQLFunctions.InserirTitularPessoaFisica(profissao, rendaMensal, email))
+                    if (MySQLFunctions.InserirTitularPessoaFisica(profissao, rendaMensal, email))
                     {
                         sucesso = true;
                     }
@@ -131,7 +132,7 @@ namespace SistemaBancario.Views
 
             if (razaoSocial != "" && cnpj != "" && tipoPessoaJuridica != "")
             {
-                if (SistemaBancario.Models.MySQLFunctions.InserirTitularPessoaJuridica(cnpj, razaoSocial, tipoPessoaJuridica, email))
+                if (MySQLFunctions.InserirTitularPessoaJuridica(cnpj, razaoSocial, tipoPessoaJuridica, email))
                 {
                     sucesso = true;
                 }

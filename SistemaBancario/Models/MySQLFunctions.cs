@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Data;
 using MySql.Data.MySqlClient;
+using System.Windows.Forms;
 
 namespace SistemaBancario.Models
 {
@@ -176,6 +177,91 @@ namespace SistemaBancario.Models
 
                 inserirTitularPessoaJuridica.ExecuteNonQuery();
                 inserirTitularPessoaJuridica.Parameters.Clear();
+
+                sucesso = true;
+            }
+            catch (MySqlException exception)
+            {
+                sucesso = false;
+                Console.WriteLine(exception.ToString());
+            }
+            finally
+            {
+                connection.Close();
+            }
+
+            return sucesso;
+        }
+
+        //Exibir resultado da busca por um cliente
+        static public Boolean BuscarCliente(DataGridView dataGridView, string cpf)
+        {
+            bool sucesso;
+
+            try
+            {
+                if (connection.State == ConnectionState.Closed)
+                    connection.Open();
+                MySqlCommand buscarCliente = new MySqlCommand("SELECT Cliente.id, Usuario.primeiroNome, data_nascimento, estado_cliente FROM Cliente, Usuario WHERE Usuario.cpf = @cpf AND Cliente.id_usuario = Usuario.id", connection);
+                buscarCliente.Parameters.AddWithValue("@cpf", cpf);
+
+
+                MySqlDataAdapter dataAdapter = new MySqlDataAdapter(buscarCliente);
+                DataTable dataTable = new DataTable();
+                dataAdapter.Fill(dataTable);
+                dataGridView.DataSource = dataTable;
+
+                sucesso = true;
+            }
+            catch (MySqlException exception)
+            {
+                sucesso = false;
+                Console.WriteLine(exception.ToString());
+            }
+            finally
+            {
+                connection.Close();
+            }
+
+            return sucesso;
+        }
+
+        //Exibir clientes cadastrados no banco de dados
+        static public void ListarCliente(DataGridView dataGridView)
+        {
+            try
+            {
+                if (connection.State == ConnectionState.Closed)
+                    connection.Open();
+                MySqlDataAdapter dataAdapter = new MySqlDataAdapter("SELECT Cliente.id, Usuario.primeiroNome, data_nascimento, estado_cliente FROM Cliente, Usuario WHERE Cliente.id_usuario = Usuario.id", connection);
+                DataTable dataTable = new DataTable();
+                dataAdapter.Fill(dataTable);
+                dataGridView.DataSource = dataTable;
+            }
+            catch (MySqlException exception)
+            {
+                Console.WriteLine(exception.ToString());
+            }
+            finally
+            {
+                connection.Close();
+            }
+        }
+
+        //Remover um determinado cliente
+        static public Boolean RemoverCliente(string cpf)
+        {
+            bool sucesso;
+
+            try
+            {
+                if (connection.State == ConnectionState.Closed)
+                    connection.Open();
+                MySqlCommand removerCliente = new MySqlCommand("DELETE FROM Usuario WHERE cpf = @cpf", connection);
+                removerCliente.Parameters.AddWithValue("@cpf", cpf);
+
+                removerCliente.ExecuteNonQuery();
+                removerCliente.Parameters.Clear();
 
                 sucesso = true;
             }
