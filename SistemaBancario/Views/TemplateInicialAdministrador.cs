@@ -11,7 +11,7 @@ using System.Windows.Forms;
 
 namespace SistemaBancario.Views
 {
-    public partial class TemplateInicialAdministrador : Form
+    public partial class TemplateInicialAdministrador : SistemaBancarioTela
     {
         public TemplateInicialAdministrador()
         {
@@ -35,13 +35,8 @@ namespace SistemaBancario.Views
 
         private void btn_Sair_Click(object sender, EventArgs e)
         {
-            DialogResult res = MessageBox.Show("Tem certeza que deseja sair?", "Confirmação", MessageBoxButtons.OKCancel, MessageBoxIcon.Information);
-            if(res.Equals(DialogResult.OK))
-            {
-                this.Hide();
-                TelaLogin tl = new TelaLogin();
-                tl.Show();
-            }
+            SairUsuario(this);
+
         }
     }
 }
