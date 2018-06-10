@@ -202,7 +202,6 @@
             this.cb_TipoPessoaJuridica.Size = new System.Drawing.Size(145, 21);
             this.cb_TipoPessoaJuridica.TabIndex = 83;
             this.cb_TipoPessoaJuridica.Text = "Tipo de Pessoa Jurídica";
-            this.cb_TipoPessoaJuridica.Visible = false;
             // 
             // tb_RazaoSocial
             // 
@@ -212,7 +211,6 @@
             this.tb_RazaoSocial.Name = "tb_RazaoSocial";
             this.tb_RazaoSocial.Size = new System.Drawing.Size(371, 22);
             this.tb_RazaoSocial.TabIndex = 82;
-            this.tb_RazaoSocial.Visible = false;
             // 
             // tb_Cnpj
             // 
@@ -222,7 +220,6 @@
             this.tb_Cnpj.Name = "tb_Cnpj";
             this.tb_Cnpj.Size = new System.Drawing.Size(220, 22);
             this.tb_Cnpj.TabIndex = 81;
-            this.tb_Cnpj.Visible = false;
             // 
             // lb_TitularAssociado
             // 
@@ -234,7 +231,6 @@
             this.lb_TitularAssociado.Size = new System.Drawing.Size(125, 17);
             this.lb_TitularAssociado.TabIndex = 80;
             this.lb_TitularAssociado.Text = "Titular Responsável";
-            this.lb_TitularAssociado.Visible = false;
             // 
             // tb_CpfTitularAssociado
             // 
@@ -244,7 +240,6 @@
             this.tb_CpfTitularAssociado.Name = "tb_CpfTitularAssociado";
             this.tb_CpfTitularAssociado.Size = new System.Drawing.Size(134, 22);
             this.tb_CpfTitularAssociado.TabIndex = 79;
-            this.tb_CpfTitularAssociado.Visible = false;
             // 
             // lb_InformacaoJuridica
             // 
@@ -256,7 +251,6 @@
             this.lb_InformacaoJuridica.Size = new System.Drawing.Size(126, 17);
             this.lb_InformacaoJuridica.TabIndex = 78;
             this.lb_InformacaoJuridica.Text = "Informação Jurídica";
-            this.lb_InformacaoJuridica.Visible = false;
             // 
             // lb_TituloAdicionarCliente
             // 
@@ -318,6 +312,7 @@
             this.cb_TipoCliente.Name = "cb_TipoCliente";
             this.cb_TipoCliente.Size = new System.Drawing.Size(165, 21);
             this.cb_TipoCliente.TabIndex = 73;
+            this.cb_TipoCliente.SelectedValueChanged += new System.EventHandler(this.cb_TipoCliente_SelectedValueChanged);
             // 
             // dtp_DataCadastro
             // 
@@ -657,7 +652,6 @@
             this.lb_CpfResponsavel.Size = new System.Drawing.Size(123, 13);
             this.lb_CpfResponsavel.TabIndex = 89;
             this.lb_CpfResponsavel.Text = "CPF (apenas números):";
-            this.lb_CpfResponsavel.Visible = false;
             // 
             // lb_Cpf
             // 
@@ -719,7 +713,7 @@
             this.lb_Profissao.AutoSize = true;
             this.lb_Profissao.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lb_Profissao.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.lb_Profissao.Location = new System.Drawing.Point(138, 546);
+            this.lb_Profissao.Location = new System.Drawing.Point(135, 546);
             this.lb_Profissao.Name = "lb_Profissao";
             this.lb_Profissao.Size = new System.Drawing.Size(83, 13);
             this.lb_Profissao.TabIndex = 94;
@@ -812,7 +806,6 @@
             this.lb_RazaoSocial.Size = new System.Drawing.Size(73, 13);
             this.lb_RazaoSocial.TabIndex = 102;
             this.lb_RazaoSocial.Text = "Razão social:";
-            this.lb_RazaoSocial.Visible = false;
             // 
             // lb_Cnpj
             // 
@@ -824,7 +817,6 @@
             this.lb_Cnpj.Size = new System.Drawing.Size(128, 13);
             this.lb_Cnpj.TabIndex = 103;
             this.lb_Cnpj.Text = "CNPJ (apenas números):";
-            this.lb_Cnpj.Visible = false;
             // 
             // AdicionarCliente
             // 

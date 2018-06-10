@@ -13,6 +13,8 @@ namespace SistemaBancario.Views
         public AdicionarCliente()
         {
             InitializeComponent();
+            
+            //Valores das comboboxes abaixo ja selecionados
             cb_Status.SelectedItem = "Ativo";
             cb_TipoCliente.SelectedItem = "Titular Pessoa Física";
         }
@@ -32,7 +34,6 @@ namespace SistemaBancario.Views
                 if (SistemaBancario.Models.MySQLFunctions.InserirUsuario(primeiroNome, sobrenome, cpf, rg))
                 {
                     sucesso = true;
-                    MessageBox.Show("USUARIO SUCESSO");
                 }
             }
 
@@ -58,7 +59,6 @@ namespace SistemaBancario.Views
                 if (SistemaBancario.Models.MySQLFunctions.InserirEndereco(logradouro, rua, numero, bairro, complemento, cep, cidade, estado))
                 {
                     sucesso = true;
-                    MessageBox.Show("ENDERECO SUCESSO");
                 }
             }
 
@@ -70,8 +70,8 @@ namespace SistemaBancario.Views
         {
             bool sucesso = false;
 
-            string cpf = tb_CpfCliente.Text;
-            string cep = tb_Cep.Text;
+            string cpf = tb_CpfCliente.Text; //para poder recuperar o id deste Usuario
+            string cep = tb_Cep.Text; //para poder recuperar o id do Endereco deste cliente
             string email = tb_Email.Text;
             string telefone = tb_Telefone.Text;
             string celular = tb_Celular.Text;
@@ -91,6 +91,61 @@ namespace SistemaBancario.Views
             return sucesso;
         }
 
+        //Metodo para adicionar uma linha na tabela PessoaFisica no banco de dados remoto online
+        private Boolean CriarTitularPessoaFisica()
+        {
+            bool sucesso = false;
+
+            string email = tb_Email.Text; //para poder recuperar o id deste cliente
+            string profissao = tb_Profissao.Text;
+            string textoRendaMensal = tb_RendaMensal.Text;
+
+            if (textoRendaMensal != "")
+            {
+                Decimal rendaMensal = Decimal.Parse(textoRendaMensal);
+
+                if (profissao != "" && email != "")
+                {
+                    if (SistemaBancario.Models.MySQLFunctions.InserirTitularPessoaFisica(profissao, rendaMensal, email))
+                    {
+                        sucesso = true;
+                    }
+                }
+            } else
+            {
+                MessageBox.Show("Renda Mensal inválida!");
+            }
+
+            return sucesso;
+        }
+
+        //Metodo para adicionar uma linha na tabela PessoaJuridica no banco de dados remoto online
+        private Boolean CriarTitularPessoaJuridica()
+        {
+            bool sucesso = false;
+
+            string email = tb_Email.Text; //para poder recuperar o id deste cliente
+            string cnpj = tb_Cnpj.Text;
+            string razaoSocial = tb_RazaoSocial.Text;
+            string tipoPessoaJuridica = cb_TipoPessoaJuridica.Text;
+
+            if (razaoSocial != "" && cnpj != "" && tipoPessoaJuridica != "")
+            {
+                if (SistemaBancario.Models.MySQLFunctions.InserirTitularPessoaJuridica(cnpj, razaoSocial, tipoPessoaJuridica, email))
+                {
+                    sucesso = true;
+                }
+            }
+            return sucesso;
+        }
+
+        //Metodo para adicionar uma linha na tabela Dependente no banco de dados remoto online
+        private Boolean CriarDependente()
+        {
+            return false;
+        }
+
+        //Metodo para redirecionar para as funcoes que criam os diferentes tipos de cliente
         private Boolean SelecionarTipoCliente()
         {
             bool sucesso = false;
@@ -124,6 +179,7 @@ namespace SistemaBancario.Views
             return sucesso;
         }
 
+        //Botao confirmar ao ser clicado
         private void btn_Confirmar_Click(object sender, EventArgs e)
         {
             if (MessageBox.Show("Tem certeza que deseja adicionar este cliente?", "Confirmacao", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
@@ -132,55 +188,93 @@ namespace SistemaBancario.Views
                 //Para criar algum tipo de cliente eh preciso seguir a seguinte ordem
                 if (CriarUsuario() && CriarEndereco() && CriarCliente())
                 {
-                   if (SelecionarTipoCliente())
-                   {
+                    if (SelecionarTipoCliente())
+                    {
                         MessageBox.Show("O Cliente foi inserido com sucesso!");
-                   } else
+                    }
+                    else
                     {
                         MessageBox.Show("Não foi possível criar o cliente.");
                     }
-                } else
+                }
+                else
                 {
                     MessageBox.Show("Não foi possível criar o cliente.");
                 }
             }
         }
 
-        private Boolean CriarTitularPessoaFisica()
+        //Metodo para 'esconder' partes da tela de acordo com o tipo de cliente
+        private void cb_TipoCliente_SelectedValueChanged(object sender, EventArgs e)
         {
-            bool sucesso = false;
-
-            string email = tb_Email.Text;
-            string profissao = tb_Profissao.Text;
-            string textoRendaMensal = tb_RendaMensal.Text;
-
-            if (textoRendaMensal != "")
+            if (cb_TipoCliente.Text == "Titular Pessoa Física")
             {
-                Decimal rendaMensal = Decimal.Parse(textoRendaMensal);
+                //Parte de dependente escondido
+                lb_TitularAssociado.Visible = false;
+                lb_CpfResponsavel.Visible = false;
+                tb_CpfTitularAssociado.Visible = false;
 
-                if (profissao != "" && email != "")
-                {
-                    if (SistemaBancario.Models.MySQLFunctions.InserirTitularPessoaFisica(profissao, rendaMensal, email))
-                    {
-                        sucesso = true;
-                    }
-                }
-            } else
-            {
-                MessageBox.Show("Renda Mensal inválida!");
+                //Parte de pessoa juridica escondido
+                lb_InformacaoJuridica.Visible = false;
+                lb_RazaoSocial.Visible = false;
+                tb_RazaoSocial.Visible = false;
+                lb_Cnpj.Visible = false;
+                tb_Cnpj.Visible = false;
+                cb_TipoPessoaJuridica.Visible = false;
+
+                //Parte de pessoa fisica visivel
+                lb_InformacaoEconomica.Visible = true;
+                lb_Profissao.Visible = true;
+                tb_Profissao.Visible = true;
+                lb_RendaMensal.Visible = true;
+                tb_RendaMensal.Visible = true;
+
             }
+            else if (cb_TipoCliente.Text == "Titular Pessoa Jurídica")
+            {
+                //Parte de dependente escondido
+                lb_TitularAssociado.Visible = false;
+                lb_CpfResponsavel.Visible = false;
+                tb_CpfTitularAssociado.Visible = false;
 
-            return sucesso;
-        }
+                //Parte de pessoa fisica escondido
+                lb_InformacaoEconomica.Visible = false;
+                lb_Profissao.Visible = false;
+                tb_Profissao.Visible = false;
+                lb_RendaMensal.Visible = false;
+                tb_RendaMensal.Visible = false;
 
-        private Boolean CriarTitularPessoaJuridica()
-        {
-            return false;
-        }
+                //Parte de pessoa juridica visivel 
+                lb_InformacaoJuridica.Visible = true;
+                lb_RazaoSocial.Visible = true;
+                tb_RazaoSocial.Visible = true;
+                lb_Cnpj.Visible = true;
+                tb_Cnpj.Visible = true;
+                cb_TipoPessoaJuridica.Visible = true;
 
-        private Boolean CriarDependente()
-        {
-            return false;
+            }
+            else if (cb_TipoCliente.Text == "Dependente")
+            {
+                //Parte de pessoa fisica escondido
+                lb_InformacaoEconomica.Visible = false;
+                lb_Profissao.Visible = false;
+                tb_Profissao.Visible = false;
+                lb_RendaMensal.Visible = false;
+                tb_RendaMensal.Visible = false;
+
+                //Parte de pessoa juridico escondido
+                lb_InformacaoJuridica.Visible = false;
+                lb_RazaoSocial.Visible = false;
+                tb_RazaoSocial.Visible = false;
+                lb_Cnpj.Visible = false;
+                tb_Cnpj.Visible = false;
+                cb_TipoPessoaJuridica.Visible = false;
+
+                //Parte de dependente visivel
+                lb_TitularAssociado.Visible = true;
+                lb_CpfResponsavel.Visible = true;
+                tb_CpfTitularAssociado.Visible = true;
+            }
         }
     }
 }

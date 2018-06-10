@@ -156,6 +156,41 @@ namespace SistemaBancario.Models
 
             return sucesso;
         }
-      
+
+        //Criar novo Titular Pessoa Juridica
+        static public Boolean InserirTitularPessoaJuridica(string cnpj, string razaoSocial, string tipoPessoaJuridica, string email)
+        {
+            Boolean sucesso;
+
+            try
+            {
+                if (connection.State == ConnectionState.Closed)
+                    connection.Open();
+                MySqlCommand inserirTitularPessoaJuridica = new MySqlCommand(
+                    "INSERT INTO PessoaJuridica(cnpj, razaoSocial, tipo, id_cliente) VALUES(@cnpj, @razaoSocial, @tipo, (SELECT id FROM Cliente WHERE email = @email))", connection);
+
+                inserirTitularPessoaJuridica.Parameters.AddWithValue("@cnpj", cnpj);
+                inserirTitularPessoaJuridica.Parameters.AddWithValue("@razaoSocial", razaoSocial);
+                inserirTitularPessoaJuridica.Parameters.AddWithValue("@tipo", tipoPessoaJuridica);
+                inserirTitularPessoaJuridica.Parameters.AddWithValue("@email", email);
+
+                inserirTitularPessoaJuridica.ExecuteNonQuery();
+                inserirTitularPessoaJuridica.Parameters.Clear();
+
+                sucesso = true;
+            }
+            catch (MySqlException exception)
+            {
+                sucesso = false;
+                Console.WriteLine(exception.ToString());
+            }
+            finally
+            {
+                connection.Close();
+            }
+
+            return sucesso;
+        }
+
     }
 }
