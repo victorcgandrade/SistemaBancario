@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Data;
 using MySql.Data.MySqlClient;
+using Main;
 
 namespace SistemaBancario.Models
 {
@@ -12,6 +13,7 @@ namespace SistemaBancario.Models
     {
         //Conexa com o banco de dados remoto online
         static private MySqlConnection connection = new MySqlConnection("SERVER=db4free.net;PORT=3306;DATABASE=sistemabancario;UID=bancario;PWD=sb100001;");
+        static string treatment = "Sem alteração";
 
         //Criar novo usuario no banco de dados
         static public Boolean InserirUsuario(string primeiroNome, string sobrenome, string cpf, string rg)
@@ -21,7 +23,7 @@ namespace SistemaBancario.Models
             try
             {
                 if (connection.State == ConnectionState.Closed)
-                connection.Open();
+                    connection.Open();
                 MySqlCommand inserirUsuario = new MySqlCommand("INSERT INTO Usuario(primeiroNome, sobrenome, cpf, rg) VALUES(@primeiroNome, @sobrenome, @cpf, @rg)", connection);
                 inserirUsuario.Parameters.AddWithValue("@primeiroNome", primeiroNome);
                 inserirUsuario.Parameters.AddWithValue("@sobrenome", sobrenome);
@@ -152,6 +154,71 @@ namespace SistemaBancario.Models
 
             return sucesso;
         }
-      
-    }
+        static public bool SelecionarCliente(string agencia, string conta)
+        {
+            bool sucesso = false;
+            try
+            {
+                connection.Open();
+                MySqlCommand command = new MySqlCommand("SELECT Conta.id, Agencia.id FROM Conta JOIN Agencia ON Conta.id_agencia = Agencia.id AND Conta.numero= @conta AND Agencia.numero= @agencia;", connection);
+                command.Parameters.AddWithValue("@conta", agencia);
+                command.Parameters.AddWithValue("@agencia", conta);
+                using (MySqlDataReader reader = command.ExecuteReader())
+                {
+                    while (reader.Read())
+                    {
+                        treatment = reader[0].ToString();
+
+                    }
+                    reader.Close();
+                    if (treatment != "Sem alteração") sucesso = true;
+                    else sucesso = false;
+                }
+            }
+            catch (MySqlException exception)
+            {
+                sucesso = false;
+                Console.WriteLine(exception.ToString());
+            }
+            finally
+            {
+                connection.Close();
+            }
+            return sucesso;
+        }
+        static public bool SelecionarAdministrador(string login, string senha)
+        {
+            bool sucesso = false;
+            try
+            {
+                connection.Open();
+                MySqlCommand command = new MySqlCommand("SELECT Administrador.login FROM Administrador WHERE login = @login AND senha=@senha;", connection);
+                command.Parameters.AddWithValue("@login", login);
+                command.Parameters.AddWithValue("@senha", senha);
+                using (MySqlDataReader reader = command.ExecuteReader())
+                {
+                    while (reader.Read())
+                    {
+                        treatment = reader[0].ToString();
+                    }
+                    reader.Close();
+                    if (treatment != "Sem alteração") sucesso = true;
+                    else sucesso = false;
+                }
+                connection.Close();
+            
+            }
+            catch (MySqlException exception)
+            {
+                sucesso = false;
+                Console.WriteLine(exception.ToString());
+            }
+            finally
+            {
+                connection.Close();
+            }
+            return sucesso;
+
+        }
+}
 }
