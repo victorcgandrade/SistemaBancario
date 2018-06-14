@@ -35,9 +35,7 @@ namespace SistemaBancario.Views
 
         private void button_CarregarAgencia_Click(object sender, EventArgs e)
         {
-            SistemaBancario.Models.MySQLFunctions.CarregarAgencia(Convert.ToInt16(textBox_identificadorAgencia.Text), 
-                textBox_NumeroAgencia,textBox_Cep, comboBox_Estado, textBox_Cidade, textBox_Bairro, textBox_Logradouro,
-                textBox_Rua, textBox_Complemento, textBox_Numero);
+            
         }
     }
 }

@@ -417,6 +417,7 @@
             this.buttonAlterarAgencia.TabIndex = 103;
             this.buttonAlterarAgencia.Text = "ALTERAR AGÊNCIAS";
             this.buttonAlterarAgencia.UseVisualStyleBackColor = false;
+            this.buttonAlterarAgencia.Click += new System.EventHandler(this.buttonAlterarAgencia_Click);
             // 
             // buttonCriarAgencia
             // 

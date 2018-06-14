@@ -47,13 +47,6 @@ namespace SistemaBancario.Models
             return sucesso;
         }
 
-        static void CarregarAgencia(int id, TextBox numeroAgencia, TextBox cep, ComboBox estado, TextBox cidade, TextBox bairro, TextBox logradouro, TextBox rua, TextBox complemento, TextBox numero)
-        {
-            numeroAgencia.Text = CarregaCampoTabela(id, "numero", numeroAgencia, "Agencia");
-
-            throw new NotImplementedException();
-        }
-
         static private string CarregaCampoTabela(int id, string field, TextBox textBox, string tabela)
         {
             try

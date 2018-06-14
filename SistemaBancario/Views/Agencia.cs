@@ -1,11 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace SistemaBancario.Views
@@ -33,6 +26,12 @@ namespace SistemaBancario.Views
         {
             RemoverAgencia formListarAgencia = new RemoverAgencia();
             formListarAgencia.Show();
+        }
+
+        private void buttonAlterarAgencia_Click(object sender, EventArgs e)
+        {
+            AlterarAgencia formAlterarAgencia = new AlterarAgencia();
+            formAlterarAgencia.Show();
         }
     }
 }
