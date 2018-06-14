@@ -227,7 +227,7 @@ namespace SistemaBancario.Models
         }
 
 
-        //Funcao para conferir se uma dada string apenas contem digitos
+        //Funcao para conferir se uma dada string contem apenasdigitos
         public static bool ApenasDigitos(string s)
         {
             foreach (char c in s)
@@ -238,7 +238,7 @@ namespace SistemaBancario.Models
             return true;
         }
 
-        //Funcao para conferir se uma dada string apenas contem letras
+        //Funcao para conferir se uma dada string contem apenas letras
         public static bool ApenasLetras(string s)
         {
             foreach (char c in s)
@@ -307,9 +307,9 @@ namespace SistemaBancario.Models
         }
 
         //Exibir todos os dados de um cliente
-        static public int VisualizarCliente(string identificador)
+        static public DataTable AcessarDadosCliente(string identificador)
         {
-            int idCliente = -1;
+            DataTable dadosCliente = new DataTable(); //valor inicial vazio
 
             try
             {
@@ -318,39 +318,72 @@ namespace SistemaBancario.Models
                     if (connection.State == ConnectionState.Closed)
                         connection.Open();
 
-                    //Comando SQL refere-se a chamada de procedimento no banco
-                    MySqlCommand visualizarCliente = new MySqlCommand("ID_TIPO_CLIENTE", connection)
+                    //Comando SQL refere-se a chamada de procedimento no banco para determinal qual tipo de cliente
+                    MySqlCommand determinarTipoCliente = new MySqlCommand("ID_TIPO_CLIENTE", connection)
                     {
                         CommandType = CommandType.StoredProcedure
                     };
 
                     //Informando o valor do parametro de entrada do procedimento (id cliente)
-                    visualizarCliente.Parameters.AddWithValue("@idCli", idBusca);
+                    determinarTipoCliente.Parameters.AddWithValue("@idCli", idBusca);
 
                     //Adicionado os parametros de saida do procedimento
-                    visualizarCliente.Parameters.Add("@t1", MySqlDbType.Int16).Direction = ParameterDirection.Output;
-                    visualizarCliente.Parameters.Add("@t2", MySqlDbType.Text).Direction = ParameterDirection.Output;
+                    determinarTipoCliente.Parameters.Add("@t1", MySqlDbType.Int16).Direction = ParameterDirection.Output;
+                    determinarTipoCliente.Parameters.Add("@t2", MySqlDbType.Text).Direction = ParameterDirection.Output;
 
                     //Execucao da query
-                    visualizarCliente.ExecuteNonQuery();
+                    determinarTipoCliente.ExecuteNonQuery();
 
                     //Obtendo retorno do procedimento (Tipo de cliente [Dependente, PessoaFisica ou PessoaJuridica] e seu id)
-                    string tipo = visualizarCliente.Parameters["@t2"].Value.ToString();
-                    int id = int.Parse(visualizarCliente.Parameters["@t1"].Value.ToString());
+                    string tipoCliente = determinarTipoCliente.Parameters["@t2"].Value.ToString();
+                    int id = int.Parse(determinarTipoCliente.Parameters["@t1"].Value.ToString());
+                    determinarTipoCliente.Parameters.Clear();
 
-                    Console.WriteLine(tipo);
-                    Console.WriteLine(id);
+                    //Outro comando SQL para retornar os dados do cliente
+                    string query = "";
+                    string parametro = "";
 
-                    visualizarCliente.Parameters.Clear();
-                }
-                else
+                    //Determina a consulta adequada para retornar TODOS os dados de cada tipo de cliente diferente 
+                    if (tipoCliente == "Dependente")
+                    {
+                        query = "SELECT Usuario.primeiroNome, Usuario.sobrenome, Usuario.cpf, Usuario.rg, Cliente.data_nascimento, Cliente.email, Cliente.telefone, Cliente.celular, Cliente.data_cadastro, Cliente.estado_cliente, Cliente.estado_civil," +
+                            " Dependente.id_titular AS 'CPF_Responsavel', Endereco.logradouro, Endereco.rua, Endereco.numero, Endereco.bairro, Endereco.complemento, Endereco.cep, Endereco.cidade, Estado.sigla FROM Dependente JOIN Cliente ON Dependente.id_cliente = Cliente.id JOIN Endereco ON Endereco.id = Cliente.id_endereco JOIN Estado ON Endereco.estado_id = Estado.id JOIN Usuario ON Cliente.id_usuario = Usuario.id WHERE Dependente.id = @idDependente";
+
+                        parametro = "@idDependente";
+
+                    } else if (tipoCliente == "PessoaFisica")
+                    {
+                        query = "SELECT Usuario.primeiroNome, Usuario.sobrenome, Usuario.cpf, Usuario.rg, Cliente.data_nascimento, Cliente.email, Cliente.telefone, Cliente.celular, Cliente.data_cadastro, Cliente.estado_cliente, Cliente.estado_civil, PessoaFisica.profissao, PessoaFisica.rendaMensal, " +
+                            "Endereco.logradouro, Endereco.rua, Endereco.numero, Endereco.bairro, Endereco.complemento, Endereco.cep, Endereco.cidade, Estado.sigla FROM PessoaFisica JOIN Cliente ON PessoaFisica.id_cliente = Cliente.id JOIN Endereco ON Endereco.id = Cliente.id_endereco JOIN Estado ON Endereco.estado_id = Estado.id JOIN Usuario ON Cliente.id_usuario = Usuario.id WHERE PessoaFisica.id = @idPessoaFisica";
+                        parametro = "@idPessoaFisica";
+
+                    } else if (tipoCliente == "PessoaJuridica")
+                    {
+                        query = "SELECT Usuario.primeiroNome, Usuario.sobrenome, Usuario.cpf, Usuario.rg, Cliente.data_nascimento, Cliente.email, Cliente.telefone, Cliente.celular, Cliente.data_cadastro, Cliente.estado_cliente, Cliente.estado_civil, PessoaJuridica.cnpj, PessoaJuridica.razaoSocial, PessoaJuridica.tipo, Endereco.logradouro," +
+                            " Endereco.rua, Endereco.numero, Endereco.bairro, Endereco.complemento, Endereco.cep, Endereco.cidade, Estado.sigla FROM PessoaJuridica JOIN Cliente ON PessoaJuridica.id_cliente = Cliente.id JOIN Endereco ON Endereco.id = Cliente.id_endereco JOIN Estado ON Endereco.estado_id = Estado.id JOIN Usuario ON Cliente.id_usuario = Usuario.id WHERE PessoaJuridica.id = @idPessoaJuridica";
+                        parametro = "@idPessoaJuridica";
+                    }
+
+                    //Executa a consulta caso as variaveis da mesma nao sao nulas
+                    if (query != "" && parametro != "")
+                    {
+                        MySqlCommand visualizarCliente = new MySqlCommand(query, connection);
+                        visualizarCliente.Parameters.AddWithValue(parametro, id);
+
+                        MySqlDataAdapter dataAdapter = new MySqlDataAdapter(visualizarCliente);
+
+                        //Todos os dados retornados em formato de tabela para variavel dadosCliente
+                        dataAdapter.Fill(dadosCliente);
+                        visualizarCliente.Parameters.Clear();
+                    } 
+                } else
                 {
-                    idCliente = -2;
-                };
+                    dadosCliente = null; //valor informado para identificador esta incorreto
+                }
             }
             catch (MySqlException exception)
             {
-                idCliente = -2;
+                dadosCliente = null; //erro
                 Console.WriteLine(exception.ToString());
             }
             finally
@@ -358,7 +391,7 @@ namespace SistemaBancario.Models
                 connection.Close();
             }
 
-            return idCliente;
+            return dadosCliente;
         }
 
         //Exibir todos os clientes cadastrados no banco de dados

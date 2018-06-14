@@ -15,14 +15,19 @@ namespace SistemaBancario.Views
         {
             InitializeComponent();
 
-            int idCliente = MySQLFunctions.VisualizarCliente(idBusca);
+            DataTable dadosCliente = MySQLFunctions.AcessarDadosCliente(idBusca); //obtem todos os dados de um cliente
 
-            if (idCliente > 0) //nao ocorreu erro na chamada da funcao acima
+            if (dadosCliente != null) //se nao ocorreu erro na chamada da funcao acima
             {
-                MessageBox.Show(idCliente.ToString());
+                dgv_VisualizarCliente.DataSource = dadosCliente;
+
+                string nome = dadosCliente.Rows[0][0].ToString(); //na primeira coluna esta armazenado o primeiro nome do cliente
+                string sobrenome = dadosCliente.Rows[0][1].ToString(); //na segunda coluna esta armazenado o sobrenome do cliente
+
+                lb_NomeSobrenome.Text = nome + " " + sobrenome;
             } else
             {
-                MessageBox.Show("Não funcionou :(");
+                MessageBox.Show("Algo deu errado. Tente novamente.");
             }
         }
 

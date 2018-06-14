@@ -34,12 +34,15 @@
             this.btn_Remover = new System.Windows.Forms.Button();
             this.pb_IconeCliente = new System.Windows.Forms.PictureBox();
             this.lb_NomeSobrenome = new System.Windows.Forms.Label();
+            this.dgv_VisualizarCliente = new System.Windows.Forms.DataGridView();
             this.p_Content.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pb_IconeCliente)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgv_VisualizarCliente)).BeginInit();
             this.SuspendLayout();
             // 
             // p_Content
             // 
+            this.p_Content.Controls.Add(this.dgv_VisualizarCliente);
             this.p_Content.Controls.Add(this.lb_NomeSobrenome);
             this.p_Content.Controls.Add(this.pb_IconeCliente);
             this.p_Content.Controls.Add(this.btn_Alterar);
@@ -103,6 +106,14 @@
             this.lb_NomeSobrenome.TabIndex = 89;
             this.lb_NomeSobrenome.Text = "Primeiro Nome Sobrenome";
             // 
+            // dgv_VisualizarCliente
+            // 
+            this.dgv_VisualizarCliente.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgv_VisualizarCliente.Location = new System.Drawing.Point(149, 166);
+            this.dgv_VisualizarCliente.Name = "dgv_VisualizarCliente";
+            this.dgv_VisualizarCliente.Size = new System.Drawing.Size(790, 189);
+            this.dgv_VisualizarCliente.TabIndex = 90;
+            // 
             // VisualizarCliente
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -114,6 +125,7 @@
             this.p_Content.ResumeLayout(false);
             this.p_Content.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pb_IconeCliente)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgv_VisualizarCliente)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -126,5 +138,6 @@
         private System.Windows.Forms.Button btn_Remover;
         private System.Windows.Forms.Label lb_NomeSobrenome;
         private System.Windows.Forms.PictureBox pb_IconeCliente;
+        private System.Windows.Forms.DataGridView dgv_VisualizarCliente;
     }
 }
