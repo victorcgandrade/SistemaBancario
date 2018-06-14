@@ -226,29 +226,131 @@ namespace SistemaBancario.Models
             return sucesso;
         }
 
+
+        //Funcao para conferir se uma dada string apenas contem digitos
+        public static bool ApenasDigitos(string s)
+        {
+            foreach (char c in s)
+            {
+                if (!Char.IsDigit(c))
+                    return false;
+            }
+            return true;
+        }
+
+        //Funcao para conferir se uma dada string apenas contem letras
+        public static bool ApenasLetras(string s)
+        {
+            foreach (char c in s)
+            {
+                if (!Char.IsLetter(c))
+                    return false;
+            }
+            return true;
+        }
+
+
         //Exibir resultado da busca por um cliente
-        static public Boolean BuscarCliente(DataGridView dataGridView, string cpf)
+        static public Boolean BuscarCliente(DataGridView dataGridView, string identificador)
         {
             bool sucesso;
 
+            string query = "";
+            string parametro = "";
+
+            if (!ApenasDigitos(identificador) && !ApenasLetras(identificador)) //Se ambas funcoes forem falsas, o identificador esta incorreto (nem nome nem cpf)
+            {
+                sucesso = false;
+                return sucesso;
+            }
+            else
+            {
+                if (ApenasDigitos(identificador)) //Se a string apenas conter digitos, entao a busca sera feita pelo cpf
+                {
+                    query = "SELECT Cliente.id, Usuario.primeiroNome, data_nascimento, estado_cliente FROM Cliente, Usuario WHERE Usuario.cpf = @cpf AND Cliente.id_usuario = Usuario.id";
+                    parametro = "@cpf";
+
+                }
+                else if (ApenasLetras(identificador)) //Se a string apenas conter letras, entao a busca sera feita pelo primeiro nome
+                {
+                    query = "SELECT Cliente.id, Usuario.primeiroNome, data_nascimento, estado_cliente FROM Cliente, Usuario WHERE Cliente.id_usuario = ANY (SELECT id FROM Usuario WHERE primeiroNome = @nome) AND Cliente.id_usuario = Usuario.id";
+                    parametro = "@nome";
+                }
+
+                try
+                {
+                    if (connection.State == ConnectionState.Closed)
+                        connection.Open();
+                    MySqlCommand buscarCliente = new MySqlCommand(query, connection);
+                    buscarCliente.Parameters.AddWithValue(parametro, identificador);
+
+
+                    MySqlDataAdapter dataAdapter = new MySqlDataAdapter(buscarCliente);
+                    DataTable dataTable = new DataTable();
+                    dataAdapter.Fill(dataTable);
+                    dataGridView.DataSource = dataTable;
+
+                    sucesso = true;
+                }
+                catch (MySqlException exception)
+                {
+                    sucesso = false;
+                    Console.WriteLine(exception.ToString());
+                }
+                finally
+                {
+                    connection.Close();
+                }
+
+                return sucesso;
+            }
+        }
+
+        //Exibir todos os dados de um cliente
+        static public int VisualizarCliente(string identificador)
+        {
+            int idCliente = -1;
+
             try
             {
-                if (connection.State == ConnectionState.Closed)
-                    connection.Open();
-                MySqlCommand buscarCliente = new MySqlCommand("SELECT Cliente.id, Usuario.primeiroNome, data_nascimento, estado_cliente FROM Cliente, Usuario WHERE Usuario.cpf = @cpf AND Cliente.id_usuario = Usuario.id", connection);
-                buscarCliente.Parameters.AddWithValue("@cpf", cpf);
+                if (Int32.TryParse(identificador, out int idBusca)) //tenta converter a string informada em numero
+                {
+                    if (connection.State == ConnectionState.Closed)
+                        connection.Open();
 
+                    //Comando SQL refere-se a chamada de procedimento no banco
+                    MySqlCommand visualizarCliente = new MySqlCommand("ID_TIPO_CLIENTE", connection)
+                    {
+                        CommandType = CommandType.StoredProcedure
+                    };
 
-                MySqlDataAdapter dataAdapter = new MySqlDataAdapter(buscarCliente);
-                DataTable dataTable = new DataTable();
-                dataAdapter.Fill(dataTable);
-                dataGridView.DataSource = dataTable;
+                    //Informando o valor do parametro de entrada do procedimento (id cliente)
+                    visualizarCliente.Parameters.AddWithValue("@idCli", idBusca);
 
-                sucesso = true;
+                    //Adicionado os parametros de saida do procedimento
+                    visualizarCliente.Parameters.Add("@t1", MySqlDbType.Int16).Direction = ParameterDirection.Output;
+                    visualizarCliente.Parameters.Add("@t2", MySqlDbType.Text).Direction = ParameterDirection.Output;
+
+                    //Execucao da query
+                    visualizarCliente.ExecuteNonQuery();
+
+                    //Obtendo retorno do procedimento (Tipo de cliente [Dependente, PessoaFisica ou PessoaJuridica] e seu id)
+                    string tipo = visualizarCliente.Parameters["@t2"].Value.ToString();
+                    int id = int.Parse(visualizarCliente.Parameters["@t1"].Value.ToString());
+
+                    Console.WriteLine(tipo);
+                    Console.WriteLine(id);
+
+                    visualizarCliente.Parameters.Clear();
+                }
+                else
+                {
+                    idCliente = -2;
+                };
             }
             catch (MySqlException exception)
             {
-                sucesso = false;
+                idCliente = -2;
                 Console.WriteLine(exception.ToString());
             }
             finally
@@ -256,10 +358,10 @@ namespace SistemaBancario.Models
                 connection.Close();
             }
 
-            return sucesso;
+            return idCliente;
         }
 
-        //Exibir clientes cadastrados no banco de dados
+        //Exibir todos os clientes cadastrados no banco de dados
         static public void ListarCliente(DataGridView dataGridView)
         {
             try

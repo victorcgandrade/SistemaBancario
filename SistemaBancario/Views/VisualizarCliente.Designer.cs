@@ -59,7 +59,7 @@
             // 
             // btn_Alterar
             // 
-            this.btn_Alterar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(175)))), ((int)(((byte)(174)))), ((int)(((byte)(170)))));
+            this.btn_Alterar.BackColor = System.Drawing.Color.Silver;
             this.btn_Alterar.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btn_Alterar.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_Alterar.ForeColor = System.Drawing.SystemColors.ButtonFace;
@@ -86,7 +86,7 @@
             // pb_IconeCliente
             // 
             this.pb_IconeCliente.Image = ((System.Drawing.Image)(resources.GetObject("pb_IconeCliente.Image")));
-            this.pb_IconeCliente.Location = new System.Drawing.Point(178, 94);
+            this.pb_IconeCliente.Location = new System.Drawing.Point(219, 94);
             this.pb_IconeCliente.Name = "pb_IconeCliente";
             this.pb_IconeCliente.Size = new System.Drawing.Size(37, 29);
             this.pb_IconeCliente.TabIndex = 88;
@@ -97,7 +97,7 @@
             this.lb_NomeSobrenome.AutoSize = true;
             this.lb_NomeSobrenome.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lb_NomeSobrenome.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
-            this.lb_NomeSobrenome.Location = new System.Drawing.Point(221, 103);
+            this.lb_NomeSobrenome.Location = new System.Drawing.Point(262, 103);
             this.lb_NomeSobrenome.Name = "lb_NomeSobrenome";
             this.lb_NomeSobrenome.Size = new System.Drawing.Size(191, 20);
             this.lb_NomeSobrenome.TabIndex = 89;

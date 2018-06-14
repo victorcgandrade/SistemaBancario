@@ -128,6 +128,7 @@
             this.btn_VisualizarCliente.TabIndex = 83;
             this.btn_VisualizarCliente.Text = "Visualizar";
             this.btn_VisualizarCliente.UseVisualStyleBackColor = false;
+            this.btn_VisualizarCliente.Click += new System.EventHandler(this.btn_VisualizarCliente_Click);
             // 
             // ConsultarCliente
             // 

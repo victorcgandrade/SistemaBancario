@@ -28,19 +28,50 @@ namespace SistemaBancario.Views
                 if(MySQLFunctions.BuscarCliente(dgv_ResultadoBuscaCliente, cpfBusca))
                 {
                     //Nomeacao das colunas
-                    dgv_ResultadoBuscaCliente.Columns[0].HeaderText = "Identificador";
+                    dgv_ResultadoBuscaCliente.Columns[0].HeaderText = "Identificador"; //nome para exibicao
+                    dgv_ResultadoBuscaCliente.Columns[0].Name = "Identificador"; //nome para manipulacao
+
                     dgv_ResultadoBuscaCliente.Columns[1].HeaderText = "Primeiro nome";
+                    dgv_ResultadoBuscaCliente.Columns[1].Name = "Primeiro nome";
+
                     dgv_ResultadoBuscaCliente.Columns[2].HeaderText = "Data de nascimento";
+                    dgv_ResultadoBuscaCliente.Columns[2].Name = "Data de nascimento";
+
                     dgv_ResultadoBuscaCliente.Columns[3].HeaderText = "Status";
+                    dgv_ResultadoBuscaCliente.Columns[3].Name = "Status";
 
                     dgv_ResultadoBuscaCliente.Visible = true;
                     btn_VisualizarCliente.Visible = true;
                 }
+                else
+                {
+                    MessageBox.Show("Não foi possível realizar a busca. Certifique-se de que digitou corretamente e tente novamente.");
+                }
             }
             else
             {
-                MessageBox.Show("CPF inválido!");
+                MessageBox.Show("Insira um nome ou cpf para que a busca seja realizada.");
             }
+        }
+
+        //Metodo para chamar a tela de Visualizar Cliente (botao Visualizar)
+        private void btn_VisualizarCliente_Click(object sender, EventArgs e)
+        {
+            int index_cur_row = dgv_ResultadoBuscaCliente.CurrentRow.Index; //capturando o indice da linha selecionada
+            DataGridViewRow cur_row = dgv_ResultadoBuscaCliente.Rows[index_cur_row]; //variavel dessa linha
+
+            string idCliente = cur_row.Cells["Identificador"].Value.ToString();
+
+            VisualizarCliente visualizarCliente = new VisualizarCliente(idCliente);
+            visualizarCliente.FormClosed += new FormClosedEventHandler(visualizarCliente_FormClosed);
+            visualizarCliente.Show();
+            this.Hide();
+        }
+
+        //Quando a tela de for fechada, fecha-se tambem a tela que lhe deu origem
+        private void visualizarCliente_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            this.Close();
         }
     }
 }
