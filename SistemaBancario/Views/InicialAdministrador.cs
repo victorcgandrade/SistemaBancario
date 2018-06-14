@@ -29,5 +29,7 @@ namespace SistemaBancario.Views
         {
             this.Close();
         }
+
+
     }
 }

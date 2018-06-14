@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using System.Data;
 using MySql.Data.MySqlClient;
 using Main;
+using System.Windows.Forms;
 
 namespace SistemaBancario.Models
 {
@@ -161,8 +162,8 @@ namespace SistemaBancario.Models
             {
                 connection.Open();
                 MySqlCommand command = new MySqlCommand("SELECT Conta.id, Agencia.id FROM Conta JOIN Agencia ON Conta.id_agencia = Agencia.id AND Conta.numero= @conta AND Agencia.numero= @agencia;", connection);
-                command.Parameters.AddWithValue("@conta", agencia);
-                command.Parameters.AddWithValue("@agencia", conta);
+                command.Parameters.AddWithValue("@conta", conta);
+                command.Parameters.AddWithValue("@agencia", agencia);
                 using (MySqlDataReader reader = command.ExecuteReader())
                 {
                     while (reader.Read())
@@ -206,7 +207,7 @@ namespace SistemaBancario.Models
                     else sucesso = false;
                 }
                 connection.Close();
-            
+
             }
             catch (MySqlException exception)
             {
@@ -220,5 +221,48 @@ namespace SistemaBancario.Models
             return sucesso;
 
         }
-}
+        static public bool LoginCliente(string _numeroConta, string senha)
+        {
+            bool sucesso = false;
+            try
+            {
+
+
+                if (senha.Length == 4)
+                {
+                    MySqlConnection connection = new MySqlConnection("SERVER=db4free.net;PORT=3306;DATABASE=sistemabancario;UID=bancario;PWD=sb100001");
+                    connection.Open();
+                    MySqlCommand command = new MySqlCommand("SELECT Conta.senha FROM Conta WHERE Conta.numero = @conta;", connection);
+                    command.Parameters.AddWithValue("@conta", _numeroConta);
+                    MySqlDataReader reader3 = command.ExecuteReader();
+                    while (reader3.Read())
+                    {
+                        treatment = reader3[0].ToString();
+
+                    }
+                    reader3.Close();
+                    if (treatment != "Sem alteração") sucesso = true;
+                    else sucesso = false;
+
+                }
+                else
+                {
+                    MessageBox.Show("Senha incompleta");
+                }
+
+            }
+
+            catch (MySqlException ex)
+            {
+                sucesso = false;
+                Console.WriteLine(ex.ToString());
+            }
+            finally
+            {
+                connection.Close();
+            }
+            return sucesso;
+        }
+    }
+
 }
