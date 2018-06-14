@@ -297,7 +297,6 @@
             this.p_Content.Name = "p_Content";
             this.p_Content.Size = new System.Drawing.Size(1110, 624);
             this.p_Content.TabIndex = 13;
-            this.p_Content.Paint += new System.Windows.Forms.PaintEventHandler(this.p_Content_Paint);
             // 
             // TemplateInicialAdministrador
             // 

@@ -71,7 +71,7 @@ namespace SistemaBancario.Views
         {
             bool sucesso = false;
 
-            string cpf = tb_CpfCliente.Text; //para poder recuperar o id deste Usuario
+            string cpf = tb_CpfCliente.Text; //para poder recuperar o id de Usuario
             string cep = tb_Cep.Text; //para poder recuperar o id do Endereco deste cliente
             string email = tb_Email.Text;
             string telefone = tb_Telefone.Text;
@@ -97,7 +97,7 @@ namespace SistemaBancario.Views
         {
             bool sucesso = false;
 
-            string email = tb_Email.Text; //para poder recuperar o id deste cliente
+            string email = tb_Email.Text; //para poder recuperar o id de cliente
             string profissao = tb_Profissao.Text;
             string textoRendaMensal = tb_RendaMensal.Text;
 
@@ -125,7 +125,7 @@ namespace SistemaBancario.Views
         {
             bool sucesso = false;
 
-            string email = tb_Email.Text; //para poder recuperar o id deste cliente
+            string email = tb_Email.Text; //para poder recuperar o id de cliente
             string cnpj = tb_Cnpj.Text;
             string razaoSocial = tb_RazaoSocial.Text;
             string tipoPessoaJuridica = cb_TipoPessoaJuridica.Text;
@@ -143,7 +143,19 @@ namespace SistemaBancario.Views
         //Metodo para adicionar uma linha na tabela Dependente no banco de dados remoto online
         private Boolean CriarDependente()
         {
-            return false;
+            bool sucesso = false;
+
+            string email = tb_Email.Text; //para poder recuperar o id de cliente
+            string cpfTitularResponsavel = tb_CpfTitularAssociado.Text;
+
+            if (cpfTitularResponsavel != "" && email != "")
+            {
+                if (MySQLFunctions.InserirDependente(cpfTitularResponsavel, email))
+                {
+                    sucesso = true;
+                }
+            }
+            return sucesso;
         }
 
         //Metodo para redirecionar para as funcoes que criam os diferentes tipos de cliente

@@ -3,16 +3,14 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
-using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace SistemaBancario.Views
 {
-    public partial class TemplateInicialAdministrador : Form
+    public partial class VisualizarCliente : SistemaBancario.Views.TemplateInicialAdministrador
     {
-        public TemplateInicialAdministrador()
+        public VisualizarCliente()
         {
             InitializeComponent();
         }

@@ -34,12 +34,14 @@
             this.lb_TextoExplicativoConsultarCliente = new System.Windows.Forms.Label();
             this.btn_Buscar = new System.Windows.Forms.Button();
             this.dgv_ResultadoBuscaCliente = new System.Windows.Forms.DataGridView();
+            this.btn_VisualizarCliente = new System.Windows.Forms.Button();
             this.p_Content.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_ResultadoBuscaCliente)).BeginInit();
             this.SuspendLayout();
             // 
             // p_Content
             // 
+            this.p_Content.Controls.Add(this.btn_VisualizarCliente);
             this.p_Content.Controls.Add(this.dgv_ResultadoBuscaCliente);
             this.p_Content.Controls.Add(this.btn_Buscar);
             this.p_Content.Controls.Add(this.lb_TextoExplicativoConsultarCliente);
@@ -83,18 +85,17 @@
             this.lb_TextoExplicativoConsultarCliente.AutoSize = true;
             this.lb_TextoExplicativoConsultarCliente.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lb_TextoExplicativoConsultarCliente.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(74)))), ((int)(((byte)(74)))), ((int)(((byte)(74)))));
-            this.lb_TextoExplicativoConsultarCliente.Location = new System.Drawing.Point(325, 121);
+            this.lb_TextoExplicativoConsultarCliente.Location = new System.Drawing.Point(349, 121);
             this.lb_TextoExplicativoConsultarCliente.Name = "lb_TextoExplicativoConsultarCliente";
-            this.lb_TextoExplicativoConsultarCliente.Size = new System.Drawing.Size(470, 15);
+            this.lb_TextoExplicativoConsultarCliente.Size = new System.Drawing.Size(422, 15);
             this.lb_TextoExplicativoConsultarCliente.TabIndex = 80;
-            this.lb_TextoExplicativoConsultarCliente.Text = "Insira o CPF (apenas números) ou nome do cliente que deseja procurar no campo aba" +
-    "ixo.";
+            this.lb_TextoExplicativoConsultarCliente.Text = "Insira o CPF (apenas números) do cliente que deseja procurar no campo abaixo.";
             // 
             // btn_Buscar
             // 
             this.btn_Buscar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(191)))), ((int)(((byte)(0)))));
             this.btn_Buscar.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_Buscar.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.btn_Buscar.ForeColor = System.Drawing.SystemColors.HighlightText;
             this.btn_Buscar.Location = new System.Drawing.Point(524, 175);
             this.btn_Buscar.Name = "btn_Buscar";
             this.btn_Buscar.Size = new System.Drawing.Size(75, 32);
@@ -116,6 +117,18 @@
             this.dgv_ResultadoBuscaCliente.Size = new System.Drawing.Size(510, 201);
             this.dgv_ResultadoBuscaCliente.TabIndex = 82;
             // 
+            // btn_VisualizarCliente
+            // 
+            this.btn_VisualizarCliente.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(191)))), ((int)(((byte)(0)))));
+            this.btn_VisualizarCliente.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_VisualizarCliente.ForeColor = System.Drawing.SystemColors.HighlightText;
+            this.btn_VisualizarCliente.Location = new System.Drawing.Point(499, 451);
+            this.btn_VisualizarCliente.Name = "btn_VisualizarCliente";
+            this.btn_VisualizarCliente.Size = new System.Drawing.Size(125, 32);
+            this.btn_VisualizarCliente.TabIndex = 83;
+            this.btn_VisualizarCliente.Text = "Visualizar";
+            this.btn_VisualizarCliente.UseVisualStyleBackColor = false;
+            // 
             // ConsultarCliente
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -135,5 +148,6 @@
         private System.Windows.Forms.Label lb_TextoExplicativoConsultarCliente;
         private System.Windows.Forms.Label lb_SubtituloConsultarCliente;
         private System.Windows.Forms.DataGridView dgv_ResultadoBuscaCliente;
+        private System.Windows.Forms.Button btn_VisualizarCliente;
     }
 }

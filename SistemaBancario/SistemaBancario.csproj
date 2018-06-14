@@ -55,6 +55,12 @@
     <Compile Include="Views\AdicionarCliente.Designer.cs">
       <DependentUpon>AdicionarCliente.cs</DependentUpon>
     </Compile>
+    <Compile Include="Views\AlterarCliente.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\AlterarCliente.Designer.cs">
+      <DependentUpon>AlterarCliente.cs</DependentUpon>
+    </Compile>
     <Compile Include="Views\ConsultarCliente.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -73,6 +79,12 @@
     <Compile Include="Views\TemplateInicialAdministrador.Designer.cs">
       <DependentUpon>TemplateInicialAdministrador.cs</DependentUpon>
     </Compile>
+    <Compile Include="Views\VisualizarCliente.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\VisualizarCliente.Designer.cs">
+      <DependentUpon>VisualizarCliente.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -86,6 +98,9 @@
     <EmbeddedResource Include="Views\AdicionarCliente.resx">
       <DependentUpon>AdicionarCliente.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Views\AlterarCliente.resx">
+      <DependentUpon>AlterarCliente.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Views\ConsultarCliente.resx">
       <DependentUpon>ConsultarCliente.cs</DependentUpon>
     </EmbeddedResource>
@@ -94,6 +109,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Views\TemplateInicialAdministrador.resx">
       <DependentUpon>TemplateInicialAdministrador.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\VisualizarCliente.resx">
+      <DependentUpon>VisualizarCliente.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

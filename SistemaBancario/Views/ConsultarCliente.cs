@@ -15,6 +15,7 @@ namespace SistemaBancario.Views
         {
             InitializeComponent();
             dgv_ResultadoBuscaCliente.Visible = false; //campo para resultado da busca, inicialmente, escondido
+            btn_VisualizarCliente.Visible = false;
         }
 
         //Metodo quando botao de busca eh clicado
@@ -33,6 +34,7 @@ namespace SistemaBancario.Views
                     dgv_ResultadoBuscaCliente.Columns[3].HeaderText = "Status";
 
                     dgv_ResultadoBuscaCliente.Visible = true;
+                    btn_VisualizarCliente.Visible = true;
                 }
             }
             else
