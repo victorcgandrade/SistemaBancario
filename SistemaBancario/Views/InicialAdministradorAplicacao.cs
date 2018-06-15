@@ -28,6 +28,20 @@ namespace SistemaBancario.Views
         {
             this.Close();
         }
+
+        private void btn_ListarAplicacao_Click(object sender, EventArgs e)
+        {
+            ListarAplicacoes listarAplicacoes = new ListarAplicacoes();
+            listarAplicacoes.FormClosed += new FormClosedEventHandler(listarAplicacoes_FormClosed);
+            listarAplicacoes.Show();
+            this.Hide();
+        }
+
+        //Quando a segunda tela for fechada, fecha-se tambem a tela que lhe deu origem
+        private void listarAplicacoes_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            this.Close();
+        }
     }
 }
 

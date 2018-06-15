@@ -83,6 +83,7 @@
             this.btn_ListarAplicacao.Text = "LISTAR APLICAÇÕES";
             this.btn_ListarAplicacao.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.btn_ListarAplicacao.UseVisualStyleBackColor = false;
+            this.btn_ListarAplicacao.Click += new System.EventHandler(this.btn_ListarAplicacao_Click);
             // 
             // btn_ConsultarAplicacao
             // 

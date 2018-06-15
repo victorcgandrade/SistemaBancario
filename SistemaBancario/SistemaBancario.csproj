@@ -85,6 +85,12 @@
     <Compile Include="Views\InicialAdministradorAplicacao.Designer.cs">
       <DependentUpon>InicialAdministradorAplicacao.cs</DependentUpon>
     </Compile>
+    <Compile Include="Views\ListarAplicacoes.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\ListarAplicacoes.Designer.cs">
+      <DependentUpon>ListarAplicacoes.cs</DependentUpon>
+    </Compile>
     <Compile Include="Views\ListarClientes.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -130,6 +136,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Views\InicialAdministradorAplicacao.resx">
       <DependentUpon>InicialAdministradorAplicacao.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\ListarAplicacoes.resx">
+      <DependentUpon>ListarAplicacoes.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Views\ListarClientes.resx">
       <DependentUpon>ListarClientes.cs</DependentUpon>

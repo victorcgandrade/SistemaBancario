@@ -455,7 +455,7 @@ namespace SistemaBancario.Models
             return sucesso;
         }
 
-        //Exibir resultado da busca por um cliente
+        //Exibir resultado da busca por uma aplicacao
         static public DataTable BuscarAplicacao(string numeroContaCorrente)
         {
             DataTable buscaAplicacao = new DataTable();
@@ -483,6 +483,34 @@ namespace SistemaBancario.Models
             }
 
             return buscaAplicacao;
+        }
+
+        //Exibir todas aplicacoes cadastradas no banco de dados
+        static public DataTable ListarAplicacao()
+        {
+            DataTable listagemAplicacao = new DataTable();
+
+            try
+            {
+                if (connection.State == ConnectionState.Closed)
+                    connection.Open();
+                MySqlDataAdapter dataAdapter = new MySqlDataAdapter("SELECT Aplicacao.id, tipoAplicacao, valorInicial, taxaRendimento, vencimento FROM Aplicacao JOIN ContaCorrente ON Aplicacao.id_contacorrente = ContaCorrente.id JOIN Conta ON ContaCorrente.id_conta = Conta.id", connection);
+
+                //Todos os dados retornados em formato de tabela para variavel dadosCliente
+                dataAdapter.Fill(listagemAplicacao);
+
+            }
+            catch (MySqlException exception)
+            {
+                listagemAplicacao = null;
+                Console.WriteLine(exception.ToString());
+            }
+            finally
+            {
+                connection.Close();
+            }
+
+            return listagemAplicacao;
         }
     }
 }

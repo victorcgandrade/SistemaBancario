@@ -90,6 +90,7 @@
             this.btn_VisualizarAplicacao.TabIndex = 90;
             this.btn_VisualizarAplicacao.Text = "Visualizar";
             this.btn_VisualizarAplicacao.UseVisualStyleBackColor = false;
+            this.btn_VisualizarAplicacao.Visible = false;
             // 
             // dgv_ResultadoBuscaAplicacao
             // 
@@ -103,6 +104,7 @@
             this.dgv_ResultadoBuscaAplicacao.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgv_ResultadoBuscaAplicacao.Size = new System.Drawing.Size(510, 201);
             this.dgv_ResultadoBuscaAplicacao.TabIndex = 89;
+            this.dgv_ResultadoBuscaAplicacao.Visible = false;
             // 
             // btn_BuscarAplicacao
             // 

@@ -43,6 +43,9 @@ namespace SistemaBancario.Views
                     dgv_ResultadoBuscaAplicacao.Columns[3].HeaderText = "Vencimento";
                     dgv_ResultadoBuscaAplicacao.Columns[3].Name = "Vencimento";
 
+                    dgv_ResultadoBuscaAplicacao.Visible = true;
+
+
                 }
                 else
                 {
