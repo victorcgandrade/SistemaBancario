@@ -14,5 +14,6 @@ namespace SistemaBancario.Views
         {
             InitializeComponent();
         }
+
     }
 }

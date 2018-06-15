@@ -395,25 +395,31 @@ namespace SistemaBancario.Models
         }
 
         //Exibir todos os clientes cadastrados no banco de dados
-        static public void ListarCliente(DataGridView dataGridView)
+        static public DataTable ListarCliente()
         {
+            DataTable listagemCliente = new DataTable();
+
             try
             {
                 if (connection.State == ConnectionState.Closed)
                     connection.Open();
                 MySqlDataAdapter dataAdapter = new MySqlDataAdapter("SELECT Cliente.id, Usuario.primeiroNome, data_nascimento, estado_cliente FROM Cliente, Usuario WHERE Cliente.id_usuario = Usuario.id", connection);
-                DataTable dataTable = new DataTable();
-                dataAdapter.Fill(dataTable);
-                dataGridView.DataSource = dataTable;
+
+                //Todos os dados retornados em formato de tabela para variavel dadosCliente
+                dataAdapter.Fill(listagemCliente);
+
             }
             catch (MySqlException exception)
             {
+                listagemCliente = null;
                 Console.WriteLine(exception.ToString());
             }
             finally
             {
                 connection.Close();
             }
+
+            return listagemCliente;
         }
 
         //Remover um determinado cliente

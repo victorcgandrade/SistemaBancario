@@ -44,5 +44,20 @@ namespace SistemaBancario.Views
         {
             this.Close();
         }
+
+        //Botao para listar cliente
+        private void btn_ListarClientes_Click(object sender, EventArgs e)
+        {
+            ListarClientes listarCliente = new ListarClientes();
+            listarCliente.FormClosed += new FormClosedEventHandler(listarCliente_FormClosed);
+            listarCliente.Show();
+            this.Hide();
+        }
+
+        //Quando a segunda tela for fechada, fecha-se tambem a tela que lhe deu origem
+        private void listarCliente_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            this.Close();
+        }
     }
 }

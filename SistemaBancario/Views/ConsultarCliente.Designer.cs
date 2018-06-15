@@ -49,6 +49,36 @@
             this.p_Content.Controls.Add(this.lb_TituloConsultarCliente);
             this.p_Content.Controls.Add(this.tb_CampoBusca);
             // 
+            // p_LinkAtivo
+            // 
+            this.p_LinkAtivo.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(169)))), ((int)(((byte)(0)))));
+            // 
+            // btn_LogDados
+            // 
+            this.btn_LogDados.FlatAppearance.BorderSize = 0;
+            this.btn_LogDados.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(41)))), ((int)(((byte)(43)))));
+            // 
+            // btn_Agencias
+            // 
+            this.btn_Agencias.FlatAppearance.BorderSize = 0;
+            this.btn_Agencias.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(41)))), ((int)(((byte)(43)))));
+            // 
+            // btn_Clientes
+            // 
+            this.btn_Clientes.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(41)))), ((int)(((byte)(43)))));
+            this.btn_Clientes.FlatAppearance.BorderSize = 0;
+            this.btn_Clientes.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(41)))), ((int)(((byte)(43)))));
+            // 
+            // btn_Contas
+            // 
+            this.btn_Contas.FlatAppearance.BorderSize = 0;
+            this.btn_Contas.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(41)))), ((int)(((byte)(43)))));
+            // 
+            // btn_Aplicacoes
+            // 
+            this.btn_Aplicacoes.FlatAppearance.BorderSize = 0;
+            this.btn_Aplicacoes.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(41)))), ((int)(((byte)(43)))));
+            // 
             // tb_CampoBusca
             // 
             this.tb_CampoBusca.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));

@@ -55,7 +55,7 @@ namespace SistemaBancario.Views
         }
 
         //Metodo para chamar a tela de Visualizar Cliente (botao Visualizar)
-        private void btn_VisualizarCliente_Click(object sender, EventArgs e)
+        public void btn_VisualizarCliente_Click(object sender, EventArgs e)
         {
             int index_cur_row = dgv_ResultadoBuscaCliente.CurrentRow.Index; //capturando o indice da linha selecionada
             DataGridViewRow cur_row = dgv_ResultadoBuscaCliente.Rows[index_cur_row]; //variavel dessa linha
