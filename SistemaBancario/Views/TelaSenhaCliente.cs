@@ -25,7 +25,7 @@ namespace SistemaBancario.Views
         public TelaSenhaCliente(string numeroConta)
         {
             InitializeComponent();
-            _numeroConta =numeroConta;
+            _numeroConta = numeroConta;
         }
 
         public void preencheNome()
@@ -37,24 +37,24 @@ namespace SistemaBancario.Views
             if (txtPrimeiroCaracter.Text == "")
             {
                 txtPrimeiroCaracter.Text = "*";
-                
+
             }
             else if (txtSegundoCaracter.Text == "")
             {
                 txtSegundoCaracter.Text = "*";
-                
+
             }
             else if (txtTerceiroCaracter.Text == "")
             {
                 txtTerceiroCaracter.Text = "*";
-               
+
             }
             else if (txtQuartoCaracter.Text == "")
             {
                 txtQuartoCaracter.Text = "*";
                 return true;
             }
-            
+
             return true;
         }
 
@@ -120,54 +120,21 @@ namespace SistemaBancario.Views
 
         private void btnAvancar_Click(object sender, EventArgs e)
         {
-            string treatment = "Sem alteração";
 
-            try
-            {
 
-                
-                if (senha.Length == 4)
-                {
-                    MySqlConnection connection = new MySqlConnection("SERVER=db4free.net;PORT=3306;DATABASE=sistemabancario;UID=bancario;PWD=sb100001");
-                    connection.Open();
-                    MySqlCommand command = new MySqlCommand("SELECT Conta.senha FROM Conta WHERE Conta.numero = @conta;", connection);
-                    command.Parameters.AddWithValue("@conta", _numeroConta);
-                    MySqlDataReader reader3 = command.ExecuteReader();
-                    while (reader3.Read())
-                    {
-                        treatment = reader3[0].ToString();
-
-                    }
-                    reader3.Close();
-                    connection.Close();
-                }
-                else
-                {
-                    MessageBox.Show("Senha incompleta");
-                }
-
-            }
-
-            catch (MySqlException ex)
-            {
-                Console.WriteLine(ex.ToString());
-            }
-            if (treatment.Equals("Sem alteração"))
-            {
-                MessageBox.Show("Dados inválidos");
-                
-            }
-            else
+            if (SistemaBancario.Models.MySQLFunctions.LoginCliente(_numeroConta, senha))
             {
                 MessageBox.Show("Logado com sucesso");
-                
             }
+
         }
 
         private void btnSair_Click(object sender, EventArgs e)
         {
             MessageBox.Show("Saindo com segurança");
-            Application.Exit();
+            this.Hide();
+            TelaLogin tl = new TelaLogin();
+            tl.Show();
         }
 
         private void btnRetornar_Click(object sender, EventArgs e)

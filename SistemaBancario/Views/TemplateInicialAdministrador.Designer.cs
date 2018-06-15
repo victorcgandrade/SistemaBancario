@@ -175,6 +175,7 @@
             this.btn_Contas.Text = "  Contas";
             this.btn_Contas.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btn_Contas.UseVisualStyleBackColor = false;
+            this.btn_Contas.Click += new System.EventHandler(this.btn_Contas_Click);
             // 
             // btn_Aplicacoes
             // 
