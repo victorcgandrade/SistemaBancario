@@ -91,6 +91,7 @@
             this.btn_VisualizarAplicacao.Text = "Visualizar";
             this.btn_VisualizarAplicacao.UseVisualStyleBackColor = false;
             this.btn_VisualizarAplicacao.Visible = false;
+            this.btn_VisualizarAplicacao.Click += new System.EventHandler(this.btn_VisualizarAplicacao_Click);
             // 
             // dgv_ResultadoBuscaAplicacao
             // 

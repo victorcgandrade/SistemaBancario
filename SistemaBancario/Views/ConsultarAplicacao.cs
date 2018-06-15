@@ -44,8 +44,7 @@ namespace SistemaBancario.Views
                     dgv_ResultadoBuscaAplicacao.Columns[3].Name = "Vencimento";
 
                     dgv_ResultadoBuscaAplicacao.Visible = true;
-
-
+                    btn_VisualizarAplicacao.Visible = true;
                 }
                 else
                 {
@@ -56,6 +55,25 @@ namespace SistemaBancario.Views
             {
                 MessageBox.Show("Insira um valor válido para que a busca seja realizada.");
             }
+        }
+
+        private void btn_VisualizarAplicacao_Click(object sender, EventArgs e)
+        {
+            int index_cur_row = dgv_ResultadoBuscaAplicacao.CurrentRow.Index; //capturando o indice da linha selecionada
+            DataGridViewRow cur_row = dgv_ResultadoBuscaAplicacao.Rows[index_cur_row]; //variavel dessa linha
+
+            string idAplicacao = cur_row.Cells["Identificador"].Value.ToString();
+
+            VisualizarAplicacao visualizarAplicacao = new VisualizarAplicacao(idAplicacao);
+            visualizarAplicacao.FormClosed += new FormClosedEventHandler(visualizarAplicacao_FormClosed);
+            visualizarAplicacao.Show();
+            this.Hide();
+        }
+
+        //Quando a tela de for fechada, fecha-se tambem a tela que lhe deu origem
+        private void visualizarAplicacao_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            this.Close();
         }
     }
 }

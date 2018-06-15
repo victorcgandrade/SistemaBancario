@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(VisualizarCliente));
-            this.lb_TituloAdicionarCliente = new System.Windows.Forms.Label();
+            this.lb_TituloVisualizarCliente = new System.Windows.Forms.Label();
             this.btn_Alterar = new System.Windows.Forms.Button();
             this.btn_Remover = new System.Windows.Forms.Button();
             this.pb_IconeCliente = new System.Windows.Forms.PictureBox();
@@ -78,21 +78,21 @@
             this.btn_Aplicacoes.FlatAppearance.BorderSize = 0;
             this.btn_Aplicacoes.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(41)))), ((int)(((byte)(43)))));
             // 
-            // lb_TituloAdicionarCliente
+            // lb_TituloVisualizarCliente
             // 
-            this.lb_TituloAdicionarCliente.AutoSize = true;
-            this.lb_TituloAdicionarCliente.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(246)))), ((int)(((byte)(246)))), ((int)(((byte)(246)))));
-            this.lb_TituloAdicionarCliente.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lb_TituloAdicionarCliente.ForeColor = System.Drawing.SystemColors.GrayText;
-            this.lb_TituloAdicionarCliente.Location = new System.Drawing.Point(247, 74);
-            this.lb_TituloAdicionarCliente.Name = "lb_TituloAdicionarCliente";
-            this.lb_TituloAdicionarCliente.Size = new System.Drawing.Size(169, 21);
-            this.lb_TituloAdicionarCliente.TabIndex = 78;
-            this.lb_TituloAdicionarCliente.Text = "VISUALIZAR CLIENTE";
+            this.lb_TituloVisualizarCliente.AutoSize = true;
+            this.lb_TituloVisualizarCliente.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(246)))), ((int)(((byte)(246)))), ((int)(((byte)(246)))));
+            this.lb_TituloVisualizarCliente.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lb_TituloVisualizarCliente.ForeColor = System.Drawing.SystemColors.GrayText;
+            this.lb_TituloVisualizarCliente.Location = new System.Drawing.Point(247, 74);
+            this.lb_TituloVisualizarCliente.Name = "lb_TituloVisualizarCliente";
+            this.lb_TituloVisualizarCliente.Size = new System.Drawing.Size(169, 21);
+            this.lb_TituloVisualizarCliente.TabIndex = 78;
+            this.lb_TituloVisualizarCliente.Text = "VISUALIZAR CLIENTE";
             // 
             // btn_Alterar
             // 
-            this.btn_Alterar.BackColor = System.Drawing.Color.Silver;
+            this.btn_Alterar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(169)))), ((int)(((byte)(0)))));
             this.btn_Alterar.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btn_Alterar.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_Alterar.ForeColor = System.Drawing.SystemColors.ButtonFace;
@@ -115,6 +115,7 @@
             this.btn_Remover.TabIndex = 87;
             this.btn_Remover.Text = "Remover";
             this.btn_Remover.UseVisualStyleBackColor = false;
+            this.btn_Remover.Click += new System.EventHandler(this.btn_Remover_Click);
             // 
             // pb_IconeCliente
             // 
@@ -138,20 +139,23 @@
             // 
             // dgv_VisualizarCliente
             // 
+            this.dgv_VisualizarCliente.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dgv_VisualizarCliente.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.dgv_VisualizarCliente.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgv_VisualizarCliente.Location = new System.Drawing.Point(149, 166);
+            this.dgv_VisualizarCliente.Location = new System.Drawing.Point(319, 166);
             this.dgv_VisualizarCliente.Name = "dgv_VisualizarCliente";
-            this.dgv_VisualizarCliente.Size = new System.Drawing.Size(790, 189);
+            this.dgv_VisualizarCliente.ReadOnly = true;
+            this.dgv_VisualizarCliente.Size = new System.Drawing.Size(460, 413);
             this.dgv_VisualizarCliente.TabIndex = 90;
             // 
             // VisualizarCliente
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.ClientSize = new System.Drawing.Size(1325, 694);
-            this.Controls.Add(this.lb_TituloAdicionarCliente);
+            this.Controls.Add(this.lb_TituloVisualizarCliente);
             this.Name = "VisualizarCliente";
             this.Controls.SetChildIndex(this.p_Content, 0);
-            this.Controls.SetChildIndex(this.lb_TituloAdicionarCliente, 0);
+            this.Controls.SetChildIndex(this.lb_TituloVisualizarCliente, 0);
             this.p_Content.ResumeLayout(false);
             this.p_Content.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pb_IconeCliente)).EndInit();
@@ -163,7 +167,7 @@
 
         #endregion
 
-        private System.Windows.Forms.Label lb_TituloAdicionarCliente;
+        private System.Windows.Forms.Label lb_TituloVisualizarCliente;
         private System.Windows.Forms.Button btn_Alterar;
         private System.Windows.Forms.Button btn_Remover;
         private System.Windows.Forms.Label lb_NomeSobrenome;
