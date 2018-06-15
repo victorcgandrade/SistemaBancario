@@ -39,5 +39,12 @@ namespace SistemaBancario.Views
             TelaInicialAdministradorConta tlac = new TelaInicialAdministradorConta();
             tlac.Show();
         }
+
+        private void btn_Clientes_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            TemplateInicialAdministrador tia = new TemplateInicialAdministrador();
+            tia.Show();
+        }
     }
 }
