@@ -22,7 +22,7 @@ namespace SistemaBancario.Models
             try
             {
                 if (connection.State == ConnectionState.Closed)
-                connection.Open();
+                    connection.Open();
                 MySqlCommand inserirUsuario = new MySqlCommand("INSERT INTO Usuario(primeiroNome, sobrenome, cpf, rg) VALUES(@primeiroNome, @sobrenome, @cpf, @rg)", connection);
                 inserirUsuario.Parameters.AddWithValue("@primeiroNome", primeiroNome);
                 inserirUsuario.Parameters.AddWithValue("@sobrenome", sobrenome);
@@ -351,13 +351,15 @@ namespace SistemaBancario.Models
 
                         parametro = "@idDependente";
 
-                    } else if (tipoCliente == "PessoaFisica")
+                    }
+                    else if (tipoCliente == "PessoaFisica")
                     {
                         query = "SELECT Usuario.primeiroNome, Usuario.sobrenome, Usuario.cpf, Usuario.rg, Cliente.data_nascimento, Cliente.email, Cliente.telefone, Cliente.celular, Cliente.data_cadastro, Cliente.estado_cliente, Cliente.estado_civil, PessoaFisica.profissao, PessoaFisica.rendaMensal, " +
                             "Endereco.logradouro, Endereco.rua, Endereco.numero, Endereco.bairro, Endereco.complemento, Endereco.cep, Endereco.cidade, Estado.sigla FROM PessoaFisica JOIN Cliente ON PessoaFisica.id_cliente = Cliente.id JOIN Endereco ON Endereco.id = Cliente.id_endereco JOIN Estado ON Endereco.estado_id = Estado.id JOIN Usuario ON Cliente.id_usuario = Usuario.id WHERE PessoaFisica.id = @idPessoaFisica";
                         parametro = "@idPessoaFisica";
 
-                    } else if (tipoCliente == "PessoaJuridica")
+                    }
+                    else if (tipoCliente == "PessoaJuridica")
                     {
                         query = "SELECT Usuario.primeiroNome, Usuario.sobrenome, Usuario.cpf, Usuario.rg, Cliente.data_nascimento, Cliente.email, Cliente.telefone, Cliente.celular, Cliente.data_cadastro, Cliente.estado_cliente, Cliente.estado_civil, PessoaJuridica.cnpj, PessoaJuridica.razaoSocial, PessoaJuridica.tipo, Endereco.logradouro," +
                             " Endereco.rua, Endereco.numero, Endereco.bairro, Endereco.complemento, Endereco.cep, Endereco.cidade, Estado.sigla FROM PessoaJuridica JOIN Cliente ON PessoaJuridica.id_cliente = Cliente.id JOIN Endereco ON Endereco.id = Cliente.id_endereco JOIN Estado ON Endereco.estado_id = Estado.id JOIN Usuario ON Cliente.id_usuario = Usuario.id WHERE PessoaJuridica.id = @idPessoaJuridica";
@@ -375,8 +377,9 @@ namespace SistemaBancario.Models
                         //Todos os dados retornados em formato de tabela para variavel dadosCliente
                         dataAdapter.Fill(dadosCliente);
                         visualizarCliente.Parameters.Clear();
-                    } 
-                } else
+                    }
+                }
+                else
                 {
                     dadosCliente = null; //valor informado para identificador esta incorreto
                 }
@@ -452,5 +455,35 @@ namespace SistemaBancario.Models
             return sucesso;
         }
 
+        //Exibir resultado da busca por um cliente
+        static public DataTable BuscarAplicacao(string numeroContaCorrente)
+        {
+            DataTable buscaAplicacao = new DataTable();
+
+            try
+            {
+                if (connection.State == ConnectionState.Closed)
+                    connection.Open();
+                MySqlCommand buscarAplicacao = new MySqlCommand("SELECT Aplicacao.id, tipoAplicacao, valorInicial, vencimento FROM Aplicacao JOIN ContaCorrente ON Aplicacao.id_contacorrente = ContaCorrente.id JOIN Conta ON ContaCorrente.id_conta = Conta.id WHERE Conta.numero = @numeroCC", connection);
+                buscarAplicacao.Parameters.AddWithValue("@numeroCC", numeroContaCorrente);
+
+
+                MySqlDataAdapter dataAdapter = new MySqlDataAdapter(buscarAplicacao);
+
+                dataAdapter.Fill(buscaAplicacao);
+            }
+            catch (MySqlException exception)
+            {
+                buscaAplicacao = null;
+                Console.WriteLine(exception.ToString());
+            }
+            finally
+            {
+                connection.Close();
+            }
+
+            return buscaAplicacao;
+        }
     }
 }
+

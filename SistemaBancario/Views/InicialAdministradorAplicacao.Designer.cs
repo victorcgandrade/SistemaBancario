@@ -76,7 +76,7 @@
             this.btn_ListarAplicacao.ForeColor = System.Drawing.SystemColors.ButtonFace;
             this.btn_ListarAplicacao.Image = global::SistemaBancario.Properties.Resources.list;
             this.btn_ListarAplicacao.ImageAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.btn_ListarAplicacao.Location = new System.Drawing.Point(574, 208);
+            this.btn_ListarAplicacao.Location = new System.Drawing.Point(559, 208);
             this.btn_ListarAplicacao.Name = "btn_ListarAplicacao";
             this.btn_ListarAplicacao.Size = new System.Drawing.Size(156, 136);
             this.btn_ListarAplicacao.TabIndex = 6;
@@ -92,13 +92,14 @@
             this.btn_ConsultarAplicacao.ForeColor = System.Drawing.SystemColors.ButtonFace;
             this.btn_ConsultarAplicacao.Image = global::SistemaBancario.Properties.Resources.magnifying_glass;
             this.btn_ConsultarAplicacao.ImageAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.btn_ConsultarAplicacao.Location = new System.Drawing.Point(401, 208);
+            this.btn_ConsultarAplicacao.Location = new System.Drawing.Point(386, 208);
             this.btn_ConsultarAplicacao.Name = "btn_ConsultarAplicacao";
             this.btn_ConsultarAplicacao.Size = new System.Drawing.Size(156, 136);
             this.btn_ConsultarAplicacao.TabIndex = 5;
             this.btn_ConsultarAplicacao.Text = "CONSULTAR APLICAÇÃO";
             this.btn_ConsultarAplicacao.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.btn_ConsultarAplicacao.UseVisualStyleBackColor = false;
+            this.btn_ConsultarAplicacao.Click += new System.EventHandler(this.btn_ConsultarAplicacao_Click);
             // 
             // InicialAdministradorAplicacao
             // 

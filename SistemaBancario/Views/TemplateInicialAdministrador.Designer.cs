@@ -234,6 +234,7 @@
             this.btn_Aplicacoes.Text = "  Aplicações";
             this.btn_Aplicacoes.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btn_Aplicacoes.UseVisualStyleBackColor = false;
+            this.btn_Aplicacoes.Click += new System.EventHandler(this.btn_Aplicacoes_Click);
             // 
             // btn_Agencias
             // 
