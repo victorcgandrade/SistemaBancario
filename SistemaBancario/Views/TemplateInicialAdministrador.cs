@@ -17,6 +17,7 @@ namespace SistemaBancario.Views
             InitializeComponent();
         }
 
+        //Botao para a tela de Aplicacoes
         private void btn_Aplicacoes_Click(object sender, EventArgs e)
         {
             InicialAdministradorAplicacao inicialAplicacao = new InicialAdministradorAplicacao();
@@ -27,6 +28,21 @@ namespace SistemaBancario.Views
 
         //Quando a segunda tela for fechada, fecha-se tambem a tela que lhe deu origem
         private void inicialAplicacao_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            this.Close();
+        }
+
+        //Botao para a tela de Clientes
+        private void btn_Clientes_Click(object sender, EventArgs e)
+        {
+            InicialAdministrador inicialClientes = new InicialAdministrador();
+            inicialClientes.FormClosed += new FormClosedEventHandler(inicialClientes_FormClosed);
+            inicialClientes.Show();
+            this.Hide();
+        }
+
+        //Quando a segunda tela for fechada, fecha-se tambem a tela que lhe deu origem
+        private void inicialClientes_FormClosed(object sender, FormClosedEventArgs e)
         {
             this.Close();
         }

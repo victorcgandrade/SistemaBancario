@@ -194,6 +194,7 @@
             this.btn_Clientes.Text = "  Clientes";
             this.btn_Clientes.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btn_Clientes.UseVisualStyleBackColor = false;
+            this.btn_Clientes.Click += new System.EventHandler(this.btn_Clientes_Click);
             // 
             // btn_Contas
             // 
