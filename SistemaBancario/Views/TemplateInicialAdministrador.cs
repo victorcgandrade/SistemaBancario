@@ -10,21 +10,34 @@ namespace SistemaBancario.Views
             InitializeComponent();
         }
 
-        private void pb_IconeAgencias_Click(object sender, EventArgs e)
+        //Botao para a tela de Aplicacoes
+        private void btn_Aplicacoes_Click(object sender, EventArgs e)
         {
+            InicialAdministradorAplicacao inicialAplicacao = new InicialAdministradorAplicacao();
+            inicialAplicacao.FormClosed += new FormClosedEventHandler(inicialAplicacao_FormClosed);
+            inicialAplicacao.Show();
             this.Hide();
-            Agencia agencia = new Agencia();
-            agencia.Show();
         }
 
-        private void pictureBox1_Click(object sender, EventArgs e)
+        //Quando a segunda tela for fechada, fecha-se tambem a tela que lhe deu origem
+        private void inicialAplicacao_FormClosed(object sender, FormClosedEventArgs e)
         {
-
+            this.Close();
         }
 
-        private void p_Content_Paint(object sender, PaintEventArgs e)
+        //Botao para a tela de Clientes
+        private void btn_Clientes_Click(object sender, EventArgs e)
         {
+            InicialAdministrador inicialClientes = new InicialAdministrador();
+            inicialClientes.FormClosed += new FormClosedEventHandler(inicialClientes_FormClosed);
+            inicialClientes.Show();
+            this.Hide();
+        }
 
+        //Quando a segunda tela for fechada, fecha-se tambem a tela que lhe deu origem
+        private void inicialClientes_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            this.Close();
         }
 
         private void btn_Sair_Click(object sender, EventArgs e)

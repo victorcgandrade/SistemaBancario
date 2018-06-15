@@ -128,17 +128,59 @@
     <Compile Include="Views\AdicionarCliente.Designer.cs">
       <DependentUpon>AdicionarCliente.cs</DependentUpon>
     </Compile>
+    <Compile Include="Views\AlterarCliente.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\AlterarCliente.Designer.cs">
+      <DependentUpon>AlterarCliente.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\ConsultarAplicacao.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\ConsultarAplicacao.Designer.cs">
+      <DependentUpon>ConsultarAplicacao.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\ConsultarCliente.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\ConsultarCliente.Designer.cs">
+      <DependentUpon>ConsultarCliente.cs</DependentUpon>
+    </Compile>
     <Compile Include="Views\InicialAdministrador.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Views\InicialAdministrador.Designer.cs">
       <DependentUpon>InicialAdministrador.cs</DependentUpon>
     </Compile>
+    <Compile Include="Views\InicialAdministradorAplicacao.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\InicialAdministradorAplicacao.Designer.cs">
+      <DependentUpon>InicialAdministradorAplicacao.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\ListarAplicacoes.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\ListarAplicacoes.Designer.cs">
+      <DependentUpon>ListarAplicacoes.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\ListarClientes.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\ListarClientes.Designer.cs">
+      <DependentUpon>ListarClientes.cs</DependentUpon>
+    </Compile>
     <Compile Include="Views\TemplateInicialAdministrador.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Views\TemplateInicialAdministrador.Designer.cs">
       <DependentUpon>TemplateInicialAdministrador.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\VisualizarCliente.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\VisualizarCliente.Designer.cs">
+      <DependentUpon>VisualizarCliente.cs</DependentUpon>
     </Compile>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -180,11 +222,32 @@
     <EmbeddedResource Include="Views\AdicionarCliente.resx">
       <DependentUpon>AdicionarCliente.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Views\AlterarCliente.resx">
+      <DependentUpon>AlterarCliente.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\ConsultarAplicacao.resx">
+      <DependentUpon>ConsultarAplicacao.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\ConsultarCliente.resx">
+      <DependentUpon>ConsultarCliente.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Views\InicialAdministrador.resx">
       <DependentUpon>InicialAdministrador.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Views\InicialAdministradorAplicacao.resx">
+      <DependentUpon>InicialAdministradorAplicacao.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\ListarAplicacoes.resx">
+      <DependentUpon>ListarAplicacoes.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\ListarClientes.resx">
+      <DependentUpon>ListarClientes.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Views\TemplateInicialAdministrador.resx">
       <DependentUpon>TemplateInicialAdministrador.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\VisualizarCliente.resx">
+      <DependentUpon>VisualizarCliente.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="ClassDiagram1.cd" />
     <None Include="obj\Debug\DesignTimeResolveAssemblyReferencesInput.cache" />

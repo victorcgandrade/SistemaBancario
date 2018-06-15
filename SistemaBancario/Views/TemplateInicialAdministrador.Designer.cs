@@ -34,6 +34,10 @@
             this.lb_LoginAdmin = new System.Windows.Forms.Label();
             this.lb_NomeAdmin = new System.Windows.Forms.Label();
             this.p_SideMenu = new System.Windows.Forms.Panel();
+            this.panel4 = new System.Windows.Forms.Panel();
+            this.panel3 = new System.Windows.Forms.Panel();
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.panel1 = new System.Windows.Forms.Panel();
             this.p_LinkAtivo = new System.Windows.Forms.Panel();
             this.btn_Clientes = new System.Windows.Forms.Button();
             this.btn_Contas = new System.Windows.Forms.Button();
@@ -115,6 +119,10 @@
             // p_SideMenu
             // 
             this.p_SideMenu.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(32)))), ((int)(((byte)(34)))));
+            this.p_SideMenu.Controls.Add(this.panel4);
+            this.p_SideMenu.Controls.Add(this.panel3);
+            this.p_SideMenu.Controls.Add(this.panel2);
+            this.p_SideMenu.Controls.Add(this.panel1);
             this.p_SideMenu.Controls.Add(this.p_LinkAtivo);
             this.p_SideMenu.Controls.Add(this.btn_Clientes);
             this.p_SideMenu.Controls.Add(this.btn_Contas);
@@ -128,9 +136,41 @@
             this.p_SideMenu.Size = new System.Drawing.Size(215, 667);
             this.p_SideMenu.TabIndex = 11;
             // 
+            // panel4
+            // 
+            this.panel4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(32)))), ((int)(((byte)(34)))));
+            this.panel4.Location = new System.Drawing.Point(205, 465);
+            this.panel4.Name = "panel4";
+            this.panel4.Size = new System.Drawing.Size(10, 45);
+            this.panel4.TabIndex = 3;
+            // 
+            // panel3
+            // 
+            this.panel3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(32)))), ((int)(((byte)(34)))));
+            this.panel3.Location = new System.Drawing.Point(205, 409);
+            this.panel3.Name = "panel3";
+            this.panel3.Size = new System.Drawing.Size(10, 45);
+            this.panel3.TabIndex = 3;
+            // 
+            // panel2
+            // 
+            this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(32)))), ((int)(((byte)(34)))));
+            this.panel2.Location = new System.Drawing.Point(205, 353);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(10, 45);
+            this.panel2.TabIndex = 3;
+            // 
+            // panel1
+            // 
+            this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(32)))), ((int)(((byte)(34)))));
+            this.panel1.Location = new System.Drawing.Point(205, 297);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(10, 45);
+            this.panel1.TabIndex = 3;
+            // 
             // p_LinkAtivo
             // 
-            this.p_LinkAtivo.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(191)))), ((int)(((byte)(0)))));
+            this.p_LinkAtivo.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(32)))), ((int)(((byte)(34)))));
             this.p_LinkAtivo.Location = new System.Drawing.Point(205, 241);
             this.p_LinkAtivo.Name = "p_LinkAtivo";
             this.p_LinkAtivo.Size = new System.Drawing.Size(10, 45);
@@ -138,7 +178,7 @@
             // 
             // btn_Clientes
             // 
-            this.btn_Clientes.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(41)))), ((int)(((byte)(43)))));
+            this.btn_Clientes.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(32)))), ((int)(((byte)(34)))));
             this.btn_Clientes.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btn_Clientes.FlatAppearance.BorderSize = 0;
             this.btn_Clientes.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(41)))), ((int)(((byte)(43)))));
@@ -197,6 +237,7 @@
             this.btn_Aplicacoes.Text = "  Aplicações";
             this.btn_Aplicacoes.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btn_Aplicacoes.UseVisualStyleBackColor = false;
+            this.btn_Aplicacoes.Click += new System.EventHandler(this.btn_Aplicacoes_Click);
             // 
             // btn_Agencias
             // 
@@ -301,7 +342,6 @@
             this.p_Content.Name = "p_Content";
             this.p_Content.Size = new System.Drawing.Size(1110, 624);
             this.p_Content.TabIndex = 13;
-            this.p_Content.Paint += new System.Windows.Forms.PaintEventHandler(this.p_Content_Paint);
             // 
             // TemplateInicialAdministrador
             // 
@@ -331,7 +371,6 @@
         private System.Windows.Forms.Label lb_LoginAdmin;
         private System.Windows.Forms.Label lb_NomeAdmin;
         private System.Windows.Forms.PictureBox pb_Logo;
-        private System.Windows.Forms.Panel p_LinkAtivo;
         private System.Windows.Forms.Label lb_DataHoraAtual;
         private System.Windows.Forms.Label lb_DuvidasApp;
         private System.Windows.Forms.Label lb_Versao;
@@ -339,10 +378,15 @@
         private System.Windows.Forms.Panel p_Footer;
         private System.Windows.Forms.Panel p_SideMenu;
         private System.Windows.Forms.Panel p_Header;
-        private System.Windows.Forms.Button btn_LogDados;
-        private System.Windows.Forms.Button btn_Agencias;
-        private System.Windows.Forms.Button btn_Clientes;
-        private System.Windows.Forms.Button btn_Contas;
-        private System.Windows.Forms.Button btn_Aplicacoes;
+        protected System.Windows.Forms.Panel panel4;
+        protected System.Windows.Forms.Panel panel3;
+        protected System.Windows.Forms.Panel panel2;
+        protected System.Windows.Forms.Panel panel1;
+        protected System.Windows.Forms.Panel p_LinkAtivo;
+        protected System.Windows.Forms.Button btn_LogDados;
+        protected System.Windows.Forms.Button btn_Agencias;
+        protected System.Windows.Forms.Button btn_Clientes;
+        protected System.Windows.Forms.Button btn_Contas;
+        protected System.Windows.Forms.Button btn_Aplicacoes;
     }
 }
