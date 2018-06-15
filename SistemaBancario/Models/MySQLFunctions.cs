@@ -233,7 +233,7 @@ namespace SistemaBancario.Models
                 if (connection.State == ConnectionState.Closed)
                     connection.Open();
                 MySqlCommand inserirDependente = new MySqlCommand(
-                    "INSERT INTO Dependente(id_titular, id_cliente) VALUES((SELECT id FROM Cliente WHERE id_usuario = (SELECT id FROM Usuario WHERE cpf = @cpfResponsavel)), (SELECT id FROM Cliente WHERE email = @email))", connection);
+                    "INSERT INTO Dependente (id_titular, id_cliente) VALUES((SELECT PessoaFisica.id FROM PessoaFisica JOIN Cliente ON PessoaFisica.id_cliente = Cliente.id JOIN Usuario ON Cliente.id_usuario = Usuario.id WHERE Usuario.cpf = @cpfResponsavel), (SELECT id FROM Cliente WHERE email = @email))", connection);
 
                 inserirDependente.Parameters.AddWithValue("@cpfResponsavel", cpfResponsavel);
                 inserirDependente.Parameters.AddWithValue("@email", email);
@@ -456,7 +456,7 @@ namespace SistemaBancario.Models
         }
 
         //Remover um determinado cliente
-        static public Boolean RemoverCliente(string cpf)
+        static public Boolean RemoverCliente(string identificador)
         {
             bool sucesso;
 
@@ -464,8 +464,8 @@ namespace SistemaBancario.Models
             {
                 if (connection.State == ConnectionState.Closed)
                     connection.Open();
-                MySqlCommand removerCliente = new MySqlCommand("DELETE FROM Usuario WHERE cpf = @cpf", connection);
-                removerCliente.Parameters.AddWithValue("@cpf", cpf);
+                MySqlCommand removerCliente = new MySqlCommand("DELETE FROM Usuario WHERE cpf = @identificador", connection);
+                removerCliente.Parameters.AddWithValue("@identificador", identificador);
 
                 removerCliente.ExecuteNonQuery();
                 removerCliente.Parameters.Clear();
@@ -481,7 +481,6 @@ namespace SistemaBancario.Models
             {
                 connection.Close();
             }
-
             return sucesso;
         }
 
@@ -542,6 +541,81 @@ namespace SistemaBancario.Models
 
             return listagemAplicacao;
         }
+
+        //Exibir resultado da busca por uma aplicacao
+        static public DataTable AcessarDadosAplicacao(string identificador)
+        {
+
+            DataTable dadosAplicacao = new DataTable();
+
+            if (Int32.TryParse(identificador, out int idBusca)) //tenta converter a string informada em numero
+            {
+                try
+                {
+                    if (connection.State == ConnectionState.Closed)
+                        connection.Open();
+                    MySqlCommand buscarAplicacao = new MySqlCommand("SELECT Aplicacao.id, tipoAplicacao, valorMinimo, valorInicial, taxaRendimento, resgateMinimo, vencimento, valorIOF, impostoRenda, Conta.numero AS NumeroConta, Agencia.numero AS NumeroAgencia, Usuario.cpf FROM Aplicacao JOIN ContaCorrente ON Aplicacao.id_contacorrente = ContaCorrente.id JOIN Conta ON ContaCorrente.id_conta = Conta.id JOIN Agencia ON Conta.id_agencia = Agencia.id JOIN Cliente ON Conta.id_cliente = Cliente.id JOIN Usuario ON Cliente.id_usuario = Usuario.id WHERE Aplicacao.id = @identificador", connection);
+                    buscarAplicacao.Parameters.AddWithValue("@identificador", identificador);
+
+
+                    MySqlDataAdapter dataAdapter = new MySqlDataAdapter(buscarAplicacao);
+
+                    dataAdapter.Fill(dadosAplicacao);
+                }
+                catch (MySqlException exception)
+                {
+                    dadosAplicacao = null;
+                    Console.WriteLine(exception.ToString());
+                }
+                finally
+                {
+                    connection.Close();
+                }
+            }
+            else
+            {
+                dadosAplicacao = null;
+            }
+
+            return dadosAplicacao;
+        }
+
+        //Remover uma determinada aplicacao
+        static public Boolean RemoverAplicacao(string identificador)
+        {
+            bool sucesso;
+
+            if (Int32.TryParse(identificador, out int idBusca)) //tenta converter a string informada em numero
+            {
+                try
+                {
+                    if (connection.State == ConnectionState.Closed)
+                        connection.Open();
+                    MySqlCommand removerCliente = new MySqlCommand("DELETE FROM Aplicacao WHERE id = @identificador", connection);
+                    removerCliente.Parameters.AddWithValue("@identificador", idBusca);
+
+                    removerCliente.ExecuteNonQuery();
+                    removerCliente.Parameters.Clear();
+
+                    sucesso = true;
+                }
+                catch (MySqlException exception)
+                {
+                    sucesso = false;
+                    Console.WriteLine(exception.ToString());
+                }
+                finally
+                {
+                    connection.Close();
+                }
+            } else
+            {
+                sucesso = false;
+            }
+
+            return sucesso;
+        }
+
         static public bool SelecionarAdministrador(string login, string senha)
         {
             bool sucesso = false;
@@ -673,6 +747,8 @@ namespace SistemaBancario.Models
             return sucesso;
         }
     }
+
+
 
 }
 
