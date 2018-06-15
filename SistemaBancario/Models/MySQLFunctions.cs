@@ -203,7 +203,7 @@ namespace SistemaBancario.Models
                 if (connection.State == ConnectionState.Closed)
                     connection.Open();
                 MySqlCommand inserirDependente = new MySqlCommand(
-                    "INSERT INTO Dependente(id_titular, id_cliente) VALUES((SELECT id FROM Cliente WHERE id_usuario = (SELECT id FROM Usuario WHERE cpf = @cpfResponsavel)), (SELECT id FROM Cliente WHERE email = @email))", connection);
+                    "INSERT INTO Dependente(id_titular, id_cliente) VALUES((SELECT PessoaFisica.id FROM PessoaFisica JOIN Cliente ON PessoaFisica.id_cliente = Cliente.id JOIN Usuario ON Cliente.id_usuario = Usuario.id WHERE Usuario.cpf = @cpfResponsavel), (SELECT id FROM Cliente WHERE email = @email))", connection);
 
                 inserirDependente.Parameters.AddWithValue("@cpfResponsavel", cpfResponsavel);
                 inserirDependente.Parameters.AddWithValue("@email", email);
@@ -346,21 +346,21 @@ namespace SistemaBancario.Models
                     //Determina a consulta adequada para retornar TODOS os dados de cada tipo de cliente diferente 
                     if (tipoCliente == "Dependente")
                     {
-                        query = "SELECT Usuario.primeiroNome, Usuario.sobrenome, Usuario.cpf, Usuario.rg, Cliente.data_nascimento, Cliente.email, Cliente.telefone, Cliente.celular, Cliente.data_cadastro, Cliente.estado_cliente, Cliente.estado_civil," +
-                            " Dependente.id_titular AS 'CPF_Responsavel', Endereco.logradouro, Endereco.rua, Endereco.numero, Endereco.bairro, Endereco.complemento, Endereco.cep, Endereco.cidade, Estado.sigla FROM Dependente JOIN Cliente ON Dependente.id_cliente = Cliente.id JOIN Endereco ON Endereco.id = Cliente.id_endereco JOIN Estado ON Endereco.estado_id = Estado.id JOIN Usuario ON Cliente.id_usuario = Usuario.id WHERE Dependente.id = @idDependente";
+                        query = "SELECT Usuario.primeiroNome AS 'Primeiro Nome', Usuario.sobrenome AS 'Sobrenome', Usuario.cpf AS 'CPF (Apenas números)', Usuario.rg AS 'RG (Apenas números)', Cliente.data_nascimento AS 'Data de Nascimento', Cliente.data_cadastro AS 'Data de Cadastro', Cliente.email AS 'Endereço de e-mail', Cliente.telefone AS 'Telefone (Apenas números)', Cliente.celular AS 'Celular (Apenas números)', Cliente.estado_cliente AS 'Status', Cliente.estado_civil AS 'Estado Civil'," +
+                            " Dependente.id_titular AS 'Id Titular Responsavel', Endereco.logradouro AS 'Logradouro', Endereco.rua AS 'Rua', Endereco.numero AS 'Número', Endereco.bairro AS 'Bairro', Endereco.complemento AS 'Complemento', Endereco.cep AS 'CEP (Apenas números)', Endereco.cidade AS 'Cidade', Estado.sigla AS 'Estado' FROM Dependente JOIN Cliente ON Dependente.id_cliente = Cliente.id JOIN Endereco ON Endereco.id = Cliente.id_endereco JOIN Estado ON Endereco.estado_id = Estado.id JOIN Usuario ON Cliente.id_usuario = Usuario.id WHERE Dependente.id = @idDependente";
 
                         parametro = "@idDependente";
 
                     } else if (tipoCliente == "PessoaFisica")
                     {
-                        query = "SELECT Usuario.primeiroNome, Usuario.sobrenome, Usuario.cpf, Usuario.rg, Cliente.data_nascimento, Cliente.email, Cliente.telefone, Cliente.celular, Cliente.data_cadastro, Cliente.estado_cliente, Cliente.estado_civil, PessoaFisica.profissao, PessoaFisica.rendaMensal, " +
-                            "Endereco.logradouro, Endereco.rua, Endereco.numero, Endereco.bairro, Endereco.complemento, Endereco.cep, Endereco.cidade, Estado.sigla FROM PessoaFisica JOIN Cliente ON PessoaFisica.id_cliente = Cliente.id JOIN Endereco ON Endereco.id = Cliente.id_endereco JOIN Estado ON Endereco.estado_id = Estado.id JOIN Usuario ON Cliente.id_usuario = Usuario.id WHERE PessoaFisica.id = @idPessoaFisica";
+                        query = "SELECT Usuario.primeiroNome AS 'Primeiro Nome', Usuario.sobrenome AS 'Sobrenome', Usuario.cpf AS 'CPF (Apenas números)', Usuario.rg AS 'RG (Apenas números)', Cliente.data_nascimento AS 'Data de Nascimento', Cliente.data_cadastro AS 'Data de Cadastro', Cliente.email AS 'Endereço de e-mail', Cliente.telefone AS 'Telefone (Apenas números)', Cliente.celular AS 'Celular (Apenas números)', Cliente.estado_cliente AS 'Status', Cliente.estado_civil AS 'Estado Civil', PessoaFisica.profissao AS 'Profissão', PessoaFisica.rendaMensal AS 'Renda Mensal (R$)', " +
+                            "Endereco.logradouro AS 'Logradouro', Endereco.rua AS 'Rua', Endereco.numero AS 'Número', Endereco.bairro AS 'Bairro', Endereco.complemento AS 'Complemento', Endereco.cep AS 'CEP (Apenas números)', Endereco.cidade AS 'Cidade', Estado.sigla AS 'Estado' FROM PessoaFisica JOIN Cliente ON PessoaFisica.id_cliente = Cliente.id JOIN Endereco ON Endereco.id = Cliente.id_endereco JOIN Estado ON Endereco.estado_id = Estado.id JOIN Usuario ON Cliente.id_usuario = Usuario.id WHERE PessoaFisica.id = @idPessoaFisica";
                         parametro = "@idPessoaFisica";
 
                     } else if (tipoCliente == "PessoaJuridica")
                     {
-                        query = "SELECT Usuario.primeiroNome, Usuario.sobrenome, Usuario.cpf, Usuario.rg, Cliente.data_nascimento, Cliente.email, Cliente.telefone, Cliente.celular, Cliente.data_cadastro, Cliente.estado_cliente, Cliente.estado_civil, PessoaJuridica.cnpj, PessoaJuridica.razaoSocial, PessoaJuridica.tipo, Endereco.logradouro," +
-                            " Endereco.rua, Endereco.numero, Endereco.bairro, Endereco.complemento, Endereco.cep, Endereco.cidade, Estado.sigla FROM PessoaJuridica JOIN Cliente ON PessoaJuridica.id_cliente = Cliente.id JOIN Endereco ON Endereco.id = Cliente.id_endereco JOIN Estado ON Endereco.estado_id = Estado.id JOIN Usuario ON Cliente.id_usuario = Usuario.id WHERE PessoaJuridica.id = @idPessoaJuridica";
+                        query = "SELECT Usuario.primeiroNome AS 'Primeiro Nome', Usuario.sobrenome AS 'Sobrenome', Usuario.cpf AS 'CPF (Apenas números)', Usuario.rg AS 'RG (Apenas números)', Cliente.data_nascimento AS 'Data de Nascimento', Cliente.data_cadastro AS 'Data de Cadastro', Cliente.email AS 'Endereço de e-mail', Cliente.telefone AS 'Telefone (Apenas números)', Cliente.celular AS 'Celular (Apenas números)', Cliente.estado_cliente AS 'Status', Cliente.estado_civil AS 'Estado Civil', PessoaJuridica.cnpj AS 'CNPJ (Apenas números)', " +
+                            "PessoaJuridica.razaoSocial AS 'Razão Social', PessoaJuridica.tipo AS 'Tipo de Pessoa Jurídica', Endereco.logradouro AS 'Logradouro', Endereco.rua AS 'Rua', Endereco.numero AS 'Número', Endereco.bairro AS 'Bairro', Endereco.complemento AS 'Complemento', Endereco.cep AS 'CEP (Apenas números)', Endereco.cidade AS 'Cidade', Estado.sigla AS 'Estado' FROM PessoaJuridica JOIN Cliente ON PessoaJuridica.id_cliente = Cliente.id JOIN Endereco ON Endereco.id = Cliente.id_endereco JOIN Estado ON Endereco.estado_id = Estado.id JOIN Usuario ON Cliente.id_usuario = Usuario.id WHERE PessoaJuridica.id = @idPessoaJuridica";
                         parametro = "@idPessoaJuridica";
                     }
 
@@ -417,7 +417,7 @@ namespace SistemaBancario.Models
         }
 
         //Remover um determinado cliente
-        static public Boolean RemoverCliente(string cpf)
+        static public Boolean RemoverCliente(string identificador)
         {
             bool sucesso;
 
@@ -425,8 +425,8 @@ namespace SistemaBancario.Models
             {
                 if (connection.State == ConnectionState.Closed)
                     connection.Open();
-                MySqlCommand removerCliente = new MySqlCommand("DELETE FROM Usuario WHERE cpf = @cpf", connection);
-                removerCliente.Parameters.AddWithValue("@cpf", cpf);
+                MySqlCommand removerCliente = new MySqlCommand("DELETE FROM Usuario WHERE cpf = @cpf; CALL ATUALIZA_ENDERECO()", connection);
+                removerCliente.Parameters.AddWithValue("@cpf", identificador);
 
                 removerCliente.ExecuteNonQuery();
                 removerCliente.Parameters.Clear();

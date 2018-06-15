@@ -62,7 +62,7 @@
             // 
             // btn_Alterar
             // 
-            this.btn_Alterar.BackColor = System.Drawing.Color.Silver;
+            this.btn_Alterar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(169)))), ((int)(((byte)(0)))));
             this.btn_Alterar.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btn_Alterar.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_Alterar.ForeColor = System.Drawing.SystemColors.ButtonFace;
@@ -85,6 +85,7 @@
             this.btn_Remover.TabIndex = 87;
             this.btn_Remover.Text = "Remover";
             this.btn_Remover.UseVisualStyleBackColor = false;
+            this.btn_Remover.Click += new System.EventHandler(this.btn_Remover_Click);
             // 
             // pb_IconeCliente
             // 
@@ -108,10 +109,12 @@
             // 
             // dgv_VisualizarCliente
             // 
+            this.dgv_VisualizarCliente.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dgv_VisualizarCliente.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.dgv_VisualizarCliente.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgv_VisualizarCliente.Location = new System.Drawing.Point(149, 166);
+            this.dgv_VisualizarCliente.Location = new System.Drawing.Point(330, 167);
             this.dgv_VisualizarCliente.Name = "dgv_VisualizarCliente";
-            this.dgv_VisualizarCliente.Size = new System.Drawing.Size(790, 189);
+            this.dgv_VisualizarCliente.Size = new System.Drawing.Size(448, 400);
             this.dgv_VisualizarCliente.TabIndex = 90;
             // 
             // VisualizarCliente
