@@ -6,14 +6,19 @@ using System.Threading.Tasks;
 
 namespace SistemaBancario.Models
 {
-    class EstadoConta
+    public class EstadoConta
     {
-        enum Estado_Conta
+        public enum Estado_Conta
         {
             Criada,
             Ativa,
             Com_pendências,
             Inativa
         };
+        public EstadoConta()
+        {
+            EstadoConta.Estado_Conta ec = new Estado_Conta();
+        }
+
     }
 }

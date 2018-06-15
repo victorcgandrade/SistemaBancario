@@ -16,5 +16,13 @@ namespace SistemaBancario.Views
         {
             InitializeComponent();
         }
+
+
+        private void btnAdicionarConta_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            AdicionarConta ac = new AdicionarConta();
+            ac.Show();
+        }
     }
 }

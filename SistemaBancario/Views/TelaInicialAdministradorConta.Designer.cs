@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.button1 = new System.Windows.Forms.Button();
+            this.btnAdicionarConta = new System.Windows.Forms.Button();
             this.button6 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
@@ -42,23 +42,24 @@
             this.p_Content.Controls.Add(this.button3);
             this.p_Content.Controls.Add(this.button2);
             this.p_Content.Controls.Add(this.button6);
-            this.p_Content.Controls.Add(this.button1);
+            this.p_Content.Controls.Add(this.btnAdicionarConta);
             // 
-            // button1
+            // btnAdicionarConta
             // 
-            this.button1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(191)))), ((int)(((byte)(0)))));
-            this.button1.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.button1.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold);
-            this.button1.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.button1.Image = global::SistemaBancario.Properties.Resources.add;
-            this.button1.ImageAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.button1.Location = new System.Drawing.Point(301, 135);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(156, 136);
-            this.button1.TabIndex = 0;
-            this.button1.Text = "ADICIONAR CONTA";
-            this.button1.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
-            this.button1.UseVisualStyleBackColor = false;
+            this.btnAdicionarConta.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(191)))), ((int)(((byte)(0)))));
+            this.btnAdicionarConta.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnAdicionarConta.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold);
+            this.btnAdicionarConta.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.btnAdicionarConta.Image = global::SistemaBancario.Properties.Resources.add;
+            this.btnAdicionarConta.ImageAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.btnAdicionarConta.Location = new System.Drawing.Point(301, 135);
+            this.btnAdicionarConta.Name = "btnAdicionarConta";
+            this.btnAdicionarConta.Size = new System.Drawing.Size(156, 136);
+            this.btnAdicionarConta.TabIndex = 0;
+            this.btnAdicionarConta.Text = "ADICIONAR CONTA";
+            this.btnAdicionarConta.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.btnAdicionarConta.UseVisualStyleBackColor = false;
+            this.btnAdicionarConta.Click += new System.EventHandler(this.btnAdicionarConta_Click);
             // 
             // button6
             // 
@@ -138,7 +139,7 @@
 
         #endregion
 
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btnAdicionarConta;
         private System.Windows.Forms.Button button4;
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.Button button2;

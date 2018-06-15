@@ -298,7 +298,7 @@
             this.lb_VariaveisControle.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lb_VariaveisControle.Location = new System.Drawing.Point(779, 350);
             this.lb_VariaveisControle.Name = "lb_VariaveisControle";
-            this.lb_VariaveisControle.Size = new System.Drawing.Size(133, 17);
+            this.lb_VariaveisControle.Size = new System.Drawing.Size(134, 17);
             this.lb_VariaveisControle.TabIndex = 70;
             this.lb_VariaveisControle.Text = "Variáveis de controle";
             // 
