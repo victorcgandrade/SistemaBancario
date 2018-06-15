@@ -53,11 +53,11 @@ namespace SistemaBancario.Views
             tlac.Show();
         }
 
-        private void btn_Clientes_Click(object sender, EventArgs e)
+        private void btn_Agencias_Click(object sender, EventArgs e)
         {
             this.Hide();
-            TemplateInicialAdministrador tia = new TemplateInicialAdministrador();
-            tia.Show();
+            Agencia a = new Agencia();
+            a.Show();
         }
     }
 }

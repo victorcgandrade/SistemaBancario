@@ -258,7 +258,7 @@
             this.btn_Agencias.Text = "  Agências";
             this.btn_Agencias.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btn_Agencias.UseVisualStyleBackColor = false;
-            this.btn_Agencias.Click += new System.EventHandler(this.pb_IconeAgencias_Click);
+            this.btn_Agencias.Click += new System.EventHandler(this.btn_Agencias_Click);
             // 
             // btn_LogDados
             // 

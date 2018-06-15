@@ -340,10 +340,10 @@ namespace SistemaBancario.Models
         static public DataTable AcessarDadosCliente(string identificador)
         {
             DataTable dadosCliente = new DataTable(); //valor inicial vazio
-
+            int idBusca;
             try
             {
-                if (Int32.TryParse(identificador, out int idBusca)) //tenta converter a string informada em numero
+                if (Int32.TryParse(identificador, out idBusca)) //tenta converter a string informada em numero
                 {
                     if (connection.State == ConnectionState.Closed)
                         connection.Open();
