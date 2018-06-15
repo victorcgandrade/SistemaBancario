@@ -549,7 +549,45 @@ namespace SistemaBancario.Models
 
             return dadosAplicacao;
         }
+
+        //Remover uma determinada aplicacao
+        static public Boolean RemoverAplicacao(string identificador)
+        {
+            bool sucesso;
+
+            if (Int32.TryParse(identificador, out int idBusca)) //tenta converter a string informada em numero
+            {
+                try
+                {
+                    if (connection.State == ConnectionState.Closed)
+                        connection.Open();
+                    MySqlCommand removerCliente = new MySqlCommand("DELETE FROM Aplicacao WHERE id = @identificador", connection);
+                    removerCliente.Parameters.AddWithValue("@identificador", idBusca);
+
+                    removerCliente.ExecuteNonQuery();
+                    removerCliente.Parameters.Clear();
+
+                    sucesso = true;
+                }
+                catch (MySqlException exception)
+                {
+                    sucesso = false;
+                    Console.WriteLine(exception.ToString());
+                }
+                finally
+                {
+                    connection.Close();
+                }
+            } else
+            {
+                sucesso = false;
+            }
+
+            return sucesso;
+        }
+
     }
+
 
 }
 

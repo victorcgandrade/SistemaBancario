@@ -64,7 +64,7 @@ namespace SistemaBancario.Views
         {
             string cpf = dgv_VisualizarCliente.Rows[2].Cells[1].Value.ToString();
 
-            if (MessageBox.Show("Tem certeza que deseja adicionar este cliente?", "Confirmacao", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+            if (MessageBox.Show("Tem certeza que deseja remover este cliente?", "Confirmacao", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
             {
                 if (MySQLFunctions.RemoverCliente(cpf))
                 {

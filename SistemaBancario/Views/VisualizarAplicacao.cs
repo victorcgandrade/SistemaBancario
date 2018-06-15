@@ -61,5 +61,22 @@ namespace SistemaBancario.Views
             }
             return dt2;
         }
+
+        private void btn_RemoverAplicacao_Click(object sender, EventArgs e)
+        {
+            string idAplicacao = dgv_VisualizarAplicacao.Rows[0].Cells[1].Value.ToString();
+
+            if (MessageBox.Show("Tem certeza que deseja remover esta aplicação?", "Confirmacao", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+            {
+                if (MySQLFunctions.RemoverAplicacao(idAplicacao))
+                {
+                    MessageBox.Show("Aplicação Removida com sucesso!");
+                }
+                else
+                {
+                  MessageBox.Show("Não foi possível remover a aplicação!");
+                }
+            }
+        }
     }
 }

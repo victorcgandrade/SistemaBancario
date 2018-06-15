@@ -134,6 +134,7 @@
             this.btn_RemoverAplicacao.TabIndex = 93;
             this.btn_RemoverAplicacao.Text = "Remover";
             this.btn_RemoverAplicacao.UseVisualStyleBackColor = false;
+            this.btn_RemoverAplicacao.Click += new System.EventHandler(this.btn_RemoverAplicacao_Click);
             // 
             // lb_TituloVisualizarAplicacao
             // 
