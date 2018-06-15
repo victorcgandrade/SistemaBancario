@@ -203,7 +203,7 @@ namespace SistemaBancario.Models
                 if (connection.State == ConnectionState.Closed)
                     connection.Open();
                 MySqlCommand inserirDependente = new MySqlCommand(
-                    "INSERT INTO Dependente(id_titular, id_cliente) VALUES((SELECT id FROM Cliente WHERE id_usuario = (SELECT id FROM Usuario WHERE cpf = @cpfResponsavel)), (SELECT id FROM Cliente WHERE email = @email))", connection);
+                    "INSERT INTO Dependente (id_titular, id_cliente) VALUES((SELECT PessoaFisica.id FROM PessoaFisica JOIN Cliente ON PessoaFisica.id_cliente = Cliente.id JOIN Usuario ON Cliente.id_usuario = Usuario.id WHERE Usuario.cpf = @cpfResponsavel), (SELECT id FROM Cliente WHERE email = @email))", connection);
 
                 inserirDependente.Parameters.AddWithValue("@cpfResponsavel", cpfResponsavel);
                 inserirDependente.Parameters.AddWithValue("@email", email);
