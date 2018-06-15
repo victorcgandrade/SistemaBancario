@@ -434,7 +434,7 @@ namespace SistemaBancario.Models
             {
                 if (connection.State == ConnectionState.Closed)
                     connection.Open();
-                MySqlCommand removerCliente = new MySqlCommand("DELETE FROM Usuario WHERE cpf = @identificador; CALL ATUALIZA_ENDERECO()", connection);
+                MySqlCommand removerCliente = new MySqlCommand("DELETE FROM Usuario WHERE cpf = @identificador", connection);
                 removerCliente.Parameters.AddWithValue("@identificador", identificador);
 
                 removerCliente.ExecuteNonQuery();
@@ -451,9 +451,9 @@ namespace SistemaBancario.Models
             {
                 connection.Close();
             }
-
             return sucesso;
-        }
+        } 
+    }
 
         //Exibir resultado da busca por uma aplicacao
         static public DataTable BuscarAplicacao(string numeroContaCorrente)
