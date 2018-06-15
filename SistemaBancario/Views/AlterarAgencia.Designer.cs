@@ -29,74 +29,60 @@
         private void InitializeComponent()
         {
             this.p_Footer = new System.Windows.Forms.Panel();
+            this.pb_IconeUsuario = new System.Windows.Forms.PictureBox();
             this.btn_Sair = new System.Windows.Forms.Button();
             this.lb_LoginAdmin = new System.Windows.Forms.Label();
             this.lb_NomeAdmin = new System.Windows.Forms.Label();
             this.p_SideMenu = new System.Windows.Forms.Panel();
             this.p_FundoLinkHoverLogDados = new System.Windows.Forms.Panel();
+            this.pb_IconeLogDados = new System.Windows.Forms.PictureBox();
             this.lb_LogDados = new System.Windows.Forms.Label();
             this.p_FundoLinkHoverAgencias = new System.Windows.Forms.Panel();
+            this.pb_IconeAgencias = new System.Windows.Forms.PictureBox();
             this.lb_Agencias = new System.Windows.Forms.Label();
             this.p_FundoLinkHoverAplicacoes = new System.Windows.Forms.Panel();
+            this.pb_IconeAplicacoes = new System.Windows.Forms.PictureBox();
             this.lb_Aplicacoes = new System.Windows.Forms.Label();
             this.p_FundoLinkHoverContas = new System.Windows.Forms.Panel();
+            this.pb_IconeContas = new System.Windows.Forms.PictureBox();
             this.lb_Contas = new System.Windows.Forms.Label();
+            this.pb_Logo = new System.Windows.Forms.PictureBox();
             this.p_LinkAtivo = new System.Windows.Forms.Panel();
             this.p_FundoLinkHoverClientes = new System.Windows.Forms.Panel();
+            this.pb_IconeClientes = new System.Windows.Forms.PictureBox();
             this.lb_Clientes = new System.Windows.Forms.Label();
             this.p_Header = new System.Windows.Forms.Panel();
             this.lb_Versao = new System.Windows.Forms.Label();
             this.lb_DataHoraAtual = new System.Windows.Forms.Label();
             this.lb_DuvidasApp = new System.Windows.Forms.Label();
             this.p_Content = new System.Windows.Forms.Panel();
-            this.textBox_Bairro = new System.Windows.Forms.TextBox();
-            this.label_Bairro = new System.Windows.Forms.Label();
-            this.textBox_Rua = new System.Windows.Forms.TextBox();
-            this.label_Rua = new System.Windows.Forms.Label();
-            this.textBox_Numero = new System.Windows.Forms.TextBox();
-            this.label_Numero = new System.Windows.Forms.Label();
-            this.comboBox_Estado = new System.Windows.Forms.ComboBox();
-            this.textBox_Complemento = new System.Windows.Forms.TextBox();
-            this.label_Complemento = new System.Windows.Forms.Label();
-            this.textBox_Logradouro = new System.Windows.Forms.TextBox();
-            this.label_Logradouro = new System.Windows.Forms.Label();
-            this.textBox_Cidade = new System.Windows.Forms.TextBox();
-            this.label_Cidade = new System.Windows.Forms.Label();
-            this.label_Estado = new System.Windows.Forms.Label();
-            this.textBox_Cep = new System.Windows.Forms.TextBox();
-            this.label_cep = new System.Windows.Forms.Label();
+            this.label_IdentificadorAgencia_Tooltip = new System.Windows.Forms.Label();
+            this.button_CarregarAgencia = new System.Windows.Forms.Button();
+            this.textBox_identificadorAgencia = new System.Windows.Forms.TextBox();
+            this.label_IdentificadorAgencia = new System.Windows.Forms.Label();
             this.textBox_NumeroAgencia = new System.Windows.Forms.TextBox();
             this.label_NumeroAgencia = new System.Windows.Forms.Label();
             this.button_Confirmar = new System.Windows.Forms.Button();
             this.btn_Retornar = new System.Windows.Forms.Button();
             this.lb_TituloAlterarAgencia = new System.Windows.Forms.Label();
-            this.pb_IconeUsuario = new System.Windows.Forms.PictureBox();
-            this.pb_IconeLogDados = new System.Windows.Forms.PictureBox();
-            this.pb_IconeAgencias = new System.Windows.Forms.PictureBox();
-            this.pb_IconeAplicacoes = new System.Windows.Forms.PictureBox();
-            this.pb_IconeContas = new System.Windows.Forms.PictureBox();
-            this.pb_Logo = new System.Windows.Forms.PictureBox();
-            this.pb_IconeClientes = new System.Windows.Forms.PictureBox();
-            this.label_IdentificadorAgencia = new System.Windows.Forms.Label();
-            this.textBox_identificadorAgencia = new System.Windows.Forms.TextBox();
-            this.button_CarregarAgencia = new System.Windows.Forms.Button();
-            this.label_IdentificadorAgencia_Tooltip = new System.Windows.Forms.Label();
+            this.dataGridView_AlterarAgencia = new System.Windows.Forms.DataGridView();
             this.p_Footer.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pb_IconeUsuario)).BeginInit();
             this.p_SideMenu.SuspendLayout();
             this.p_FundoLinkHoverLogDados.SuspendLayout();
-            this.p_FundoLinkHoverAgencias.SuspendLayout();
-            this.p_FundoLinkHoverAplicacoes.SuspendLayout();
-            this.p_FundoLinkHoverContas.SuspendLayout();
-            this.p_FundoLinkHoverClientes.SuspendLayout();
-            this.p_Header.SuspendLayout();
-            this.p_Content.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pb_IconeUsuario)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pb_IconeLogDados)).BeginInit();
+            this.p_FundoLinkHoverAgencias.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pb_IconeAgencias)).BeginInit();
+            this.p_FundoLinkHoverAplicacoes.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pb_IconeAplicacoes)).BeginInit();
+            this.p_FundoLinkHoverContas.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pb_IconeContas)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pb_Logo)).BeginInit();
+            this.p_FundoLinkHoverClientes.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pb_IconeClientes)).BeginInit();
+            this.p_Header.SuspendLayout();
+            this.p_Content.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView_AlterarAgencia)).BeginInit();
             this.SuspendLayout();
             // 
             // p_Footer
@@ -111,6 +97,15 @@
             this.p_Footer.Name = "p_Footer";
             this.p_Footer.Size = new System.Drawing.Size(1110, 43);
             this.p_Footer.TabIndex = 12;
+            // 
+            // pb_IconeUsuario
+            // 
+            this.pb_IconeUsuario.Image = global::SistemaBancario.Properties.Resources.usuario;
+            this.pb_IconeUsuario.Location = new System.Drawing.Point(849, 6);
+            this.pb_IconeUsuario.Name = "pb_IconeUsuario";
+            this.pb_IconeUsuario.Size = new System.Drawing.Size(36, 36);
+            this.pb_IconeUsuario.TabIndex = 0;
+            this.pb_IconeUsuario.TabStop = false;
             // 
             // btn_Sair
             // 
@@ -173,6 +168,15 @@
             this.p_FundoLinkHoverLogDados.Size = new System.Drawing.Size(215, 45);
             this.p_FundoLinkHoverLogDados.TabIndex = 7;
             // 
+            // pb_IconeLogDados
+            // 
+            this.pb_IconeLogDados.Image = global::SistemaBancario.Properties.Resources.folder;
+            this.pb_IconeLogDados.Location = new System.Drawing.Point(39, 6);
+            this.pb_IconeLogDados.Name = "pb_IconeLogDados";
+            this.pb_IconeLogDados.Size = new System.Drawing.Size(39, 36);
+            this.pb_IconeLogDados.TabIndex = 0;
+            this.pb_IconeLogDados.TabStop = false;
+            // 
             // lb_LogDados
             // 
             this.lb_LogDados.AutoSize = true;
@@ -193,6 +197,15 @@
             this.p_FundoLinkHoverAgencias.Name = "p_FundoLinkHoverAgencias";
             this.p_FundoLinkHoverAgencias.Size = new System.Drawing.Size(215, 45);
             this.p_FundoLinkHoverAgencias.TabIndex = 6;
+            // 
+            // pb_IconeAgencias
+            // 
+            this.pb_IconeAgencias.Image = global::SistemaBancario.Properties.Resources.agencias;
+            this.pb_IconeAgencias.Location = new System.Drawing.Point(39, 3);
+            this.pb_IconeAgencias.Name = "pb_IconeAgencias";
+            this.pb_IconeAgencias.Size = new System.Drawing.Size(39, 39);
+            this.pb_IconeAgencias.TabIndex = 0;
+            this.pb_IconeAgencias.TabStop = false;
             // 
             // lb_Agencias
             // 
@@ -215,6 +228,15 @@
             this.p_FundoLinkHoverAplicacoes.Size = new System.Drawing.Size(215, 45);
             this.p_FundoLinkHoverAplicacoes.TabIndex = 5;
             // 
+            // pb_IconeAplicacoes
+            // 
+            this.pb_IconeAplicacoes.Image = global::SistemaBancario.Properties.Resources.aplicacoes;
+            this.pb_IconeAplicacoes.Location = new System.Drawing.Point(39, 3);
+            this.pb_IconeAplicacoes.Name = "pb_IconeAplicacoes";
+            this.pb_IconeAplicacoes.Size = new System.Drawing.Size(38, 42);
+            this.pb_IconeAplicacoes.TabIndex = 0;
+            this.pb_IconeAplicacoes.TabStop = false;
+            // 
             // lb_Aplicacoes
             // 
             this.lb_Aplicacoes.AutoSize = true;
@@ -236,6 +258,15 @@
             this.p_FundoLinkHoverContas.Size = new System.Drawing.Size(215, 45);
             this.p_FundoLinkHoverContas.TabIndex = 2;
             // 
+            // pb_IconeContas
+            // 
+            this.pb_IconeContas.Image = global::SistemaBancario.Properties.Resources.credit_card;
+            this.pb_IconeContas.Location = new System.Drawing.Point(39, 6);
+            this.pb_IconeContas.Name = "pb_IconeContas";
+            this.pb_IconeContas.Size = new System.Drawing.Size(39, 33);
+            this.pb_IconeContas.TabIndex = 0;
+            this.pb_IconeContas.TabStop = false;
+            // 
             // lb_Contas
             // 
             this.lb_Contas.AutoSize = true;
@@ -246,6 +277,15 @@
             this.lb_Contas.Size = new System.Drawing.Size(50, 17);
             this.lb_Contas.TabIndex = 4;
             this.lb_Contas.Text = "Contas";
+            // 
+            // pb_Logo
+            // 
+            this.pb_Logo.Image = global::SistemaBancario.Properties.Resources.logo;
+            this.pb_Logo.Location = new System.Drawing.Point(29, 46);
+            this.pb_Logo.Name = "pb_Logo";
+            this.pb_Logo.Size = new System.Drawing.Size(151, 149);
+            this.pb_Logo.TabIndex = 0;
+            this.pb_Logo.TabStop = false;
             // 
             // p_LinkAtivo
             // 
@@ -264,6 +304,15 @@
             this.p_FundoLinkHoverClientes.Name = "p_FundoLinkHoverClientes";
             this.p_FundoLinkHoverClientes.Size = new System.Drawing.Size(215, 45);
             this.p_FundoLinkHoverClientes.TabIndex = 1;
+            // 
+            // pb_IconeClientes
+            // 
+            this.pb_IconeClientes.Image = global::SistemaBancario.Properties.Resources.clientes;
+            this.pb_IconeClientes.Location = new System.Drawing.Point(43, 6);
+            this.pb_IconeClientes.Name = "pb_IconeClientes";
+            this.pb_IconeClientes.Size = new System.Drawing.Size(31, 32);
+            this.pb_IconeClientes.TabIndex = 0;
+            this.pb_IconeClientes.TabStop = false;
             // 
             // lb_Clientes
             // 
@@ -324,26 +373,11 @@
             // p_Content
             // 
             this.p_Content.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(246)))), ((int)(((byte)(246)))), ((int)(((byte)(246)))));
+            this.p_Content.Controls.Add(this.dataGridView_AlterarAgencia);
             this.p_Content.Controls.Add(this.label_IdentificadorAgencia_Tooltip);
             this.p_Content.Controls.Add(this.button_CarregarAgencia);
             this.p_Content.Controls.Add(this.textBox_identificadorAgencia);
             this.p_Content.Controls.Add(this.label_IdentificadorAgencia);
-            this.p_Content.Controls.Add(this.textBox_Bairro);
-            this.p_Content.Controls.Add(this.label_Bairro);
-            this.p_Content.Controls.Add(this.textBox_Rua);
-            this.p_Content.Controls.Add(this.label_Rua);
-            this.p_Content.Controls.Add(this.textBox_Numero);
-            this.p_Content.Controls.Add(this.label_Numero);
-            this.p_Content.Controls.Add(this.comboBox_Estado);
-            this.p_Content.Controls.Add(this.textBox_Complemento);
-            this.p_Content.Controls.Add(this.label_Complemento);
-            this.p_Content.Controls.Add(this.textBox_Logradouro);
-            this.p_Content.Controls.Add(this.label_Logradouro);
-            this.p_Content.Controls.Add(this.textBox_Cidade);
-            this.p_Content.Controls.Add(this.label_Cidade);
-            this.p_Content.Controls.Add(this.label_Estado);
-            this.p_Content.Controls.Add(this.textBox_Cep);
-            this.p_Content.Controls.Add(this.label_cep);
             this.p_Content.Controls.Add(this.textBox_NumeroAgencia);
             this.p_Content.Controls.Add(this.label_NumeroAgencia);
             this.p_Content.Controls.Add(this.button_Confirmar);
@@ -355,178 +389,57 @@
             this.p_Content.Size = new System.Drawing.Size(1110, 624);
             this.p_Content.TabIndex = 13;
             // 
-            // textBox_Bairro
+            // label_IdentificadorAgencia_Tooltip
             // 
-            this.textBox_Bairro.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox_Bairro.ForeColor = System.Drawing.SystemColors.AppWorkspace;
-            this.textBox_Bairro.Location = new System.Drawing.Point(606, 298);
-            this.textBox_Bairro.Name = "textBox_Bairro";
-            this.textBox_Bairro.Size = new System.Drawing.Size(134, 22);
-            this.textBox_Bairro.TabIndex = 119;
+            this.label_IdentificadorAgencia_Tooltip.AutoSize = true;
+            this.label_IdentificadorAgencia_Tooltip.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(246)))), ((int)(((byte)(246)))), ((int)(((byte)(246)))));
+            this.label_IdentificadorAgencia_Tooltip.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F);
+            this.label_IdentificadorAgencia_Tooltip.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.label_IdentificadorAgencia_Tooltip.Location = new System.Drawing.Point(46, 166);
+            this.label_IdentificadorAgencia_Tooltip.Name = "label_IdentificadorAgencia_Tooltip";
+            this.label_IdentificadorAgencia_Tooltip.Size = new System.Drawing.Size(266, 17);
+            this.label_IdentificadorAgencia_Tooltip.TabIndex = 123;
+            this.label_IdentificadorAgencia_Tooltip.Text = "(Pode ser encontrado em \'Listar Agências\')";
             // 
-            // label_Bairro
+            // button_CarregarAgencia
             // 
-            this.label_Bairro.AutoSize = true;
-            this.label_Bairro.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(246)))), ((int)(((byte)(246)))), ((int)(((byte)(246)))));
-            this.label_Bairro.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label_Bairro.Location = new System.Drawing.Point(472, 298);
-            this.label_Bairro.Name = "label_Bairro";
-            this.label_Bairro.Size = new System.Drawing.Size(44, 17);
-            this.label_Bairro.TabIndex = 118;
-            this.label_Bairro.Text = "Bairro";
+            this.button_CarregarAgencia.BackColor = System.Drawing.Color.LightSkyBlue;
+            this.button_CarregarAgencia.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.button_CarregarAgencia.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button_CarregarAgencia.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.button_CarregarAgencia.Location = new System.Drawing.Point(318, 184);
+            this.button_CarregarAgencia.Name = "button_CarregarAgencia";
+            this.button_CarregarAgencia.Size = new System.Drawing.Size(71, 29);
+            this.button_CarregarAgencia.TabIndex = 122;
+            this.button_CarregarAgencia.Text = "Carregar";
+            this.button_CarregarAgencia.UseVisualStyleBackColor = false;
+            this.button_CarregarAgencia.Click += new System.EventHandler(this.button_CarregarAgencia_Click);
             // 
-            // textBox_Rua
+            // textBox_identificadorAgencia
             // 
-            this.textBox_Rua.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox_Rua.ForeColor = System.Drawing.SystemColors.AppWorkspace;
-            this.textBox_Rua.Location = new System.Drawing.Point(606, 368);
-            this.textBox_Rua.Name = "textBox_Rua";
-            this.textBox_Rua.Size = new System.Drawing.Size(134, 22);
-            this.textBox_Rua.TabIndex = 117;
+            this.textBox_identificadorAgencia.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox_identificadorAgencia.ForeColor = System.Drawing.SystemColors.AppWorkspace;
+            this.textBox_identificadorAgencia.Location = new System.Drawing.Point(318, 149);
+            this.textBox_identificadorAgencia.Name = "textBox_identificadorAgencia";
+            this.textBox_identificadorAgencia.Size = new System.Drawing.Size(71, 22);
+            this.textBox_identificadorAgencia.TabIndex = 121;
             // 
-            // label_Rua
+            // label_IdentificadorAgencia
             // 
-            this.label_Rua.AutoSize = true;
-            this.label_Rua.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(246)))), ((int)(((byte)(246)))), ((int)(((byte)(246)))));
-            this.label_Rua.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label_Rua.Location = new System.Drawing.Point(472, 368);
-            this.label_Rua.Name = "label_Rua";
-            this.label_Rua.Size = new System.Drawing.Size(31, 17);
-            this.label_Rua.TabIndex = 116;
-            this.label_Rua.Text = "Rua";
-            // 
-            // textBox_Numero
-            // 
-            this.textBox_Numero.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox_Numero.ForeColor = System.Drawing.SystemColors.AppWorkspace;
-            this.textBox_Numero.Location = new System.Drawing.Point(606, 451);
-            this.textBox_Numero.Name = "textBox_Numero";
-            this.textBox_Numero.Size = new System.Drawing.Size(134, 22);
-            this.textBox_Numero.TabIndex = 115;
-            // 
-            // label_Numero
-            // 
-            this.label_Numero.AutoSize = true;
-            this.label_Numero.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(246)))), ((int)(((byte)(246)))), ((int)(((byte)(246)))));
-            this.label_Numero.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label_Numero.Location = new System.Drawing.Point(472, 451);
-            this.label_Numero.Name = "label_Numero";
-            this.label_Numero.Size = new System.Drawing.Size(58, 17);
-            this.label_Numero.TabIndex = 114;
-            this.label_Numero.Text = "Número";
-            // 
-            // comboBox_Estado
-            // 
-            this.comboBox_Estado.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.comboBox_Estado.ForeColor = System.Drawing.SystemColors.AppWorkspace;
-            this.comboBox_Estado.FormattingEnabled = true;
-            this.comboBox_Estado.Items.AddRange(new object[] {
-            "RJ",
-            "SP",
-            "MG",
-            "ES",
-            "BA"});
-            this.comboBox_Estado.Location = new System.Drawing.Point(606, 223);
-            this.comboBox_Estado.Name = "comboBox_Estado";
-            this.comboBox_Estado.Size = new System.Drawing.Size(134, 23);
-            this.comboBox_Estado.TabIndex = 113;
-            // 
-            // textBox_Complemento
-            // 
-            this.textBox_Complemento.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox_Complemento.ForeColor = System.Drawing.SystemColors.AppWorkspace;
-            this.textBox_Complemento.Location = new System.Drawing.Point(606, 409);
-            this.textBox_Complemento.Name = "textBox_Complemento";
-            this.textBox_Complemento.Size = new System.Drawing.Size(134, 22);
-            this.textBox_Complemento.TabIndex = 112;
-            // 
-            // label_Complemento
-            // 
-            this.label_Complemento.AutoSize = true;
-            this.label_Complemento.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(246)))), ((int)(((byte)(246)))), ((int)(((byte)(246)))));
-            this.label_Complemento.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label_Complemento.Location = new System.Drawing.Point(472, 409);
-            this.label_Complemento.Name = "label_Complemento";
-            this.label_Complemento.Size = new System.Drawing.Size(94, 17);
-            this.label_Complemento.TabIndex = 111;
-            this.label_Complemento.Text = "Complemento";
-            // 
-            // textBox_Logradouro
-            // 
-            this.textBox_Logradouro.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox_Logradouro.ForeColor = System.Drawing.SystemColors.AppWorkspace;
-            this.textBox_Logradouro.Location = new System.Drawing.Point(606, 331);
-            this.textBox_Logradouro.Name = "textBox_Logradouro";
-            this.textBox_Logradouro.Size = new System.Drawing.Size(134, 22);
-            this.textBox_Logradouro.TabIndex = 110;
-            // 
-            // label_Logradouro
-            // 
-            this.label_Logradouro.AutoSize = true;
-            this.label_Logradouro.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(246)))), ((int)(((byte)(246)))), ((int)(((byte)(246)))));
-            this.label_Logradouro.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label_Logradouro.Location = new System.Drawing.Point(472, 331);
-            this.label_Logradouro.Name = "label_Logradouro";
-            this.label_Logradouro.Size = new System.Drawing.Size(79, 17);
-            this.label_Logradouro.TabIndex = 109;
-            this.label_Logradouro.Text = "Logradouro";
-            // 
-            // textBox_Cidade
-            // 
-            this.textBox_Cidade.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox_Cidade.ForeColor = System.Drawing.SystemColors.AppWorkspace;
-            this.textBox_Cidade.Location = new System.Drawing.Point(606, 264);
-            this.textBox_Cidade.Name = "textBox_Cidade";
-            this.textBox_Cidade.Size = new System.Drawing.Size(134, 22);
-            this.textBox_Cidade.TabIndex = 108;
-            // 
-            // label_Cidade
-            // 
-            this.label_Cidade.AutoSize = true;
-            this.label_Cidade.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(246)))), ((int)(((byte)(246)))), ((int)(((byte)(246)))));
-            this.label_Cidade.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label_Cidade.Location = new System.Drawing.Point(472, 264);
-            this.label_Cidade.Name = "label_Cidade";
-            this.label_Cidade.Size = new System.Drawing.Size(49, 17);
-            this.label_Cidade.TabIndex = 107;
-            this.label_Cidade.Text = "Cidade";
-            // 
-            // label_Estado
-            // 
-            this.label_Estado.AutoSize = true;
-            this.label_Estado.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(246)))), ((int)(((byte)(246)))), ((int)(((byte)(246)))));
-            this.label_Estado.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label_Estado.Location = new System.Drawing.Point(472, 223);
-            this.label_Estado.Name = "label_Estado";
-            this.label_Estado.Size = new System.Drawing.Size(49, 17);
-            this.label_Estado.TabIndex = 105;
-            this.label_Estado.Text = "Estado";
-            // 
-            // textBox_Cep
-            // 
-            this.textBox_Cep.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox_Cep.ForeColor = System.Drawing.SystemColors.AppWorkspace;
-            this.textBox_Cep.Location = new System.Drawing.Point(606, 184);
-            this.textBox_Cep.Name = "textBox_Cep";
-            this.textBox_Cep.Size = new System.Drawing.Size(134, 22);
-            this.textBox_Cep.TabIndex = 104;
-            // 
-            // label_cep
-            // 
-            this.label_cep.AutoSize = true;
-            this.label_cep.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(246)))), ((int)(((byte)(246)))), ((int)(((byte)(246)))));
-            this.label_cep.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label_cep.Location = new System.Drawing.Point(472, 184);
-            this.label_cep.Name = "label_cep";
-            this.label_cep.Size = new System.Drawing.Size(31, 17);
-            this.label_cep.TabIndex = 103;
-            this.label_cep.Text = "CEP";
+            this.label_IdentificadorAgencia.AutoSize = true;
+            this.label_IdentificadorAgencia.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(246)))), ((int)(((byte)(246)))), ((int)(((byte)(246)))));
+            this.label_IdentificadorAgencia.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label_IdentificadorAgencia.Location = new System.Drawing.Point(121, 149);
+            this.label_IdentificadorAgencia.Name = "label_IdentificadorAgencia";
+            this.label_IdentificadorAgencia.Size = new System.Drawing.Size(191, 17);
+            this.label_IdentificadorAgencia.TabIndex = 120;
+            this.label_IdentificadorAgencia.Text = "Insira o Identificar da Agência:";
             // 
             // textBox_NumeroAgencia
             // 
             this.textBox_NumeroAgencia.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBox_NumeroAgencia.ForeColor = System.Drawing.SystemColors.AppWorkspace;
-            this.textBox_NumeroAgencia.Location = new System.Drawing.Point(606, 149);
+            this.textBox_NumeroAgencia.Location = new System.Drawing.Point(255, 438);
             this.textBox_NumeroAgencia.Name = "textBox_NumeroAgencia";
             this.textBox_NumeroAgencia.Size = new System.Drawing.Size(134, 22);
             this.textBox_NumeroAgencia.TabIndex = 102;
@@ -536,7 +449,7 @@
             this.label_NumeroAgencia.AutoSize = true;
             this.label_NumeroAgencia.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(246)))), ((int)(((byte)(246)))), ((int)(((byte)(246)))));
             this.label_NumeroAgencia.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label_NumeroAgencia.Location = new System.Drawing.Point(472, 149);
+            this.label_NumeroAgencia.Location = new System.Drawing.Point(121, 438);
             this.label_NumeroAgencia.Name = "label_NumeroAgencia";
             this.label_NumeroAgencia.Size = new System.Drawing.Size(110, 17);
             this.label_NumeroAgencia.TabIndex = 100;
@@ -583,114 +496,13 @@
             this.lb_TituloAlterarAgencia.Text = "ALTERAR AGÊNCIA";
             this.lb_TituloAlterarAgencia.TextAlign = System.Drawing.ContentAlignment.BottomRight;
             // 
-            // pb_IconeUsuario
+            // dataGridView_AlterarAgencia
             // 
-            this.pb_IconeUsuario.Image = global::SistemaBancario.Properties.Resources.usuario;
-            this.pb_IconeUsuario.Location = new System.Drawing.Point(849, 6);
-            this.pb_IconeUsuario.Name = "pb_IconeUsuario";
-            this.pb_IconeUsuario.Size = new System.Drawing.Size(36, 36);
-            this.pb_IconeUsuario.TabIndex = 0;
-            this.pb_IconeUsuario.TabStop = false;
-            // 
-            // pb_IconeLogDados
-            // 
-            this.pb_IconeLogDados.Image = global::SistemaBancario.Properties.Resources.folder;
-            this.pb_IconeLogDados.Location = new System.Drawing.Point(39, 6);
-            this.pb_IconeLogDados.Name = "pb_IconeLogDados";
-            this.pb_IconeLogDados.Size = new System.Drawing.Size(39, 36);
-            this.pb_IconeLogDados.TabIndex = 0;
-            this.pb_IconeLogDados.TabStop = false;
-            // 
-            // pb_IconeAgencias
-            // 
-            this.pb_IconeAgencias.Image = global::SistemaBancario.Properties.Resources.agencias;
-            this.pb_IconeAgencias.Location = new System.Drawing.Point(39, 3);
-            this.pb_IconeAgencias.Name = "pb_IconeAgencias";
-            this.pb_IconeAgencias.Size = new System.Drawing.Size(39, 39);
-            this.pb_IconeAgencias.TabIndex = 0;
-            this.pb_IconeAgencias.TabStop = false;
-            // 
-            // pb_IconeAplicacoes
-            // 
-            this.pb_IconeAplicacoes.Image = global::SistemaBancario.Properties.Resources.aplicacoes;
-            this.pb_IconeAplicacoes.Location = new System.Drawing.Point(39, 3);
-            this.pb_IconeAplicacoes.Name = "pb_IconeAplicacoes";
-            this.pb_IconeAplicacoes.Size = new System.Drawing.Size(38, 42);
-            this.pb_IconeAplicacoes.TabIndex = 0;
-            this.pb_IconeAplicacoes.TabStop = false;
-            // 
-            // pb_IconeContas
-            // 
-            this.pb_IconeContas.Image = global::SistemaBancario.Properties.Resources.credit_card;
-            this.pb_IconeContas.Location = new System.Drawing.Point(39, 6);
-            this.pb_IconeContas.Name = "pb_IconeContas";
-            this.pb_IconeContas.Size = new System.Drawing.Size(39, 33);
-            this.pb_IconeContas.TabIndex = 0;
-            this.pb_IconeContas.TabStop = false;
-            // 
-            // pb_Logo
-            // 
-            this.pb_Logo.Image = global::SistemaBancario.Properties.Resources.logo;
-            this.pb_Logo.Location = new System.Drawing.Point(29, 46);
-            this.pb_Logo.Name = "pb_Logo";
-            this.pb_Logo.Size = new System.Drawing.Size(151, 149);
-            this.pb_Logo.TabIndex = 0;
-            this.pb_Logo.TabStop = false;
-            // 
-            // pb_IconeClientes
-            // 
-            this.pb_IconeClientes.Image = global::SistemaBancario.Properties.Resources.clientes;
-            this.pb_IconeClientes.Location = new System.Drawing.Point(43, 6);
-            this.pb_IconeClientes.Name = "pb_IconeClientes";
-            this.pb_IconeClientes.Size = new System.Drawing.Size(31, 32);
-            this.pb_IconeClientes.TabIndex = 0;
-            this.pb_IconeClientes.TabStop = false;
-            // 
-            // label_IdentificadorAgencia
-            // 
-            this.label_IdentificadorAgencia.AutoSize = true;
-            this.label_IdentificadorAgencia.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(246)))), ((int)(((byte)(246)))), ((int)(((byte)(246)))));
-            this.label_IdentificadorAgencia.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label_IdentificadorAgencia.Location = new System.Drawing.Point(121, 149);
-            this.label_IdentificadorAgencia.Name = "label_IdentificadorAgencia";
-            this.label_IdentificadorAgencia.Size = new System.Drawing.Size(191, 17);
-            this.label_IdentificadorAgencia.TabIndex = 120;
-            this.label_IdentificadorAgencia.Text = "Insira o Identificar da Agência:";
-            // 
-            // textBox_identificadorAgencia
-            // 
-            this.textBox_identificadorAgencia.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox_identificadorAgencia.ForeColor = System.Drawing.SystemColors.AppWorkspace;
-            this.textBox_identificadorAgencia.Location = new System.Drawing.Point(318, 149);
-            this.textBox_identificadorAgencia.Name = "textBox_identificadorAgencia";
-            this.textBox_identificadorAgencia.Size = new System.Drawing.Size(71, 22);
-            this.textBox_identificadorAgencia.TabIndex = 121;
-            // 
-            // button_CarregarAgencia
-            // 
-            this.button_CarregarAgencia.BackColor = System.Drawing.Color.LightSkyBlue;
-            this.button_CarregarAgencia.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.button_CarregarAgencia.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button_CarregarAgencia.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.button_CarregarAgencia.Location = new System.Drawing.Point(318, 184);
-            this.button_CarregarAgencia.Name = "button_CarregarAgencia";
-            this.button_CarregarAgencia.Size = new System.Drawing.Size(71, 29);
-            this.button_CarregarAgencia.TabIndex = 122;
-            this.button_CarregarAgencia.Text = "Carregar";
-            this.button_CarregarAgencia.UseVisualStyleBackColor = false;
-            this.button_CarregarAgencia.Click += new System.EventHandler(this.button_CarregarAgencia_Click);
-            // 
-            // label_IdentificadorAgencia_Tooltip
-            // 
-            this.label_IdentificadorAgencia_Tooltip.AutoSize = true;
-            this.label_IdentificadorAgencia_Tooltip.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(246)))), ((int)(((byte)(246)))), ((int)(((byte)(246)))));
-            this.label_IdentificadorAgencia_Tooltip.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F);
-            this.label_IdentificadorAgencia_Tooltip.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.label_IdentificadorAgencia_Tooltip.Location = new System.Drawing.Point(46, 166);
-            this.label_IdentificadorAgencia_Tooltip.Name = "label_IdentificadorAgencia_Tooltip";
-            this.label_IdentificadorAgencia_Tooltip.Size = new System.Drawing.Size(266, 17);
-            this.label_IdentificadorAgencia_Tooltip.TabIndex = 123;
-            this.label_IdentificadorAgencia_Tooltip.Text = "(Pode ser encontrado em \'Listar Agências\')";
+            this.dataGridView_AlterarAgencia.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView_AlterarAgencia.Location = new System.Drawing.Point(49, 246);
+            this.dataGridView_AlterarAgencia.Name = "dataGridView_AlterarAgencia";
+            this.dataGridView_AlterarAgencia.Size = new System.Drawing.Size(691, 150);
+            this.dataGridView_AlterarAgencia.TabIndex = 124;
             // 
             // AlterarAgencia
             // 
@@ -705,28 +517,29 @@
             this.Text = "TemplateTelaAdministrador";
             this.p_Footer.ResumeLayout(false);
             this.p_Footer.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pb_IconeUsuario)).EndInit();
             this.p_SideMenu.ResumeLayout(false);
             this.p_FundoLinkHoverLogDados.ResumeLayout(false);
             this.p_FundoLinkHoverLogDados.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pb_IconeLogDados)).EndInit();
             this.p_FundoLinkHoverAgencias.ResumeLayout(false);
             this.p_FundoLinkHoverAgencias.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pb_IconeAgencias)).EndInit();
             this.p_FundoLinkHoverAplicacoes.ResumeLayout(false);
             this.p_FundoLinkHoverAplicacoes.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pb_IconeAplicacoes)).EndInit();
             this.p_FundoLinkHoverContas.ResumeLayout(false);
             this.p_FundoLinkHoverContas.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pb_IconeContas)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pb_Logo)).EndInit();
             this.p_FundoLinkHoverClientes.ResumeLayout(false);
             this.p_FundoLinkHoverClientes.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pb_IconeClientes)).EndInit();
             this.p_Header.ResumeLayout(false);
             this.p_Header.PerformLayout();
             this.p_Content.ResumeLayout(false);
             this.p_Content.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pb_IconeUsuario)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pb_IconeLogDados)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pb_IconeAgencias)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pb_IconeAplicacoes)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pb_IconeContas)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pb_Logo)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pb_IconeClientes)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView_AlterarAgencia)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -786,5 +599,6 @@
         private System.Windows.Forms.Button button_CarregarAgencia;
         private System.Windows.Forms.TextBox textBox_identificadorAgencia;
         private System.Windows.Forms.Label label_IdentificadorAgencia;
+        private System.Windows.Forms.DataGridView dataGridView_AlterarAgencia;
     }
 }

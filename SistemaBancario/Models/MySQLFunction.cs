@@ -47,29 +47,126 @@ namespace SistemaBancario.Models
             return sucesso;
         }
 
-        static private string CarregaCampoTabela(int id, string field, TextBox textBox, string tabela)
+        internal static bool AlterarAgencia(string textBox_NumeroAgencia, string textBox_identificadorAgencia)
         {
             try
             {
                 if (connection.State == ConnectionState.Closed)
                     connection.Open();
-
-                MySqlCommand carregarCampoAgencia = new MySqlCommand(
-                    $"SELECT {field} FROM {tabela} WHERE id = @id");
-                carregarCampoAgencia.Parameters.AddWithValue("@id", id);
-                
+                MySqlCommand alterarAgencia = new MySqlCommand($"UPDATE Agencia SET numero = {textBox_NumeroAgencia} " +
+                                                                $"WHERE id = {textBox_identificadorAgencia}", connection);
+                alterarAgencia.ExecuteNonQuery();
+                return true;
             }
-            catch(Exception ex)
+            catch(MySqlException e)
             {
-                MessageBox.Show(ex.Message);
+                return false;
+                MessageBox.Show(e.Message);
             }
             finally
             {
                 connection.Close();
             }
-
-            return "";
         }
+
+        internal static void CarregarAgenciaStr(string v, TextBox textBox_NumeroAgencia, string fieldDB)
+        {
+            int aux = Convert.ToInt32(v);
+            try
+            {
+
+                if (connection.State == ConnectionState.Closed)
+                    connection.Open();
+                MySqlCommand carregarAgencia = new MySqlCommand($"Select {fieldDB} from Agencia where id = @id", connection);
+                carregarAgencia.Parameters.AddWithValue("@id", aux);
+
+                textBox_NumeroAgencia.Text = (string)carregarAgencia.ExecuteScalar();
+                carregarAgencia.Parameters.Clear();
+            }
+            catch(MySqlException e)
+            {
+                MessageBox.Show(e.Message);
+            }
+            finally
+            {
+                connection.Close();
+            }
+        }
+
+        internal static void CarregarEnderecoInt(string v, TextBox textBox_NumeroAgencia, string fieldDB)
+        {
+            int aux = Convert.ToInt32(v);
+            try
+            {
+
+                if (connection.State == ConnectionState.Closed)
+                    connection.Open();
+                MySqlCommand carregarEndereco = new MySqlCommand($"Select {fieldDB} from Endereco where id = @id", connection);
+                carregarEndereco.Parameters.AddWithValue("@id", aux);
+                
+                textBox_NumeroAgencia.Text = Convert.ToString((int)carregarEndereco.ExecuteScalar());
+                carregarEndereco.Parameters.Clear();
+            }
+            catch (MySqlException e)
+            {
+                MessageBox.Show(e.Message);
+            }
+            finally
+            {
+                connection.Close();
+            }
+        }
+
+        /*internal static void CarregarEnderecoStr(string v, TextBox textBox_NumeroAgencia, string fieldDB)
+        {
+            int aux = Convert.ToInt32(v);
+            try
+            {
+
+                if (connection.State == ConnectionState.Closed)
+                    connection.Open();
+                MySqlCommand carregarEndereco = new MySqlCommand($"Select {fieldDB} from Endereco where id = @id", connection);
+                carregarEndereco.Parameters.AddWithValue("@id", aux);
+
+                textBox_NumeroAgencia.Text = (string)carregarEndereco.ExecuteScalar();
+                carregarEndereco.Parameters.Clear();
+            }
+            catch (MySqlException e)
+            {
+                MessageBox.Show(e.Message);
+            }
+            finally
+            {
+                connection.Close();
+            }
+        }
+        */
+        internal static string CarregarAgenciaEndereco(string v, string fieldDB)
+        {
+            int aux = Convert.ToInt32(v);
+            try
+            {
+
+                if (connection.State == ConnectionState.Closed)
+                    connection.Open();
+                MySqlCommand carregarAgencia = new MySqlCommand($"Select {fieldDB} from Agencia where id = @id", connection);
+                carregarAgencia.Parameters.AddWithValue("@id", aux);
+
+                return Convert.ToString((int)carregarAgencia.ExecuteScalar());
+                carregarAgencia.Parameters.Clear();
+            }
+            catch (MySqlException e)
+            {
+                MessageBox.Show(e.Message);
+                return "";
+            }
+            finally
+            {
+                connection.Close();
+            }
+        }
+
+
 
         //Pode ser útil no futuro mas não foi implementado e pode conter erros, cuidado ao usar... bjs do brenao
         //static public bool RemoverEnderecoByIdAgencia(int idAgencia)
@@ -249,6 +346,34 @@ namespace SistemaBancario.Models
                     "SELECT A.id as 'Identificar da Agência', A.numero as 'Número da Agência', E.cidade as Cidade, E.bairro as Bairro, E.logradouro as Logradouro," +
                     "E.rua as Rua, E.numero as Número, E.complemento as Complemento, E.cep as CEP FROM Agencia as A " +
                     "INNER JOIN Endereco as E ON A.id_endereco = E.id", connection);
+                DataTable dataTable = new DataTable();
+                dataAdapter.Fill(dataTable);
+                dataGridView.DataSource = dataTable;
+            }
+            catch (MySqlException exception)
+            {
+                MessageBox.Show(exception.ToString());
+            }
+            finally
+            {
+                connection.Close();
+            }
+        }
+
+        static public void ListarAgencias(DataGridView dataGridView, string id_endereco)
+        {
+            try
+            {
+                int aux = Convert.ToInt16(id_endereco);
+
+                if (connection.State == ConnectionState.Closed)
+                    connection.Open();
+                //numero as 'Número da Agência', id_endereco as 'Código do Endereço', E.cep  
+                MySqlDataAdapter dataAdapter = new MySqlDataAdapter(
+                    "SELECT A.id as 'Identificar da Agência', A.numero as 'Número da Agência', E.cidade as Cidade, E.bairro as Bairro, E.logradouro as Logradouro," +
+                    "E.rua as Rua, E.numero as Número, E.complemento as Complemento, E.cep as CEP FROM Agencia as A " +
+                    "INNER JOIN Endereco as E ON A.id_endereco = E.id " +
+                    $"WHERE E.id = {aux}", connection);
                 DataTable dataTable = new DataTable();
                 dataAdapter.Fill(dataTable);
                 dataGridView.DataSource = dataTable;
