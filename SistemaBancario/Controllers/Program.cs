@@ -18,7 +18,7 @@ namespace SistemaBancario
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new InicialAdministrador());
+            Application.Run(new TelaLogin());
         }
     }
 }
