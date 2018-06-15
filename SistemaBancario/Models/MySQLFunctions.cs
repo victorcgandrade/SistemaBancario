@@ -452,8 +452,7 @@ namespace SistemaBancario.Models
                 connection.Close();
             }
             return sucesso;
-        } 
-    }
+        }
 
         //Exibir resultado da busca por uma aplicacao
         static public DataTable BuscarAplicacao(string numeroContaCorrente)
@@ -542,7 +541,8 @@ namespace SistemaBancario.Models
                 {
                     connection.Close();
                 }
-            } else
+            }
+            else
             {
                 dadosAplicacao = null;
             }
@@ -550,5 +550,6 @@ namespace SistemaBancario.Models
             return dadosAplicacao;
         }
     }
+
 }
 
