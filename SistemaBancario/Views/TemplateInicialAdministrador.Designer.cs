@@ -215,6 +215,7 @@
             this.btn_Agencias.Text = "  Agências";
             this.btn_Agencias.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btn_Agencias.UseVisualStyleBackColor = false;
+            this.btn_Agencias.Click += new System.EventHandler(this.pb_IconeAgencias_Click);
             // 
             // btn_LogDados
             // 
@@ -264,7 +265,7 @@
             this.lb_Versao.ForeColor = System.Drawing.SystemColors.ButtonFace;
             this.lb_Versao.Location = new System.Drawing.Point(11, 6);
             this.lb_Versao.Name = "lb_Versao";
-            this.lb_Versao.Size = new System.Drawing.Size(66, 15);
+            this.lb_Versao.Size = new System.Drawing.Size(63, 15);
             this.lb_Versao.TabIndex = 3;
             this.lb_Versao.Text = "Versão 0.1 ";
             // 
@@ -275,7 +276,7 @@
             this.lb_DataHoraAtual.ForeColor = System.Drawing.SystemColors.ButtonFace;
             this.lb_DataHoraAtual.Location = new System.Drawing.Point(74, 6);
             this.lb_DataHoraAtual.Name = "lb_DataHoraAtual";
-            this.lb_DataHoraAtual.Size = new System.Drawing.Size(110, 15);
+            this.lb_DataHoraAtual.Size = new System.Drawing.Size(106, 15);
             this.lb_DataHoraAtual.TabIndex = 1;
             this.lb_DataHoraAtual.Text = "22/05/2018 12:55 ";
             // 

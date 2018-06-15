@@ -16,10 +16,10 @@ namespace SistemaBancario.Views
         {
             if (MessageBox.Show("Tem certeza que deseja alterar esta agência?", "Confirmação", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
             {
-                if (MySQLFunctions.AlterarAgencia(textBox_NumeroAgencia.Text, textBox_identificadorAgencia.Text))
+                if (MySQLFunction.AlterarAgencia(textBox_NumeroAgencia.Text, textBox_identificadorAgencia.Text))
                 {
                     MessageBox.Show("A agência foi alterada com sucesso!");
-                    MySQLFunctions.ListarAgencias(dataGridView_AlterarAgencia, auxIdEndereco);
+                    MySQLFunction.ListarAgencias(dataGridView_AlterarAgencia, auxIdEndereco);
                 }
             }
         }
@@ -31,10 +31,10 @@ namespace SistemaBancario.Views
 
         private void button_CarregarAgencia_Click(object sender, EventArgs e)
         {
-            MySQLFunctions.CarregarAgenciaStr(textBox_identificadorAgencia.Text, textBox_NumeroAgencia, "numero");
-            string idEndereco = MySQLFunctions.CarregarAgenciaEndereco(textBox_identificadorAgencia.Text, "id_endereco");
+            MySQLFunction.CarregarAgenciaStr(textBox_identificadorAgencia.Text, textBox_NumeroAgencia, "numero");
+            string idEndereco = MySQLFunction.CarregarAgenciaEndereco(textBox_identificadorAgencia.Text, "id_endereco");
             auxIdEndereco = idEndereco;
-            MySQLFunctions.ListarAgencias(dataGridView_AlterarAgencia, idEndereco);
+            MySQLFunction.ListarAgencias(dataGridView_AlterarAgencia, idEndereco);
             //MySQLFunctions.CarregarEnderecoStr(idEndereco, textBox_Cep, "cep");
             //MySQLFunctions.CarregarEnderecoStr(idEndereco, textBox_Rua, "rua");
             //MySQLFunctions.CarregarEnderecoStr(idEndereco, textBox_Bairro, "bairro");

@@ -33,5 +33,12 @@ namespace SistemaBancario.Views
             AlterarAgencia formAlterarAgencia = new AlterarAgencia();
             formAlterarAgencia.Show();
         }
+
+        private void btn_Retornar_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            TemplateInicialAdministrador tia = new TemplateInicialAdministrador();
+            tia.Show();
+        }
     }
 }

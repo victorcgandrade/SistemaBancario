@@ -15,7 +15,7 @@ namespace SistemaBancario.Views
         {
             try
             {
-                SistemaBancario.Models.MySQLFunctions.ListarAgencias(dataGridView_ListarAgencias);
+                SistemaBancario.Models.MySQLFunction.ListarAgencias(dataGridView_ListarAgencias);
                 dataGridView_ListarAgencias.AutoResizeColumns(DataGridViewAutoSizeColumnsMode.AllCells);
             }
             catch (Exception ex)
@@ -33,7 +33,7 @@ namespace SistemaBancario.Views
         {
             if(MessageBox.Show("Tem certeza que deseja remover esta agência?", "Confirmação", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
             {
-                SistemaBancario.Models.MySQLFunctions.RemoverAgencia(Convert.ToInt32(textBox_NumeroAgenciaRemover.Text));
+                SistemaBancario.Models.MySQLFunction.RemoverAgencia(Convert.ToInt32(textBox_NumeroAgenciaRemover.Text));
                 ListarAgencias();
             }
         }

@@ -44,7 +44,7 @@ namespace SistemaBancario.Views
             string cep = textBox_Cep.Text;
 
             if (!string.IsNullOrEmpty(numeroAgencia) 
-                && SistemaBancario.Models.MySQLFunctions.InserirAgencia(numeroAgencia, cep))
+                && SistemaBancario.Models.MySQLFunction.InserirAgencia(numeroAgencia, cep))
             {
                 sucesso = true;
                 MessageBox.Show("AGENCIA SUCESSO");

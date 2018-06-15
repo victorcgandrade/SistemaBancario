@@ -9,7 +9,7 @@ using System.Windows.Forms;
 
 namespace SistemaBancario.Models
 {
-    class MySQLFunctions
+    class MySQLFunction
     {
         //Conecta com o banco de dados remoto online
         static private MySqlConnection connection = new MySqlConnection("SERVER=db4free.net;PORT=3306;DATABASE=sistemabancario;UID=bancario;PWD=sb100001;");

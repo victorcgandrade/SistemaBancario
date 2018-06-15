@@ -22,7 +22,7 @@ namespace SistemaBancario.Views
         {
             try
             {
-                SistemaBancario.Models.MySQLFunctions.ListarAgencias(dataGridView_ListarAgencias);
+                SistemaBancario.Models.MySQLFunction.ListarAgencias(dataGridView_ListarAgencias);
                 dataGridView_ListarAgencias.AutoResizeColumns(DataGridViewAutoSizeColumnsMode.AllCells);
             }
             catch (Exception ex)

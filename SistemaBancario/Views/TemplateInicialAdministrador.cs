@@ -1,4 +1,5 @@
-﻿using System.Windows.Forms;
+﻿using System;
+using System.Windows.Forms;
 
 namespace SistemaBancario.Views
 {
@@ -11,7 +12,9 @@ namespace SistemaBancario.Views
 
         private void pb_IconeAgencias_Click(object sender, EventArgs e)
         {
-
+            this.Hide();
+            Agencia agencia = new Agencia();
+            agencia.Show();
         }
 
         private void pictureBox1_Click(object sender, EventArgs e)

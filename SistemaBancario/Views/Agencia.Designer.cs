@@ -444,6 +444,7 @@
             this.btn_Retornar.TabIndex = 96;
             this.btn_Retornar.Text = "Retornar";
             this.btn_Retornar.UseVisualStyleBackColor = false;
+            this.btn_Retornar.Click += new System.EventHandler(this.btn_Retornar_Click);
             // 
             // lb_TituloAgencias
             // 
