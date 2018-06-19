@@ -31,7 +31,7 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(VisualizarCliente));
             this.lb_TituloVisualizarCliente = new System.Windows.Forms.Label();
             this.btn_Alterar = new System.Windows.Forms.Button();
-            this.btn_Remover = new System.Windows.Forms.Button();
+            this.btn_Inativar = new System.Windows.Forms.Button();
             this.pb_IconeCliente = new System.Windows.Forms.PictureBox();
             this.lb_NomeSobrenome = new System.Windows.Forms.Label();
             this.dgv_VisualizarCliente = new System.Windows.Forms.DataGridView();
@@ -46,7 +46,7 @@
             this.p_Content.Controls.Add(this.lb_NomeSobrenome);
             this.p_Content.Controls.Add(this.pb_IconeCliente);
             this.p_Content.Controls.Add(this.btn_Alterar);
-            this.p_Content.Controls.Add(this.btn_Remover);
+            this.p_Content.Controls.Add(this.btn_Inativar);
             // 
             // p_LinkAtivo
             // 
@@ -103,19 +103,19 @@
             this.btn_Alterar.Text = "Alterar";
             this.btn_Alterar.UseVisualStyleBackColor = false;
             // 
-            // btn_Remover
+            // btn_Inativar
             // 
-            this.btn_Remover.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(78)))), ((int)(((byte)(88)))));
-            this.btn_Remover.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btn_Remover.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_Remover.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.btn_Remover.Location = new System.Drawing.Point(795, 94);
-            this.btn_Remover.Name = "btn_Remover";
-            this.btn_Remover.Size = new System.Drawing.Size(90, 29);
-            this.btn_Remover.TabIndex = 87;
-            this.btn_Remover.Text = "Remover";
-            this.btn_Remover.UseVisualStyleBackColor = false;
-            this.btn_Remover.Click += new System.EventHandler(this.btn_Remover_Click);
+            this.btn_Inativar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(78)))), ((int)(((byte)(88)))));
+            this.btn_Inativar.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btn_Inativar.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_Inativar.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.btn_Inativar.Location = new System.Drawing.Point(795, 94);
+            this.btn_Inativar.Name = "btn_Inativar";
+            this.btn_Inativar.Size = new System.Drawing.Size(90, 29);
+            this.btn_Inativar.TabIndex = 87;
+            this.btn_Inativar.Text = "Inativar";
+            this.btn_Inativar.UseVisualStyleBackColor = false;
+            this.btn_Inativar.Click += new System.EventHandler(this.btn_Remover_Click);
             // 
             // pb_IconeCliente
             // 
@@ -169,7 +169,7 @@
 
         private System.Windows.Forms.Label lb_TituloVisualizarCliente;
         private System.Windows.Forms.Button btn_Alterar;
-        private System.Windows.Forms.Button btn_Remover;
+        private System.Windows.Forms.Button btn_Inativar;
         private System.Windows.Forms.Label lb_NomeSobrenome;
         private System.Windows.Forms.PictureBox pb_IconeCliente;
         private System.Windows.Forms.DataGridView dgv_VisualizarCliente;

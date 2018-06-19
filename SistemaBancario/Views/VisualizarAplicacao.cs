@@ -28,10 +28,10 @@ namespace SistemaBancario.Views
                 dgv_VisualizarAplicacao.Columns[1].Name = "Valor Atributos"; //nome para manipulacao
 
                 string tipoAplicacao = dadosAplicacao.Rows[0][1].ToString(); //na primeira linha esta armazenado o primeiro nome do cliente
-                string nAplicacao = dadosAplicacao.Rows[0][0].ToString(); //na segunda linha esta armazenado o sobrenome do cliente
+                string numAplicacao = dadosAplicacao.Rows[0][0].ToString(); //na segunda linha esta armazenado o sobrenome do cliente
                 string numeroConta = dadosAplicacao.Rows[0][9].ToString();
 
-                lb_IdentificadorAplicacao.Text = "Aplicação " + tipoAplicacao + " Número " + nAplicacao + " Conta " + numeroConta;
+                lb_IdentificadorAplicacao.Text = "Conta " + numeroConta + " - " + tipoAplicacao + " " + numAplicacao;
             }
             else
             {
@@ -66,15 +66,15 @@ namespace SistemaBancario.Views
         {
             string idAplicacao = dgv_VisualizarAplicacao.Rows[0].Cells[1].Value.ToString();
 
-            if (MessageBox.Show("Tem certeza que deseja remover esta aplicação?", "Confirmacao", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+            if (MessageBox.Show("Tem certeza que deseja cancelar esta aplicação?", "Confirmacao", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
             {
-                if (MySQLFunctions.RemoverAplicacao(idAplicacao))
+                if (MySQLFunctions.CancelarAplicacao(idAplicacao))
                 {
-                    MessageBox.Show("Aplicação Removida com sucesso!");
+                    MessageBox.Show("Aplicação cancelada com sucesso!");
                 }
                 else
                 {
-                  MessageBox.Show("Não foi possível remover a aplicação!");
+                  MessageBox.Show("Não foi possível cancelar a aplicação!");
                 }
             }
         }

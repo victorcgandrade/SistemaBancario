@@ -32,7 +32,7 @@
             this.lb_IdentificadorAplicacao = new System.Windows.Forms.Label();
             this.pb_IconeCliente = new System.Windows.Forms.PictureBox();
             this.btn_AlterarAplicacao = new System.Windows.Forms.Button();
-            this.btn_RemoverAplicacao = new System.Windows.Forms.Button();
+            this.btn_CancelarAplicacao = new System.Windows.Forms.Button();
             this.lb_TituloVisualizarAplicacao = new System.Windows.Forms.Label();
             this.p_Content.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_VisualizarAplicacao)).BeginInit();
@@ -45,7 +45,7 @@
             this.p_Content.Controls.Add(this.lb_IdentificadorAplicacao);
             this.p_Content.Controls.Add(this.pb_IconeCliente);
             this.p_Content.Controls.Add(this.btn_AlterarAplicacao);
-            this.p_Content.Controls.Add(this.btn_RemoverAplicacao);
+            this.p_Content.Controls.Add(this.btn_CancelarAplicacao);
             this.p_Content.Controls.Add(this.lb_TituloVisualizarAplicacao);
             // 
             // panel2
@@ -122,19 +122,19 @@
             this.btn_AlterarAplicacao.Text = "Alterar";
             this.btn_AlterarAplicacao.UseVisualStyleBackColor = false;
             // 
-            // btn_RemoverAplicacao
+            // btn_CancelarAplicacao
             // 
-            this.btn_RemoverAplicacao.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(78)))), ((int)(((byte)(88)))));
-            this.btn_RemoverAplicacao.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btn_RemoverAplicacao.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_RemoverAplicacao.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.btn_RemoverAplicacao.Location = new System.Drawing.Point(798, 80);
-            this.btn_RemoverAplicacao.Name = "btn_RemoverAplicacao";
-            this.btn_RemoverAplicacao.Size = new System.Drawing.Size(90, 29);
-            this.btn_RemoverAplicacao.TabIndex = 93;
-            this.btn_RemoverAplicacao.Text = "Remover";
-            this.btn_RemoverAplicacao.UseVisualStyleBackColor = false;
-            this.btn_RemoverAplicacao.Click += new System.EventHandler(this.btn_RemoverAplicacao_Click);
+            this.btn_CancelarAplicacao.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(78)))), ((int)(((byte)(88)))));
+            this.btn_CancelarAplicacao.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btn_CancelarAplicacao.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_CancelarAplicacao.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.btn_CancelarAplicacao.Location = new System.Drawing.Point(798, 80);
+            this.btn_CancelarAplicacao.Name = "btn_CancelarAplicacao";
+            this.btn_CancelarAplicacao.Size = new System.Drawing.Size(90, 29);
+            this.btn_CancelarAplicacao.TabIndex = 93;
+            this.btn_CancelarAplicacao.Text = "Cancelar";
+            this.btn_CancelarAplicacao.UseVisualStyleBackColor = false;
+            this.btn_CancelarAplicacao.Click += new System.EventHandler(this.btn_RemoverAplicacao_Click);
             // 
             // lb_TituloVisualizarAplicacao
             // 
@@ -167,7 +167,7 @@
         private System.Windows.Forms.Label lb_IdentificadorAplicacao;
         private System.Windows.Forms.PictureBox pb_IconeCliente;
         private System.Windows.Forms.Button btn_AlterarAplicacao;
-        private System.Windows.Forms.Button btn_RemoverAplicacao;
+        private System.Windows.Forms.Button btn_CancelarAplicacao;
         private System.Windows.Forms.Label lb_TituloVisualizarAplicacao;
     }
 }

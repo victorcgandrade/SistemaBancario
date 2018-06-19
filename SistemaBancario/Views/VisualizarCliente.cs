@@ -64,15 +64,15 @@ namespace SistemaBancario.Views
         {
             string cpf = dgv_VisualizarCliente.Rows[2].Cells[1].Value.ToString();
 
-            if (MessageBox.Show("Tem certeza que deseja remover este cliente?", "Confirmacao", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+            if (MessageBox.Show("Tem certeza que deseja inativar este cliente?", "Confirmacao", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
             {
-                if (MySQLFunctions.RemoverCliente(cpf))
+                if (MySQLFunctions.InativarCliente(cpf))
                 {
-                    MessageBox.Show("Cliente Removido com sucesso!");
+                    MessageBox.Show("Cliente inativado com sucesso!");
                 }
                 else
                 {
-                    MessageBox.Show("Não foi possível remover o cliente!");
+                    MessageBox.Show("Não foi possível inativar o cliente!");
                 }
             }
         }
