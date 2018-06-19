@@ -66,11 +66,14 @@ namespace SistemaBancario.Views
         {
             string idAplicacao = dgv_VisualizarAplicacao.Rows[0].Cells[1].Value.ToString();
 
-            if (MessageBox.Show("Tem certeza que deseja cancelar esta aplicação?", "Confirmacao", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+            if (MessageBox.Show("Tem certeza que deseja cancelar esta aplicação? Ao confirmar, não será mais possível manipula-la.", "Confirmacao", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
             {
                 if (MySQLFunctions.CancelarAplicacao(idAplicacao))
                 {
                     MessageBox.Show("Aplicação cancelada com sucesso!");
+
+                    btn_AlterarAplicacao.Visible = false;
+                    btn_CancelarAplicacao.Visible = false;
                 }
                 else
                 {
