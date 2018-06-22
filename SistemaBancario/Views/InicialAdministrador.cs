@@ -18,7 +18,7 @@ namespace SistemaBancario.Views
         //Botao para adicionar cliente - Codigo para fechar a tela aberta por um botao e tambem a tela que lhe deu origem
         private void btn_AdicionarCliente_Click(object sender, EventArgs e)
         {
-            AdicionarCliente adicionarCliente = new AdicionarCliente();
+            FormularioCliente adicionarCliente = new FormularioCliente();
             adicionarCliente.FormClosed += new FormClosedEventHandler(adicionarCliente_FormClosed); //Este Metodo ira lidar com o evento 'Close' na segunda tela
             adicionarCliente.Show();
             this.Hide();

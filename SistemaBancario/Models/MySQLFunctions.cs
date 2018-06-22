@@ -653,31 +653,136 @@ namespace SistemaBancario.Models
             return sucesso;
         }
 
-        static public int AtualizarCliente()
+        //Atualizacao de Usuario
+        static public Boolean AtualizarUsuario(string primeiroNome, string sobrenome, string cpf)
         {
-            int i = 0;
 
             try
             {
                 if (connection.State == ConnectionState.Closed)
                     connection.Open();
 
-                int affectedRows = connection.Execute("UPDATE dbo.[Users] SET [FirstName] = 'John' WHERE [Id] = 3");
+                int linhasAfetadasUsuario = connection.Execute("UPDATE Usuario SET primeiroNome = @primeiroNome, sobrenome = @sobrenome WHERE cpf = @cpf", new { @primeiroNome = primeiroNome, @sobrenome = sobrenome, @cpf = cpf});
 
+                    return true;
             }
             catch (MySqlException exception)
             {
                 Console.WriteLine(exception.ToString());
+                return false;
             }
             finally
             {
                 connection.Close();
             };
 
-            return i;
+        }
+
+        //Atualizacao de Cliente
+        static public Boolean AtualizarCliente(string emailAntigo, string estado_civil, string emailNovo, string celular, string telefone, string status)
+        {
+
+            try
+            {
+                if (connection.State == ConnectionState.Closed)
+                    connection.Open();
+
+                int linhasAfetadasCliente = connection.Execute("UPDATE Cliente SET estado_civil = @estado_civil, email = @email, celular = @celular, telefone = @telefone, status = @status WHERE email = @emailAntigo;", 
+                    new { @estado_civil = estado_civil, @email = emailNovo, @celular = celular, @telefone = telefone, @status = status, @emailAntigo = emailAntigo});
+
+                    return true;
+            }
+            catch (MySqlException exception)
+            {
+                Console.WriteLine(exception.ToString());
+                return false;
+            }
+            finally
+            {
+                connection.Close();
+            };
+        }
+
+        //Atualizacao de Endereco
+        static public Boolean AtualizarEndereco(string cepAntigo, string cepNovo, string tipo, string logradouro, int numero, string bairro, string cidade, string estado, string complemento)
+        {
+
+            try
+            {
+                if (connection.State == ConnectionState.Closed)
+                    connection.Open();
+
+                int linhasAfetadasEndereco = connection.Execute("UPDATE Endereco SET cep = @cepNovo, tipo = @tipo, logradouro = @logradouro, numero = @numero, bairro = @bairro, cidade = @cidade, estado = @estado, complemento = @complemento WHERE cep = @cepAntigo;",
+                    new { @cepNovo = cepNovo, @tipo = tipo, @logradouro = logradouro, @numero = numero, @bairro = bairro, @cidade = cidade, @estado = estado, @complemento = complemento, @cepAntigo = cepAntigo });
+
+                    return true;
+            }
+            catch (MySqlException exception)
+            {
+                Console.WriteLine(exception.ToString());
+                return false;
+            }
+            finally
+            {
+                connection.Close();
+            };
+        }
+
+        //Atualizacao de PessoaFisica
+        static public Boolean AtualizarPF(string profissaoAtual, decimal rendaMensal, string cpf)
+        {
+
+            try
+            {
+                if (connection.State == ConnectionState.Closed)
+                    connection.Open();
+
+                int linhasAfetadasEndereco = connection.Execute("UPDATE PessoaFisica JOIN Cliente ON PessoaFisica.id_cliente = Cliente.id JOIN Usuario ON Cliente.id_usuario = Usuario.id SET profissao = @profissao, rendaMensal = @rendaMensal WHERE Usuario.cpf = @cpf",
+                    new { @profissao = profissaoAtual, @rendaMensal = rendaMensal, @cpf = cpf });
+
+                    return true;
+            }
+            catch (MySqlException exception)
+            {
+                Console.WriteLine(exception.ToString());
+                return false;
+            }
+            finally
+            {
+                connection.Close();
+            };
+
+        }
+
+        //Atualizacao de PessoaJuridica
+        static public Boolean AtualizarPJ(string razaoSocial, string cpf)
+        {
+
+            try
+            {
+                if (connection.State == ConnectionState.Closed)
+                    connection.Open();
+
+                int linhasAfetadasEndereco = connection.Execute("UPDATE PessoaJuridica JOIN Cliente ON PessoaJuridica.id_cliente = Cliente.id JOIN Usuario ON Cliente.id_usuario = Usuario.id SET razaoSocial = @razaoSocial WHERE Usuario.cpf = @cpf",
+                    new { @razaoSocial = razaoSocial, @cpf = cpf });
+
+                if (linhasAfetadasEndereco == 1) //1 linha do banco de dados, usuario desejado, foi atualizada
+                {
+                    return true;
+                }
+            }
+            catch (MySqlException exception)
+            {
+                Console.WriteLine(exception.ToString());
+                return false;
+            }
+            finally
+            {
+                connection.Close();
+            };
+
+            return false;
         }
     }
-
-
 }
 
