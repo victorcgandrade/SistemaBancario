@@ -356,8 +356,8 @@ namespace SistemaBancario.Models
                     }
                     else if (tipoCliente == "PessoaFisica")
                     {
-                        query = "SELECT Usuario.primeiroNome, Usuario.sobrenome, Usuario.cpf, Usuario.rg, Cliente.data_nascimento, Cliente.email, Cliente.telefone, Cliente.celular, Cliente.data_cadastro, Cliente.status, Cliente.estado_civil, PessoaFisica.profissao, PessoaFisica.rendaMensal, " +
-                            "FROM PessoaFisica JOIN Cliente ON PessoaFisica.id_cliente = Cliente.id JOIN Usuario ON Cliente.id_usuario = Usuario.id WHERE PessoaFisica.id = @idPessoaFisica";
+                        query = "SELECT Usuario.primeiroNome, Usuario.sobrenome, Usuario.cpf, Usuario.rg, Cliente.data_nascimento, Cliente.email, Cliente.telefone, Cliente.celular, Cliente.data_cadastro, Cliente.status, Cliente.estado_civil, " +
+                            "PessoaFisica.profissao, PessoaFisica.rendaMensal FROM PessoaFisica JOIN Cliente ON PessoaFisica.id_cliente = Cliente.id JOIN Usuario ON Cliente.id_usuario = Usuario.id WHERE PessoaFisica.id = @idPessoaFisica;";
 
                         PessoaFisica pessoaFisica = RetornarPessoaFisica(query, id);
 
@@ -366,8 +366,8 @@ namespace SistemaBancario.Models
                     }
                     else if (tipoCliente == "PessoaJuridica")
                     {
-                        query = "SELECT Usuario.primeiroNome, Usuario.sobrenome, Usuario.cpf, Usuario.rg, Cliente.data_nascimento, Cliente.email, Cliente.telefone, Cliente.celular, Cliente.data_cadastro, Cliente.status, Cliente.estado_civil, PessoaJuridica.cnpj, PessoaJuridica.razaoSocial, PessoaJuridica.tipo," +
-                            "FROM PessoaJuridica JOIN Cliente ON PessoaJuridica.id_cliente = Cliente.id JOIN Usuario ON Cliente.id_usuario = Usuario.id WHERE PessoaJuridica.id = @idPessoaJuridica";
+                        query = "SELECT Usuario.primeiroNome, Usuario.sobrenome, Usuario.cpf, Usuario.rg, Cliente.data_nascimento, Cliente.email, Cliente.telefone, Cliente.celular, Cliente.data_cadastro, Cliente.status, Cliente.estado_civil, " +
+                            "PessoaJuridica.cnpj, PessoaJuridica.razaoSocial, PessoaJuridica.tipo FROM PessoaJuridica JOIN Cliente ON PessoaJuridica.id_cliente = Cliente.id JOIN Usuario ON Cliente.id_usuario = Usuario.id WHERE PessoaJuridica.id = @idPessoaJuridica;";
 
                         PessoaJuridica pessoaJuridica = RetornarPessoaJuridica(query, id);
 
@@ -408,7 +408,7 @@ namespace SistemaBancario.Models
 
                 //Busca pelo endereco de acordo com o id do dependente
                 var queryResultFirst = connection.Query<Endereco>("SELECT Endereco.tipo, Endereco.logradouro, Endereco.numero, Endereco.bairro, Endereco.complemento, Endereco.cep, Endereco.cidade, Endereco.estado FROM Endereco " +
-                    "JOIN Cliente on Cliente.id_endereco = Endereco.id join Dependente on Dependente.id_cliente = Cliente.id WHERE Dependente.id = @idDependente;", new { @idDependente = id });
+                    "JOIN Cliente on Cliente.id_endereco = Endereco.id JOIN Dependente on Dependente.id_cliente = Cliente.id WHERE Dependente.id = @idDependente;", new { @idDependente = id });
 
                 Endereco endereco = queryResultFirst.First();
 
@@ -439,8 +439,19 @@ namespace SistemaBancario.Models
                 if (connection.State == ConnectionState.Closed)
                     connection.Open();
 
+                //Busca pelo endereco de acordo com o id do dependente
+                var queryResultFirst = connection.Query<Endereco>("SELECT Endereco.tipo, Endereco.logradouro, Endereco.numero, Endereco.bairro, Endereco.complemento, Endereco.cep, Endereco.cidade, Endereco.estado FROM Endereco " +
+                    "JOIN Cliente on Cliente.id_endereco = Endereco.id JOIN PessoaFisica on PessoaFisica.id_cliente = Cliente.id WHERE PessoaFisica.id = @idPessoaFisica;", new { @idPessoaFisica = id });
+
+                Endereco endereco = queryResultFirst.First();
+
+
                 var queryResult = connection.Query<PessoaFisica>(query, new { @idPessoaFisica = id });
-                return queryResult.First();
+                PessoaFisica pessoaFisica = queryResult.First();
+
+                pessoaFisica.Endereco = endereco;
+
+                return pessoaFisica;
             }
             catch (MySqlException exception)
             {
@@ -460,8 +471,18 @@ namespace SistemaBancario.Models
                 if (connection.State == ConnectionState.Closed)
                     connection.Open();
 
+                //Busca pelo endereco de acordo com o id do dependente
+                var queryResultFirst = connection.Query<Endereco>("SELECT Endereco.tipo, Endereco.logradouro, Endereco.numero, Endereco.bairro, Endereco.complemento, Endereco.cep, Endereco.cidade, Endereco.estado FROM Endereco " +
+                    "JOIN Cliente on Cliente.id_endereco = Endereco.id JOIN PessoaJuridica on PessoaJuridica.id_cliente = Cliente.id WHERE PessoaJuridica.id = @idPessoaJuridica;", new { @idPessoaJuridica = id });
+
+                Endereco endereco = queryResultFirst.First();
+
                 var queryResult = connection.Query<PessoaJuridica>(query, new { @idPessoaJuridica = id });
-                return queryResult.First();
+                PessoaJuridica pessoaJuridica = queryResult.First();
+
+                pessoaJuridica.Endereco = endereco;
+
+                return pessoaJuridica;
             }
             catch (MySqlException exception)
             {
@@ -632,6 +653,29 @@ namespace SistemaBancario.Models
             return sucesso;
         }
 
+        static public int AtualizarCliente()
+        {
+            int i = 0;
+
+            try
+            {
+                if (connection.State == ConnectionState.Closed)
+                    connection.Open();
+
+                int affectedRows = connection.Execute("UPDATE dbo.[Users] SET [FirstName] = 'John' WHERE [Id] = 3");
+
+            }
+            catch (MySqlException exception)
+            {
+                Console.WriteLine(exception.ToString());
+            }
+            finally
+            {
+                connection.Close();
+            };
+
+            return i;
+        }
     }
 
 

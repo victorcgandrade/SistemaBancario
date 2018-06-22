@@ -84,9 +84,10 @@ namespace SistemaBancario.Views
         }
 
         //Botao confirmar ao ser clicado
-        private void btn_Confirmar_Click(object sender, EventArgs e)
+        private void Alterar_Cliente(object sender, EventArgs e)
         {
-
+            MessageBox.Show("Alterar");
         }
+
     }
 }

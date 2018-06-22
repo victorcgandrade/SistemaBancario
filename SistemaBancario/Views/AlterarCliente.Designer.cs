@@ -31,6 +31,10 @@
             this.p_Content.SuspendLayout();
             this.SuspendLayout();
             // 
+            // btn_Confirmar
+            // 
+            this.btn_Confirmar.Click += new System.EventHandler(this.Alterar_Cliente);
+            // 
             // cb_TipoPessoaJuridica
             // 
             this.cb_TipoPessoaJuridica.BackColor = System.Drawing.SystemColors.InactiveCaption;
@@ -39,6 +43,7 @@
             // tb_Cnpj
             // 
             this.tb_Cnpj.BackColor = System.Drawing.SystemColors.InactiveCaption;
+            this.tb_Cnpj.Enabled = false;
             this.tb_Cnpj.ReadOnly = true;
             // 
             // tb_CpfTitularAssociado
@@ -56,6 +61,10 @@
             this.cb_TipoCliente.BackColor = System.Drawing.SystemColors.InactiveCaption;
             this.cb_TipoCliente.Enabled = false;
             // 
+            // dtp_DataCadastro
+            // 
+            this.dtp_DataCadastro.Enabled = false;
+            // 
             // dtp_DataNascimento
             // 
             this.dtp_DataNascimento.CalendarForeColor = System.Drawing.Color.Black;
@@ -66,11 +75,13 @@
             // tb_RgCliente
             // 
             this.tb_RgCliente.BackColor = System.Drawing.SystemColors.InactiveCaption;
+            this.tb_RgCliente.Enabled = false;
             this.tb_RgCliente.ReadOnly = true;
             // 
             // tb_CpfCliente
             // 
             this.tb_CpfCliente.BackColor = System.Drawing.SystemColors.InactiveCaption;
+            this.tb_CpfCliente.Enabled = false;
             this.tb_CpfCliente.ReadOnly = true;
             // 
             // btn_LogDados
