@@ -18,7 +18,7 @@ namespace SistemaBancario.Models
 
         //Construtor contendo todos os atributos de Usuario e Cliente, alem de PessoaFisica.
         public PessoaFisica(string primeiroNome, string sobrenome, string cpf, string rg, string data_nascimento, string email, string telefone, 
-            string celular, string data_cadastro, Endereco endereco, Status status, Estado_Civil estado_civil, string profissao, decimal rendaMensal)
+            string celular, string data_cadastro, Endereco endereco, string status, string estado_civil, string profissao, decimal rendaMensal)
         {
             this.PrimeiroNome = primeiroNome;
             this.Sobrenome = sobrenome;
@@ -30,8 +30,8 @@ namespace SistemaBancario.Models
             this.Celular = celular;
             this.DataCadastro = data_cadastro;
             this.Endereco = endereco;
-            this.setStatus = status;
-            this.setEstado_Civil = estado_civil;
+            this.Status = status;
+            this.Estado_civil = estado_civil;
             this.profissao = profissao;
             this.rendaMensal = rendaMensal;
         }

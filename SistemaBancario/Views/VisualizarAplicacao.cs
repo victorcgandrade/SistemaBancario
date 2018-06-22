@@ -15,7 +15,7 @@ namespace SistemaBancario.Views
         {
             InitializeComponent();
 
-            DataTable dadosAplicacao = MySQLFunctions.AcessarDadosAplicacao(idAplicacao); //obtem todos os dados de um cliente
+            DataTable dadosAplicacao = MySQLFunctions.RetornarAplicacao(idAplicacao); //obtem todos os dados de um cliente
 
             if (dadosAplicacao != null) //se nao ocorreu erro na chamada da funcao acima
             {

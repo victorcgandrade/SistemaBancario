@@ -30,8 +30,8 @@ namespace SistemaBancario.Views
                 dgv_VisualizarCliente.Columns[1].HeaderText = ""; //nome para exibicao
                 dgv_VisualizarCliente.Columns[1].Name = "Valor Atributos"; //nome para manipulacao
 
-                string nome = dadosCliente.Rows[0][0].ToString(); //na primeira linha esta armazenado o primeiro nome do cliente
-                string sobrenome = dadosCliente.Rows[0][1].ToString(); //na segunda linha esta armazenado o sobrenome do cliente
+                string nome = dadosCliente.Rows[0][1].ToString(); //na segunda linha esta armazenado o primeiro nome do cliente
+                string sobrenome = dadosCliente.Rows[0][2].ToString(); //na terceira linha esta armazenado o sobrenome do cliente
 
                 lb_NomeSobrenome.Text = nome + " " + sobrenome;
             } else

@@ -9,23 +9,6 @@ namespace SistemaBancario.Models
 {
     class Cliente : Usuario
     {
-        //Enumeracoes para restringir os valores de status e estado civil
-
-        public enum Status
-        {
-            Ativo,
-            Inativo,
-            Bloqueado
-        };
-
-        public enum Estado_Civil
-        {
-            Solteiro,
-            Casado,
-            Divorciado,
-            Viuvo,
-            Separado
-        };
 
         private string data_nascimento;
         private string email;
@@ -33,15 +16,15 @@ namespace SistemaBancario.Models
         private string celular;
         private string data_cadastro;
         private Endereco endereco;
-        private Status status = Status.Ativo; //inicialmente, por padrao, todos os clientes estao ativos
-        private Estado_Civil estado_civil;
+        private string status; //inicialmente, por padrao, todos os clientes estao ativos
+        private string estado_civil;
 
         public Cliente()
         {
 
         }
 
-        public Cliente(string data_nascimento, string email, string telefone, string celular, string data_cadastro, Endereco endereco, Status status, Estado_Civil estado_civil)
+        public Cliente(string data_nascimento, string email, string telefone, string celular, string data_cadastro, Endereco endereco, string status, string estado_civil)
         {
             this.data_nascimento = data_nascimento;
             this.email = email;
@@ -125,36 +108,29 @@ namespace SistemaBancario.Models
             }
         }
 
-        public String getStatus //Retorna o valor do status em string
+        public string Status
         {
             get
             {
-                return Enum.GetName(typeof(Status), status);
+                return status;
             }
-        }
-
-        public Status setStatus
-        {
             set
             {
                 status = value;
             }
         }
 
-        public String getEstado_Civil //Retorna o valor do estado civil em string
+        public string Estado_civil
         {
             get
             {
-                return Enum.GetName(typeof(Estado_Civil), estado_civil);
+                return estado_civil;
             }
-        }
-
-        public Estado_Civil setEstado_Civil
-        {
             set
             {
                 estado_civil = value;
             }
         }
+
     }
 }

@@ -8,17 +8,9 @@ namespace SistemaBancario.Models
 {
     class PessoaJuridica : Cliente
     {
-        //Enumeracao para restringir os valores de tipo
-        public enum Tipo
-        {
-            Sociedade_Ltda,
-            Associacao,
-            Fundacao,
-        };
-
         private string cnpj;
         private string razaoSocial;
-        private Tipo tipo;
+        private string tipo;
 
         public PessoaJuridica()
         {
@@ -27,7 +19,7 @@ namespace SistemaBancario.Models
 
         //Construtor contendo todos os atributos de Usuario e Cliente, alem de PessoaJuridica.
         public PessoaJuridica(string primeiroNome, string sobrenome, string cpf, string rg, string data_nascimento, string email, string telefone,
-            string celular, string data_cadastro, Endereco endereco, Status status, Estado_Civil estado_civil, string cnpj, string razaoSocial, Tipo tipo)
+            string celular, string data_cadastro, Endereco endereco, string status, string estado_civil, string cnpj, string razaoSocial, string tipo)
         {
             this.PrimeiroNome = primeiroNome;
             this.Sobrenome = sobrenome;
@@ -39,8 +31,8 @@ namespace SistemaBancario.Models
             this.Celular = celular;
             this.DataCadastro = data_cadastro;
             this.Endereco = endereco;
-            this.setStatus = status;
-            this.setEstado_Civil = estado_civil;
+            this.Status = status;
+            this.Estado_civil = estado_civil;
             this.cnpj = cnpj;
             this.razaoSocial = razaoSocial;
             this.tipo = tipo;
@@ -70,16 +62,12 @@ namespace SistemaBancario.Models
             }
         }
 
-        public String getTipo //Retorna o valor do estado civil em string
+        public String Tipo //Retorna o valor do estado civil em string
         {
             get
             {
-                return Enum.GetName(typeof(Tipo), tipo);
+                return tipo;
             }
-        }
-
-        public Tipo setTipo
-        {
             set
             {
                 tipo = value;
