@@ -47,7 +47,13 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Controllers\Program.cs" />
+    <Compile Include="Models\Administrador.cs" />
+    <Compile Include="Models\Cliente.cs" />
+    <Compile Include="Models\Endereco.cs" />
     <Compile Include="Models\MySQLFunctions.cs" />
+    <Compile Include="Models\PessoaFisica.cs" />
+    <Compile Include="Models\PessoaJuridica.cs" />
+    <Compile Include="Models\Usuario.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Views\AdicionarCliente.cs">
       <SubType>Form</SubType>

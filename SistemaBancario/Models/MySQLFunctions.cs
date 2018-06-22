@@ -48,7 +48,7 @@ namespace SistemaBancario.Models
         }
 
         //Criar novo endereco no banco de dados
-        static public Boolean InserirEndereco(string logradouro, string rua, int numero, string bairro, string complemento, string cep, string cidade, string estado)
+        static public Boolean InserirEndereco(string tipo, string logradouro, int numero, string bairro, string complemento, string cep, string cidade, string estado)
         {
             Boolean sucesso;
 
@@ -57,9 +57,9 @@ namespace SistemaBancario.Models
                 if (connection.State == ConnectionState.Closed)
                     connection.Open();
                 MySqlCommand inserirEndereco = new MySqlCommand(
-                    "INSERT INTO Endereco(logradouro, rua, numero, bairro, complemento, cep, cidade, estado_id) VALUES(@logradouro, @rua, @numero, @bairro, @complemento, @cep, @cidade, (SELECT id FROM Estado WHERE sigla = @estado))", connection);
+                    "INSERT INTO Endereco(tipo, logradouro, numero, bairro, complemento, cep, cidade, estado_id) VALUES(@tipo, @logradouro, @numero, @bairro, @complemento, @cep, @cidade, @estado)", connection);
+                inserirEndereco.Parameters.AddWithValue("@tipo", tipo);
                 inserirEndereco.Parameters.AddWithValue("@logradouro", logradouro);
-                inserirEndereco.Parameters.AddWithValue("@rua", rua);
                 inserirEndereco.Parameters.AddWithValue("@numero", numero);
                 inserirEndereco.Parameters.AddWithValue("@bairro", bairro);
                 inserirEndereco.Parameters.AddWithValue("@complemento", complemento);

@@ -67,8 +67,8 @@
             this.lb_Contato = new System.Windows.Forms.Label();
             this.tb_Sobrenome = new System.Windows.Forms.TextBox();
             this.tb_PrimeiroNome = new System.Windows.Forms.TextBox();
-            this.tb_Rua = new System.Windows.Forms.TextBox();
-            this.cb_Logradouro = new System.Windows.Forms.ComboBox();
+            this.tb_Logradouro = new System.Windows.Forms.TextBox();
+            this.cb_Tipo = new System.Windows.Forms.ComboBox();
             this.lb_PrimeiroNome = new System.Windows.Forms.Label();
             this.lb_Sobrenome = new System.Windows.Forms.Label();
             this.lb_CpfResponsavel = new System.Windows.Forms.Label();
@@ -80,7 +80,7 @@
             this.lb_Profissao = new System.Windows.Forms.Label();
             this.lb_RendaMensal = new System.Windows.Forms.Label();
             this.lb_Cep = new System.Windows.Forms.Label();
-            this.lb_Rua = new System.Windows.Forms.Label();
+            this.lb_Logradouro = new System.Windows.Forms.Label();
             this.lb_Numero = new System.Windows.Forms.Label();
             this.lb_Bairro = new System.Windows.Forms.Label();
             this.lb_Cidade = new System.Windows.Forms.Label();
@@ -101,7 +101,7 @@
             this.p_Content.Controls.Add(this.lb_Cidade);
             this.p_Content.Controls.Add(this.lb_Bairro);
             this.p_Content.Controls.Add(this.lb_Numero);
-            this.p_Content.Controls.Add(this.lb_Rua);
+            this.p_Content.Controls.Add(this.lb_Logradouro);
             this.p_Content.Controls.Add(this.lb_DataCadastro);
             this.p_Content.Controls.Add(this.lb_Cep);
             this.p_Content.Controls.Add(this.dtp_DataCadastro);
@@ -124,13 +124,13 @@
             this.p_Content.Controls.Add(this.lb_TitularAssociado);
             this.p_Content.Controls.Add(this.lb_Contato);
             this.p_Content.Controls.Add(this.btn_Limpar);
-            this.p_Content.Controls.Add(this.cb_Logradouro);
+            this.p_Content.Controls.Add(this.cb_Tipo);
             this.p_Content.Controls.Add(this.btn_Confirmar);
             this.p_Content.Controls.Add(this.tb_RendaMensal);
             this.p_Content.Controls.Add(this.tb_Profissao);
             this.p_Content.Controls.Add(this.cb_TipoCliente);
             this.p_Content.Controls.Add(this.lb_InformacaoEconomica);
-            this.p_Content.Controls.Add(this.tb_Rua);
+            this.p_Content.Controls.Add(this.tb_Logradouro);
             this.p_Content.Controls.Add(this.btn_Cancelar);
             this.p_Content.Controls.Add(this.lb_TipoCliente);
             this.p_Content.Controls.Add(this.lb_Endereco);
@@ -623,32 +623,32 @@
             this.tb_PrimeiroNome.Size = new System.Drawing.Size(166, 22);
             this.tb_PrimeiroNome.TabIndex = 44;
             // 
-            // tb_Rua
+            // tb_Logradouro
             // 
-            this.tb_Rua.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tb_Rua.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.tb_Rua.Location = new System.Drawing.Point(567, 166);
-            this.tb_Rua.Name = "tb_Rua";
-            this.tb_Rua.Size = new System.Drawing.Size(290, 22);
-            this.tb_Rua.TabIndex = 85;
+            this.tb_Logradouro.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tb_Logradouro.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.tb_Logradouro.Location = new System.Drawing.Point(567, 166);
+            this.tb_Logradouro.Name = "tb_Logradouro";
+            this.tb_Logradouro.Size = new System.Drawing.Size(290, 22);
+            this.tb_Logradouro.TabIndex = 85;
             // 
-            // cb_Logradouro
+            // cb_Tipo
             // 
-            this.cb_Logradouro.Font = new System.Drawing.Font("Segoe UI", 8.25F);
-            this.cb_Logradouro.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.cb_Logradouro.FormattingEnabled = true;
-            this.cb_Logradouro.Items.AddRange(new object[] {
+            this.cb_Tipo.Font = new System.Drawing.Font("Segoe UI", 8.25F);
+            this.cb_Tipo.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.cb_Tipo.FormattingEnabled = true;
+            this.cb_Tipo.Items.AddRange(new object[] {
             "Rua",
             "Rodovia",
             "Avenida",
             "Favela",
             "Vila",
             "Travessa"});
-            this.cb_Logradouro.Location = new System.Drawing.Point(734, 118);
-            this.cb_Logradouro.Name = "cb_Logradouro";
-            this.cb_Logradouro.Size = new System.Drawing.Size(110, 21);
-            this.cb_Logradouro.TabIndex = 86;
-            this.cb_Logradouro.Text = "Logradouro";
+            this.cb_Tipo.Location = new System.Drawing.Point(734, 118);
+            this.cb_Tipo.Name = "cb_Tipo";
+            this.cb_Tipo.Size = new System.Drawing.Size(110, 21);
+            this.cb_Tipo.TabIndex = 86;
+            this.cb_Tipo.Text = "Tipo";
             // 
             // lb_PrimeiroNome
             // 
@@ -771,16 +771,16 @@
             this.lb_Cep.TabIndex = 96;
             this.lb_Cep.Text = "CEP (apenas números):";
             // 
-            // lb_Rua
+            // lb_Logradouro
             // 
-            this.lb_Rua.AutoSize = true;
-            this.lb_Rua.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lb_Rua.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.lb_Rua.Location = new System.Drawing.Point(564, 150);
-            this.lb_Rua.Name = "lb_Rua";
-            this.lb_Rua.Size = new System.Drawing.Size(30, 13);
-            this.lb_Rua.TabIndex = 97;
-            this.lb_Rua.Text = "Rua:";
+            this.lb_Logradouro.AutoSize = true;
+            this.lb_Logradouro.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lb_Logradouro.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.lb_Logradouro.Location = new System.Drawing.Point(564, 150);
+            this.lb_Logradouro.Name = "lb_Logradouro";
+            this.lb_Logradouro.Size = new System.Drawing.Size(71, 13);
+            this.lb_Logradouro.TabIndex = 97;
+            this.lb_Logradouro.Text = "Logradouro:";
             // 
             // lb_Numero
             // 
@@ -912,8 +912,8 @@
         protected System.Windows.Forms.Label lb_Contato;
         protected System.Windows.Forms.TextBox tb_Sobrenome;
         protected System.Windows.Forms.TextBox tb_PrimeiroNome;
-        protected System.Windows.Forms.ComboBox cb_Logradouro;
-        protected System.Windows.Forms.TextBox tb_Rua;
+        protected System.Windows.Forms.ComboBox cb_Tipo;
+        protected System.Windows.Forms.TextBox tb_Logradouro;
         protected System.Windows.Forms.Label lb_PrimeiroNome;
         protected System.Windows.Forms.Label lb_CpfResponsavel;
         protected System.Windows.Forms.Label lb_Sobrenome;
@@ -926,7 +926,7 @@
         protected System.Windows.Forms.Label lb_Cidade;
         protected System.Windows.Forms.Label lb_Bairro;
         protected System.Windows.Forms.Label lb_Numero;
-        protected System.Windows.Forms.Label lb_Rua;
+        protected System.Windows.Forms.Label lb_Logradouro;
         protected System.Windows.Forms.Label lb_Cep;
         protected System.Windows.Forms.Label lb_RendaMensal;
         protected System.Windows.Forms.Label lb_Profissao;

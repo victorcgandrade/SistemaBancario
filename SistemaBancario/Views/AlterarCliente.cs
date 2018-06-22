@@ -10,7 +10,7 @@ namespace SistemaBancario.Views
 {
     public partial class AlterarCliente : SistemaBancario.Views.AdicionarCliente
     {
-        public AlterarCliente()
+        public AlterarCliente(DataTable dt)
         {
             InitializeComponent();
         }

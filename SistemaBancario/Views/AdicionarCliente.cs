@@ -47,17 +47,17 @@ namespace SistemaBancario.Views
             bool sucesso = false;
 
             string cep = tb_Cep.Text;
-            string logradouro = cb_Logradouro.Text;
-            string rua = tb_Rua.Text;
+            string tipo = cb_Tipo.Text;
+            string logradouro = tb_Logradouro.Text;
             int numero = Convert.ToInt32(tb_Numero.Text);
             string bairro = tb_Bairro.Text;
             string complemento = tb_Complemento.Text;
             string cidade = tb_Cidade.Text;
             string estado = cb_Estado.Text;
 
-            if (cep != "" && logradouro != "" && rua != "" && bairro != "" && cidade != "" && estado != "")
+            if (cep != "" && tipo != "" && logradouro != "" && bairro != "" && cidade != "" && estado != "")
             {
-                if (MySQLFunctions.InserirEndereco(logradouro, rua, numero, bairro, complemento, cep, cidade, estado))
+                if (MySQLFunctions.InserirEndereco(tipo, logradouro, numero, bairro, complemento, cep, cidade, estado))
                 {
                     sucesso = true;
                 }

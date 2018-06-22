@@ -11,11 +11,14 @@ namespace SistemaBancario.Views
 {
     public partial class VisualizarCliente : SistemaBancario.Views.TemplateInicialAdministrador
     {
+
+        private DataTable dadosCliente; //variavel global para ser reaproveitada ao longo do codigo
+
         public VisualizarCliente(string idBusca)
         {
             InitializeComponent();
 
-            DataTable dadosCliente = MySQLFunctions.AcessarDadosCliente(idBusca); //obtem todos os dados de um cliente
+            dadosCliente = MySQLFunctions.AcessarDadosCliente(idBusca); //obtem todos os dados de um cliente
 
             if (dadosCliente != null) //se nao ocorreu erro na chamada da funcao acima
             {
@@ -75,6 +78,21 @@ namespace SistemaBancario.Views
                     MessageBox.Show("Não foi possível inativar o cliente!");
                 }
             }
+        }
+
+        //Quando o botao de alterar cliente for clicado
+        private void btn_Alterar_Click(object sender, EventArgs e)
+        {
+            AlterarCliente alterarCliente = new AlterarCliente(dadosCliente);
+            alterarCliente.FormClosed += new FormClosedEventHandler(alterarCliente_FormClosed);
+            alterarCliente.Show();
+            this.Hide();
+        }
+
+        //Quando a tela de for fechada, fecha-se tambem a tela que lhe deu origem
+        private void alterarCliente_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            this.Close();
         }
     }
 }
