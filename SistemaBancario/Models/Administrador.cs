@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace SistemaBancario.Models
 {
-    class Administrador : Usuario
+    public class Administrador : Usuario
     {
         private string login;
         private string senha;

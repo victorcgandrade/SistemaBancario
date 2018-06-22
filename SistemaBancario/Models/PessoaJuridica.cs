@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace SistemaBancario.Models
 {
-    class PessoaJuridica : Cliente
+    public class PessoaJuridica : Cliente
     {
         private string cnpj;
         private string razaoSocial;
@@ -19,7 +19,7 @@ namespace SistemaBancario.Models
 
         //Construtor contendo todos os atributos de Usuario e Cliente, alem de PessoaJuridica.
         public PessoaJuridica(string primeiroNome, string sobrenome, string cpf, string rg, string data_nascimento, string email, string telefone,
-            string celular, string data_cadastro, Endereco endereco, string status, string estado_civil, string cnpj, string razaoSocial, string tipo)
+            string celular, DateTime data_cadastro, Endereco endereco, string status, string estado_civil, string cnpj, string razaoSocial, string tipo)
         {
             this.PrimeiroNome = primeiroNome;
             this.Sobrenome = sobrenome;

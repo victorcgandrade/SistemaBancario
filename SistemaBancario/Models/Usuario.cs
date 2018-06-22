@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace SistemaBancario.Models
 {
-    class Usuario
+    public class Usuario
     {
         private string primeiroNome;
         private string sobrenome;

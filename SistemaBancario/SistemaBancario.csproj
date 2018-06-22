@@ -54,6 +54,7 @@
     <Compile Include="Models\Aplicacao.cs" />
     <Compile Include="Models\Cliente.cs" />
     <Compile Include="Models\ContaCorrente.cs" />
+    <Compile Include="Models\Dependente.cs" />
     <Compile Include="Models\Endereco.cs" />
     <Compile Include="Models\MySQLFunctions.cs" />
     <Compile Include="Models\PessoaFisica.cs" />

@@ -7,14 +7,14 @@ using System.Threading.Tasks;
 
 namespace SistemaBancario.Models
 {
-    class Cliente : Usuario
+    public class Cliente : Usuario
     {
 
         private string data_nascimento;
         private string email;
         private string telefone;
         private string celular;
-        private string data_cadastro;
+        private DateTime data_cadastro;
         private Endereco endereco;
         private string status; //inicialmente, por padrao, todos os clientes estao ativos
         private string estado_civil;
@@ -24,7 +24,7 @@ namespace SistemaBancario.Models
 
         }
 
-        public Cliente(string data_nascimento, string email, string telefone, string celular, string data_cadastro, Endereco endereco, string status, string estado_civil)
+        public Cliente(string data_nascimento, string email, string telefone, string celular, DateTime data_cadastro, Endereco endereco, string status, string estado_civil)
         {
             this.data_nascimento = data_nascimento;
             this.email = email;
@@ -84,7 +84,7 @@ namespace SistemaBancario.Models
             }
         }
 
-        public string DataCadastro
+        public DateTime DataCadastro
         {
             get
             {

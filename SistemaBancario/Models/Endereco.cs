@@ -6,20 +6,9 @@ using System.Threading.Tasks;
 
 namespace SistemaBancario.Models
 {
-    class Endereco
+    public class Endereco
     {
-        //Enumeracao para restringir os valores de tipo
-        public enum Tipo
-        {
-            Rua,
-            Rodovia,
-            Avenida,
-            Favela,
-            Vila,
-            Travessa
-        };
-
-        private Tipo tipo;
+        private string tipo;
         private string logradouro;
         private int numero;
         private string bairro;
@@ -33,7 +22,7 @@ namespace SistemaBancario.Models
 
         }
 
-        public Endereco(Tipo tipo, string logradouro, int numero, string bairro, string complemento, string cep, string cidade, string estado)
+        public Endereco(string tipo, string logradouro, int numero, string bairro, string complemento, string cep, string cidade, string estado)
         {
             this.tipo = tipo;
             this.logradouro = logradouro;
@@ -129,16 +118,12 @@ namespace SistemaBancario.Models
             }
         }
 
-        public String getTipo //Retorna o valor de tipo em string
+        public String Tipo //Retorna o valor de tipo em string
         {
             get
             {
-                return Enum.GetName(typeof(Tipo), tipo);
+                return tipo;
             }
-        }
-
-        public Tipo setTipo
-        {
             set
             {
                 tipo = value;

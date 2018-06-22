@@ -12,55 +12,26 @@ namespace SistemaBancario.Views
     public partial class VisualizarCliente : SistemaBancario.Views.TemplateInicialAdministrador
     {
 
-        private DataTable dadosCliente; //variavel global para ser reaproveitada ao longo do codigo
+        private Cliente cliente; //variavel global para ser reaproveitada ao longo do codigo
 
         public VisualizarCliente(string idBusca)
         {
             InitializeComponent();
 
-            dadosCliente = MySQLFunctions.AcessarDadosCliente(idBusca); //obtem todos os dados de um cliente
+            List<Cliente> a = new List<Cliente>();
 
-            if (dadosCliente != null) //se nao ocorreu erro na chamada da funcao acima
+            cliente = MySQLFunctions.RetornarCliente(idBusca); //obtem todos os dados de um cliente
+
+            a.Add(cliente);
+
+            if (cliente != null) //se nao ocorreu erro na chamada da funcao acima
             {
-                dgv_VisualizarCliente.DataSource = Convert(dadosCliente); //transpondo a tabela para melhor visualizacao
-
-                dgv_VisualizarCliente.Columns[0].HeaderText = ""; //nome para exibicao
-                dgv_VisualizarCliente.Columns[0].Name = "Nome Atributos"; //nome para manipulacao
-
-                dgv_VisualizarCliente.Columns[1].HeaderText = ""; //nome para exibicao
-                dgv_VisualizarCliente.Columns[1].Name = "Valor Atributos"; //nome para manipulacao
-
-                string nome = dadosCliente.Rows[0][1].ToString(); //na segunda linha esta armazenado o primeiro nome do cliente
-                string sobrenome = dadosCliente.Rows[0][2].ToString(); //na terceira linha esta armazenado o sobrenome do cliente
-
-                lb_NomeSobrenome.Text = nome + " " + sobrenome;
-            } else
+                dgv_VisualizarCliente.DataSource = a;
+            }
+            else
             {
                 MessageBox.Show("Algo deu errado. Tente novamente.");
             }
-        }
-
-        //Metodo para transpor uma tabela: Linha vira coluna e coluna vira linha
-        public DataTable Convert(DataTable dt)
-        {
-            DataTable dt2 = new DataTable();
-            for (int i = 0; i <= dt.Rows.Count; i++)
-            {
-                dt2.Columns.Add();
-            }
-            for (int i = 0; i < dt.Columns.Count; i++)
-            {
-                dt2.Rows.Add();
-                dt2.Rows[i][0] = dt.Columns[i].ColumnName;
-            }
-            for (int i = 0; i < dt.Columns.Count; i++)
-            {
-                for (int j = 0; j < dt.Rows.Count; j++)
-                {
-                    dt2.Rows[i][j + 1] = dt.Rows[j][i];
-                }
-            }
-            return dt2;
         }
 
         private void btn_Remover_Click(object sender, EventArgs e)
@@ -83,7 +54,7 @@ namespace SistemaBancario.Views
         //Quando o botao de alterar cliente for clicado
         private void btn_Alterar_Click(object sender, EventArgs e)
         {
-            AlterarCliente alterarCliente = new AlterarCliente(dadosCliente);
+            AlterarCliente alterarCliente = new AlterarCliente(cliente);
             alterarCliente.FormClosed += new FormClosedEventHandler(alterarCliente_FormClosed);
             alterarCliente.Show();
             this.Hide();
