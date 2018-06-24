@@ -61,6 +61,12 @@
     <Compile Include="Models\PessoaJuridica.cs" />
     <Compile Include="Models\Usuario.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Views\AtualizarAplicacao.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\AtualizarAplicacao.Designer.cs">
+      <DependentUpon>AtualizarAplicacao.cs</DependentUpon>
+    </Compile>
     <Compile Include="Views\FormularioCliente.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -143,6 +149,9 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="Views\AtualizarAplicacao.resx">
+      <DependentUpon>AtualizarAplicacao.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Views\FormularioCliente.resx">
       <DependentUpon>FormularioCliente.cs</DependentUpon>
     </EmbeddedResource>

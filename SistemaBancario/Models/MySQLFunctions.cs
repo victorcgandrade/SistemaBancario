@@ -611,11 +611,35 @@ namespace SistemaBancario.Models
         }
 
         //Exibir resultado da busca por uma aplicacao
-       static public DataTable /*List<Aplicacao>*/ RetornarAplicacao(string identificador)
+        static public void /*Aplicacao*/ RetornarAplicacao(int id)
        {
-            DataTable t = new DataTable();
-            return t;
-       }
+            try
+            {
+                if (connection.State == ConnectionState.Closed)
+                    connection.Open();
+
+                //Recupera o titular
+
+               // RetornarPessoaFisica(string query, int id)
+
+                //Recupera a agencia
+                
+                //Recupera a conta
+
+                //var queryResult = connection.Query<Dependente>("", new { @idDependente = id });
+                //Aplicacao aplicacao = queryResult.First();
+
+            }
+            catch (MySqlException exception)
+            {
+                Console.WriteLine(exception.ToString());
+                //return null;
+            }
+            finally
+            {
+                connection.Close();
+            }
+        }
 
         //Cancelar uma determinada aplicacao
         static public Boolean CancelarAplicacao(string identificador)

@@ -195,7 +195,7 @@
             this.btn_Limpar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(175)))), ((int)(((byte)(174)))), ((int)(((byte)(170)))));
             this.btn_Limpar.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btn_Limpar.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_Limpar.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.btn_Limpar.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.btn_Limpar.Location = new System.Drawing.Point(721, 562);
             this.btn_Limpar.Name = "btn_Limpar";
             this.btn_Limpar.Size = new System.Drawing.Size(90, 29);
