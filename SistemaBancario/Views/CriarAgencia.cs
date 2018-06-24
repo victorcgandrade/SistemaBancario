@@ -25,10 +25,10 @@ namespace SistemaBancario.Views
 
             if (cep != "" && logradouro != "" && rua != "" && bairro != "" && complemento != "" && cidade != "" && estado != "")
             {
-                if (SistemaBancario.Models.MySQLFunctions.InserirEndereco(logradouro, rua, numero, bairro, complemento, cep, cidade, estado))
+                if (Models.MySQLFunctions.InserirEndereco(logradouro, rua, numero, bairro, complemento, cep, cidade, estado))
                 {
                     sucesso = true;
-                    MessageBox.Show("ENDERECO SUCESSO");
+                    //MessageBox.Show("ENDERECO SUCESSO");
                 }
             }
 
@@ -44,10 +44,10 @@ namespace SistemaBancario.Views
             string cep = textBox_Cep.Text;
 
             if (!string.IsNullOrEmpty(numeroAgencia) 
-                && SistemaBancario.Models.MySQLFunction.InserirAgencia(numeroAgencia, cep))
+                && Models.MySQLFunction.InserirAgencia(numeroAgencia, cep))
             {
                 sucesso = true;
-                MessageBox.Show("AGENCIA SUCESSO");
+                //MessageBox.Show("AGENCIA SUCESSO");
             }
 
             return sucesso;
