@@ -47,10 +47,6 @@
             this.pb_IconeContas = new System.Windows.Forms.PictureBox();
             this.lb_Contas = new System.Windows.Forms.Label();
             this.pb_Logo = new System.Windows.Forms.PictureBox();
-            this.p_LinkAtivo = new System.Windows.Forms.Panel();
-            this.p_FundoLinkHoverClientes = new System.Windows.Forms.Panel();
-            this.pb_IconeClientes = new System.Windows.Forms.PictureBox();
-            this.lb_Clientes = new System.Windows.Forms.Label();
             this.p_Header = new System.Windows.Forms.Panel();
             this.lb_Versao = new System.Windows.Forms.Label();
             this.lb_DataHoraAtual = new System.Windows.Forms.Label();
@@ -62,6 +58,10 @@
             this.buttonCriarAgencia = new System.Windows.Forms.Button();
             this.btn_Retornar = new System.Windows.Forms.Button();
             this.lb_TituloAgencias = new System.Windows.Forms.Label();
+            this.lb_Clientes = new System.Windows.Forms.Label();
+            this.pb_IconeClientes = new System.Windows.Forms.PictureBox();
+            this.p_FundoLinkHoverClientes = new System.Windows.Forms.Panel();
+            this.panel1 = new System.Windows.Forms.Panel();
             this.p_Footer.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pb_IconeUsuario)).BeginInit();
             this.p_SideMenu.SuspendLayout();
@@ -74,10 +74,10 @@
             this.p_FundoLinkHoverContas.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pb_IconeContas)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pb_Logo)).BeginInit();
-            this.p_FundoLinkHoverClientes.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pb_IconeClientes)).BeginInit();
             this.p_Header.SuspendLayout();
             this.p_Content.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pb_IconeClientes)).BeginInit();
+            this.p_FundoLinkHoverClientes.SuspendLayout();
             this.SuspendLayout();
             // 
             // p_Footer
@@ -140,12 +140,12 @@
             // p_SideMenu
             // 
             this.p_SideMenu.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(32)))), ((int)(((byte)(34)))));
+            this.p_SideMenu.Controls.Add(this.panel1);
             this.p_SideMenu.Controls.Add(this.p_FundoLinkHoverLogDados);
             this.p_SideMenu.Controls.Add(this.p_FundoLinkHoverAgencias);
             this.p_SideMenu.Controls.Add(this.p_FundoLinkHoverAplicacoes);
             this.p_SideMenu.Controls.Add(this.p_FundoLinkHoverContas);
             this.p_SideMenu.Controls.Add(this.pb_Logo);
-            this.p_SideMenu.Controls.Add(this.p_LinkAtivo);
             this.p_SideMenu.Controls.Add(this.p_FundoLinkHoverClientes);
             this.p_SideMenu.Dock = System.Windows.Forms.DockStyle.Left;
             this.p_SideMenu.Location = new System.Drawing.Point(0, 0);
@@ -185,7 +185,7 @@
             // 
             // p_FundoLinkHoverAgencias
             // 
-            this.p_FundoLinkHoverAgencias.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(32)))), ((int)(((byte)(34)))));
+            this.p_FundoLinkHoverAgencias.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(40)))), ((int)(((byte)(43)))));
             this.p_FundoLinkHoverAgencias.Controls.Add(this.pb_IconeAgencias);
             this.p_FundoLinkHoverAgencias.Controls.Add(this.lb_Agencias);
             this.p_FundoLinkHoverAgencias.Location = new System.Drawing.Point(0, 408);
@@ -281,44 +281,6 @@
             this.pb_Logo.Size = new System.Drawing.Size(151, 149);
             this.pb_Logo.TabIndex = 0;
             this.pb_Logo.TabStop = false;
-            // 
-            // p_LinkAtivo
-            // 
-            this.p_LinkAtivo.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(191)))), ((int)(((byte)(0)))));
-            this.p_LinkAtivo.Location = new System.Drawing.Point(205, 235);
-            this.p_LinkAtivo.Name = "p_LinkAtivo";
-            this.p_LinkAtivo.Size = new System.Drawing.Size(10, 45);
-            this.p_LinkAtivo.TabIndex = 2;
-            // 
-            // p_FundoLinkHoverClientes
-            // 
-            this.p_FundoLinkHoverClientes.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(40)))), ((int)(((byte)(43)))));
-            this.p_FundoLinkHoverClientes.Controls.Add(this.pb_IconeClientes);
-            this.p_FundoLinkHoverClientes.Controls.Add(this.lb_Clientes);
-            this.p_FundoLinkHoverClientes.Location = new System.Drawing.Point(0, 235);
-            this.p_FundoLinkHoverClientes.Name = "p_FundoLinkHoverClientes";
-            this.p_FundoLinkHoverClientes.Size = new System.Drawing.Size(215, 45);
-            this.p_FundoLinkHoverClientes.TabIndex = 1;
-            // 
-            // pb_IconeClientes
-            // 
-            this.pb_IconeClientes.Image = global::SistemaBancario.Properties.Resources.clientes;
-            this.pb_IconeClientes.Location = new System.Drawing.Point(43, 6);
-            this.pb_IconeClientes.Name = "pb_IconeClientes";
-            this.pb_IconeClientes.Size = new System.Drawing.Size(31, 32);
-            this.pb_IconeClientes.TabIndex = 0;
-            this.pb_IconeClientes.TabStop = false;
-            // 
-            // lb_Clientes
-            // 
-            this.lb_Clientes.AutoSize = true;
-            this.lb_Clientes.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lb_Clientes.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.lb_Clientes.Location = new System.Drawing.Point(83, 14);
-            this.lb_Clientes.Name = "lb_Clientes";
-            this.lb_Clientes.Size = new System.Drawing.Size(55, 17);
-            this.lb_Clientes.TabIndex = 0;
-            this.lb_Clientes.Text = "Clientes";
             // 
             // p_Header
             // 
@@ -458,6 +420,44 @@
             this.lb_TituloAgencias.TabIndex = 93;
             this.lb_TituloAgencias.Text = "AGÊNCIAS";
             // 
+            // lb_Clientes
+            // 
+            this.lb_Clientes.AutoSize = true;
+            this.lb_Clientes.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lb_Clientes.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.lb_Clientes.Location = new System.Drawing.Point(83, 14);
+            this.lb_Clientes.Name = "lb_Clientes";
+            this.lb_Clientes.Size = new System.Drawing.Size(55, 17);
+            this.lb_Clientes.TabIndex = 0;
+            this.lb_Clientes.Text = "Clientes";
+            // 
+            // pb_IconeClientes
+            // 
+            this.pb_IconeClientes.Image = global::SistemaBancario.Properties.Resources.clientes;
+            this.pb_IconeClientes.Location = new System.Drawing.Point(43, 6);
+            this.pb_IconeClientes.Name = "pb_IconeClientes";
+            this.pb_IconeClientes.Size = new System.Drawing.Size(31, 32);
+            this.pb_IconeClientes.TabIndex = 0;
+            this.pb_IconeClientes.TabStop = false;
+            // 
+            // p_FundoLinkHoverClientes
+            // 
+            this.p_FundoLinkHoverClientes.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(33)))), ((int)(((byte)(34)))));
+            this.p_FundoLinkHoverClientes.Controls.Add(this.pb_IconeClientes);
+            this.p_FundoLinkHoverClientes.Controls.Add(this.lb_Clientes);
+            this.p_FundoLinkHoverClientes.Location = new System.Drawing.Point(0, 235);
+            this.p_FundoLinkHoverClientes.Name = "p_FundoLinkHoverClientes";
+            this.p_FundoLinkHoverClientes.Size = new System.Drawing.Size(215, 45);
+            this.p_FundoLinkHoverClientes.TabIndex = 1;
+            // 
+            // panel1
+            // 
+            this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(191)))), ((int)(((byte)(0)))));
+            this.panel1.Location = new System.Drawing.Point(205, 408);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(10, 45);
+            this.panel1.TabIndex = 7;
+            // 
             // Agencia
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -486,13 +486,13 @@
             this.p_FundoLinkHoverContas.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pb_IconeContas)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pb_Logo)).EndInit();
-            this.p_FundoLinkHoverClientes.ResumeLayout(false);
-            this.p_FundoLinkHoverClientes.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pb_IconeClientes)).EndInit();
             this.p_Header.ResumeLayout(false);
             this.p_Header.PerformLayout();
             this.p_Content.ResumeLayout(false);
             this.p_Content.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pb_IconeClientes)).EndInit();
+            this.p_FundoLinkHoverClientes.ResumeLayout(false);
+            this.p_FundoLinkHoverClientes.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -510,10 +510,6 @@
         private System.Windows.Forms.PictureBox pb_IconeAplicacoes;
         private System.Windows.Forms.PictureBox pb_IconeAgencias;
         private System.Windows.Forms.PictureBox pb_Logo;
-        private System.Windows.Forms.Panel p_LinkAtivo;
-        private System.Windows.Forms.Panel p_FundoLinkHoverClientes;
-        private System.Windows.Forms.PictureBox pb_IconeClientes;
-        private System.Windows.Forms.Label lb_Clientes;
         private System.Windows.Forms.Label lb_Agencias;
         private System.Windows.Forms.Label lb_Aplicacoes;
         private System.Windows.Forms.Panel p_Header;
@@ -533,5 +529,9 @@
         private System.Windows.Forms.Button buttonRemoverAgencia;
         private System.Windows.Forms.Button buttonAlterarAgencia;
         private System.Windows.Forms.Button buttonCriarAgencia;
+        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Panel p_FundoLinkHoverClientes;
+        private System.Windows.Forms.PictureBox pb_IconeClientes;
+        private System.Windows.Forms.Label lb_Clientes;
     }
 }
