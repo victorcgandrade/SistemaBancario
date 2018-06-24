@@ -103,7 +103,6 @@ namespace SistemaBancario.Views
                 if (AtualizarTipoCliente())
                 {
                     MessageBox.Show("Cliente atualizado com sucesso!");
-                    this.Refresh();
                 }
                 else
                 {

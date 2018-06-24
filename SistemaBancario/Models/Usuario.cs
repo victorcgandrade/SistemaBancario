@@ -74,5 +74,10 @@ namespace SistemaBancario.Models
             }
         }
 
+        public string NomeCompleto()
+        {
+            return primeiroNome + " " + sobrenome;
+        }
+
     }
 }

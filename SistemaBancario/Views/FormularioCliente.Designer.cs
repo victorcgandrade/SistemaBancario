@@ -63,7 +63,6 @@
             this.tb_Telefone = new System.Windows.Forms.TextBox();
             this.tb_Celular = new System.Windows.Forms.TextBox();
             this.tb_Email = new System.Windows.Forms.TextBox();
-            this.lb_Contato = new System.Windows.Forms.Label();
             this.tb_Sobrenome = new System.Windows.Forms.TextBox();
             this.tb_PrimeiroNome = new System.Windows.Forms.TextBox();
             this.tb_Logradouro = new System.Windows.Forms.TextBox();
@@ -73,9 +72,6 @@
             this.lb_CpfResponsavel = new System.Windows.Forms.Label();
             this.lb_Cpf = new System.Windows.Forms.Label();
             this.lb_Rg = new System.Windows.Forms.Label();
-            this.lb_Email = new System.Windows.Forms.Label();
-            this.lb_Celular = new System.Windows.Forms.Label();
-            this.lb_Telefone = new System.Windows.Forms.Label();
             this.lb_Profissao = new System.Windows.Forms.Label();
             this.lb_RendaMensal = new System.Windows.Forms.Label();
             this.lb_Cep = new System.Windows.Forms.Label();
@@ -86,6 +82,10 @@
             this.lb_Complemento = new System.Windows.Forms.Label();
             this.lb_RazaoSocial = new System.Windows.Forms.Label();
             this.lb_Cnpj = new System.Windows.Forms.Label();
+            this.lb_Contato = new System.Windows.Forms.Label();
+            this.lb_Email = new System.Windows.Forms.Label();
+            this.lb_Celular = new System.Windows.Forms.Label();
+            this.lb_Telefone = new System.Windows.Forms.Label();
             this.p_Content.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -211,13 +211,15 @@
             this.cb_TipoPessoaJuridica.FormattingEnabled = true;
             this.cb_TipoPessoaJuridica.Items.AddRange(new object[] {
             "Sociedade Ltda.",
-            "Associação",
-            "Fundação"});
+            "Sociedade Anônima",
+            "MEI",
+            "Sociedade Individual",
+            "Empresário Individual"});
             this.cb_TipoPessoaJuridica.Location = new System.Drawing.Point(791, 494);
             this.cb_TipoPessoaJuridica.Name = "cb_TipoPessoaJuridica";
             this.cb_TipoPessoaJuridica.Size = new System.Drawing.Size(145, 21);
             this.cb_TipoPessoaJuridica.TabIndex = 83;
-            this.cb_TipoPessoaJuridica.Text = "Tipo de Pessoa Jurídica";
+            this.cb_TipoPessoaJuridica.Text = "Tipo de CNPJ";
             // 
             // tb_RazaoSocial
             // 
@@ -381,11 +383,31 @@
             this.cb_Estado.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.cb_Estado.FormattingEnabled = true;
             this.cb_Estado.Items.AddRange(new object[] {
-            "RJ",
-            "SP",
+            "RO",
+            "AC",
+            "AM",
+            "RR",
+            "PA",
+            "AP",
+            "TO",
+            "MA",
+            "PI",
+            "CE",
+            "RN",
+            "PB",
+            "PB",
+            "AL",
+            "SE",
+            "BA",
             "MG",
             "ES",
-            "BA"});
+            "RJ",
+            "SP",
+            "PR",
+            "SC",
+            "RS",
+            "MS",
+            "MT"});
             this.cb_Estado.Location = new System.Drawing.Point(832, 221);
             this.cb_Estado.Name = "cb_Estado";
             this.cb_Estado.Size = new System.Drawing.Size(105, 21);
@@ -516,7 +538,7 @@
             "Solteiro(a)",
             "Casado(a)",
             "Divorciado(a)",
-            "Viuvo(a)",
+            "Viúvo(a)",
             "Separado(a)"});
             this.cb_EstadoCivil.Location = new System.Drawing.Point(139, 245);
             this.cb_EstadoCivil.Name = "cb_EstadoCivil";
@@ -580,17 +602,6 @@
             this.tb_Email.Size = new System.Drawing.Size(338, 22);
             this.tb_Email.TabIndex = 48;
             // 
-            // lb_Contato
-            // 
-            this.lb_Contato.AutoSize = true;
-            this.lb_Contato.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(246)))), ((int)(((byte)(246)))), ((int)(((byte)(246)))));
-            this.lb_Contato.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lb_Contato.Location = new System.Drawing.Point(137, 380);
-            this.lb_Contato.Name = "lb_Contato";
-            this.lb_Contato.Size = new System.Drawing.Size(57, 17);
-            this.lb_Contato.TabIndex = 47;
-            this.lb_Contato.Text = "Contato";
-            // 
             // tb_Sobrenome
             // 
             this.tb_Sobrenome.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -626,10 +637,11 @@
             this.cb_Tipo.Items.AddRange(new object[] {
             "Rua",
             "Rodovia",
-            "Avenida",
-            "Favela",
             "Vila",
-            "Travessa"});
+            "Condomínio",
+            "Avenida",
+            "Travessa",
+            "Favela"});
             this.cb_Tipo.Location = new System.Drawing.Point(734, 118);
             this.cb_Tipo.Name = "cb_Tipo";
             this.cb_Tipo.Size = new System.Drawing.Size(110, 21);
@@ -690,39 +702,6 @@
             this.lb_Rg.Size = new System.Drawing.Size(119, 13);
             this.lb_Rg.TabIndex = 91;
             this.lb_Rg.Text = "RG (apenas números):";
-            // 
-            // lb_Email
-            // 
-            this.lb_Email.AutoSize = true;
-            this.lb_Email.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lb_Email.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.lb_Email.Location = new System.Drawing.Point(136, 407);
-            this.lb_Email.Name = "lb_Email";
-            this.lb_Email.Size = new System.Drawing.Size(105, 13);
-            this.lb_Email.TabIndex = 92;
-            this.lb_Email.Text = "Endereço de e-mail";
-            // 
-            // lb_Celular
-            // 
-            this.lb_Celular.AutoSize = true;
-            this.lb_Celular.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lb_Celular.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.lb_Celular.Location = new System.Drawing.Point(135, 458);
-            this.lb_Celular.Name = "lb_Celular";
-            this.lb_Celular.Size = new System.Drawing.Size(88, 13);
-            this.lb_Celular.TabIndex = 93;
-            this.lb_Celular.Text = "Celular (c/ DDD)";
-            // 
-            // lb_Telefone
-            // 
-            this.lb_Telefone.AutoSize = true;
-            this.lb_Telefone.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lb_Telefone.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.lb_Telefone.Location = new System.Drawing.Point(308, 459);
-            this.lb_Telefone.Name = "lb_Telefone";
-            this.lb_Telefone.Size = new System.Drawing.Size(95, 13);
-            this.lb_Telefone.TabIndex = 93;
-            this.lb_Telefone.Text = "Telefone (c/ DDD)";
             // 
             // lb_Profissao
             // 
@@ -834,6 +813,50 @@
             this.lb_Cnpj.TabIndex = 103;
             this.lb_Cnpj.Text = "CNPJ (apenas números):";
             // 
+            // lb_Contato
+            // 
+            this.lb_Contato.AutoSize = true;
+            this.lb_Contato.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(246)))), ((int)(((byte)(246)))), ((int)(((byte)(246)))));
+            this.lb_Contato.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lb_Contato.Location = new System.Drawing.Point(137, 380);
+            this.lb_Contato.Name = "lb_Contato";
+            this.lb_Contato.Size = new System.Drawing.Size(57, 17);
+            this.lb_Contato.TabIndex = 47;
+            this.lb_Contato.Text = "Contato";
+            // 
+            // lb_Email
+            // 
+            this.lb_Email.AutoSize = true;
+            this.lb_Email.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lb_Email.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.lb_Email.Location = new System.Drawing.Point(136, 407);
+            this.lb_Email.Name = "lb_Email";
+            this.lb_Email.Size = new System.Drawing.Size(105, 13);
+            this.lb_Email.TabIndex = 92;
+            this.lb_Email.Text = "Endereço de e-mail";
+            // 
+            // lb_Celular
+            // 
+            this.lb_Celular.AutoSize = true;
+            this.lb_Celular.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lb_Celular.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.lb_Celular.Location = new System.Drawing.Point(135, 458);
+            this.lb_Celular.Name = "lb_Celular";
+            this.lb_Celular.Size = new System.Drawing.Size(88, 13);
+            this.lb_Celular.TabIndex = 93;
+            this.lb_Celular.Text = "Celular (c/ DDD)";
+            // 
+            // lb_Telefone
+            // 
+            this.lb_Telefone.AutoSize = true;
+            this.lb_Telefone.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lb_Telefone.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.lb_Telefone.Location = new System.Drawing.Point(308, 459);
+            this.lb_Telefone.Name = "lb_Telefone";
+            this.lb_Telefone.Size = new System.Drawing.Size(95, 13);
+            this.lb_Telefone.TabIndex = 93;
+            this.lb_Telefone.Text = "Telefone (c/ DDD)";
+            // 
             // FormularioCliente
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -894,7 +917,6 @@
         protected System.Windows.Forms.TextBox tb_Telefone;
         protected System.Windows.Forms.TextBox tb_Celular;
         protected System.Windows.Forms.TextBox tb_Email;
-        protected System.Windows.Forms.Label lb_Contato;
         protected System.Windows.Forms.TextBox tb_Sobrenome;
         protected System.Windows.Forms.TextBox tb_PrimeiroNome;
         protected System.Windows.Forms.ComboBox cb_Tipo;
@@ -903,7 +925,6 @@
         protected System.Windows.Forms.Label lb_CpfResponsavel;
         protected System.Windows.Forms.Label lb_Sobrenome;
         protected System.Windows.Forms.Label lb_Cpf;
-        protected System.Windows.Forms.Label lb_Email;
         protected System.Windows.Forms.Label lb_Rg;
         protected System.Windows.Forms.Label lb_Cnpj;
         protected System.Windows.Forms.Label lb_RazaoSocial;
@@ -917,5 +938,7 @@
         protected System.Windows.Forms.Label lb_Profissao;
         protected System.Windows.Forms.Label lb_Telefone;
         protected System.Windows.Forms.Label lb_Celular;
+        protected System.Windows.Forms.Label lb_Email;
+        protected System.Windows.Forms.Label lb_Contato;
     }
 }
