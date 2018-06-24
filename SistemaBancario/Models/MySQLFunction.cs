@@ -153,7 +153,6 @@ namespace SistemaBancario.Models
                 carregarAgencia.Parameters.AddWithValue("@id", aux);
 
                 return Convert.ToString((int)carregarAgencia.ExecuteScalar());
-                carregarAgencia.Parameters.Clear();
             }
             catch (MySqlException e)
             {
@@ -370,8 +369,8 @@ namespace SistemaBancario.Models
                     connection.Open();
                 //numero as 'Número da Agência', id_endereco as 'Código do Endereço', E.cep  
                 MySqlDataAdapter dataAdapter = new MySqlDataAdapter(
-                    "SELECT A.id as 'Identificar da Agência', A.numero as 'Número da Agência', E.cidade as Cidade, E.bairro as Bairro, E.logradouro as Logradouro," +
-                    "E.rua as Rua, E.numero as Número, E.complemento as Complemento, E.cep as CEP FROM Agencia as A " +
+                    "SELECT A.id as 'Identificar da Agência', A.numero as 'Número da Agência', E.cidade as Cidade, E.bairro as Bairro, E.tipo as Logradouro, " +
+                    "E.logradouro as Rua, E.numero as Número, E.complemento as Complemento, E.cep as CEP FROM Agencia as A " +
                     "INNER JOIN Endereco as E ON A.id_endereco = E.id " +
                     $"WHERE E.id = {aux}", connection);
                 DataTable dataTable = new DataTable();
