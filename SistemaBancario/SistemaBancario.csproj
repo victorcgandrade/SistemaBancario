@@ -238,6 +238,7 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Views\FormularioCliente.resx">
       <DependentUpon>FormularioCliente.cs</DependentUpon>
+     </EmbeddedResource>
     <EmbeddedResource Include="Views\Agencia.resx">
       <DependentUpon>Agencia.cs</DependentUpon>
     </EmbeddedResource>
