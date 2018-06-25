@@ -6,7 +6,12 @@ using System.Threading.Tasks;
 using System.Data;
 using MySql.Data.MySqlClient;
 using System.Windows.Forms;
+
 using Dapper;
+
+using Main;
+using System.Windows.Forms;
+
 
 namespace SistemaBancario.Models
 {
@@ -14,6 +19,7 @@ namespace SistemaBancario.Models
     {
         //Conexa com o banco de dados remoto online
         static private MySqlConnection connection = new MySqlConnection("SERVER=db4free.net;PORT=3306;DATABASE=sistemabancario;UID=bancario;PWD=sb100001;");
+        static string treatment = "Sem alteração";
 
         //Criar novo usuario no banco de dados
         static public Boolean InserirUsuario(string primeiroNome, string sobrenome, string cpf, string rg)
@@ -58,9 +64,15 @@ namespace SistemaBancario.Models
                 if (connection.State == ConnectionState.Closed)
                     connection.Open();
                 MySqlCommand inserirEndereco = new MySqlCommand(
+
                     "INSERT INTO Endereco(tipo, logradouro, numero, bairro, complemento, cep, cidade, estado_id) VALUES(@tipo, @logradouro, @numero, @bairro, @complemento, @cep, @cidade, @estado)", connection);
                 inserirEndereco.Parameters.AddWithValue("@tipo", tipo);
                 inserirEndereco.Parameters.AddWithValue("@logradouro", logradouro);
+
+                    "INSERT INTO Endereco(tipo, logradouro, numero, bairro, complemento, cep, cidade, estado) VALUES(@tipo, @logradouro, @numero, @bairro, @complemento, @cep, @cidade, @estado)", connection);
+                inserirEndereco.Parameters.AddWithValue("@tipo", logradouro);
+                inserirEndereco.Parameters.AddWithValue("@logradouro", rua);
+
                 inserirEndereco.Parameters.AddWithValue("@numero", numero);
                 inserirEndereco.Parameters.AddWithValue("@bairro", bairro);
                 inserirEndereco.Parameters.AddWithValue("@complemento", complemento);
@@ -85,7 +97,6 @@ namespace SistemaBancario.Models
 
             return sucesso;
         }
-
         //Criar novo cliente no banco de dados
         static public Boolean InserirCliente(string dataNascimento, string email, string telefone, string celular, string dataCadastro, string estado, string estadoCivil, string cep, string cpf)
         {
@@ -121,15 +132,12 @@ namespace SistemaBancario.Models
             {
                 connection.Close();
             }
-
             return sucesso;
         }
-
         //Criar novo Titular Pessoa Fisica
         static public Boolean InserirTitularPessoaFisica(string profissao, decimal rendaMensal, string email)
         {
             Boolean sucesso;
-
             try
             {
                 if (connection.State == ConnectionState.Closed)
@@ -155,7 +163,38 @@ namespace SistemaBancario.Models
             {
                 connection.Close();
             }
+            return sucesso;
+        }
+        static public bool SelecionarCliente(string agencia, string conta)
+        {
+            bool sucesso = false;
+            try
+            {
+                connection.Open();
+                MySqlCommand command = new MySqlCommand("SELECT Conta.id, Agencia.id FROM Conta JOIN Agencia ON Conta.id_agencia = Agencia.id AND Conta.numero= @conta AND Agencia.numero= @agencia;", connection);
+                command.Parameters.AddWithValue("@conta", conta);
+                command.Parameters.AddWithValue("@agencia", agencia);
+                using (MySqlDataReader reader = command.ExecuteReader())
+                {
+                    while (reader.Read())
+                    {
+                        treatment = reader[0].ToString();
 
+                    }
+                    reader.Close();
+                    if (treatment != "Sem alteração") sucesso = true;
+                    else sucesso = false;
+                }
+            }
+            catch (MySqlException exception)
+            {
+                sucesso = false;
+                Console.WriteLine(exception.ToString());
+            }
+            finally
+            {
+                connection.Close();
+            }
             return sucesso;
         }
 
@@ -311,9 +350,13 @@ namespace SistemaBancario.Models
         //Exibir todos os dados de um cliente
         static public Cliente RetornarCliente(string identificador)
         {
+
+            DataTable dadosCliente = new DataTable(); //valor inicial vazio
+            int idBusca;
+
             try
             {
-                if (Int32.TryParse(identificador, out int idBusca)) //tenta converter a string informada em numero
+                if (Int32.TryParse(identificador, out idBusca)) //tenta converter a string informada em numero
                 {
                     if (connection.State == ConnectionState.Closed)
                         connection.Open();
@@ -677,6 +720,7 @@ namespace SistemaBancario.Models
             return sucesso;
         }
 
+
         //Atualizacao de Usuario
         static public Boolean AtualizarUsuario(string primeiroNome, string sobrenome, string cpf)
         {
@@ -694,10 +738,37 @@ namespace SistemaBancario.Models
             {
                 Console.WriteLine(exception.ToString());
                 return false;
+
+        static public bool SelecionarAdministrador(string login, string senha)
+        {
+            bool sucesso = false;
+            try
+            {
+                connection.Open();
+                MySqlCommand command = new MySqlCommand("SELECT Administrador.login FROM Administrador WHERE login = @login AND senha=@senha;", connection);
+                command.Parameters.AddWithValue("@login", login);
+                command.Parameters.AddWithValue("@senha", senha);
+                using (MySqlDataReader reader = command.ExecuteReader())
+                {
+                    while (reader.Read())
+                    {
+                        treatment = reader[0].ToString();
+                    }
+                    reader.Close();
+                    if (treatment != "Sem alteração") sucesso = true;
+                    else sucesso = false;
+                }
+            }
+            catch (MySqlException exception)
+            {
+                sucesso = false;
+                Console.WriteLine(exception.ToString());
+
             }
             finally
             {
                 connection.Close();
+
             };
 
         }
@@ -720,10 +791,47 @@ namespace SistemaBancario.Models
             {
                 Console.WriteLine(exception.ToString());
                 return false;
+
+            }
+            return sucesso;
+        }
+        static public bool LoginCliente(string _numeroConta, string senha)
+        {
+            bool sucesso = false;
+            try
+            {
+                if (senha.Length == 4)
+                {
+                    MySqlConnection connection = new MySqlConnection("SERVER=db4free.net;PORT=3306;DATABASE=sistemabancario;UID=bancario;PWD=sb100001");
+                    connection.Open();
+                    MySqlCommand command = new MySqlCommand("SELECT Conta.senha FROM Conta WHERE Conta.numero = @conta;", connection);
+                    command.Parameters.AddWithValue("@conta", _numeroConta);
+                    MySqlDataReader reader3 = command.ExecuteReader();
+                    while (reader3.Read())
+                    {
+                        treatment = reader3[0].ToString();
+
+                    }
+                    reader3.Close();
+                    if (treatment != "Sem alteração") sucesso = true;
+                    else sucesso = false;
+                }
+                else
+                {
+                    MessageBox.Show("Senha incompleta");
+                }
+            }
+
+            catch (MySqlException ex)
+            {
+                sucesso = false;
+                Console.WriteLine(ex.ToString());
+
             }
             finally
             {
                 connection.Close();
+
             };
         }
 
@@ -738,6 +846,73 @@ namespace SistemaBancario.Models
 
                 int linhasAfetadasEndereco = connection.Execute("UPDATE Endereco SET cep = @cepNovo, tipo = @tipo, logradouro = @logradouro, numero = @numero, bairro = @bairro, cidade = @cidade, estado = @estado, complemento = @complemento WHERE cep = @cepAntigo;",
                     new { @cepNovo = cepNovo, @tipo = tipo, @logradouro = logradouro, @numero = numero, @bairro = bairro, @cidade = cidade, @estado = estado, @complemento = complemento, @cepAntigo = cepAntigo });
+
+            }
+            return sucesso;
+        }
+        static public Boolean InserirConta(int agencia,int numero,int senha,int cpf)
+        {
+            Boolean sucesso;
+            int idUsuario=0;
+            int idAgencia=0;
+            int idCliente = 0;
+            try
+            {
+                if (connection.State == ConnectionState.Closed)
+                    
+                    connection.Open();
+                MySqlCommand selecionarUsuarioID = new MySqlCommand("SELECT id FROM Usuario where cpf=@cpf",connection);
+                selecionarUsuarioID.Parameters.AddWithValue("@cpf", cpf);
+                MySqlDataReader reader1 = selecionarUsuarioID.ExecuteReader();
+                while (reader1.Read())
+                {
+                    idUsuario = (int)reader1[0];
+
+                }
+                reader1.Close();
+                MySqlCommand selecionarClienteID = new MySqlCommand("SELECT id FROM Cliente where id_usuario=@idUsuario", connection);
+                selecionarClienteID.Parameters.AddWithValue("@idUsuario", idUsuario);
+                reader1 = selecionarClienteID.ExecuteReader();
+                while (reader1.Read())
+                {
+                    idCliente = (int)reader1[0];
+
+                }
+                reader1.Close();
+                MySqlCommand selecionarAgenciaID = new MySqlCommand("SELECT id FROM Agencia where numero=@numero",connection);
+                selecionarClienteID.Parameters.AddWithValue("@numero", numero);
+                reader1 = selecionarAgenciaID.ExecuteReader();
+                while (reader1.Read())
+                {
+                    idAgencia = (int)reader1[0];
+
+                }
+                reader1.Close();
+                MySqlCommand inserirConta = new MySqlCommand(
+                    "INSERT INTO Conta(numero, id_agencia,saldo,senha,estado,id_cliente) VALUES(@numero, @agencia, 0, @senha, Criada, @cliente;", connection);
+                inserirConta.Parameters.AddWithValue("@numero", numero);
+                inserirConta.Parameters.AddWithValue("@agencia", idAgencia);
+                inserirConta.Parameters.AddWithValue("@senha", senha);
+                inserirConta.Parameters.AddWithValue("@cliente", idCliente);
+                inserirConta.ExecuteNonQuery();
+                inserirConta.Parameters.Clear();
+
+                sucesso = true;
+            }
+            catch (MySqlException exception)
+            {
+               
+                sucesso = false;
+                Console.WriteLine(exception.ToString());
+            }
+            finally
+            {
+                connection.Close();
+            }
+            return sucesso;
+        }
+    }
+
 
                     return true;
             }
@@ -755,6 +930,7 @@ namespace SistemaBancario.Models
         //Atualizacao de PessoaFisica
         static public Boolean AtualizarPF(string profissaoAtual, decimal rendaMensal, string cpf)
         {
+
 
             try
             {
@@ -808,5 +984,6 @@ namespace SistemaBancario.Models
             return false;
         }
     }
+
 }
 

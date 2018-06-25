@@ -91,6 +91,7 @@
             this.btn_Sair.TabIndex = 0;
             this.btn_Sair.Text = "Sair";
             this.btn_Sair.UseVisualStyleBackColor = false;
+            this.btn_Sair.Click += new System.EventHandler(this.btn_Sair_Click);
             // 
             // lb_LoginAdmin
             // 
@@ -215,6 +216,7 @@
             this.btn_Contas.Text = "  Contas";
             this.btn_Contas.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btn_Contas.UseVisualStyleBackColor = false;
+            this.btn_Contas.Click += new System.EventHandler(this.btn_Contas_Click);
             // 
             // btn_Aplicacoes
             // 
@@ -256,6 +258,7 @@
             this.btn_Agencias.Text = "  Agências";
             this.btn_Agencias.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btn_Agencias.UseVisualStyleBackColor = false;
+            this.btn_Agencias.Click += new System.EventHandler(this.btn_Agencias_Click);
             // 
             // btn_LogDados
             // 
@@ -350,7 +353,7 @@
             this.Controls.Add(this.p_SideMenu);
             this.Controls.Add(this.p_Header);
             this.Name = "TemplateInicialAdministrador";
-            this.Text = "TemplateTelaAdministrador";
+            this.Text = "Gerenciar Administrador";
             this.p_Footer.ResumeLayout(false);
             this.p_Footer.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pb_IconeUsuario)).EndInit();
