@@ -35,7 +35,6 @@
     <Reference Include="Dapper, Version=1.50.5.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\Dapper.1.50.5\lib\net451\Dapper.dll</HintPath>
     </Reference>
-   
     <Reference Include="Google.Protobuf, Version=3.6.0.0, Culture=neutral, PublicKeyToken=a7d26565bac4d604, processorArchitecture=MSIL">
       <HintPath>..\packages\Google.Protobuf.3.6.0\lib\net45\Google.Protobuf.dll</HintPath>
     </Reference>
@@ -63,7 +62,6 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Controllers\Program.cs" />
-
     <Compile Include="Models\Administrador.cs" />
     <Compile Include="Models\Aplicacao.cs" />
     <Compile Include="Models\Cliente.cs" />
@@ -75,7 +73,6 @@
     <Compile Include="Models\PessoaJuridica.cs" />
     <Compile Include="Models\Usuario.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-
     <Compile Include="Models\MySQLFunction.cs" />
     <Compile Include="obj\Debug\TemporaryGeneratedFile_036C0B5B-1481-4323-8D20-8F5ADCB23D92.cs" />
     <Compile Include="obj\Debug\TemporaryGeneratedFile_5937a670-0e60-4077-877b-f7221da3dda1.cs" />
@@ -174,9 +171,6 @@
     <Compile Include="Views\ConsultarCliente.Designer.cs">
       <DependentUpon>ConsultarCliente.cs</DependentUpon>
     </Compile>
-    <Compile Include="Views\AdicionarCliente.cs">
-      <SubType>Form</SubType>
-    </Compile>
     <Compile Include="Views\AdicionarCliente.Designer.cs">
       <DependentUpon>AdicionarCliente.cs</DependentUpon>
     </Compile>
@@ -232,13 +226,12 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
-
     <EmbeddedResource Include="Views\AtualizarAplicacao.resx">
       <DependentUpon>AtualizarAplicacao.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Views\FormularioCliente.resx">
       <DependentUpon>FormularioCliente.cs</DependentUpon>
-     </EmbeddedResource>
+    </EmbeddedResource>
     <EmbeddedResource Include="Views\Agencia.resx">
       <DependentUpon>Agencia.cs</DependentUpon>
     </EmbeddedResource>
@@ -278,9 +271,6 @@
     <EmbeddedResource Include="Views\ConsultarCliente.resx">
       <DependentUpon>ConsultarCliente.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Views\AdicionarCliente.resx">
-      <DependentUpon>AdicionarCliente.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Views\InicialAdministrador.resx">
       <DependentUpon>InicialAdministrador.cs</DependentUpon>
     </EmbeddedResource>
@@ -302,16 +292,13 @@
     <EmbeddedResource Include="Views\VisualizarCliente.resx">
       <DependentUpon>VisualizarCliente.cs</DependentUpon>
     </EmbeddedResource>
-
     <None Include="packages.config" />
-
     <None Include="ClassDiagram1.cd" />
     <None Include="obj\Debug\DesignTimeResolveAssemblyReferencesInput.cache" />
     <None Include="obj\Debug\SistemaBancario.csproj.CoreCompileInputs.cache" />
     <None Include="packages.config">
       <SubType>Designer</SubType>
     </None>
-
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
