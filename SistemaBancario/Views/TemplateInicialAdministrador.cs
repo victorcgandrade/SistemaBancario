@@ -1,9 +1,16 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace SistemaBancario.Views
 {
-    public partial class TemplateInicialAdministrador : SistemaBancarioTela
+    public partial class TemplateInicialAdministrador : Form
     {
         public TemplateInicialAdministrador()
         {
@@ -38,26 +45,6 @@ namespace SistemaBancario.Views
         private void inicialClientes_FormClosed(object sender, FormClosedEventArgs e)
         {
             this.Close();
-        }
-
-        private void btn_Sair_Click(object sender, EventArgs e)
-        {
-            SairUsuario(this);
-
-        }
-
-        private void btn_Contas_Click(object sender, EventArgs e)
-        {
-            this.Hide();
-            TelaInicialAdministradorConta tlac = new TelaInicialAdministradorConta();
-            tlac.Show();
-        }
-
-        private void btn_Agencias_Click(object sender, EventArgs e)
-        {
-            this.Hide();
-            Agencia a = new Agencia();
-            a.Show();
         }
     }
 }
