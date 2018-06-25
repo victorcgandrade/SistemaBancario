@@ -17,15 +17,16 @@ namespace SistemaBancario.Views
         {
             InitializeComponent();
         }
-        private Boolean CriarConta()
+
+       /* private Boolean CriarConta()
         {
             bool sucesso = false;
             int agencia = Int32.Parse(txtBoxAgencia.Text);
             int numero = Int32.Parse(txtBoxNumero.Text);
             int senha = Int32.Parse(txtBoxSenha.Text);
-            int cpf = Int32.Parse(txtBoxCPF.Text);
+            int cpf = Int32.Parse(txtBoxCPF.Text);*/
 
-            if (MySQLFunctions.InserirConta(agencia, numero, senha, cpf))
+            /*if (MySQLFunctions.InserirConta(agencia, numero, senha, cpf))
             {
                 return true;
             }
@@ -33,7 +34,7 @@ namespace SistemaBancario.Views
             {
                 return false;
             }
-        }
+        }*/
 
         private void btnSalvar_Click(object sender, EventArgs e)
         {

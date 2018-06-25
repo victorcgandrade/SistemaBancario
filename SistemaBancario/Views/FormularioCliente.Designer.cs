@@ -559,7 +559,7 @@
             // 
             this.tb_CpfCliente.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tb_CpfCliente.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.tb_CpfCliente.Location = new System.Drawing.Point(139, 336);
+            this.tb_CpfCliente.Location = new System.Drawing.Point(140, 336);
             this.tb_CpfCliente.Name = "tb_CpfCliente";
             this.tb_CpfCliente.Size = new System.Drawing.Size(166, 22);
             this.tb_CpfCliente.TabIndex = 52;
