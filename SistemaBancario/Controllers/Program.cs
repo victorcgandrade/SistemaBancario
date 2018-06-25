@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Main;
+using SistemaBancario.Views;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -16,7 +18,7 @@ namespace SistemaBancario
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new SistemaBancario.Views.InicialAdministrador());
+            Application.Run(new TelaLogin());
         }
     }
 }
