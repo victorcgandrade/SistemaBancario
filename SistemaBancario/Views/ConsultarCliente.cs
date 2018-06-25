@@ -27,19 +27,6 @@ namespace SistemaBancario.Views
             {
                 if(MySQLFunctions.BuscarCliente(dgv_ResultadoBuscaCliente, cpfBusca))
                 {
-                    //Nomeacao das colunas
-                    dgv_ResultadoBuscaCliente.Columns[0].HeaderText = "Identificador"; //nome para exibicao
-                    dgv_ResultadoBuscaCliente.Columns[0].Name = "Identificador"; //nome para manipulacao
-
-                    dgv_ResultadoBuscaCliente.Columns[1].HeaderText = "Primeiro nome";
-                    dgv_ResultadoBuscaCliente.Columns[1].Name = "Primeiro nome";
-
-                    dgv_ResultadoBuscaCliente.Columns[2].HeaderText = "Data de nascimento";
-                    dgv_ResultadoBuscaCliente.Columns[2].Name = "Data de nascimento";
-
-                    dgv_ResultadoBuscaCliente.Columns[3].HeaderText = "Status";
-                    dgv_ResultadoBuscaCliente.Columns[3].Name = "Status";
-
                     dgv_ResultadoBuscaCliente.Visible = true;
                     btn_VisualizarCliente.Visible = true;
                 }
@@ -60,7 +47,7 @@ namespace SistemaBancario.Views
             int index_cur_row = dgv_ResultadoBuscaCliente.CurrentRow.Index; //capturando o indice da linha selecionada
             DataGridViewRow cur_row = dgv_ResultadoBuscaCliente.Rows[index_cur_row]; //variavel dessa linha
 
-            string idCliente = cur_row.Cells["Identificador"].Value.ToString();
+            string idCliente = cur_row.Cells[0].Value.ToString();
 
             VisualizarCliente visualizarCliente = new VisualizarCliente(idCliente);
             visualizarCliente.FormClosed += new FormClosedEventHandler(visualizarCliente_FormClosed);

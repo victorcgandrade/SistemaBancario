@@ -1,23 +1,19 @@
-﻿using System;
+﻿using SistemaBancario.Models;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Text;
 using System.Windows.Forms;
-using SistemaBancario.Models;
 
 namespace SistemaBancario.Views
 {
-    public partial class AdicionarCliente : SistemaBancario.Views.TemplateInicialAdministrador
+    public partial class AdicionarCliente : SistemaBancario.Views.FormularioCliente
     {
         public AdicionarCliente()
         {
             InitializeComponent();
-            
-            //Valores das comboboxes abaixo ja selecionados
-            cb_Status.SelectedItem = "Ativo";
-            cb_TipoCliente.SelectedItem = "Titular Pessoa Física";
         }
 
         //Metodo para adicionar uma linha na tabela Usuario no banco de dados remoto online
@@ -47,17 +43,17 @@ namespace SistemaBancario.Views
             bool sucesso = false;
 
             string cep = tb_Cep.Text;
-            string logradouro = cb_Logradouro.Text;
-            string rua = tb_Rua.Text;
+            string tipo = cb_Tipo.Text;
+            string logradouro = tb_Logradouro.Text;
             int numero = Convert.ToInt32(tb_Numero.Text);
             string bairro = tb_Bairro.Text;
             string complemento = tb_Complemento.Text;
             string cidade = tb_Cidade.Text;
             string estado = cb_Estado.Text;
 
-            if (cep != "" && logradouro != "" && rua != "" && bairro != "" && cidade != "" && estado != "")
+            if (cep != "" && tipo != "" && logradouro != "" && bairro != "" && cidade != "" && estado != "")
             {
-                if (MySQLFunctions.InserirEndereco(logradouro, rua, numero, bairro, complemento, cep, cidade, estado))
+                if (MySQLFunctions.InserirEndereco(tipo, logradouro, numero, bairro, complemento, cep, cidade, estado))
                 {
                     sucesso = true;
                 }
@@ -112,7 +108,8 @@ namespace SistemaBancario.Views
                         sucesso = true;
                     }
                 }
-            } else
+            }
+            else
             {
                 MessageBox.Show("Renda Mensal inválida!");
             }
@@ -193,7 +190,7 @@ namespace SistemaBancario.Views
         }
 
         //Botao confirmar ao ser clicado
-        private void btn_Confirmar_Click(object sender, EventArgs e)
+        private void btn_Confirmar_Adicionar_Click(object sender, EventArgs e)
         {
             if (MessageBox.Show("Tem certeza que deseja adicionar este cliente?", "Confirmacao", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
             {
@@ -216,6 +213,8 @@ namespace SistemaBancario.Views
                 }
             }
         }
+
+
 
         //Metodo para 'esconder' partes da tela de acordo com o tipo de cliente
         private void cb_TipoCliente_SelectedValueChanged(object sender, EventArgs e)
@@ -291,5 +290,6 @@ namespace SistemaBancario.Views
         }
 
         
+
     }
 }

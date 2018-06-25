@@ -6,8 +6,12 @@ using System.Threading.Tasks;
 using System.Data;
 using MySql.Data.MySqlClient;
 using System.Windows.Forms;
+
+using Dapper;
+
 using Main;
 using System.Windows.Forms;
+
 
 namespace SistemaBancario.Models
 {
@@ -51,7 +55,7 @@ namespace SistemaBancario.Models
         }
 
         //Criar novo endereco no banco de dados
-        static public Boolean InserirEndereco(string logradouro, string rua, int numero, string bairro, string complemento, string cep, string cidade, string estado)
+        static public Boolean InserirEndereco(string tipo, string logradouro, int numero, string bairro, string complemento, string cep, string cidade, string estado)
         {
             Boolean sucesso;
 
@@ -60,9 +64,15 @@ namespace SistemaBancario.Models
                 if (connection.State == ConnectionState.Closed)
                     connection.Open();
                 MySqlCommand inserirEndereco = new MySqlCommand(
+
+                    "INSERT INTO Endereco(tipo, logradouro, numero, bairro, complemento, cep, cidade, estado_id) VALUES(@tipo, @logradouro, @numero, @bairro, @complemento, @cep, @cidade, @estado)", connection);
+                inserirEndereco.Parameters.AddWithValue("@tipo", tipo);
+                inserirEndereco.Parameters.AddWithValue("@logradouro", logradouro);
+
                     "INSERT INTO Endereco(tipo, logradouro, numero, bairro, complemento, cep, cidade, estado) VALUES(@tipo, @logradouro, @numero, @bairro, @complemento, @cep, @cidade, @estado)", connection);
                 inserirEndereco.Parameters.AddWithValue("@tipo", logradouro);
                 inserirEndereco.Parameters.AddWithValue("@logradouro", rua);
+
                 inserirEndereco.Parameters.AddWithValue("@numero", numero);
                 inserirEndereco.Parameters.AddWithValue("@bairro", bairro);
                 inserirEndereco.Parameters.AddWithValue("@complemento", complemento);
@@ -97,7 +107,7 @@ namespace SistemaBancario.Models
                 if (connection.State == ConnectionState.Closed)
                     connection.Open();
                 MySqlCommand inserirCliente = new MySqlCommand(
-                    "INSERT INTO Cliente(data_nascimento, email, telefone, celular, data_cadastro, id_endereco, estado_cliente, estado_civil, id_usuario) VALUES(STR_TO_DATE(@dataNascimento, \"%d/%m/%Y\"), @email, @telefone, @celular, STR_TO_DATE(@dataCadastro, \"%d/%m/%Y\"), (SELECT id FROM Endereco WHERE cep = @cep), @estado, @estadoCivil, (SELECT id FROM Usuario WHERE cpf = @cpf))", connection);
+                    "INSERT INTO Cliente(data_nascimento, email, telefone, celular, data_cadastro, id_endereco, status, estado_civil, id_usuario) VALUES(STR_TO_DATE(@dataNascimento, \"%d/%m/%Y\"), @email, @telefone, @celular, STR_TO_DATE(@dataCadastro, \"%d/%m/%Y\"), (SELECT id FROM Endereco WHERE cep = @cep), @estado, @estadoCivil, (SELECT id FROM Usuario WHERE cpf = @cpf))", connection);
                 inserirCliente.Parameters.AddWithValue("@dataNascimento", dataNascimento);
                 inserirCliente.Parameters.AddWithValue("@email", email);
                 inserirCliente.Parameters.AddWithValue("@telefone", telefone);
@@ -295,15 +305,16 @@ namespace SistemaBancario.Models
             }
             else
             {
+
                 if (ApenasDigitos(identificador)) //Se a string apenas conter digitos, entao a busca sera feita pelo cpf
                 {
-                    query = "SELECT Cliente.id, Usuario.primeiroNome, data_nascimento, estado_cliente FROM Cliente, Usuario WHERE Usuario.cpf = @cpf AND Cliente.id_usuario = Usuario.id";
+                    query = "SELECT Cliente.id as 'Identificador', Usuario.primeiroNome as 'Nome', Usuario.cpf as 'CPF', data_nascimento as 'Data de Nascimento', status as 'Status' FROM Cliente, Usuario WHERE Usuario.cpf = @cpf AND Cliente.id_usuario = Usuario.id";
                     parametro = "@cpf";
 
                 }
                 else if (ApenasLetras(identificador)) //Se a string apenas conter letras, entao a busca sera feita pelo primeiro nome
                 {
-                    query = "SELECT Cliente.id, Usuario.primeiroNome, data_nascimento, estado_cliente FROM Cliente, Usuario WHERE Cliente.id_usuario = ANY (SELECT id FROM Usuario WHERE primeiroNome = @nome) AND Cliente.id_usuario = Usuario.id";
+                    query = "SELECT Cliente.id as 'Identificador', Usuario.primeiroNome as 'Nome', Usuario.cpf as 'CPF', data_nascimento as 'Data de Nascimento', status as 'Status' FROM Cliente, Usuario WHERE Cliente.id_usuario = ANY (SELECT id FROM Usuario WHERE primeiroNome = @nome) AND Cliente.id_usuario = Usuario.id";
                     parametro = "@nome";
                 }
 
@@ -337,10 +348,12 @@ namespace SistemaBancario.Models
         }
 
         //Exibir todos os dados de um cliente
-        static public DataTable AcessarDadosCliente(string identificador)
+        static public Cliente RetornarCliente(string identificador)
         {
+
             DataTable dadosCliente = new DataTable(); //valor inicial vazio
             int idBusca;
+
             try
             {
                 if (Int32.TryParse(identificador, out idBusca)) //tenta converter a string informada em numero
@@ -376,55 +389,153 @@ namespace SistemaBancario.Models
                     //Determina a consulta adequada para retornar TODOS os dados de cada tipo de cliente diferente 
                     if (tipoCliente == "Dependente")
                     {
-                        query = "SELECT Usuario.primeiroNome, Usuario.sobrenome, Usuario.cpf, Usuario.rg, Cliente.data_nascimento, Cliente.email, Cliente.telefone, Cliente.celular, Cliente.data_cadastro, Cliente.estado_cliente, Cliente.estado_civil," +
-                            " Dependente.id_titular AS 'CPF_Responsavel', Endereco.logradouro, Endereco.rua, Endereco.numero, Endereco.bairro, Endereco.complemento, Endereco.cep, Endereco.cidade, Estado.sigla FROM Dependente JOIN Cliente ON Dependente.id_cliente = Cliente.id JOIN Endereco ON Endereco.id = Cliente.id_endereco JOIN Estado ON Endereco.estado_id = Estado.id JOIN Usuario ON Cliente.id_usuario = Usuario.id WHERE Dependente.id = @idDependente";
+                        query = "SELECT Usuario.primeiroNome, Usuario.sobrenome, Usuario.cpf, Usuario.rg, Cliente.data_nascimento, Cliente.email, Cliente.telefone, Cliente.celular, Cliente.data_cadastro, Cliente.status, Cliente.estado_civil," +
+                            " Dependente.id_titular FROM Dependente JOIN Cliente ON Dependente.id_cliente = Cliente.id JOIN Usuario ON Cliente.id_usuario = Usuario.id WHERE Dependente.id = @idDependente";
 
-                        parametro = "@idDependente";
+                      Dependente dependente = RetornarDependente(query, id);
+
+                      return dependente;
 
                     }
                     else if (tipoCliente == "PessoaFisica")
                     {
-                        query = "SELECT Usuario.primeiroNome, Usuario.sobrenome, Usuario.cpf, Usuario.rg, Cliente.data_nascimento, Cliente.email, Cliente.telefone, Cliente.celular, Cliente.data_cadastro, Cliente.estado_cliente, Cliente.estado_civil, PessoaFisica.profissao, PessoaFisica.rendaMensal, " +
-                            "Endereco.logradouro, Endereco.rua, Endereco.numero, Endereco.bairro, Endereco.complemento, Endereco.cep, Endereco.cidade, Estado.sigla FROM PessoaFisica JOIN Cliente ON PessoaFisica.id_cliente = Cliente.id JOIN Endereco ON Endereco.id = Cliente.id_endereco JOIN Estado ON Endereco.estado_id = Estado.id JOIN Usuario ON Cliente.id_usuario = Usuario.id WHERE PessoaFisica.id = @idPessoaFisica";
-                        parametro = "@idPessoaFisica";
+                        query = "SELECT Usuario.primeiroNome, Usuario.sobrenome, Usuario.cpf, Usuario.rg, Cliente.data_nascimento, Cliente.email, Cliente.telefone, Cliente.celular, Cliente.data_cadastro, Cliente.status, Cliente.estado_civil, " +
+                            "PessoaFisica.profissao, PessoaFisica.rendaMensal FROM PessoaFisica JOIN Cliente ON PessoaFisica.id_cliente = Cliente.id JOIN Usuario ON Cliente.id_usuario = Usuario.id WHERE PessoaFisica.id = @idPessoaFisica;";
+
+                        PessoaFisica pessoaFisica = RetornarPessoaFisica(query, id);
+
+                        return pessoaFisica;
 
                     }
                     else if (tipoCliente == "PessoaJuridica")
                     {
-                        query = "SELECT Usuario.primeiroNome, Usuario.sobrenome, Usuario.cpf, Usuario.rg, Cliente.data_nascimento, Cliente.email, Cliente.telefone, Cliente.celular, Cliente.data_cadastro, Cliente.estado_cliente, Cliente.estado_civil, PessoaJuridica.cnpj, PessoaJuridica.razaoSocial, PessoaJuridica.tipo, Endereco.logradouro," +
-                            " Endereco.rua, Endereco.numero, Endereco.bairro, Endereco.complemento, Endereco.cep, Endereco.cidade, Estado.sigla FROM PessoaJuridica JOIN Cliente ON PessoaJuridica.id_cliente = Cliente.id JOIN Endereco ON Endereco.id = Cliente.id_endereco JOIN Estado ON Endereco.estado_id = Estado.id JOIN Usuario ON Cliente.id_usuario = Usuario.id WHERE PessoaJuridica.id = @idPessoaJuridica";
-                        parametro = "@idPessoaJuridica";
+                        query = "SELECT Usuario.primeiroNome, Usuario.sobrenome, Usuario.cpf, Usuario.rg, Cliente.data_nascimento, Cliente.email, Cliente.telefone, Cliente.celular, Cliente.data_cadastro, Cliente.status, Cliente.estado_civil, " +
+                            "PessoaJuridica.cnpj, PessoaJuridica.razaoSocial, PessoaJuridica.tipo FROM PessoaJuridica JOIN Cliente ON PessoaJuridica.id_cliente = Cliente.id JOIN Usuario ON Cliente.id_usuario = Usuario.id WHERE PessoaJuridica.id = @idPessoaJuridica;";
+
+                        PessoaJuridica pessoaJuridica = RetornarPessoaJuridica(query, id);
+
+                        return pessoaJuridica;
                     }
 
                     //Executa a consulta caso as variaveis da mesma nao sao nulas
-                    if (query != "" && parametro != "")
+                    if (query == "" && parametro == "")
                     {
-                        MySqlCommand visualizarCliente = new MySqlCommand(query, connection);
-                        visualizarCliente.Parameters.AddWithValue(parametro, id);
-
-                        MySqlDataAdapter dataAdapter = new MySqlDataAdapter(visualizarCliente);
-
-                        //Todos os dados retornados em formato de tabela para variavel dadosCliente
-                        dataAdapter.Fill(dadosCliente);
-                        visualizarCliente.Parameters.Clear();
+                        return null; //erro
                     }
                 }
                 else
                 {
-                    dadosCliente = null; //valor informado para identificador esta incorreto
+                    return null; //valor informado para identificador esta incorreto
                 }
             }
             catch (MySqlException exception)
             {
-                dadosCliente = null; //erro
-                Console.WriteLine(exception.ToString());
+                Console.Write(exception.ToString());
+                return null; //erro
             }
             finally
             {
                 connection.Close();
             }
 
-            return dadosCliente;
+            return null;
+        }
+
+
+        static public Dependente RetornarDependente(string query, int id)
+        {
+            try
+            {
+                if (connection.State == ConnectionState.Closed)
+                    connection.Open();
+
+                //Busca pelo endereco de acordo com o id do dependente
+                var queryResultFirst = connection.Query<Endereco>("SELECT Endereco.tipo, Endereco.logradouro, Endereco.numero, Endereco.bairro, Endereco.complemento, Endereco.cep, Endereco.cidade, Endereco.estado FROM Endereco " +
+                    "JOIN Cliente on Cliente.id_endereco = Endereco.id JOIN Dependente on Dependente.id_cliente = Cliente.id WHERE Dependente.id = @idDependente;", new { @idDependente = id });
+
+                Endereco endereco = queryResultFirst.First();
+
+                var queryResult = connection.Query<Dependente>(query, new { @idDependente = id });
+                Dependente dependente = queryResult.First();
+
+                //Associa o objeto endereco buscado ao objeto dependente criado
+                dependente.Endereco = endereco;
+
+                return dependente;
+            }
+            catch (MySqlException exception)
+            {
+                Console.WriteLine(exception.ToString());
+                return null;
+            }
+            finally
+            {
+                connection.Close();
+            }
+
+        }
+
+        static public PessoaFisica RetornarPessoaFisica(string query, int id)
+        {
+            try
+            {
+                if (connection.State == ConnectionState.Closed)
+                    connection.Open();
+
+                //Busca pelo endereco de acordo com o id do dependente
+                var queryResultFirst = connection.Query<Endereco>("SELECT Endereco.tipo, Endereco.logradouro, Endereco.numero, Endereco.bairro, Endereco.complemento, Endereco.cep, Endereco.cidade, Endereco.estado FROM Endereco " +
+                    "JOIN Cliente on Cliente.id_endereco = Endereco.id JOIN PessoaFisica on PessoaFisica.id_cliente = Cliente.id WHERE PessoaFisica.id = @idPessoaFisica;", new { @idPessoaFisica = id });
+
+                Endereco endereco = queryResultFirst.First();
+
+
+                var queryResult = connection.Query<PessoaFisica>(query, new { @idPessoaFisica = id });
+                PessoaFisica pessoaFisica = queryResult.First();
+
+                pessoaFisica.Endereco = endereco;
+
+                return pessoaFisica;
+            }
+            catch (MySqlException exception)
+            {
+                Console.WriteLine(exception.ToString());
+                return null;
+            }
+            finally
+            {
+                connection.Close();
+            }
+        }
+
+        static public PessoaJuridica RetornarPessoaJuridica(string query, int id)
+        {
+            try
+            {
+                if (connection.State == ConnectionState.Closed)
+                    connection.Open();
+
+                //Busca pelo endereco de acordo com o id do dependente
+                var queryResultFirst = connection.Query<Endereco>("SELECT Endereco.tipo, Endereco.logradouro, Endereco.numero, Endereco.bairro, Endereco.complemento, Endereco.cep, Endereco.cidade, Endereco.estado FROM Endereco " +
+                    "JOIN Cliente on Cliente.id_endereco = Endereco.id JOIN PessoaJuridica on PessoaJuridica.id_cliente = Cliente.id WHERE PessoaJuridica.id = @idPessoaJuridica;", new { @idPessoaJuridica = id });
+
+                Endereco endereco = queryResultFirst.First();
+
+                var queryResult = connection.Query<PessoaJuridica>(query, new { @idPessoaJuridica = id });
+                PessoaJuridica pessoaJuridica = queryResult.First();
+
+                pessoaJuridica.Endereco = endereco;
+
+                return pessoaJuridica;
+            }
+            catch (MySqlException exception)
+            {
+                Console.WriteLine(exception.ToString());
+                return null;
+            }
+            finally
+            {
+                connection.Close();
+            }
         }
 
         //Exibir todos os clientes cadastrados no banco de dados
@@ -436,7 +547,7 @@ namespace SistemaBancario.Models
             {
                 if (connection.State == ConnectionState.Closed)
                     connection.Open();
-                MySqlDataAdapter dataAdapter = new MySqlDataAdapter("SELECT Cliente.id, Usuario.primeiroNome, data_nascimento, estado_cliente FROM Cliente, Usuario WHERE Cliente.id_usuario = Usuario.id", connection);
+                MySqlDataAdapter dataAdapter = new MySqlDataAdapter("SELECT Cliente.id, Usuario.primeiroNome, data_nascimento, status FROM Cliente, Usuario WHERE Cliente.id_usuario = Usuario.id", connection);
 
                 //Todos os dados retornados em formato de tabela para variavel dadosCliente
                 dataAdapter.Fill(listagemCliente);
@@ -455,8 +566,8 @@ namespace SistemaBancario.Models
             return listagemCliente;
         }
 
-        //Remover um determinado cliente
-        static public Boolean RemoverCliente(string identificador)
+        //Inativar um determinado cliente
+        static public Boolean InativarCliente(string identificador)
         {
             bool sucesso;
 
@@ -464,7 +575,7 @@ namespace SistemaBancario.Models
             {
                 if (connection.State == ConnectionState.Closed)
                     connection.Open();
-                MySqlCommand removerCliente = new MySqlCommand("DELETE FROM Usuario WHERE cpf = @identificador", connection);
+                MySqlCommand removerCliente = new MySqlCommand("UPDATE Cliente JOIN Usuario on Cliente.id_usuario = Usuario.id SET Cliente.status = 'Inativo' WHERE Usuario.cpf = @identificador", connection);
                 removerCliente.Parameters.AddWithValue("@identificador", identificador);
 
                 removerCliente.ExecuteNonQuery();
@@ -543,45 +654,38 @@ namespace SistemaBancario.Models
         }
 
         //Exibir resultado da busca por uma aplicacao
-        static public DataTable AcessarDadosAplicacao(string identificador)
-        {
-
-            DataTable dadosAplicacao = new DataTable();
-
-            if (Int32.TryParse(identificador, out int idBusca)) //tenta converter a string informada em numero
+        static public void /*Aplicacao*/ RetornarAplicacao(int id)
+       {
+            try
             {
-                try
-                {
-                    if (connection.State == ConnectionState.Closed)
-                        connection.Open();
-                    MySqlCommand buscarAplicacao = new MySqlCommand("SELECT Aplicacao.id, tipoAplicacao, valorMinimo, valorInicial, taxaRendimento, resgateMinimo, vencimento, valorIOF, impostoRenda, Conta.numero AS NumeroConta, Agencia.numero AS NumeroAgencia, Usuario.cpf FROM Aplicacao JOIN ContaCorrente ON Aplicacao.id_contacorrente = ContaCorrente.id JOIN Conta ON ContaCorrente.id_conta = Conta.id JOIN Agencia ON Conta.id_agencia = Agencia.id JOIN Cliente ON Conta.id_cliente = Cliente.id JOIN Usuario ON Cliente.id_usuario = Usuario.id WHERE Aplicacao.id = @identificador", connection);
-                    buscarAplicacao.Parameters.AddWithValue("@identificador", identificador);
+                if (connection.State == ConnectionState.Closed)
+                    connection.Open();
 
+                //Recupera o titular
 
-                    MySqlDataAdapter dataAdapter = new MySqlDataAdapter(buscarAplicacao);
+               // RetornarPessoaFisica(string query, int id)
 
-                    dataAdapter.Fill(dadosAplicacao);
-                }
-                catch (MySqlException exception)
-                {
-                    dadosAplicacao = null;
-                    Console.WriteLine(exception.ToString());
-                }
-                finally
-                {
-                    connection.Close();
-                }
+                //Recupera a agencia
+                
+                //Recupera a conta
+
+                //var queryResult = connection.Query<Dependente>("", new { @idDependente = id });
+                //Aplicacao aplicacao = queryResult.First();
+
             }
-            else
+            catch (MySqlException exception)
             {
-                dadosAplicacao = null;
+                Console.WriteLine(exception.ToString());
+                //return null;
             }
-
-            return dadosAplicacao;
+            finally
+            {
+                connection.Close();
+            }
         }
 
-        //Remover uma determinada aplicacao
-        static public Boolean RemoverAplicacao(string identificador)
+        //Cancelar uma determinada aplicacao
+        static public Boolean CancelarAplicacao(string identificador)
         {
             bool sucesso;
 
@@ -591,7 +695,7 @@ namespace SistemaBancario.Models
                 {
                     if (connection.State == ConnectionState.Closed)
                         connection.Open();
-                    MySqlCommand removerCliente = new MySqlCommand("DELETE FROM Aplicacao WHERE id = @identificador", connection);
+                    MySqlCommand removerCliente = new MySqlCommand("UPDATE Aplicacao SET Aplicacao.status = 'Cancelada' WHERE id = @identificador", connection);
                     removerCliente.Parameters.AddWithValue("@identificador", idBusca);
 
                     removerCliente.ExecuteNonQuery();
@@ -615,6 +719,25 @@ namespace SistemaBancario.Models
 
             return sucesso;
         }
+
+
+        //Atualizacao de Usuario
+        static public Boolean AtualizarUsuario(string primeiroNome, string sobrenome, string cpf)
+        {
+
+            try
+            {
+                if (connection.State == ConnectionState.Closed)
+                    connection.Open();
+
+                int linhasAfetadasUsuario = connection.Execute("UPDATE Usuario SET primeiroNome = @primeiroNome, sobrenome = @sobrenome WHERE cpf = @cpf", new { @primeiroNome = primeiroNome, @sobrenome = sobrenome, @cpf = cpf});
+
+                    return true;
+            }
+            catch (MySqlException exception)
+            {
+                Console.WriteLine(exception.ToString());
+                return false;
 
         static public bool SelecionarAdministrador(string login, string senha)
         {
@@ -640,10 +763,35 @@ namespace SistemaBancario.Models
             {
                 sucesso = false;
                 Console.WriteLine(exception.ToString());
+
             }
             finally
             {
                 connection.Close();
+
+            };
+
+        }
+
+        //Atualizacao de Cliente
+        static public Boolean AtualizarCliente(string emailAntigo, string estado_civil, string emailNovo, string celular, string telefone, string status)
+        {
+
+            try
+            {
+                if (connection.State == ConnectionState.Closed)
+                    connection.Open();
+
+                int linhasAfetadasCliente = connection.Execute("UPDATE Cliente SET estado_civil = @estado_civil, email = @email, celular = @celular, telefone = @telefone, status = @status WHERE email = @emailAntigo;", 
+                    new { @estado_civil = estado_civil, @email = emailNovo, @celular = celular, @telefone = telefone, @status = status, @emailAntigo = emailAntigo});
+
+                    return true;
+            }
+            catch (MySqlException exception)
+            {
+                Console.WriteLine(exception.ToString());
+                return false;
+
             }
             return sucesso;
         }
@@ -678,10 +826,27 @@ namespace SistemaBancario.Models
             {
                 sucesso = false;
                 Console.WriteLine(ex.ToString());
+
             }
             finally
             {
                 connection.Close();
+
+            };
+        }
+
+        //Atualizacao de Endereco
+        static public Boolean AtualizarEndereco(string cepAntigo, string cepNovo, string tipo, string logradouro, int numero, string bairro, string cidade, string estado, string complemento)
+        {
+
+            try
+            {
+                if (connection.State == ConnectionState.Closed)
+                    connection.Open();
+
+                int linhasAfetadasEndereco = connection.Execute("UPDATE Endereco SET cep = @cepNovo, tipo = @tipo, logradouro = @logradouro, numero = @numero, bairro = @bairro, cidade = @cidade, estado = @estado, complemento = @complemento WHERE cep = @cepAntigo;",
+                    new { @cepNovo = cepNovo, @tipo = tipo, @logradouro = logradouro, @numero = numero, @bairro = bairro, @cidade = cidade, @estado = estado, @complemento = complemento, @cepAntigo = cepAntigo });
+
             }
             return sucesso;
         }
@@ -749,6 +914,76 @@ namespace SistemaBancario.Models
     }
 
 
+                    return true;
+            }
+            catch (MySqlException exception)
+            {
+                Console.WriteLine(exception.ToString());
+                return false;
+            }
+            finally
+            {
+                connection.Close();
+            };
+        }
+
+        //Atualizacao de PessoaFisica
+        static public Boolean AtualizarPF(string profissaoAtual, decimal rendaMensal, string cpf)
+        {
+
+
+            try
+            {
+                if (connection.State == ConnectionState.Closed)
+                    connection.Open();
+
+                int linhasAfetadasEndereco = connection.Execute("UPDATE PessoaFisica JOIN Cliente ON PessoaFisica.id_cliente = Cliente.id JOIN Usuario ON Cliente.id_usuario = Usuario.id SET profissao = @profissao, rendaMensal = @rendaMensal WHERE Usuario.cpf = @cpf",
+                    new { @profissao = profissaoAtual, @rendaMensal = rendaMensal, @cpf = cpf });
+
+                    return true;
+            }
+            catch (MySqlException exception)
+            {
+                Console.WriteLine(exception.ToString());
+                return false;
+            }
+            finally
+            {
+                connection.Close();
+            };
+
+        }
+
+        //Atualizacao de PessoaJuridica
+        static public Boolean AtualizarPJ(string razaoSocial, string cpf)
+        {
+
+            try
+            {
+                if (connection.State == ConnectionState.Closed)
+                    connection.Open();
+
+                int linhasAfetadasEndereco = connection.Execute("UPDATE PessoaJuridica JOIN Cliente ON PessoaJuridica.id_cliente = Cliente.id JOIN Usuario ON Cliente.id_usuario = Usuario.id SET razaoSocial = @razaoSocial WHERE Usuario.cpf = @cpf",
+                    new { @razaoSocial = razaoSocial, @cpf = cpf });
+
+                if (linhasAfetadasEndereco == 1) //1 linha do banco de dados, usuario desejado, foi atualizada
+                {
+                    return true;
+                }
+            }
+            catch (MySqlException exception)
+            {
+                Console.WriteLine(exception.ToString());
+                return false;
+            }
+            finally
+            {
+                connection.Close();
+            };
+
+            return false;
+        }
+    }
 
 }
 

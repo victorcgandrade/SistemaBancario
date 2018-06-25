@@ -1,6 +1,6 @@
 ﻿namespace SistemaBancario.Views
 {
-    partial class AdicionarCliente
+    partial class FormularioCliente
     {
         /// <summary>
         /// Required designer variable.
@@ -28,68 +28,127 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.btn_Confirmar_Adicionar = new System.Windows.Forms.Button();
+            this.btn_Cancelar = new System.Windows.Forms.Button();
+            this.btn_Limpar = new System.Windows.Forms.Button();
+            this.cb_TipoPessoaJuridica = new System.Windows.Forms.ComboBox();
+            this.tb_RazaoSocial = new System.Windows.Forms.TextBox();
+            this.tb_Cnpj = new System.Windows.Forms.TextBox();
+            this.lb_TitularAssociado = new System.Windows.Forms.Label();
+            this.tb_CpfTitularAssociado = new System.Windows.Forms.TextBox();
+            this.lb_InformacaoJuridica = new System.Windows.Forms.Label();
+            this.lb_TituloTela = new System.Windows.Forms.Label();
+            this.lb_DataCadastro = new System.Windows.Forms.Label();
+            this.lb_DataNascimento = new System.Windows.Forms.Label();
+            this.lb_TipoCliente = new System.Windows.Forms.Label();
+            this.cb_TipoCliente = new System.Windows.Forms.ComboBox();
+            this.dtp_DataCadastro = new System.Windows.Forms.DateTimePicker();
+            this.cb_Status = new System.Windows.Forms.ComboBox();
+            this.lb_VariaveisControle = new System.Windows.Forms.Label();
+            this.cb_Estado = new System.Windows.Forms.ComboBox();
+            this.tb_Cidade = new System.Windows.Forms.TextBox();
+            this.tb_Cep = new System.Windows.Forms.TextBox();
+            this.tb_Complemento = new System.Windows.Forms.TextBox();
+            this.tb_Bairro = new System.Windows.Forms.TextBox();
+            this.tb_Numero = new System.Windows.Forms.TextBox();
+            this.lb_Endereco = new System.Windows.Forms.Label();
+            this.tb_RendaMensal = new System.Windows.Forms.TextBox();
+            this.tb_Profissao = new System.Windows.Forms.TextBox();
+            this.lb_InformacaoEconomica = new System.Windows.Forms.Label();
+            this.dtp_DataNascimento = new System.Windows.Forms.DateTimePicker();
+            this.lb_InformacaoPessoal = new System.Windows.Forms.Label();
+            this.cb_EstadoCivil = new System.Windows.Forms.ComboBox();
+            this.tb_RgCliente = new System.Windows.Forms.TextBox();
+            this.tb_CpfCliente = new System.Windows.Forms.TextBox();
+            this.lb_Documentacao = new System.Windows.Forms.Label();
+            this.tb_Telefone = new System.Windows.Forms.TextBox();
+            this.tb_Celular = new System.Windows.Forms.TextBox();
+            this.tb_Email = new System.Windows.Forms.TextBox();
+            this.tb_Sobrenome = new System.Windows.Forms.TextBox();
+            this.tb_PrimeiroNome = new System.Windows.Forms.TextBox();
+            this.tb_Logradouro = new System.Windows.Forms.TextBox();
+            this.cb_Tipo = new System.Windows.Forms.ComboBox();
+            this.lb_PrimeiroNome = new System.Windows.Forms.Label();
+            this.lb_Sobrenome = new System.Windows.Forms.Label();
+            this.lb_CpfResponsavel = new System.Windows.Forms.Label();
+            this.lb_Cpf = new System.Windows.Forms.Label();
+            this.lb_Rg = new System.Windows.Forms.Label();
+            this.lb_Profissao = new System.Windows.Forms.Label();
+            this.lb_RendaMensal = new System.Windows.Forms.Label();
+            this.lb_Cep = new System.Windows.Forms.Label();
+            this.lb_Logradouro = new System.Windows.Forms.Label();
+            this.lb_Numero = new System.Windows.Forms.Label();
+            this.lb_Bairro = new System.Windows.Forms.Label();
+            this.lb_Cidade = new System.Windows.Forms.Label();
+            this.lb_Complemento = new System.Windows.Forms.Label();
+            this.lb_RazaoSocial = new System.Windows.Forms.Label();
+            this.lb_Cnpj = new System.Windows.Forms.Label();
+            this.lb_Contato = new System.Windows.Forms.Label();
+            this.lb_Email = new System.Windows.Forms.Label();
+            this.lb_Celular = new System.Windows.Forms.Label();
+            this.lb_Telefone = new System.Windows.Forms.Label();
             this.p_Content.SuspendLayout();
             this.SuspendLayout();
             // 
             // p_Content
             // 
-            this.p_Content.Controls.Add(this.btn_Confirmar_Adicionar);
-            this.p_Content.Controls.SetChildIndex(this.tb_CpfCliente, 0);
-            this.p_Content.Controls.SetChildIndex(this.tb_Email, 0);
-            this.p_Content.Controls.SetChildIndex(this.tb_RgCliente, 0);
-            this.p_Content.Controls.SetChildIndex(this.tb_Celular, 0);
-            this.p_Content.Controls.SetChildIndex(this.tb_Telefone, 0);
-            this.p_Content.Controls.SetChildIndex(this.lb_InformacaoPessoal, 0);
-            this.p_Content.Controls.SetChildIndex(this.tb_Cidade, 0);
-            this.p_Content.Controls.SetChildIndex(this.cb_Estado, 0);
-            this.p_Content.Controls.SetChildIndex(this.tb_Complemento, 0);
-            this.p_Content.Controls.SetChildIndex(this.cb_EstadoCivil, 0);
-            this.p_Content.Controls.SetChildIndex(this.tb_PrimeiroNome, 0);
-            this.p_Content.Controls.SetChildIndex(this.dtp_DataNascimento, 0);
-            this.p_Content.Controls.SetChildIndex(this.tb_Sobrenome, 0);
-            this.p_Content.Controls.SetChildIndex(this.lb_Endereco, 0);
-            this.p_Content.Controls.SetChildIndex(this.lb_TipoCliente, 0);
-            this.p_Content.Controls.SetChildIndex(this.btn_Cancelar, 0);
-            this.p_Content.Controls.SetChildIndex(this.tb_Logradouro, 0);
-            this.p_Content.Controls.SetChildIndex(this.lb_InformacaoEconomica, 0);
-            this.p_Content.Controls.SetChildIndex(this.cb_TipoCliente, 0);
-            this.p_Content.Controls.SetChildIndex(this.tb_Profissao, 0);
-            this.p_Content.Controls.SetChildIndex(this.tb_RendaMensal, 0);
-            this.p_Content.Controls.SetChildIndex(this.cb_Tipo, 0);
-            this.p_Content.Controls.SetChildIndex(this.btn_Limpar, 0);
-            this.p_Content.Controls.SetChildIndex(this.lb_Contato, 0);
-            this.p_Content.Controls.SetChildIndex(this.lb_TitularAssociado, 0);
-            this.p_Content.Controls.SetChildIndex(this.lb_Documentacao, 0);
-            this.p_Content.Controls.SetChildIndex(this.tb_CpfTitularAssociado, 0);
-            this.p_Content.Controls.SetChildIndex(this.lb_DataNascimento, 0);
-            this.p_Content.Controls.SetChildIndex(this.lb_PrimeiroNome, 0);
-            this.p_Content.Controls.SetChildIndex(this.lb_Sobrenome, 0);
-            this.p_Content.Controls.SetChildIndex(this.lb_CpfResponsavel, 0);
-            this.p_Content.Controls.SetChildIndex(this.tb_Bairro, 0);
-            this.p_Content.Controls.SetChildIndex(this.lb_Cpf, 0);
-            this.p_Content.Controls.SetChildIndex(this.lb_Rg, 0);
-            this.p_Content.Controls.SetChildIndex(this.lb_Email, 0);
-            this.p_Content.Controls.SetChildIndex(this.lb_Celular, 0);
-            this.p_Content.Controls.SetChildIndex(this.lb_Telefone, 0);
-            this.p_Content.Controls.SetChildIndex(this.lb_Profissao, 0);
-            this.p_Content.Controls.SetChildIndex(this.lb_VariaveisControle, 0);
-            this.p_Content.Controls.SetChildIndex(this.cb_Status, 0);
-            this.p_Content.Controls.SetChildIndex(this.lb_RendaMensal, 0);
-            this.p_Content.Controls.SetChildIndex(this.dtp_DataCadastro, 0);
-            this.p_Content.Controls.SetChildIndex(this.lb_Cep, 0);
-            this.p_Content.Controls.SetChildIndex(this.lb_DataCadastro, 0);
-            this.p_Content.Controls.SetChildIndex(this.lb_Logradouro, 0);
-            this.p_Content.Controls.SetChildIndex(this.lb_Numero, 0);
-            this.p_Content.Controls.SetChildIndex(this.lb_Bairro, 0);
-            this.p_Content.Controls.SetChildIndex(this.lb_Cidade, 0);
-            this.p_Content.Controls.SetChildIndex(this.tb_Cnpj, 0);
-            this.p_Content.Controls.SetChildIndex(this.lb_Complemento, 0);
-            this.p_Content.Controls.SetChildIndex(this.tb_RazaoSocial, 0);
-            this.p_Content.Controls.SetChildIndex(this.cb_TipoPessoaJuridica, 0);
-            this.p_Content.Controls.SetChildIndex(this.lb_RazaoSocial, 0);
-            this.p_Content.Controls.SetChildIndex(this.lb_Cnpj, 0);
-            this.p_Content.Controls.SetChildIndex(this.btn_Confirmar_Adicionar, 0);
+            this.p_Content.Controls.Add(this.lb_Cnpj);
+            this.p_Content.Controls.Add(this.lb_RazaoSocial);
+            this.p_Content.Controls.Add(this.cb_TipoPessoaJuridica);
+            this.p_Content.Controls.Add(this.tb_RazaoSocial);
+            this.p_Content.Controls.Add(this.lb_Complemento);
+            this.p_Content.Controls.Add(this.tb_Cnpj);
+            this.p_Content.Controls.Add(this.lb_Cidade);
+            this.p_Content.Controls.Add(this.lb_Bairro);
+            this.p_Content.Controls.Add(this.lb_Numero);
+            this.p_Content.Controls.Add(this.lb_Logradouro);
+            this.p_Content.Controls.Add(this.lb_DataCadastro);
+            this.p_Content.Controls.Add(this.lb_Cep);
+            this.p_Content.Controls.Add(this.dtp_DataCadastro);
+            this.p_Content.Controls.Add(this.lb_RendaMensal);
+            this.p_Content.Controls.Add(this.cb_Status);
+            this.p_Content.Controls.Add(this.lb_VariaveisControle);
+            this.p_Content.Controls.Add(this.lb_Profissao);
+            this.p_Content.Controls.Add(this.lb_Telefone);
+            this.p_Content.Controls.Add(this.lb_Celular);
+            this.p_Content.Controls.Add(this.lb_Email);
+            this.p_Content.Controls.Add(this.lb_Rg);
+            this.p_Content.Controls.Add(this.lb_Cpf);
+            this.p_Content.Controls.Add(this.tb_Bairro);
+            this.p_Content.Controls.Add(this.lb_CpfResponsavel);
+            this.p_Content.Controls.Add(this.lb_Sobrenome);
+            this.p_Content.Controls.Add(this.lb_PrimeiroNome);
+            this.p_Content.Controls.Add(this.lb_DataNascimento);
+            this.p_Content.Controls.Add(this.tb_CpfTitularAssociado);
+            this.p_Content.Controls.Add(this.lb_Documentacao);
+            this.p_Content.Controls.Add(this.lb_TitularAssociado);
+            this.p_Content.Controls.Add(this.lb_Contato);
+            this.p_Content.Controls.Add(this.btn_Limpar);
+            this.p_Content.Controls.Add(this.cb_Tipo);
+            this.p_Content.Controls.Add(this.tb_RendaMensal);
+            this.p_Content.Controls.Add(this.tb_Profissao);
+            this.p_Content.Controls.Add(this.cb_TipoCliente);
+            this.p_Content.Controls.Add(this.lb_InformacaoEconomica);
+            this.p_Content.Controls.Add(this.tb_Logradouro);
+            this.p_Content.Controls.Add(this.btn_Cancelar);
+            this.p_Content.Controls.Add(this.lb_TipoCliente);
+            this.p_Content.Controls.Add(this.lb_Endereco);
+            this.p_Content.Controls.Add(this.tb_Sobrenome);
+            this.p_Content.Controls.Add(this.dtp_DataNascimento);
+            this.p_Content.Controls.Add(this.tb_PrimeiroNome);
+            this.p_Content.Controls.Add(this.cb_EstadoCivil);
+            this.p_Content.Controls.Add(this.tb_Complemento);
+            this.p_Content.Controls.Add(this.cb_Estado);
+            this.p_Content.Controls.Add(this.tb_Cidade);
+            this.p_Content.Controls.Add(this.lb_InformacaoPessoal);
+            this.p_Content.Controls.Add(this.tb_Telefone);
+            this.p_Content.Controls.Add(this.tb_Celular);
+            this.p_Content.Controls.Add(this.tb_RgCliente);
+            this.p_Content.Controls.Add(this.tb_Email);
+            this.p_Content.Controls.Add(this.tb_CpfCliente);
+            // 
+            // p_LinkAtivo
+            // 
+            this.p_LinkAtivo.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(169)))), ((int)(((byte)(0)))));
             // 
             // btn_LogDados
             // 
@@ -103,6 +162,7 @@
             // 
             // btn_Clientes
             // 
+            this.btn_Clientes.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(41)))), ((int)(((byte)(43)))));
             this.btn_Clientes.FlatAppearance.BorderSize = 0;
             this.btn_Clientes.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(41)))), ((int)(((byte)(43)))));
             // 
@@ -116,9 +176,6 @@
             this.btn_Aplicacoes.FlatAppearance.BorderSize = 0;
             this.btn_Aplicacoes.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(41)))), ((int)(((byte)(43)))));
             // 
-
-            // btn_Confirmar_Adicionar
-
             // btn_Cancelar
             // 
             this.btn_Cancelar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(78)))), ((int)(((byte)(88)))));
@@ -131,33 +188,21 @@
             this.btn_Cancelar.TabIndex = 85;
             this.btn_Cancelar.Text = "Cancelar";
             this.btn_Cancelar.UseVisualStyleBackColor = false;
+            this.btn_Cancelar.Click += new System.EventHandler(this.btn_Cancelar_Click);
             // 
             // btn_Limpar
             // 
             this.btn_Limpar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(175)))), ((int)(((byte)(174)))), ((int)(((byte)(170)))));
             this.btn_Limpar.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btn_Limpar.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_Limpar.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.btn_Limpar.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.btn_Limpar.Location = new System.Drawing.Point(721, 562);
             this.btn_Limpar.Name = "btn_Limpar";
             this.btn_Limpar.Size = new System.Drawing.Size(90, 29);
             this.btn_Limpar.TabIndex = 84;
             this.btn_Limpar.Text = "Limpar";
             this.btn_Limpar.UseVisualStyleBackColor = false;
-            // 
-            // btn_Confirmar
-            // 
-            this.btn_Confirmar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(187)))), ((int)(((byte)(117)))));
-            this.btn_Confirmar.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btn_Confirmar.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_Confirmar.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.btn_Confirmar.Location = new System.Drawing.Point(817, 562);
-            this.btn_Confirmar.Name = "btn_Confirmar";
-            this.btn_Confirmar.Size = new System.Drawing.Size(90, 29);
-            this.btn_Confirmar.TabIndex = 45;
-            this.btn_Confirmar.Text = "Confirmar";
-            this.btn_Confirmar.UseVisualStyleBackColor = false;
-            this.btn_Confirmar.Click += new System.EventHandler(this.btn_Confirmar_Click);
+            this.btn_Limpar.Click += new System.EventHandler(this.btn_Limpar_Click);
             // 
             // cb_TipoPessoaJuridica
             // 
@@ -166,13 +211,15 @@
             this.cb_TipoPessoaJuridica.FormattingEnabled = true;
             this.cb_TipoPessoaJuridica.Items.AddRange(new object[] {
             "Sociedade Ltda.",
-            "Associação",
-            "Fundação"});
+            "Sociedade Anônima",
+            "MEI",
+            "Sociedade Individual",
+            "Empresário Individual"});
             this.cb_TipoPessoaJuridica.Location = new System.Drawing.Point(791, 494);
             this.cb_TipoPessoaJuridica.Name = "cb_TipoPessoaJuridica";
             this.cb_TipoPessoaJuridica.Size = new System.Drawing.Size(145, 21);
             this.cb_TipoPessoaJuridica.TabIndex = 83;
-            this.cb_TipoPessoaJuridica.Text = "Tipo de Pessoa Jurídica";
+            this.cb_TipoPessoaJuridica.Text = "Tipo de CNPJ";
             // 
             // tb_RazaoSocial
             // 
@@ -223,17 +270,17 @@
             this.lb_InformacaoJuridica.TabIndex = 78;
             this.lb_InformacaoJuridica.Text = "Informação Jurídica";
             // 
-            // lb_TituloAdicionarCliente
+            // lb_TituloTela
             // 
-            this.lb_TituloAdicionarCliente.AutoSize = true;
-            this.lb_TituloAdicionarCliente.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(246)))), ((int)(((byte)(246)))), ((int)(((byte)(246)))));
-            this.lb_TituloAdicionarCliente.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lb_TituloAdicionarCliente.ForeColor = System.Drawing.SystemColors.GrayText;
-            this.lb_TituloAdicionarCliente.Location = new System.Drawing.Point(247, 74);
-            this.lb_TituloAdicionarCliente.Name = "lb_TituloAdicionarCliente";
-            this.lb_TituloAdicionarCliente.Size = new System.Drawing.Size(166, 21);
-            this.lb_TituloAdicionarCliente.TabIndex = 77;
-            this.lb_TituloAdicionarCliente.Text = "ADICIONAR CLIENTE";
+            this.lb_TituloTela.AutoSize = true;
+            this.lb_TituloTela.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(246)))), ((int)(((byte)(246)))), ((int)(((byte)(246)))));
+            this.lb_TituloTela.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lb_TituloTela.ForeColor = System.Drawing.SystemColors.GrayText;
+            this.lb_TituloTela.Location = new System.Drawing.Point(247, 74);
+            this.lb_TituloTela.Name = "lb_TituloTela";
+            this.lb_TituloTela.Size = new System.Drawing.Size(166, 21);
+            this.lb_TituloTela.TabIndex = 77;
+            this.lb_TituloTela.Text = "ADICIONAR CLIENTE";
             // 
             // lb_DataCadastro
             // 
@@ -326,7 +373,7 @@
             this.lb_VariaveisControle.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lb_VariaveisControle.Location = new System.Drawing.Point(562, 317);
             this.lb_VariaveisControle.Name = "lb_VariaveisControle";
-            this.lb_VariaveisControle.Size = new System.Drawing.Size(134, 17);
+            this.lb_VariaveisControle.Size = new System.Drawing.Size(133, 17);
             this.lb_VariaveisControle.TabIndex = 70;
             this.lb_VariaveisControle.Text = "Variáveis de controle";
             // 
@@ -336,11 +383,31 @@
             this.cb_Estado.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.cb_Estado.FormattingEnabled = true;
             this.cb_Estado.Items.AddRange(new object[] {
-            "RJ",
-            "SP",
+            "RO",
+            "AC",
+            "AM",
+            "RR",
+            "PA",
+            "AP",
+            "TO",
+            "MA",
+            "PI",
+            "CE",
+            "RN",
+            "PB",
+            "PB",
+            "AL",
+            "SE",
+            "BA",
             "MG",
             "ES",
-            "BA"});
+            "RJ",
+            "SP",
+            "PR",
+            "SC",
+            "RS",
+            "MS",
+            "MT"});
             this.cb_Estado.Location = new System.Drawing.Point(832, 221);
             this.cb_Estado.Name = "cb_Estado";
             this.cb_Estado.Size = new System.Drawing.Size(105, 21);
@@ -471,7 +538,7 @@
             "Solteiro(a)",
             "Casado(a)",
             "Divorciado(a)",
-            "Viuvo(a)",
+            "Viúvo(a)",
             "Separado(a)"});
             this.cb_EstadoCivil.Location = new System.Drawing.Point(139, 245);
             this.cb_EstadoCivil.Name = "cb_EstadoCivil";
@@ -535,17 +602,6 @@
             this.tb_Email.Size = new System.Drawing.Size(338, 22);
             this.tb_Email.TabIndex = 48;
             // 
-            // lb_Contato
-            // 
-            this.lb_Contato.AutoSize = true;
-            this.lb_Contato.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(246)))), ((int)(((byte)(246)))), ((int)(((byte)(246)))));
-            this.lb_Contato.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lb_Contato.Location = new System.Drawing.Point(137, 380);
-            this.lb_Contato.Name = "lb_Contato";
-            this.lb_Contato.Size = new System.Drawing.Size(57, 17);
-            this.lb_Contato.TabIndex = 47;
-            this.lb_Contato.Text = "Contato";
-            // 
             // tb_Sobrenome
             // 
             this.tb_Sobrenome.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -564,32 +620,33 @@
             this.tb_PrimeiroNome.Size = new System.Drawing.Size(166, 22);
             this.tb_PrimeiroNome.TabIndex = 44;
             // 
-            // tb_Rua
+            // tb_Logradouro
             // 
-            this.tb_Rua.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tb_Rua.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.tb_Rua.Location = new System.Drawing.Point(567, 166);
-            this.tb_Rua.Name = "tb_Rua";
-            this.tb_Rua.Size = new System.Drawing.Size(290, 22);
-            this.tb_Rua.TabIndex = 85;
+            this.tb_Logradouro.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tb_Logradouro.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.tb_Logradouro.Location = new System.Drawing.Point(567, 166);
+            this.tb_Logradouro.Name = "tb_Logradouro";
+            this.tb_Logradouro.Size = new System.Drawing.Size(290, 22);
+            this.tb_Logradouro.TabIndex = 85;
             // 
-            // cb_Logradouro
+            // cb_Tipo
             // 
-            this.cb_Logradouro.Font = new System.Drawing.Font("Segoe UI", 8.25F);
-            this.cb_Logradouro.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.cb_Logradouro.FormattingEnabled = true;
-            this.cb_Logradouro.Items.AddRange(new object[] {
+            this.cb_Tipo.Font = new System.Drawing.Font("Segoe UI", 8.25F);
+            this.cb_Tipo.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.cb_Tipo.FormattingEnabled = true;
+            this.cb_Tipo.Items.AddRange(new object[] {
             "Rua",
             "Rodovia",
-            "Avenida",
-            "Favela",
             "Vila",
-            "Travessa"});
-            this.cb_Logradouro.Location = new System.Drawing.Point(734, 118);
-            this.cb_Logradouro.Name = "cb_Logradouro";
-            this.cb_Logradouro.Size = new System.Drawing.Size(110, 21);
-            this.cb_Logradouro.TabIndex = 86;
-            this.cb_Logradouro.Text = "Logradouro";
+            "Condomínio",
+            "Avenida",
+            "Travessa",
+            "Favela"});
+            this.cb_Tipo.Location = new System.Drawing.Point(734, 118);
+            this.cb_Tipo.Name = "cb_Tipo";
+            this.cb_Tipo.Size = new System.Drawing.Size(110, 21);
+            this.cb_Tipo.TabIndex = 86;
+            this.cb_Tipo.Text = "Tipo";
             // 
             // lb_PrimeiroNome
             // 
@@ -646,39 +703,6 @@
             this.lb_Rg.TabIndex = 91;
             this.lb_Rg.Text = "RG (apenas números):";
             // 
-            // lb_Email
-            // 
-            this.lb_Email.AutoSize = true;
-            this.lb_Email.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lb_Email.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.lb_Email.Location = new System.Drawing.Point(136, 407);
-            this.lb_Email.Name = "lb_Email";
-            this.lb_Email.Size = new System.Drawing.Size(105, 13);
-            this.lb_Email.TabIndex = 92;
-            this.lb_Email.Text = "Endereço de e-mail";
-            // 
-            // lb_Celular
-            // 
-            this.lb_Celular.AutoSize = true;
-            this.lb_Celular.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lb_Celular.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.lb_Celular.Location = new System.Drawing.Point(135, 458);
-            this.lb_Celular.Name = "lb_Celular";
-            this.lb_Celular.Size = new System.Drawing.Size(88, 13);
-            this.lb_Celular.TabIndex = 93;
-            this.lb_Celular.Text = "Celular (c/ DDD)";
-            // 
-            // lb_Telefone
-            // 
-            this.lb_Telefone.AutoSize = true;
-            this.lb_Telefone.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lb_Telefone.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.lb_Telefone.Location = new System.Drawing.Point(308, 459);
-            this.lb_Telefone.Name = "lb_Telefone";
-            this.lb_Telefone.Size = new System.Drawing.Size(95, 13);
-            this.lb_Telefone.TabIndex = 93;
-            this.lb_Telefone.Text = "Telefone (c/ DDD)";
-            // 
             // lb_Profissao
             // 
             this.lb_Profissao.AutoSize = true;
@@ -712,16 +736,16 @@
             this.lb_Cep.TabIndex = 96;
             this.lb_Cep.Text = "CEP (apenas números):";
             // 
-            // lb_Rua
+            // lb_Logradouro
             // 
-            this.lb_Rua.AutoSize = true;
-            this.lb_Rua.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lb_Rua.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.lb_Rua.Location = new System.Drawing.Point(564, 150);
-            this.lb_Rua.Name = "lb_Rua";
-            this.lb_Rua.Size = new System.Drawing.Size(30, 13);
-            this.lb_Rua.TabIndex = 97;
-            this.lb_Rua.Text = "Rua:";
+            this.lb_Logradouro.AutoSize = true;
+            this.lb_Logradouro.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lb_Logradouro.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.lb_Logradouro.Location = new System.Drawing.Point(564, 150);
+            this.lb_Logradouro.Name = "lb_Logradouro";
+            this.lb_Logradouro.Size = new System.Drawing.Size(71, 13);
+            this.lb_Logradouro.TabIndex = 97;
+            this.lb_Logradouro.Text = "Logradouro:";
             // 
             // lb_Numero
             // 
@@ -780,23 +804,75 @@
             // 
             // lb_Cnpj
             // 
-            this.btn_Confirmar_Adicionar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(187)))), ((int)(((byte)(117)))));
-            this.btn_Confirmar_Adicionar.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btn_Confirmar_Adicionar.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_Confirmar_Adicionar.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.btn_Confirmar_Adicionar.Location = new System.Drawing.Point(817, 562);
-            this.btn_Confirmar_Adicionar.Name = "btn_Confirmar_Adicionar";
-            this.btn_Confirmar_Adicionar.Size = new System.Drawing.Size(90, 29);
-            this.btn_Confirmar_Adicionar.TabIndex = 104;
-            this.btn_Confirmar_Adicionar.Text = "Confirmar";
-            this.btn_Confirmar_Adicionar.UseVisualStyleBackColor = false;
-            this.btn_Confirmar_Adicionar.Click += new System.EventHandler(this.btn_Confirmar_Adicionar_Click);
+            this.lb_Cnpj.AutoSize = true;
+            this.lb_Cnpj.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lb_Cnpj.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.lb_Cnpj.Location = new System.Drawing.Point(564, 478);
+            this.lb_Cnpj.Name = "lb_Cnpj";
+            this.lb_Cnpj.Size = new System.Drawing.Size(128, 13);
+            this.lb_Cnpj.TabIndex = 103;
+            this.lb_Cnpj.Text = "CNPJ (apenas números):";
             // 
-            // AdicionarCliente
+            // lb_Contato
+            // 
+            this.lb_Contato.AutoSize = true;
+            this.lb_Contato.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(246)))), ((int)(((byte)(246)))), ((int)(((byte)(246)))));
+            this.lb_Contato.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lb_Contato.Location = new System.Drawing.Point(137, 380);
+            this.lb_Contato.Name = "lb_Contato";
+            this.lb_Contato.Size = new System.Drawing.Size(57, 17);
+            this.lb_Contato.TabIndex = 47;
+            this.lb_Contato.Text = "Contato";
+            // 
+            // lb_Email
+            // 
+            this.lb_Email.AutoSize = true;
+            this.lb_Email.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lb_Email.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.lb_Email.Location = new System.Drawing.Point(136, 407);
+            this.lb_Email.Name = "lb_Email";
+            this.lb_Email.Size = new System.Drawing.Size(105, 13);
+            this.lb_Email.TabIndex = 92;
+            this.lb_Email.Text = "Endereço de e-mail";
+            // 
+            // lb_Celular
+            // 
+            this.lb_Celular.AutoSize = true;
+            this.lb_Celular.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lb_Celular.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.lb_Celular.Location = new System.Drawing.Point(135, 458);
+            this.lb_Celular.Name = "lb_Celular";
+            this.lb_Celular.Size = new System.Drawing.Size(88, 13);
+            this.lb_Celular.TabIndex = 93;
+            this.lb_Celular.Text = "Celular (c/ DDD)";
+            // 
+            // lb_Telefone
+            // 
+            this.lb_Telefone.AutoSize = true;
+            this.lb_Telefone.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lb_Telefone.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.lb_Telefone.Location = new System.Drawing.Point(308, 459);
+            this.lb_Telefone.Name = "lb_Telefone";
+            this.lb_Telefone.Size = new System.Drawing.Size(95, 13);
+            this.lb_Telefone.TabIndex = 93;
+            this.lb_Telefone.Text = "Telefone (c/ DDD)";
+            // 
+            // FormularioCliente
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1325, 694);
-            this.Name = "AdicionarCliente";
+            this.Controls.Add(this.lb_InformacaoJuridica);
+            this.Controls.Add(this.lb_TituloTela);
+            this.Controls.Add(this.tb_Cep);
+            this.Controls.Add(this.tb_Numero);
+            this.Name = "FormularioCliente";
+            this.Text = "AdicionarCliente";
+            this.Controls.SetChildIndex(this.p_Content, 0);
+            this.Controls.SetChildIndex(this.tb_Numero, 0);
+            this.Controls.SetChildIndex(this.tb_Cep, 0);
+            this.Controls.SetChildIndex(this.lb_TituloTela, 0);
+            this.Controls.SetChildIndex(this.lb_InformacaoJuridica, 0);
             this.p_Content.ResumeLayout(false);
             this.p_Content.PerformLayout();
             this.ResumeLayout(false);
@@ -806,6 +882,63 @@
 
         #endregion
 
-        private System.Windows.Forms.Button btn_Confirmar_Adicionar;
+        protected System.Windows.Forms.Button btn_Cancelar;
+        protected System.Windows.Forms.Button btn_Limpar;
+        protected System.Windows.Forms.ComboBox cb_TipoPessoaJuridica;
+        protected System.Windows.Forms.TextBox tb_RazaoSocial;
+        protected System.Windows.Forms.TextBox tb_Cnpj;
+        protected System.Windows.Forms.Label lb_TitularAssociado;
+        protected System.Windows.Forms.TextBox tb_CpfTitularAssociado;
+        protected System.Windows.Forms.Label lb_InformacaoJuridica;
+        protected System.Windows.Forms.Label lb_TituloTela;
+        protected System.Windows.Forms.Label lb_DataCadastro;
+        protected System.Windows.Forms.Label lb_DataNascimento;
+        protected System.Windows.Forms.Label lb_TipoCliente;
+        protected System.Windows.Forms.ComboBox cb_TipoCliente;
+        protected System.Windows.Forms.DateTimePicker dtp_DataCadastro;
+        protected System.Windows.Forms.ComboBox cb_Status;
+        protected System.Windows.Forms.Label lb_VariaveisControle;
+        protected System.Windows.Forms.ComboBox cb_Estado;
+        protected System.Windows.Forms.TextBox tb_Cidade;
+        protected System.Windows.Forms.TextBox tb_Cep;
+        protected System.Windows.Forms.TextBox tb_Complemento;
+        protected System.Windows.Forms.TextBox tb_Bairro;
+        protected System.Windows.Forms.TextBox tb_Numero;
+        protected System.Windows.Forms.Label lb_Endereco;
+        protected System.Windows.Forms.TextBox tb_RendaMensal;
+        protected System.Windows.Forms.TextBox tb_Profissao;
+        protected System.Windows.Forms.Label lb_InformacaoEconomica;
+        protected System.Windows.Forms.DateTimePicker dtp_DataNascimento;
+        protected System.Windows.Forms.Label lb_InformacaoPessoal;
+        protected System.Windows.Forms.ComboBox cb_EstadoCivil;
+        protected System.Windows.Forms.TextBox tb_RgCliente;
+        protected System.Windows.Forms.TextBox tb_CpfCliente;
+        protected System.Windows.Forms.Label lb_Documentacao;
+        protected System.Windows.Forms.TextBox tb_Telefone;
+        protected System.Windows.Forms.TextBox tb_Celular;
+        protected System.Windows.Forms.TextBox tb_Email;
+        protected System.Windows.Forms.TextBox tb_Sobrenome;
+        protected System.Windows.Forms.TextBox tb_PrimeiroNome;
+        protected System.Windows.Forms.ComboBox cb_Tipo;
+        protected System.Windows.Forms.TextBox tb_Logradouro;
+        protected System.Windows.Forms.Label lb_PrimeiroNome;
+        protected System.Windows.Forms.Label lb_CpfResponsavel;
+        protected System.Windows.Forms.Label lb_Sobrenome;
+        protected System.Windows.Forms.Label lb_Cpf;
+        protected System.Windows.Forms.Label lb_Rg;
+        protected System.Windows.Forms.Label lb_Cnpj;
+        protected System.Windows.Forms.Label lb_RazaoSocial;
+        protected System.Windows.Forms.Label lb_Complemento;
+        protected System.Windows.Forms.Label lb_Cidade;
+        protected System.Windows.Forms.Label lb_Bairro;
+        protected System.Windows.Forms.Label lb_Numero;
+        protected System.Windows.Forms.Label lb_Logradouro;
+        protected System.Windows.Forms.Label lb_Cep;
+        protected System.Windows.Forms.Label lb_RendaMensal;
+        protected System.Windows.Forms.Label lb_Profissao;
+        protected System.Windows.Forms.Label lb_Telefone;
+        protected System.Windows.Forms.Label lb_Celular;
+        protected System.Windows.Forms.Label lb_Email;
+        protected System.Windows.Forms.Label lb_Contato;
     }
 }

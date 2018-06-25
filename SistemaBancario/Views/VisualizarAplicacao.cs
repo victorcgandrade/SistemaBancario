@@ -15,23 +15,10 @@ namespace SistemaBancario.Views
         {
             InitializeComponent();
 
-            DataTable dadosAplicacao = MySQLFunctions.AcessarDadosAplicacao(idAplicacao); //obtem todos os dados de um cliente
+            DataTable dadosAplicacao = MySQLFunctions.RetornarAplicacao(idAplicacao); //obtem todos os dados de um cliente
 
             if (dadosAplicacao != null) //se nao ocorreu erro na chamada da funcao acima
             {
-                dgv_VisualizarAplicacao.DataSource = Convert(dadosAplicacao); //transpondo a tabela para melhor visualizacao
-
-                dgv_VisualizarAplicacao.Columns[0].HeaderText = ""; //nome para exibicao
-                dgv_VisualizarAplicacao.Columns[0].Name = "Nome Atributos"; //nome para manipulacao
-
-                dgv_VisualizarAplicacao.Columns[1].HeaderText = ""; //nome para exibicao
-                dgv_VisualizarAplicacao.Columns[1].Name = "Valor Atributos"; //nome para manipulacao
-
-                string tipoAplicacao = dadosAplicacao.Rows[0][1].ToString(); //na primeira linha esta armazenado o primeiro nome do cliente
-                string nAplicacao = dadosAplicacao.Rows[0][0].ToString(); //na segunda linha esta armazenado o sobrenome do cliente
-                string numeroConta = dadosAplicacao.Rows[0][9].ToString();
-
-                lb_IdentificadorAplicacao.Text = "Aplicação " + tipoAplicacao + " Número " + nAplicacao + " Conta " + numeroConta;
             }
             else
             {
@@ -39,44 +26,29 @@ namespace SistemaBancario.Views
             }
         }
 
-        //Metodo para transpor uma tabela: Linha vira coluna e coluna vira linha
-        public DataTable Convert(DataTable dt)
-        {
-            DataTable dt2 = new DataTable();
-            for (int i = 0; i <= dt.Rows.Count; i++)
-            {
-                dt2.Columns.Add();
-            }
-            for (int i = 0; i < dt.Columns.Count; i++)
-            {
-                dt2.Rows.Add();
-                dt2.Rows[i][0] = dt.Columns[i].ColumnName;
-            }
-            for (int i = 0; i < dt.Columns.Count; i++)
-            {
-                for (int j = 0; j < dt.Rows.Count; j++)
-                {
-                    dt2.Rows[i][j + 1] = dt.Rows[j][i];
-                }
-            }
-            return dt2;
-        }
-
         private void btn_RemoverAplicacao_Click(object sender, EventArgs e)
         {
-            string idAplicacao = dgv_VisualizarAplicacao.Rows[0].Cells[1].Value.ToString();
+            string idAplicacao = "";
 
-            if (MessageBox.Show("Tem certeza que deseja remover esta aplicação?", "Confirmacao", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+            if (MessageBox.Show("Tem certeza que deseja cancelar esta aplicação? Ao confirmar, não será mais possível manipula-la.", "Confirmacao", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
             {
-                if (MySQLFunctions.RemoverAplicacao(idAplicacao))
+                if (MySQLFunctions.CancelarAplicacao(idAplicacao))
                 {
-                    MessageBox.Show("Aplicação Removida com sucesso!");
+                    MessageBox.Show("Aplicação cancelada com sucesso!");
+
+                    btn_AlterarAplicacao.Visible = false;
+                    btn_CancelarAplicacao.Visible = false;
                 }
                 else
                 {
-                  MessageBox.Show("Não foi possível remover a aplicação!");
+                  MessageBox.Show("Não foi possível cancelar a aplicação!");
                 }
             }
+        }
+
+        private void btn_AlterarAplicacao_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
