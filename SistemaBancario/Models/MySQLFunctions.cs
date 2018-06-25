@@ -793,7 +793,7 @@ namespace SistemaBancario.Models
                 int linhasAfetadasEndereco = connection.Execute("UPDATE PessoaFisica JOIN Cliente ON PessoaFisica.id_cliente = Cliente.id JOIN Usuario ON Cliente.id_usuario = Usuario.id SET profissao = @profissao, rendaMensal = @rendaMensal WHERE Usuario.cpf = @cpf",
                     new { @profissao = profissaoAtual, @rendaMensal = rendaMensal, @cpf = cpf });
 
-                    return true;
+                return true;
             }
             catch (MySqlException exception)
             {
@@ -803,7 +803,8 @@ namespace SistemaBancario.Models
             finally
             {
                 connection.Close();
-            };
+            }
+        }
 
         static public bool SelecionarAdministrador(string login, string senha)
         {
@@ -836,6 +837,7 @@ namespace SistemaBancario.Models
             }
             return sucesso;
         }
+
         static public bool LoginCliente(string _numeroConta, string senha)
         {
             bool sucesso = false;
@@ -874,6 +876,7 @@ namespace SistemaBancario.Models
             }
             return sucesso;
         }
+
         static public Boolean InserirConta(int agencia,int numero,int senha,int cpf)
         {
             Boolean sucesso;
@@ -935,8 +938,6 @@ namespace SistemaBancario.Models
             }
             return sucesso;
         }
-    }
-
 
         //Atualizacao de PessoaJuridica
         static public Boolean AtualizarPJ(string razaoSocial, string cpf)
