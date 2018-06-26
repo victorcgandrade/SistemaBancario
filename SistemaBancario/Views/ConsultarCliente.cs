@@ -28,6 +28,7 @@ namespace SistemaBancario.Views
                 if(MySQLFunctions.BuscarCliente(dgv_ResultadoBuscaCliente, cpfBusca))
                 {
                     dgv_ResultadoBuscaCliente.Visible = true;
+                    lb_InformativoVisualizarCliente.Visible = true;
                     btn_VisualizarCliente.Visible = true;
                 }
                 else
@@ -60,5 +61,6 @@ namespace SistemaBancario.Views
         {
             this.Close();
         }
+
     }
 }

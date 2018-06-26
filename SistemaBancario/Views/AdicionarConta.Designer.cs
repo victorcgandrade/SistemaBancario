@@ -44,11 +44,15 @@
             this.tb_TipoConta = new System.Windows.Forms.TextBox();
             this.tb_NumeroAgencia = new System.Windows.Forms.TextBox();
             this.tb_Senha = new System.Windows.Forms.TextBox();
+            this.lb_Asterisco = new System.Windows.Forms.Label();
+            this.lb_InformativoCliente = new System.Windows.Forms.Label();
             this.p_Content.SuspendLayout();
             this.SuspendLayout();
             // 
             // p_Content
             // 
+            this.p_Content.Controls.Add(this.lb_InformativoCliente);
+            this.p_Content.Controls.Add(this.lb_Asterisco);
             this.p_Content.Controls.Add(this.tb_NumeroAgencia);
             this.p_Content.Controls.Add(this.tb_TipoConta);
             this.p_Content.Controls.Add(this.btn_AdicionarConta);
@@ -66,9 +70,9 @@
             this.p_Content.Controls.Add(this.tb_NumeroConta);
             this.p_Content.Controls.Add(this.lb_TituloAdicionarConta);
             // 
-            // p_LinkAtivo
+            // panel1
             // 
-            this.p_LinkAtivo.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(169)))), ((int)(((byte)(0)))));
+            this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(169)))), ((int)(((byte)(0)))));
             // 
             // btn_LogDados
             // 
@@ -82,12 +86,12 @@
             // 
             // btn_Clientes
             // 
-            this.btn_Clientes.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(41)))), ((int)(((byte)(43)))));
             this.btn_Clientes.FlatAppearance.BorderSize = 0;
             this.btn_Clientes.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(41)))), ((int)(((byte)(43)))));
             // 
             // btn_Contas
             // 
+            this.btn_Contas.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(41)))), ((int)(((byte)(43)))));
             this.btn_Contas.FlatAppearance.BorderSize = 0;
             this.btn_Contas.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(41)))), ((int)(((byte)(43)))));
             // 
@@ -110,7 +114,7 @@
             // tb_NumeroConta
             // 
             this.tb_NumeroConta.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.tb_NumeroConta.Location = new System.Drawing.Point(189, 292);
+            this.tb_NumeroConta.Location = new System.Drawing.Point(201, 302);
             this.tb_NumeroConta.Name = "tb_NumeroConta";
             this.tb_NumeroConta.Size = new System.Drawing.Size(122, 20);
             this.tb_NumeroConta.TabIndex = 9;
@@ -120,7 +124,7 @@
             this.lb_Agencia.AutoSize = true;
             this.lb_Agencia.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lb_Agencia.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.lb_Agencia.Location = new System.Drawing.Point(186, 217);
+            this.lb_Agencia.Location = new System.Drawing.Point(198, 227);
             this.lb_Agencia.Name = "lb_Agencia";
             this.lb_Agencia.Size = new System.Drawing.Size(110, 13);
             this.lb_Agencia.TabIndex = 89;
@@ -131,7 +135,7 @@
             this.lb_InformacaoConta.AutoSize = true;
             this.lb_InformacaoConta.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(246)))), ((int)(((byte)(246)))), ((int)(((byte)(246)))));
             this.lb_InformacaoConta.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lb_InformacaoConta.Location = new System.Drawing.Point(186, 187);
+            this.lb_InformacaoConta.Location = new System.Drawing.Point(198, 197);
             this.lb_InformacaoConta.Name = "lb_InformacaoConta";
             this.lb_InformacaoConta.Size = new System.Drawing.Size(140, 17);
             this.lb_InformacaoConta.TabIndex = 88;
@@ -142,7 +146,7 @@
             this.lb_NumeroConta.AutoSize = true;
             this.lb_NumeroConta.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lb_NumeroConta.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.lb_NumeroConta.Location = new System.Drawing.Point(186, 276);
+            this.lb_NumeroConta.Location = new System.Drawing.Point(198, 286);
             this.lb_NumeroConta.Name = "lb_NumeroConta";
             this.lb_NumeroConta.Size = new System.Drawing.Size(99, 13);
             this.lb_NumeroConta.TabIndex = 90;
@@ -153,7 +157,7 @@
             this.lb_Senha.AutoSize = true;
             this.lb_Senha.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lb_Senha.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.lb_Senha.Location = new System.Drawing.Point(315, 276);
+            this.lb_Senha.Location = new System.Drawing.Point(327, 286);
             this.lb_Senha.Name = "lb_Senha";
             this.lb_Senha.Size = new System.Drawing.Size(106, 13);
             this.lb_Senha.TabIndex = 92;
@@ -164,7 +168,7 @@
             this.lb_TipoConta.AutoSize = true;
             this.lb_TipoConta.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(246)))), ((int)(((byte)(246)))), ((int)(((byte)(246)))));
             this.lb_TipoConta.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lb_TipoConta.Location = new System.Drawing.Point(186, 91);
+            this.lb_TipoConta.Location = new System.Drawing.Point(198, 101);
             this.lb_TipoConta.Name = "lb_TipoConta";
             this.lb_TipoConta.Size = new System.Drawing.Size(91, 17);
             this.lb_TipoConta.TabIndex = 94;
@@ -175,7 +179,7 @@
             this.label1.AutoSize = true;
             this.label1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(246)))), ((int)(((byte)(246)))), ((int)(((byte)(246)))));
             this.label1.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(550, 187);
+            this.label1.Location = new System.Drawing.Point(532, 197);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(222, 17);
             this.label1.TabIndex = 95;
@@ -186,7 +190,7 @@
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.label2.Location = new System.Drawing.Point(550, 217);
+            this.label2.Location = new System.Drawing.Point(532, 227);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(124, 13);
             this.label2.TabIndex = 97;
@@ -195,7 +199,7 @@
             // tb_CpfCliente
             // 
             this.tb_CpfCliente.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.tb_CpfCliente.Location = new System.Drawing.Point(553, 233);
+            this.tb_CpfCliente.Location = new System.Drawing.Point(535, 243);
             this.tb_CpfCliente.Name = "tb_CpfCliente";
             this.tb_CpfCliente.Size = new System.Drawing.Size(146, 20);
             this.tb_CpfCliente.TabIndex = 96;
@@ -206,7 +210,7 @@
             this.btn_Limpar.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btn_Limpar.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_Limpar.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.btn_Limpar.Location = new System.Drawing.Point(469, 478);
+            this.btn_Limpar.Location = new System.Drawing.Point(495, 475);
             this.btn_Limpar.Name = "btn_Limpar";
             this.btn_Limpar.Size = new System.Drawing.Size(90, 29);
             this.btn_Limpar.TabIndex = 98;
@@ -219,7 +223,7 @@
             this.btn_Cancelar.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btn_Cancelar.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_Cancelar.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.btn_Cancelar.Location = new System.Drawing.Point(373, 478);
+            this.btn_Cancelar.Location = new System.Drawing.Point(399, 475);
             this.btn_Cancelar.Name = "btn_Cancelar";
             this.btn_Cancelar.Size = new System.Drawing.Size(90, 29);
             this.btn_Cancelar.TabIndex = 99;
@@ -232,7 +236,7 @@
             this.btn_AdicionarConta.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btn_AdicionarConta.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_AdicionarConta.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.btn_AdicionarConta.Location = new System.Drawing.Point(565, 478);
+            this.btn_AdicionarConta.Location = new System.Drawing.Point(591, 475);
             this.btn_AdicionarConta.Name = "btn_AdicionarConta";
             this.btn_AdicionarConta.Size = new System.Drawing.Size(90, 29);
             this.btn_AdicionarConta.TabIndex = 100;
@@ -244,7 +248,7 @@
             // 
             this.tb_TipoConta.BackColor = System.Drawing.SystemColors.InactiveCaption;
             this.tb_TipoConta.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.tb_TipoConta.Location = new System.Drawing.Point(189, 120);
+            this.tb_TipoConta.Location = new System.Drawing.Point(201, 130);
             this.tb_TipoConta.Name = "tb_TipoConta";
             this.tb_TipoConta.Size = new System.Drawing.Size(121, 20);
             this.tb_TipoConta.TabIndex = 101;
@@ -253,7 +257,7 @@
             // tb_NumeroAgencia
             // 
             this.tb_NumeroAgencia.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.tb_NumeroAgencia.Location = new System.Drawing.Point(189, 233);
+            this.tb_NumeroAgencia.Location = new System.Drawing.Point(201, 243);
             this.tb_NumeroAgencia.Name = "tb_NumeroAgencia";
             this.tb_NumeroAgencia.Size = new System.Drawing.Size(121, 20);
             this.tb_NumeroAgencia.TabIndex = 102;
@@ -261,11 +265,33 @@
             // tb_Senha
             // 
             this.tb_Senha.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.tb_Senha.Location = new System.Drawing.Point(318, 292);
+            this.tb_Senha.Location = new System.Drawing.Point(330, 302);
             this.tb_Senha.Name = "tb_Senha";
             this.tb_Senha.Size = new System.Drawing.Size(121, 20);
             this.tb_Senha.TabIndex = 10;
             this.tb_Senha.UseSystemPasswordChar = true;
+            // 
+            // lb_Asterisco
+            // 
+            this.lb_Asterisco.AutoSize = true;
+            this.lb_Asterisco.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lb_Asterisco.ForeColor = System.Drawing.Color.Red;
+            this.lb_Asterisco.Location = new System.Drawing.Point(655, 227);
+            this.lb_Asterisco.Name = "lb_Asterisco";
+            this.lb_Asterisco.Size = new System.Drawing.Size(12, 15);
+            this.lb_Asterisco.TabIndex = 103;
+            this.lb_Asterisco.Text = "*";
+            // 
+            // lb_InformativoCliente
+            // 
+            this.lb_InformativoCliente.AutoSize = true;
+            this.lb_InformativoCliente.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lb_InformativoCliente.ForeColor = System.Drawing.Color.Red;
+            this.lb_InformativoCliente.Location = new System.Drawing.Point(532, 266);
+            this.lb_InformativoCliente.Name = "lb_InformativoCliente";
+            this.lb_InformativoCliente.Size = new System.Drawing.Size(317, 15);
+            this.lb_InformativoCliente.TabIndex = 104;
+            this.lb_InformativoCliente.Text = "* Apenas Clientes Titulares Pessoa Física ou Pessoa Jurídica";
             // 
             // AdicionarConta
             // 
@@ -298,5 +324,7 @@
         private System.Windows.Forms.TextBox tb_TipoConta;
         private System.Windows.Forms.TextBox tb_NumeroAgencia;
         private System.Windows.Forms.TextBox tb_Senha;
+        private System.Windows.Forms.Label lb_InformativoCliente;
+        private System.Windows.Forms.Label lb_Asterisco;
     }
 }

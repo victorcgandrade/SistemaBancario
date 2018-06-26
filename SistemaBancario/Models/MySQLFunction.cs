@@ -60,8 +60,8 @@ namespace SistemaBancario.Models
             }
             catch(MySqlException e)
             {
-                return false;
                 MessageBox.Show(e.Message);
+                return false;
             }
             finally
             {

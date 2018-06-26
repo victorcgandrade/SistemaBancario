@@ -429,7 +429,7 @@ namespace SistemaBancario.Models
             return null;
         }
 
-
+        //Retorna um objeto dependente de acordo com a query passada e o id deste
         static public Dependente RetornarDependente(string query, int id)
         {
             try
@@ -463,6 +463,7 @@ namespace SistemaBancario.Models
 
         }
 
+        //Retorna um objeto pessoa fisica de acordo com a query passada e o id deste
         static public PessoaFisica RetornarPessoaFisica(string query, int id)
         {
             try
@@ -495,6 +496,7 @@ namespace SistemaBancario.Models
             }
         }
 
+        //Retorna um objeto pessoa juridica de acordo com a query passada e o id deste
         static public PessoaJuridica RetornarPessoaJuridica(string query, int id)
         {
             try
@@ -808,6 +810,7 @@ namespace SistemaBancario.Models
             }
         }
 
+        //Verifica se o administrador esta cadastrado no banco
         static public bool SelecionarAdministrador(string login, string senha)
         {
             bool sucesso = false;
@@ -840,6 +843,7 @@ namespace SistemaBancario.Models
             return sucesso;
         }
 
+        //Verifica se a conta deste cliente esta cadastrada no banco
         static public bool LoginCliente(string _numeroConta, string senha)
         {
             bool sucesso = false;
@@ -879,46 +883,6 @@ namespace SistemaBancario.Models
             return sucesso;
         }
 
-        static public Boolean InserirConta(int agencia, int numero, string senha, string cpf)
-        {
-            Boolean sucesso;
-
-            try
-            {
-                if (connection.State == ConnectionState.Closed)
-                    connection.Open();
-
-                //Recupera o id da agencia informada
-                var idAgencia = connection.ExecuteScalar<int>("SELECT id FROM Agencia WHERE numero = @agencia", new { @agencia = agencia});
-
-                //Recupera o id do cliente informado
-                var idCliente = connection.ExecuteScalar<int>("SELECT Cliente.id FROM Cliente JOIN Usuario ON Cliente.id_usuario = Usuario.id WHERE Usuario.cpf = @cpf", new { cpf = cpf });
-
-                //Cria a Conta, retornando a quantidade de linhas afetadas pelo comando
-                int affectedRows = connection.Execute("INSERT INTO Conta(numero, id_agencia, senha, id_cliente) VALUES(@numero, @idAgencia, @senha, @idCliente)", 
-                    new { @numero = numero, @idAgencia = idAgencia, @senha = senha, @idCliente = idCliente });
-
-                if (affectedRows == 1) //Obrigatoriamente uma linha precisa ser inserida
-                {
-                    sucesso = true;
-                } else
-                {
-                    sucesso = false;
-                }
-            }
-            catch (MySqlException exception)
-            {
-                sucesso = false;
-                Console.WriteLine(exception.ToString());
-            }
-            finally
-            {
-                connection.Close();
-            }
-
-            return sucesso;
-        }
-
         //Atualizacao de PessoaJuridica
         static public Boolean AtualizarPJ(string razaoSocial, string cpf)
         {
@@ -948,6 +912,87 @@ namespace SistemaBancario.Models
 
             return false;
         }
+
+        //Cria uma nova conta
+        static public Boolean InserirConta(int agencia, int numero, string senha, string cpf)
+        {
+            Boolean sucesso;
+
+            try
+            {
+                if (connection.State == ConnectionState.Closed)
+                    connection.Open();
+
+                //Recupera o id da agencia informada
+                var idAgencia = connection.ExecuteScalar<int>("SELECT id FROM Agencia WHERE numero = @agencia", new { @agencia = agencia });
+
+                //Recupera o id do cliente informado
+                var idCliente = connection.ExecuteScalar<int>("SELECT Cliente.id FROM Cliente JOIN Usuario ON Cliente.id_usuario = Usuario.id WHERE Usuario.cpf = @cpf", new { cpf = cpf });
+
+                //Cria a Conta, retornando a quantidade de linhas afetadas pelo comando
+                int affectedRows = connection.Execute("INSERT INTO Conta(numero, id_agencia, senha, id_cliente) VALUES(@numero, @idAgencia, @senha, @idCliente)",
+                    new { @numero = numero, @idAgencia = idAgencia, @senha = senha, @idCliente = idCliente });
+
+                if (affectedRows == 1) //Obrigatoriamente uma linha precisa ser inserida
+                {
+                    sucesso = true;
+                }
+                else
+                {
+                    sucesso = false;
+                }
+            }
+            catch (MySqlException exception)
+            {
+                sucesso = false;
+                Console.WriteLine(exception.ToString());
+            }
+            finally
+            {
+                connection.Close();
+            }
+
+            return sucesso;
+        }
+
+        //Busca por uma conta
+        static public DataTable BuscarConta(string numeroConta)
+        {
+            DataTable dataTable = new DataTable();
+
+            if (!ApenasDigitos(numeroConta)) //Confere se a string digitada apenas contem numeros
+            {
+                dataTable = null;
+            }
+            else
+            {
+                try
+                {
+                    if (connection.State == ConnectionState.Closed)
+                        connection.Open();
+
+                    MySqlCommand buscarConta = new MySqlCommand("SELECT Conta.id AS 'Identificador', Conta.numero AS 'Número da conta', Agencia.numero AS 'Número da agência', Conta.status AS 'Status', Usuario.cpf AS 'CPF cliente responsável' FROM Conta JOIN " +
+                        "Agencia ON Conta.id_agencia = Agencia.id JOIN Cliente ON Conta.id_cliente = Cliente.id JOIN Usuario ON Cliente.id_usuario = Usuario.id WHERE Conta.numero = @numero", connection);
+                    buscarConta.Parameters.AddWithValue("@numero", numeroConta);
+
+                    MySqlDataAdapter dataAdapter = new MySqlDataAdapter(buscarConta);
+                    dataAdapter.Fill(dataTable);
+
+                }
+                catch (MySqlException exception)
+                {
+                    dataTable = null;
+                    Console.WriteLine(exception.ToString());
+                }
+                finally
+                {
+                    connection.Close();
+                }
+            }
+            return dataTable;
+        }
+
+
     }
 }
 
