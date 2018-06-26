@@ -992,6 +992,48 @@ namespace SistemaBancario.Models
             return dataTable;
         }
 
+        //Retorna um objeto do tipo conta
+        static public ContaCorrente RetornarConta(int id)
+        {
+            try
+            {
+                if (connection.State == ConnectionState.Closed)
+                    connection.Open();
+
+                //Busca pela agencia da conta
+                var queryAgencia = connection.Query<Agencia>("", new { @idDependente = id });
+
+                Agencia agencia = queryAgencia.First();
+
+                //Busca pelo cliente responsavel pela conta
+                var queryCliente = connection.Query<Cliente>("", new { @idDependente = id });
+
+                Cliente cliente = queryCliente.First();
+
+                //Busca pela classe Conta 
+
+                var queryConta = connection.Query<Conta>("", new { @idDependente = id });
+
+                Conta conta = queryConta.First();
+
+                //Associa o objeto endereco buscado ao objeto dependente criado
+                var queryContaCorrente = connection.Query<ContaCorrente>("", new { @idDependente = id });
+
+                ContaCorrente contaCorrente = queryContaCorrente.First();
+
+                return contaCorrente;
+            }
+            catch (MySqlException exception)
+            {
+                Console.WriteLine(exception.ToString());
+                return null;
+            }
+            finally
+            {
+                connection.Close();
+            }
+
+        }
 
     }
 }

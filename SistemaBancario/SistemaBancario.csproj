@@ -308,6 +308,9 @@
     <EmbeddedResource Include="Views\VisualizarCliente.resx">
       <DependentUpon>VisualizarCliente.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Views\VisualizarConta.resx">
+      <DependentUpon>VisualizarConta.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="ClassDiagram1.cd" />
     <None Include="obj\Debug\DesignTimeResolveAssemblyReferencesInput.cache" />
     <None Include="obj\Debug\SistemaBancario.csproj.CoreCompileInputs.cache" />
@@ -333,6 +336,7 @@
   <ItemGroup />
   <ItemGroup>
     <Content Include="obj\Debug\TempPE\Properties.Resources.Designer.cs.dll" />
+    <None Include="Resources\credit-cards-conta.png" />
     <None Include="Resources\credit-card.png" />
     <None Include="Resources\usuario.png" />
     <None Include="Resources\user %281%29.png" />

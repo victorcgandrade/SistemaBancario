@@ -29,6 +29,17 @@ namespace SistemaBancario.Models
             this.conta = conta;
         }
 
+        //Construtor facilitado para visualizacao
+        public ContaCorrente(int numero, int numeroAgencia, decimal saldo, string status, decimal taxa, decimal limite)
+        {
+            this.Conta.Numero = numero;
+            this.Agencia.Numero = numeroAgencia;
+            this.Saldo = saldo;
+            this.Status = status;
+            this.taxa = taxa;
+            this.limite = limite;
+        }
+
         public decimal Taxa
         {
             get

@@ -52,10 +52,10 @@ namespace SistemaBancario.Views
 
             string idAplicacao = cur_row.Cells["Identificador"].Value.ToString();
 
-            VisualizarConta visualizarConta = new VisualizarConta();
-            visualizarConta.FormClosed += new FormClosedEventHandler(visualizarConta_FormClosed);
-            visualizarConta.Show();
-            this.Hide();
+            //VisualizarConta visualizarConta = new VisualizarConta();
+           // visualizarConta.FormClosed += new FormClosedEventHandler(visualizarConta_FormClosed);
+           // visualizarConta.Show();
+           // this.Hide();
         }
 
         //Quando a tela de for fechada, fecha-se tambem a tela que lhe deu origem
