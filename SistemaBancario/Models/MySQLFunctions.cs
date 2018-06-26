@@ -86,6 +86,7 @@ namespace SistemaBancario.Models
 
             return sucesso;
         }
+       
         //Criar novo cliente no banco de dados
         static public Boolean InserirCliente(string dataNascimento, string email, string telefone, string celular, string dataCadastro, string estado, string estadoCivil, string cep, string cpf)
         {
@@ -123,6 +124,7 @@ namespace SistemaBancario.Models
             }
             return sucesso;
         }
+      
         //Criar novo Titular Pessoa Fisica
         static public Boolean InserirTitularPessoaFisica(string profissao, decimal rendaMensal, string email)
         {
@@ -154,6 +156,7 @@ namespace SistemaBancario.Models
             }
             return sucesso;
         }
+
         static public bool SelecionarCliente(string agencia, string conta)
         {
             bool sucesso = false;
@@ -277,7 +280,6 @@ namespace SistemaBancario.Models
             }
             return true;
         }
-
 
         //Exibir resultado da busca por um cliente
         static public Boolean BuscarCliente(DataGridView dataGridView, string identificador)
@@ -877,58 +879,35 @@ namespace SistemaBancario.Models
             return sucesso;
         }
 
-        static public Boolean InserirConta(int agencia,int numero,int senha,int cpf)
+        static public Boolean InserirConta(int agencia, int numero, string senha, string cpf)
         {
             Boolean sucesso;
-            int idUsuario=0;
-            int idAgencia=0;
-            int idCliente = 0;
+
             try
             {
                 if (connection.State == ConnectionState.Closed)
-                    
                     connection.Open();
-                MySqlCommand selecionarUsuarioID = new MySqlCommand("SELECT id FROM Usuario where cpf=@cpf",connection);
-                selecionarUsuarioID.Parameters.AddWithValue("@cpf", cpf);
-                MySqlDataReader reader1 = selecionarUsuarioID.ExecuteReader();
-                while (reader1.Read())
+
+                //Recupera o id da agencia informada
+                var idAgencia = connection.ExecuteScalar<int>("SELECT id FROM Agencia WHERE numero = @agencia", new { @agencia = agencia});
+
+                //Recupera o id do cliente informado
+                var idCliente = connection.ExecuteScalar<int>("SELECT Cliente.id FROM Cliente JOIN Usuario ON Cliente.id_usuario = Usuario.id WHERE Usuario.cpf = @cpf", new { cpf = cpf });
+
+                //Cria a Conta, retornando a quantidade de linhas afetadas pelo comando
+                int affectedRows = connection.Execute("INSERT INTO Conta(numero, id_agencia, senha, id_cliente) VALUES(@numero, @idAgencia, @senha, @idCliente)", 
+                    new { @numero = numero, @idAgencia = idAgencia, @senha = senha, @idCliente = idCliente });
+
+                if (affectedRows == 1) //Obrigatoriamente uma linha precisa ser inserida
                 {
-                    idUsuario = (int)reader1[0];
-
-                }
-                reader1.Close();
-                MySqlCommand selecionarClienteID = new MySqlCommand("SELECT id FROM Cliente where id_usuario=@idUsuario", connection);
-                selecionarClienteID.Parameters.AddWithValue("@idUsuario", idUsuario);
-                reader1 = selecionarClienteID.ExecuteReader();
-                while (reader1.Read())
+                    sucesso = true;
+                } else
                 {
-                    idCliente = (int)reader1[0];
-
+                    sucesso = false;
                 }
-                reader1.Close();
-                MySqlCommand selecionarAgenciaID = new MySqlCommand("SELECT id FROM Agencia where numero=@numero",connection);
-                selecionarClienteID.Parameters.AddWithValue("@numero", numero);
-                reader1 = selecionarAgenciaID.ExecuteReader();
-                while (reader1.Read())
-                {
-                    idAgencia = (int)reader1[0];
-
-                }
-                reader1.Close();
-                MySqlCommand inserirConta = new MySqlCommand(
-                    "INSERT INTO Conta(numero, id_agencia,saldo,senha,estado,id_cliente) VALUES(@numero, @agencia, 0, @senha, Criada, @cliente;", connection);
-                inserirConta.Parameters.AddWithValue("@numero", numero);
-                inserirConta.Parameters.AddWithValue("@agencia", idAgencia);
-                inserirConta.Parameters.AddWithValue("@senha", senha);
-                inserirConta.Parameters.AddWithValue("@cliente", idCliente);
-                inserirConta.ExecuteNonQuery();
-                inserirConta.Parameters.Clear();
-
-                sucesso = true;
             }
             catch (MySqlException exception)
             {
-               
                 sucesso = false;
                 Console.WriteLine(exception.ToString());
             }
@@ -936,6 +915,7 @@ namespace SistemaBancario.Models
             {
                 connection.Close();
             }
+
             return sucesso;
         }
 

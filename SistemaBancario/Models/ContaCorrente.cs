@@ -6,7 +6,63 @@ using System.Threading.Tasks;
 
 namespace SistemaBancario.Models
 {
-    class ContaCorrente
+    class ContaCorrente : Conta
     {
+        private decimal taxa;
+        private decimal limite;
+        private Conta conta;
+
+        public ContaCorrente()
+        {
+
+        }
+
+        public ContaCorrente(int numero, Agencia agencia, decimal saldo, string status, Cliente cliente, decimal taxa, decimal limite, Conta conta)
+        {
+            this.Numero = numero;
+            this.Agencia = agencia;
+            this.Saldo = saldo;
+            this.Status = status;
+            this.Cliente = cliente;
+            this.taxa = taxa;
+            this.limite = limite;
+            this.conta = conta;
+        }
+
+        public decimal Taxa
+        {
+            get
+            {
+                return taxa;
+            }
+            set
+            {
+                taxa = value;
+            }
+        }
+
+        public decimal Limite
+        {
+            get
+            {
+                return limite;
+            }
+            set
+            {
+                limite = value;
+            }
+        }
+
+        public Conta Conta
+        {
+            get
+            {
+                return conta;
+            }
+            set
+            {
+                conta = value;
+            }
+        }
     }
 }

@@ -29,41 +29,41 @@
         private void InitializeComponent()
         {
             this.lb_TituloAdicionarConta = new System.Windows.Forms.Label();
-            this.txtBoxNumero = new System.Windows.Forms.TextBox();
-            this.txtBoxSenha = new System.Windows.Forms.TextBox();
+            this.tb_NumeroConta = new System.Windows.Forms.TextBox();
             this.lb_Agencia = new System.Windows.Forms.Label();
             this.lb_InformacaoConta = new System.Windows.Forms.Label();
             this.lb_NumeroConta = new System.Windows.Forms.Label();
-            this.cb_Numero_Agencia = new System.Windows.Forms.ComboBox();
             this.lb_Senha = new System.Windows.Forms.Label();
-            this.cb_TipoCliente = new System.Windows.Forms.ComboBox();
             this.lb_TipoConta = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.tb_CpfCliente = new System.Windows.Forms.TextBox();
             this.btn_Limpar = new System.Windows.Forms.Button();
             this.btn_Cancelar = new System.Windows.Forms.Button();
             this.btn_AdicionarConta = new System.Windows.Forms.Button();
+            this.tb_TipoConta = new System.Windows.Forms.TextBox();
+            this.tb_NumeroAgencia = new System.Windows.Forms.TextBox();
+            this.tb_Senha = new System.Windows.Forms.TextBox();
             this.p_Content.SuspendLayout();
             this.SuspendLayout();
             // 
             // p_Content
             // 
+            this.p_Content.Controls.Add(this.tb_NumeroAgencia);
+            this.p_Content.Controls.Add(this.tb_TipoConta);
             this.p_Content.Controls.Add(this.btn_AdicionarConta);
             this.p_Content.Controls.Add(this.btn_Limpar);
             this.p_Content.Controls.Add(this.btn_Cancelar);
             this.p_Content.Controls.Add(this.label2);
-            this.p_Content.Controls.Add(this.textBox1);
+            this.p_Content.Controls.Add(this.tb_CpfCliente);
             this.p_Content.Controls.Add(this.label1);
-            this.p_Content.Controls.Add(this.cb_TipoCliente);
             this.p_Content.Controls.Add(this.lb_TipoConta);
             this.p_Content.Controls.Add(this.lb_Senha);
-            this.p_Content.Controls.Add(this.cb_Numero_Agencia);
             this.p_Content.Controls.Add(this.lb_NumeroConta);
             this.p_Content.Controls.Add(this.lb_Agencia);
             this.p_Content.Controls.Add(this.lb_InformacaoConta);
-            this.p_Content.Controls.Add(this.txtBoxSenha);
-            this.p_Content.Controls.Add(this.txtBoxNumero);
+            this.p_Content.Controls.Add(this.tb_Senha);
+            this.p_Content.Controls.Add(this.tb_NumeroConta);
             this.p_Content.Controls.Add(this.lb_TituloAdicionarConta);
             // 
             // p_LinkAtivo
@@ -107,19 +107,13 @@
             this.lb_TituloAdicionarConta.TabIndex = 0;
             this.lb_TituloAdicionarConta.Text = "ADICIONAR CONTA";
             // 
-            // txtBoxNumero
+            // tb_NumeroConta
             // 
-            this.txtBoxNumero.Location = new System.Drawing.Point(189, 292);
-            this.txtBoxNumero.Name = "txtBoxNumero";
-            this.txtBoxNumero.Size = new System.Drawing.Size(122, 20);
-            this.txtBoxNumero.TabIndex = 9;
-            // 
-            // txtBoxSenha
-            // 
-            this.txtBoxSenha.Location = new System.Drawing.Point(318, 292);
-            this.txtBoxSenha.Name = "txtBoxSenha";
-            this.txtBoxSenha.Size = new System.Drawing.Size(121, 20);
-            this.txtBoxSenha.TabIndex = 10;
+            this.tb_NumeroConta.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.tb_NumeroConta.Location = new System.Drawing.Point(189, 292);
+            this.tb_NumeroConta.Name = "tb_NumeroConta";
+            this.tb_NumeroConta.Size = new System.Drawing.Size(122, 20);
+            this.tb_NumeroConta.TabIndex = 9;
             // 
             // lb_Agencia
             // 
@@ -154,14 +148,6 @@
             this.lb_NumeroConta.TabIndex = 90;
             this.lb_NumeroConta.Text = "Número da conta:";
             // 
-            // cb_Numero_Agencia
-            // 
-            this.cb_Numero_Agencia.FormattingEnabled = true;
-            this.cb_Numero_Agencia.Location = new System.Drawing.Point(189, 233);
-            this.cb_Numero_Agencia.Name = "cb_Numero_Agencia";
-            this.cb_Numero_Agencia.Size = new System.Drawing.Size(121, 21);
-            this.cb_Numero_Agencia.TabIndex = 91;
-            // 
             // lb_Senha
             // 
             this.lb_Senha.AutoSize = true;
@@ -172,19 +158,6 @@
             this.lb_Senha.Size = new System.Drawing.Size(106, 13);
             this.lb_Senha.TabIndex = 92;
             this.lb_Senha.Text = "Senha de 4 dígitos:";
-            // 
-            // cb_TipoCliente
-            // 
-            this.cb_TipoCliente.BackColor = System.Drawing.SystemColors.InactiveCaption;
-            this.cb_TipoCliente.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cb_TipoCliente.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.cb_TipoCliente.FormattingEnabled = true;
-            this.cb_TipoCliente.Items.AddRange(new object[] {
-            "Conta Corrente"});
-            this.cb_TipoCliente.Location = new System.Drawing.Point(189, 120);
-            this.cb_TipoCliente.Name = "cb_TipoCliente";
-            this.cb_TipoCliente.Size = new System.Drawing.Size(165, 21);
-            this.cb_TipoCliente.TabIndex = 93;
             // 
             // lb_TipoConta
             // 
@@ -219,12 +192,13 @@
             this.label2.TabIndex = 97;
             this.label2.Text = "CPF (Apenas números):";
             // 
-            // textBox1
+            // tb_CpfCliente
             // 
-            this.textBox1.Location = new System.Drawing.Point(553, 233);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(146, 20);
-            this.textBox1.TabIndex = 96;
+            this.tb_CpfCliente.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.tb_CpfCliente.Location = new System.Drawing.Point(553, 233);
+            this.tb_CpfCliente.Name = "tb_CpfCliente";
+            this.tb_CpfCliente.Size = new System.Drawing.Size(146, 20);
+            this.tb_CpfCliente.TabIndex = 96;
             // 
             // btn_Limpar
             // 
@@ -264,6 +238,34 @@
             this.btn_AdicionarConta.TabIndex = 100;
             this.btn_AdicionarConta.Text = "Confirmar";
             this.btn_AdicionarConta.UseVisualStyleBackColor = false;
+            this.btn_AdicionarConta.Click += new System.EventHandler(this.btn_AdicionarConta_Click);
+            // 
+            // tb_TipoConta
+            // 
+            this.tb_TipoConta.BackColor = System.Drawing.SystemColors.InactiveCaption;
+            this.tb_TipoConta.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.tb_TipoConta.Location = new System.Drawing.Point(189, 120);
+            this.tb_TipoConta.Name = "tb_TipoConta";
+            this.tb_TipoConta.Size = new System.Drawing.Size(121, 20);
+            this.tb_TipoConta.TabIndex = 101;
+            this.tb_TipoConta.Text = "Conta Corrente";
+            // 
+            // tb_NumeroAgencia
+            // 
+            this.tb_NumeroAgencia.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.tb_NumeroAgencia.Location = new System.Drawing.Point(189, 233);
+            this.tb_NumeroAgencia.Name = "tb_NumeroAgencia";
+            this.tb_NumeroAgencia.Size = new System.Drawing.Size(121, 20);
+            this.tb_NumeroAgencia.TabIndex = 102;
+            // 
+            // tb_Senha
+            // 
+            this.tb_Senha.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.tb_Senha.Location = new System.Drawing.Point(318, 292);
+            this.tb_Senha.Name = "tb_Senha";
+            this.tb_Senha.Size = new System.Drawing.Size(121, 20);
+            this.tb_Senha.TabIndex = 10;
+            this.tb_Senha.UseSystemPasswordChar = true;
             // 
             // AdicionarConta
             // 
@@ -281,20 +283,20 @@
         #endregion
 
         private System.Windows.Forms.Label lb_TituloAdicionarConta;
-        private System.Windows.Forms.TextBox txtBoxSenha;
-        private System.Windows.Forms.TextBox txtBoxNumero;
+        private System.Windows.Forms.TextBox tb_NumeroConta;
         protected System.Windows.Forms.Label lb_Agencia;
         protected System.Windows.Forms.Label lb_InformacaoConta;
         protected System.Windows.Forms.Label lb_NumeroConta;
-        private System.Windows.Forms.ComboBox cb_Numero_Agencia;
         protected System.Windows.Forms.Label lb_Senha;
-        protected System.Windows.Forms.ComboBox cb_TipoCliente;
         protected System.Windows.Forms.Label lb_TipoConta;
         protected System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox tb_CpfCliente;
         protected System.Windows.Forms.Label label1;
         protected System.Windows.Forms.Button btn_AdicionarConta;
         protected System.Windows.Forms.Button btn_Limpar;
         protected System.Windows.Forms.Button btn_Cancelar;
+        private System.Windows.Forms.TextBox tb_TipoConta;
+        private System.Windows.Forms.TextBox tb_NumeroAgencia;
+        private System.Windows.Forms.TextBox tb_Senha;
     }
 }

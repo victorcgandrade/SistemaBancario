@@ -18,35 +18,38 @@ namespace SistemaBancario.Views
             InitializeComponent();
         }
 
-       /* private Boolean CriarConta()
+        private Boolean CriarConta()
         {
             bool sucesso = false;
-            int agencia = Int32.Parse(txtBoxAgencia.Text);
-            int numero = Int32.Parse(txtBoxNumero.Text);
-            int senha = Int32.Parse(txtBoxSenha.Text);
-            int cpf = Int32.Parse(txtBoxCPF.Text);*/
 
-            /*if (MySQLFunctions.InserirConta(agencia, numero, senha, cpf))
+            string cpf = tb_CpfCliente.Text;
+            int agencia = Convert.ToInt32(tb_NumeroAgencia.Text);
+            int numero = Convert.ToInt32(tb_NumeroConta.Text);
+            string senha = tb_Senha.Text;
+
+            if (MySQLFunctions.InserirConta(agencia, numero, senha, cpf))
             {
-                return true;
+
+                sucesso = true;
             }
             else
             {
-                return false;
+                sucesso = false;
             }
-        }*/
 
-        private void btnSalvar_Click(object sender, EventArgs e)
+            return sucesso;
+        }
+
+        private void btn_AdicionarConta_Click(object sender, EventArgs e)
         {
             if (CriarConta())
             {
-                MessageBox.Show("Conta criada com sucesso!");
-            }
-            else
-            {
-                MessageBox.Show("Falha na operação!");
-            }
+                MessageBox.Show("Ok");
 
+            } else
+            {
+                MessageBox.Show("Nok");
+            }
         }
     }
 }
