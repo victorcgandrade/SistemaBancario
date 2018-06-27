@@ -205,6 +205,12 @@
     <Compile Include="Views\TemplateInicialAdministrador.Designer.cs">
       <DependentUpon>TemplateInicialAdministrador.cs</DependentUpon>
     </Compile>
+    <Compile Include="Views\TemplateInicialCliente.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\TemplateInicialCliente.Designer.cs">
+      <DependentUpon>TemplateInicialCliente.cs</DependentUpon>
+    </Compile>
     <Compile Include="Views\VisualizarAplicacao.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -254,7 +260,7 @@
     <EmbeddedResource Include="Views\TelaSenhaCliente.resx">
       <DependentUpon>TelaSenhaCliente.cs</DependentUpon>
     </EmbeddedResource>
-	<EmbeddedResource Include="Views\AtualizarAplicacao.resx">
+    <EmbeddedResource Include="Views\AtualizarAplicacao.resx">
       <DependentUpon>AtualizarAplicacao.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Views\FormularioCliente.resx">
@@ -287,6 +293,9 @@
     <EmbeddedResource Include="Views\TemplateInicialAdministrador.resx">
       <DependentUpon>TemplateInicialAdministrador.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Views\TemplateInicialCliente.resx">
+      <DependentUpon>TemplateInicialCliente.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Views\VisualizarAplicacao.resx">
       <DependentUpon>VisualizarAplicacao.cs</DependentUpon>
     </EmbeddedResource>
@@ -318,6 +327,16 @@
   <ItemGroup />
   <ItemGroup>
     <Content Include="obj\Debug\TempPE\Properties.Resources.Designer.cs.dll" />
+    <None Include="Resources\questions-circular-button_1.png" />
+    <None Include="Resources\info.png" />
+    <None Include="Resources\profits.png" />
+    <None Include="Resources\atm %281%29.png" />
+    <None Include="Resources\atm.png" />
+    <None Include="Resources\voucher.png" />
+    <None Include="Resources\budget.png" />
+    <None Include="Resources\bill.png" />
+    <None Include="Resources\tax.png" />
+    <None Include="Resources\transferencia.png" />
     <None Include="Resources\credit-card.png" />
     <None Include="Resources\usuario.png" />
     <None Include="Resources\user %281%29.png" />
