@@ -31,11 +31,11 @@ namespace SistemaBancario.Views
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.p_Footer = new System.Windows.Forms.Panel();
-            this.lb_SaldoValor = new System.Windows.Forms.Label();
+            this.btnSaldo = new System.Windows.Forms.Button();
             this.pb_IconeUsuario = new System.Windows.Forms.PictureBox();
             this.btn_Sair = new System.Windows.Forms.Button();
-            this.lb_Saldo = new System.Windows.Forms.Label();
             this.lb_NomeAdmin = new System.Windows.Forms.Label();
             this.p_SideMenu = new System.Windows.Forms.Panel();
             this.panel5 = new System.Windows.Forms.Panel();
@@ -56,6 +56,7 @@ namespace SistemaBancario.Views
             this.lb_DataHoraAtual = new System.Windows.Forms.Label();
             this.lb_DuvidasApp = new System.Windows.Forms.Label();
             this.p_Content = new System.Windows.Forms.Panel();
+            this.toolTipSaldo = new System.Windows.Forms.ToolTip(this.components);
             this.p_Footer.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pb_IconeUsuario)).BeginInit();
             this.p_SideMenu.SuspendLayout();
@@ -66,10 +67,9 @@ namespace SistemaBancario.Views
             // p_Footer
             // 
             this.p_Footer.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(19)))), ((int)(((byte)(19)))), ((int)(((byte)(19)))));
-            this.p_Footer.Controls.Add(this.lb_SaldoValor);
+            this.p_Footer.Controls.Add(this.btnSaldo);
             this.p_Footer.Controls.Add(this.pb_IconeUsuario);
             this.p_Footer.Controls.Add(this.btn_Sair);
-            this.p_Footer.Controls.Add(this.lb_Saldo);
             this.p_Footer.Controls.Add(this.lb_NomeAdmin);
             this.p_Footer.Dock = System.Windows.Forms.DockStyle.Top;
             this.p_Footer.Location = new System.Drawing.Point(215, 0);
@@ -77,20 +77,24 @@ namespace SistemaBancario.Views
             this.p_Footer.Size = new System.Drawing.Size(1110, 43);
             this.p_Footer.TabIndex = 12;
             // 
-            // lb_SaldoValor
+            // btnSaldo
             // 
-            this.lb_SaldoValor.AutoSize = true;
-            this.lb_SaldoValor.ForeColor = System.Drawing.SystemColors.ScrollBar;
-            this.lb_SaldoValor.Location = new System.Drawing.Point(932, 24);
-            this.lb_SaldoValor.Name = "lb_SaldoValor";
-            this.lb_SaldoValor.Size = new System.Drawing.Size(28, 13);
-            this.lb_SaldoValor.TabIndex = 3;
-            this.lb_SaldoValor.Text = "0.00";
+            this.btnSaldo.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(169)))), ((int)(((byte)(0)))));
+            this.btnSaldo.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnSaldo.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold);
+            this.btnSaldo.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.btnSaldo.Location = new System.Drawing.Point(920, 8);
+            this.btnSaldo.Name = "btnSaldo";
+            this.btnSaldo.Size = new System.Drawing.Size(91, 29);
+            this.btnSaldo.TabIndex = 4;
+            this.btnSaldo.Text = "Saldo";
+            this.btnSaldo.UseVisualStyleBackColor = false;
+            this.btnSaldo.Click += new System.EventHandler(this.btnSaldo_Click);
             // 
             // pb_IconeUsuario
             // 
             this.pb_IconeUsuario.Image = global::SistemaBancario.Properties.Resources.usuario;
-            this.pb_IconeUsuario.Location = new System.Drawing.Point(827, 6);
+            this.pb_IconeUsuario.Location = new System.Drawing.Point(753, 4);
             this.pb_IconeUsuario.Name = "pb_IconeUsuario";
             this.pb_IconeUsuario.Size = new System.Drawing.Size(36, 36);
             this.pb_IconeUsuario.TabIndex = 0;
@@ -110,24 +114,13 @@ namespace SistemaBancario.Views
             this.btn_Sair.UseVisualStyleBackColor = false;
             this.btn_Sair.Click += new System.EventHandler(this.btn_Sair_Click);
             // 
-            // lb_Saldo
-            // 
-            this.lb_Saldo.AutoSize = true;
-            this.lb_Saldo.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lb_Saldo.ForeColor = System.Drawing.SystemColors.ScrollBar;
-            this.lb_Saldo.Location = new System.Drawing.Point(869, 23);
-            this.lb_Saldo.Name = "lb_Saldo";
-            this.lb_Saldo.Size = new System.Drawing.Size(58, 13);
-            this.lb_Saldo.TabIndex = 2;
-            this.lb_Saldo.Text = "Saldo : R$";
-            // 
             // lb_NomeAdmin
             // 
             this.lb_NomeAdmin.AutoSize = true;
             this.lb_NomeAdmin.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(19)))), ((int)(((byte)(19)))), ((int)(((byte)(19)))));
             this.lb_NomeAdmin.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lb_NomeAdmin.ForeColor = System.Drawing.SystemColors.Menu;
-            this.lb_NomeAdmin.Location = new System.Drawing.Point(869, 6);
+            this.lb_NomeAdmin.Location = new System.Drawing.Point(795, 14);
             this.lb_NomeAdmin.Name = "lb_NomeAdmin";
             this.lb_NomeAdmin.Size = new System.Drawing.Size(121, 17);
             this.lb_NomeAdmin.TabIndex = 1;
@@ -414,22 +407,22 @@ namespace SistemaBancario.Views
 
         private void btn_Agencias_Click(object sender, EventArgs e)
         {
-            throw new NotImplementedException();
+            
         }
 
         private void btn_Aplicacoes_Click(object sender, EventArgs e)
         {
-            throw new NotImplementedException();
+            
         }
 
         private void btn_Contas_Click(object sender, EventArgs e)
         {
-            throw new NotImplementedException();
+           
         }
 
         private void btn_Clientes_Click(object sender, EventArgs e)
         {
-            throw new NotImplementedException();
+            
         }
 
         private void btn_Sair_Click(object sender, EventArgs e)
@@ -442,7 +435,6 @@ namespace SistemaBancario.Views
         #endregion
         private System.Windows.Forms.PictureBox pb_IconeUsuario;
         private System.Windows.Forms.Button btn_Sair;
-        private System.Windows.Forms.Label lb_Saldo;
         private System.Windows.Forms.Label lb_NomeAdmin;
         private System.Windows.Forms.PictureBox pb_Logo;
         private System.Windows.Forms.Label lb_DataHoraAtual;
@@ -462,8 +454,9 @@ namespace SistemaBancario.Views
         protected System.Windows.Forms.Button btn_Tranferencias;
         protected System.Windows.Forms.Button btn_Pagamentos;
         protected System.Windows.Forms.Button btn_Extrato;
-        private System.Windows.Forms.Label lb_SaldoValor;
         protected System.Windows.Forms.Panel panel5;
         protected System.Windows.Forms.Button btn_Atendimento;
+        private System.Windows.Forms.Button btnSaldo;
+        private System.Windows.Forms.ToolTip toolTipSaldo;
     }
 }

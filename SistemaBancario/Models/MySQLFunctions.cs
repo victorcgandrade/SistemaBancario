@@ -968,6 +968,23 @@ namespace SistemaBancario.Models
 
             return false;
         }
+
+        static public Decimal ConsultarSaldo(InstanciaLogin login)
+        {
+            decimal saldoCliente=0;
+            string conta = login.conta;
+            try
+            {
+                if (connection.State == ConnectionState.Closed)
+                    connection.Open();
+                saldoCliente= connection.ExecuteScalar<decimal>("SELECT saldo FROM Conta WHERE numero = @conta", new { @conta = conta });
+            }
+            catch
+            {
+
+            }
+            return saldoCliente;
+        } 
     }
 }
 

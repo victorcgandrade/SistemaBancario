@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using Main;
 using MySql.Data.MySqlClient;
+using SistemaBancario.Models;
 
 namespace SistemaBancario.Views
 {
@@ -125,6 +126,11 @@ namespace SistemaBancario.Views
             if (SistemaBancario.Models.MySQLFunctions.LoginCliente(_numeroConta, senha))
             {
                 MessageBox.Show("Logado com sucesso");
+                this.Hide();
+                InstanciaLogin il = new InstanciaLogin(_numeroConta);
+                TemplateInicialCliente tic=new TemplateInicialCliente(il);
+                tic.Show();
+
             }
 
         }
