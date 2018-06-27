@@ -47,13 +47,13 @@
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.lb_ValorIOF = new System.Windows.Forms.Label();
             this.textBox2 = new System.Windows.Forms.TextBox();
-            this.button1 = new System.Windows.Forms.Button();
+            this.btn_Confirmar_AlterarAplicacao = new System.Windows.Forms.Button();
             this.p_Content.SuspendLayout();
             this.SuspendLayout();
             // 
             // p_Content
             // 
-            this.p_Content.Controls.Add(this.button1);
+            this.p_Content.Controls.Add(this.btn_Confirmar_AlterarAplicacao);
             this.p_Content.Controls.Add(this.lb_ImpostoRenda);
             this.p_Content.Controls.Add(this.textBox1);
             this.p_Content.Controls.Add(this.lb_ValorIOF);
@@ -332,18 +332,18 @@
             this.textBox2.TabIndex = 109;
             this.textBox2.Visible = false;
             // 
-            // button1
+            // btn_Confirmar_AlterarAplicacao
             // 
-            this.button1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(187)))), ((int)(((byte)(117)))));
-            this.button1.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.button1.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.button1.Location = new System.Drawing.Point(598, 488);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(90, 29);
-            this.button1.TabIndex = 113;
-            this.button1.Text = "Confirmar";
-            this.button1.UseVisualStyleBackColor = false;
+            this.btn_Confirmar_AlterarAplicacao.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(187)))), ((int)(((byte)(117)))));
+            this.btn_Confirmar_AlterarAplicacao.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btn_Confirmar_AlterarAplicacao.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_Confirmar_AlterarAplicacao.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.btn_Confirmar_AlterarAplicacao.Location = new System.Drawing.Point(598, 488);
+            this.btn_Confirmar_AlterarAplicacao.Name = "btn_Confirmar_AlterarAplicacao";
+            this.btn_Confirmar_AlterarAplicacao.Size = new System.Drawing.Size(90, 29);
+            this.btn_Confirmar_AlterarAplicacao.TabIndex = 113;
+            this.btn_Confirmar_AlterarAplicacao.Text = "Confirmar";
+            this.btn_Confirmar_AlterarAplicacao.UseVisualStyleBackColor = false;
             // 
             // AlterarAplicacao
             // 
@@ -376,6 +376,6 @@
         protected System.Windows.Forms.Label lb_ValorIOF;
         protected System.Windows.Forms.TextBox textBox2;
         protected System.Windows.Forms.Label lb_Tributario;
-        protected System.Windows.Forms.Button button1;
+        protected System.Windows.Forms.Button btn_Confirmar_AlterarAplicacao;
     }
 }
