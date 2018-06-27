@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Main;
+using System;
 
 namespace SistemaBancario.Views
 {
@@ -31,35 +32,35 @@ namespace SistemaBancario.Views
         private void InitializeComponent()
         {
             this.p_Footer = new System.Windows.Forms.Panel();
+            this.lb_SaldoValor = new System.Windows.Forms.Label();
+            this.pb_IconeUsuario = new System.Windows.Forms.PictureBox();
             this.btn_Sair = new System.Windows.Forms.Button();
             this.lb_Saldo = new System.Windows.Forms.Label();
             this.lb_NomeAdmin = new System.Windows.Forms.Label();
             this.p_SideMenu = new System.Windows.Forms.Panel();
+            this.panel5 = new System.Windows.Forms.Panel();
+            this.btn_Atendimento = new System.Windows.Forms.Button();
             this.panel4 = new System.Windows.Forms.Panel();
             this.panel3 = new System.Windows.Forms.Panel();
             this.panel2 = new System.Windows.Forms.Panel();
             this.panel1 = new System.Windows.Forms.Panel();
             this.p_LinkAtivo = new System.Windows.Forms.Panel();
-            this.p_Header = new System.Windows.Forms.Panel();
-            this.lb_Versao = new System.Windows.Forms.Label();
-            this.lb_DataHoraAtual = new System.Windows.Forms.Label();
-            this.lb_DuvidasApp = new System.Windows.Forms.Label();
-            this.p_Content = new System.Windows.Forms.Panel();
-            this.lb_SaldoValor = new System.Windows.Forms.Label();
-            this.panel5 = new System.Windows.Forms.Panel();
-            this.pb_IconeUsuario = new System.Windows.Forms.PictureBox();
-            this.btn_Atendimento = new System.Windows.Forms.Button();
             this.btn_Pagamentos = new System.Windows.Forms.Button();
             this.btn_Extrato = new System.Windows.Forms.Button();
             this.btn_AgendamentoSaque = new System.Windows.Forms.Button();
             this.btn_Investimentos = new System.Windows.Forms.Button();
             this.pb_Logo = new System.Windows.Forms.PictureBox();
             this.btn_Tranferencias = new System.Windows.Forms.Button();
+            this.p_Header = new System.Windows.Forms.Panel();
+            this.lb_Versao = new System.Windows.Forms.Label();
+            this.lb_DataHoraAtual = new System.Windows.Forms.Label();
+            this.lb_DuvidasApp = new System.Windows.Forms.Label();
+            this.p_Content = new System.Windows.Forms.Panel();
             this.p_Footer.SuspendLayout();
-            this.p_SideMenu.SuspendLayout();
-            this.p_Header.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pb_IconeUsuario)).BeginInit();
+            this.p_SideMenu.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pb_Logo)).BeginInit();
+            this.p_Header.SuspendLayout();
             this.SuspendLayout();
             // 
             // p_Footer
@@ -75,6 +76,25 @@ namespace SistemaBancario.Views
             this.p_Footer.Name = "p_Footer";
             this.p_Footer.Size = new System.Drawing.Size(1110, 43);
             this.p_Footer.TabIndex = 12;
+            // 
+            // lb_SaldoValor
+            // 
+            this.lb_SaldoValor.AutoSize = true;
+            this.lb_SaldoValor.ForeColor = System.Drawing.SystemColors.ScrollBar;
+            this.lb_SaldoValor.Location = new System.Drawing.Point(932, 24);
+            this.lb_SaldoValor.Name = "lb_SaldoValor";
+            this.lb_SaldoValor.Size = new System.Drawing.Size(28, 13);
+            this.lb_SaldoValor.TabIndex = 3;
+            this.lb_SaldoValor.Text = "0.00";
+            // 
+            // pb_IconeUsuario
+            // 
+            this.pb_IconeUsuario.Image = global::SistemaBancario.Properties.Resources.usuario;
+            this.pb_IconeUsuario.Location = new System.Drawing.Point(827, 6);
+            this.pb_IconeUsuario.Name = "pb_IconeUsuario";
+            this.pb_IconeUsuario.Size = new System.Drawing.Size(36, 36);
+            this.pb_IconeUsuario.TabIndex = 0;
+            this.pb_IconeUsuario.TabStop = false;
             // 
             // btn_Sair
             // 
@@ -135,6 +155,34 @@ namespace SistemaBancario.Views
             this.p_SideMenu.Size = new System.Drawing.Size(215, 667);
             this.p_SideMenu.TabIndex = 11;
             // 
+            // panel5
+            // 
+            this.panel5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(32)))), ((int)(((byte)(34)))));
+            this.panel5.Location = new System.Drawing.Point(205, 523);
+            this.panel5.Name = "panel5";
+            this.panel5.Size = new System.Drawing.Size(10, 45);
+            this.panel5.TabIndex = 14;
+            // 
+            // btn_Atendimento
+            // 
+            this.btn_Atendimento.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(32)))), ((int)(((byte)(34)))));
+            this.btn_Atendimento.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btn_Atendimento.FlatAppearance.BorderSize = 0;
+            this.btn_Atendimento.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(41)))), ((int)(((byte)(43)))));
+            this.btn_Atendimento.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_Atendimento.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold);
+            this.btn_Atendimento.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.btn_Atendimento.Image = global::SistemaBancario.Properties.Resources.questions_circular_button_1;
+            this.btn_Atendimento.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btn_Atendimento.Location = new System.Drawing.Point(-3, 523);
+            this.btn_Atendimento.Margin = new System.Windows.Forms.Padding(0);
+            this.btn_Atendimento.Name = "btn_Atendimento";
+            this.btn_Atendimento.Size = new System.Drawing.Size(218, 45);
+            this.btn_Atendimento.TabIndex = 15;
+            this.btn_Atendimento.Text = "   Atendimento";
+            this.btn_Atendimento.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btn_Atendimento.UseVisualStyleBackColor = false;
+            // 
             // panel4
             // 
             this.panel4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(32)))), ((int)(((byte)(34)))));
@@ -174,107 +222,6 @@ namespace SistemaBancario.Views
             this.p_LinkAtivo.Name = "p_LinkAtivo";
             this.p_LinkAtivo.Size = new System.Drawing.Size(10, 45);
             this.p_LinkAtivo.TabIndex = 2;
-            // 
-            // p_Header
-            // 
-            this.p_Header.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(19)))), ((int)(((byte)(19)))), ((int)(((byte)(19)))));
-            this.p_Header.Controls.Add(this.lb_Versao);
-            this.p_Header.Controls.Add(this.lb_DataHoraAtual);
-            this.p_Header.Controls.Add(this.lb_DuvidasApp);
-            this.p_Header.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.p_Header.Location = new System.Drawing.Point(0, 667);
-            this.p_Header.Name = "p_Header";
-            this.p_Header.Size = new System.Drawing.Size(1325, 27);
-            this.p_Header.TabIndex = 10;
-            // 
-            // lb_Versao
-            // 
-            this.lb_Versao.AutoSize = true;
-            this.lb_Versao.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lb_Versao.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.lb_Versao.Location = new System.Drawing.Point(11, 6);
-            this.lb_Versao.Name = "lb_Versao";
-            this.lb_Versao.Size = new System.Drawing.Size(66, 15);
-            this.lb_Versao.TabIndex = 3;
-            this.lb_Versao.Text = "Versão 0.1 ";
-            // 
-            // lb_DataHoraAtual
-            // 
-            this.lb_DataHoraAtual.AutoSize = true;
-            this.lb_DataHoraAtual.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lb_DataHoraAtual.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.lb_DataHoraAtual.Location = new System.Drawing.Point(74, 6);
-            this.lb_DataHoraAtual.Name = "lb_DataHoraAtual";
-            this.lb_DataHoraAtual.Size = new System.Drawing.Size(110, 15);
-            this.lb_DataHoraAtual.TabIndex = 1;
-            this.lb_DataHoraAtual.Text = "22/05/2018 12:55 ";
-            // 
-            // lb_DuvidasApp
-            // 
-            this.lb_DuvidasApp.AutoSize = true;
-            this.lb_DuvidasApp.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lb_DuvidasApp.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.lb_DuvidasApp.Location = new System.Drawing.Point(1147, 6);
-            this.lb_DuvidasApp.Name = "lb_DuvidasApp";
-            this.lb_DuvidasApp.Size = new System.Drawing.Size(146, 15);
-            this.lb_DuvidasApp.TabIndex = 2;
-            this.lb_DuvidasApp.Text = "Dúvidas sobre o aplicativo";
-            // 
-            // p_Content
-            // 
-            this.p_Content.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(246)))), ((int)(((byte)(246)))), ((int)(((byte)(246)))));
-            this.p_Content.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.p_Content.Location = new System.Drawing.Point(215, 43);
-            this.p_Content.Name = "p_Content";
-            this.p_Content.Size = new System.Drawing.Size(1110, 624);
-            this.p_Content.TabIndex = 13;
-            // 
-            // lb_SaldoValor
-            // 
-            this.lb_SaldoValor.AutoSize = true;
-            this.lb_SaldoValor.ForeColor = System.Drawing.SystemColors.ScrollBar;
-            this.lb_SaldoValor.Location = new System.Drawing.Point(932, 24);
-            this.lb_SaldoValor.Name = "lb_SaldoValor";
-            this.lb_SaldoValor.Size = new System.Drawing.Size(28, 13);
-            this.lb_SaldoValor.TabIndex = 3;
-            this.lb_SaldoValor.Text = "0.00";
-            // 
-            // panel5
-            // 
-            this.panel5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(32)))), ((int)(((byte)(34)))));
-            this.panel5.Location = new System.Drawing.Point(205, 523);
-            this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(10, 45);
-            this.panel5.TabIndex = 14;
-            // 
-            // pb_IconeUsuario
-            // 
-            this.pb_IconeUsuario.Image = global::SistemaBancario.Properties.Resources.usuario;
-            this.pb_IconeUsuario.Location = new System.Drawing.Point(827, 6);
-            this.pb_IconeUsuario.Name = "pb_IconeUsuario";
-            this.pb_IconeUsuario.Size = new System.Drawing.Size(36, 36);
-            this.pb_IconeUsuario.TabIndex = 0;
-            this.pb_IconeUsuario.TabStop = false;
-            // 
-            // btn_Atendimento
-            // 
-            this.btn_Atendimento.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(32)))), ((int)(((byte)(34)))));
-            this.btn_Atendimento.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btn_Atendimento.FlatAppearance.BorderSize = 0;
-            this.btn_Atendimento.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(41)))), ((int)(((byte)(43)))));
-            this.btn_Atendimento.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_Atendimento.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold);
-            this.btn_Atendimento.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.btn_Atendimento.Image = global::SistemaBancario.Properties.Resources.questions_circular_button_1;
-            this.btn_Atendimento.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btn_Atendimento.Location = new System.Drawing.Point(-3, 523);
-            this.btn_Atendimento.Margin = new System.Windows.Forms.Padding(0);
-            this.btn_Atendimento.Name = "btn_Atendimento";
-            this.btn_Atendimento.Size = new System.Drawing.Size(218, 45);
-            this.btn_Atendimento.TabIndex = 15;
-            this.btn_Atendimento.Text = "   Atendimento";
-            this.btn_Atendimento.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btn_Atendimento.UseVisualStyleBackColor = false;
             // 
             // btn_Pagamentos
             // 
@@ -389,6 +336,60 @@ namespace SistemaBancario.Views
             this.btn_Tranferencias.UseVisualStyleBackColor = false;
             this.btn_Tranferencias.Click += new System.EventHandler(this.btn_Clientes_Click);
             // 
+            // p_Header
+            // 
+            this.p_Header.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(19)))), ((int)(((byte)(19)))), ((int)(((byte)(19)))));
+            this.p_Header.Controls.Add(this.lb_Versao);
+            this.p_Header.Controls.Add(this.lb_DataHoraAtual);
+            this.p_Header.Controls.Add(this.lb_DuvidasApp);
+            this.p_Header.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.p_Header.Location = new System.Drawing.Point(0, 667);
+            this.p_Header.Name = "p_Header";
+            this.p_Header.Size = new System.Drawing.Size(1325, 27);
+            this.p_Header.TabIndex = 10;
+            // 
+            // lb_Versao
+            // 
+            this.lb_Versao.AutoSize = true;
+            this.lb_Versao.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lb_Versao.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.lb_Versao.Location = new System.Drawing.Point(11, 6);
+            this.lb_Versao.Name = "lb_Versao";
+            this.lb_Versao.Size = new System.Drawing.Size(66, 15);
+            this.lb_Versao.TabIndex = 3;
+            this.lb_Versao.Text = "Versão 0.1 ";
+            // 
+            // lb_DataHoraAtual
+            // 
+            this.lb_DataHoraAtual.AutoSize = true;
+            this.lb_DataHoraAtual.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lb_DataHoraAtual.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.lb_DataHoraAtual.Location = new System.Drawing.Point(74, 6);
+            this.lb_DataHoraAtual.Name = "lb_DataHoraAtual";
+            this.lb_DataHoraAtual.Size = new System.Drawing.Size(110, 15);
+            this.lb_DataHoraAtual.TabIndex = 1;
+            this.lb_DataHoraAtual.Text = "22/05/2018 12:55 ";
+            // 
+            // lb_DuvidasApp
+            // 
+            this.lb_DuvidasApp.AutoSize = true;
+            this.lb_DuvidasApp.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lb_DuvidasApp.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.lb_DuvidasApp.Location = new System.Drawing.Point(1147, 6);
+            this.lb_DuvidasApp.Name = "lb_DuvidasApp";
+            this.lb_DuvidasApp.Size = new System.Drawing.Size(146, 15);
+            this.lb_DuvidasApp.TabIndex = 2;
+            this.lb_DuvidasApp.Text = "Dúvidas sobre o aplicativo";
+            // 
+            // p_Content
+            // 
+            this.p_Content.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(246)))), ((int)(((byte)(246)))), ((int)(((byte)(246)))));
+            this.p_Content.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.p_Content.Location = new System.Drawing.Point(215, 43);
+            this.p_Content.Name = "p_Content";
+            this.p_Content.Size = new System.Drawing.Size(1110, 624);
+            this.p_Content.TabIndex = 13;
+            // 
             // TemplateInicialCliente
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -399,14 +400,14 @@ namespace SistemaBancario.Views
             this.Controls.Add(this.p_SideMenu);
             this.Controls.Add(this.p_Header);
             this.Name = "TemplateInicialCliente";
-            this.Text = "Gerenciar Administrador";
+            this.Text = "A&A: Banco Digital";
             this.p_Footer.ResumeLayout(false);
             this.p_Footer.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pb_IconeUsuario)).EndInit();
             this.p_SideMenu.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pb_Logo)).EndInit();
             this.p_Header.ResumeLayout(false);
             this.p_Header.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pb_IconeUsuario)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pb_Logo)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -433,7 +434,9 @@ namespace SistemaBancario.Views
 
         private void btn_Sair_Click(object sender, EventArgs e)
         {
-            throw new NotImplementedException();
+            this.Hide();
+            TelaLogin tl = new TelaLogin();
+            tl.Show();
         }
 
         #endregion

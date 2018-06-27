@@ -1,4 +1,5 @@
-﻿using System;
+﻿using SistemaBancario.Models;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -16,5 +17,10 @@ namespace SistemaBancario.Views
         {
             InitializeComponent();
         }
+
+        //public ExibeSaldo()
+        //{
+        //    if(MySQLFunctions.)
+        //}
     }
 }
