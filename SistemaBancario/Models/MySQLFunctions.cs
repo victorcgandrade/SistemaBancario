@@ -1006,15 +1006,22 @@ namespace SistemaBancario.Models
 
                 //Cria a classe conta
                 Conta conta = RetornarConta(idConta, idAgencia, idCliente);
-
+               
                 //Associa o objeto endereco buscado ao objeto dependente criado
                 var queryResult = connection.Query<ContaCorrente>("SELECT taxa, limite FROM ContaCorrente WHERE id = @id", new { @id = id });
 
                 ContaCorrente contaCorrente = queryResult.First();
 
-                contaCorrente.Conta = conta;
+                contaCorrente.Agencia = conta.Agencia;
+                contaCorrente.Cliente = conta.Cliente;
+                contaCorrente.Numero = conta.Numero;
+                contaCorrente.Saldo = conta.Saldo;
+                contaCorrente.Status = conta.Status;
+
+                contaCorrente = queryResult.First();
 
                 return contaCorrente;
+
             }
             catch (MySqlException exception)
             {

@@ -10,32 +10,29 @@ namespace SistemaBancario.Models
     {
         private decimal taxa;
         private decimal limite;
-        private Conta conta;
 
         public ContaCorrente()
         {
 
         }
 
-        public ContaCorrente(int numero, Agencia agencia, decimal saldo, string status, Cliente cliente, decimal taxa, decimal limite, Conta conta)
+        //Construtor referente apenas aos atributos da classe Conta, da qual esta herda
+        public ContaCorrente(Agencia agencia, Cliente cliente, int numero, decimal saldo, string status)
+        {
+            this.Agencia = agencia;
+            this.Cliente = cliente;
+            this.Numero = numero;
+            this.Saldo = saldo;
+            this.Status = status;
+        }
+
+        public ContaCorrente(int numero, Agencia agencia, decimal saldo, string status, Cliente cliente, decimal taxa, decimal limite)
         {
             this.Numero = numero;
             this.Agencia = agencia;
             this.Saldo = saldo;
             this.Status = status;
             this.Cliente = cliente;
-            this.taxa = taxa;
-            this.limite = limite;
-            this.conta = conta;
-        }
-
-        //Construtor facilitado para visualizacao
-        public ContaCorrente(int numero, int numeroAgencia, decimal saldo, string status, decimal taxa, decimal limite)
-        {
-            this.Conta.Numero = numero;
-            this.Agencia.Numero = numeroAgencia;
-            this.Saldo = saldo;
-            this.Status = status;
             this.taxa = taxa;
             this.limite = limite;
         }
@@ -61,18 +58,6 @@ namespace SistemaBancario.Models
             set
             {
                 limite = value;
-            }
-        }
-
-        public Conta Conta
-        {
-            get
-            {
-                return conta;
-            }
-            set
-            {
-                conta = value;
             }
         }
     }

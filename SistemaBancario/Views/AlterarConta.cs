@@ -11,7 +11,7 @@ namespace SistemaBancario.Views
 {
     public partial class AlterarConta : SistemaBancario.Views.TemplateInicialAdministrador
     {
-        ContaCorrente contaCorrente;
+        Conta contaCorrente;
 
         public AlterarConta()
         {

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace SistemaBancario.Models
 {
-    class Agencia
+    public class Agencia
     {
         private int numero;
         private Endereco endereco;

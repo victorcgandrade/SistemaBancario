@@ -23,7 +23,7 @@ namespace SistemaBancario.Views
         {
             aplicacao = MySQLFunctions.RetornarAplicacao(Convert.ToInt32(idBusca)); //obtem todos os dados de um cliente
 
-            lb_IdentificadorAplicacao.Text = "Aplicação " + aplicacao.tipoAplicacao + " Conta " + aplicacao.contaCorrente.Conta.Numero;
+            lb_IdentificadorAplicacao.Text = "Aplicação " + aplicacao.tipoAplicacao + " Conta " + aplicacao.contaCorrente.Numero;
 
             if (aplicacao != null)
             {

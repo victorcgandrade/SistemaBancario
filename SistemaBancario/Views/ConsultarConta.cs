@@ -50,12 +50,12 @@ namespace SistemaBancario.Views
             int index_cur_row = dgv_ResultadoBuscaConta.CurrentRow.Index; //capturando o indice da linha selecionada
             DataGridViewRow cur_row = dgv_ResultadoBuscaConta.Rows[index_cur_row]; //linha selecionada
 
-            string idAplicacao = cur_row.Cells["Identificador"].Value.ToString();
+            string idConta = cur_row.Cells["Identificador"].Value.ToString();
 
-            //VisualizarConta visualizarConta = new VisualizarConta();
-           // visualizarConta.FormClosed += new FormClosedEventHandler(visualizarConta_FormClosed);
-           // visualizarConta.Show();
-           // this.Hide();
+            VisualizarConta visualizarConta = new VisualizarConta(Convert.ToInt32(idConta));
+            visualizarConta.FormClosed += new FormClosedEventHandler(visualizarConta_FormClosed);
+            visualizarConta.Show();
+            this.Hide();
         }
 
         //Quando a tela de for fechada, fecha-se tambem a tela que lhe deu origem

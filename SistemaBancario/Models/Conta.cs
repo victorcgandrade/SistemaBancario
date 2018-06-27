@@ -7,7 +7,7 @@ using SistemaBancario.Models;
 
 namespace SistemaBancario.Models
 {
-    class Conta
+    public class Conta
     {
         private int numero;
         private Agencia agencia;
