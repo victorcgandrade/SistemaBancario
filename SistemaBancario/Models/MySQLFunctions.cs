@@ -339,82 +339,78 @@ namespace SistemaBancario.Models
         }
 
         //Exibir todos os dados de um cliente
-        static public Cliente RetornarCliente(string identificador)
+        static public Cliente RetornarCliente(int id)
         {
             try
             {
-                int idBusca;
-                if (Int32.TryParse(identificador, out idBusca)) //tenta converter a string informada em numero
+                if (connection.State == ConnectionState.Closed)
+                    connection.Open();
+
+                //Comando SQL refere-se a chamada de procedimento no banco para determinal qual tipo de cliente
+                MySqlCommand determinarTipoCliente = new MySqlCommand("ID_TIPO_CLIENTE", connection)
                 {
-                    if (connection.State == ConnectionState.Closed)
-                        connection.Open();
+                    CommandType = CommandType.StoredProcedure
+                };
 
-                    //Comando SQL refere-se a chamada de procedimento no banco para determinal qual tipo de cliente
-                    MySqlCommand determinarTipoCliente = new MySqlCommand("ID_TIPO_CLIENTE", connection)
-                    {
-                        CommandType = CommandType.StoredProcedure
-                    };
+                //Informando o valor do parametro de entrada do procedimento (id cliente)
+                determinarTipoCliente.Parameters.AddWithValue("@idCli", id);
 
-                    //Informando o valor do parametro de entrada do procedimento (id cliente)
-                    determinarTipoCliente.Parameters.AddWithValue("@idCli", idBusca);
+                //Adicionado os parametros de saida do procedimento
+                determinarTipoCliente.Parameters.Add("@t1", MySqlDbType.Int16).Direction = ParameterDirection.Output;
+                determinarTipoCliente.Parameters.Add("@t2", MySqlDbType.Text).Direction = ParameterDirection.Output;
 
-                    //Adicionado os parametros de saida do procedimento
-                    determinarTipoCliente.Parameters.Add("@t1", MySqlDbType.Int16).Direction = ParameterDirection.Output;
-                    determinarTipoCliente.Parameters.Add("@t2", MySqlDbType.Text).Direction = ParameterDirection.Output;
+                //Execucao da query
+                determinarTipoCliente.ExecuteNonQuery();
 
-                    //Execucao da query
-                    determinarTipoCliente.ExecuteNonQuery();
+                //Obtendo retorno do procedimento (Tipo de cliente [Dependente, PessoaFisica ou PessoaJuridica] e seu id)
+                string tipoCliente = determinarTipoCliente.Parameters["@t2"].Value.ToString();
+                int idCli = int.Parse(determinarTipoCliente.Parameters["@t1"].Value.ToString());
+                determinarTipoCliente.Parameters.Clear();
 
-                    //Obtendo retorno do procedimento (Tipo de cliente [Dependente, PessoaFisica ou PessoaJuridica] e seu id)
-                    string tipoCliente = determinarTipoCliente.Parameters["@t2"].Value.ToString();
-                    int id = int.Parse(determinarTipoCliente.Parameters["@t1"].Value.ToString());
-                    determinarTipoCliente.Parameters.Clear();
+                //Outro comando SQL para retornar os dados do cliente
+                string query = "";
+                string parametro = "";
 
-                    //Outro comando SQL para retornar os dados do cliente
-                    string query = "";
-                    string parametro = "";
-
-                    //Determina a consulta adequada para retornar TODOS os dados de cada tipo de cliente diferente 
-                    if (tipoCliente == "Dependente")
-                    {
-                        query = "SELECT Usuario.primeiroNome, Usuario.sobrenome, Usuario.cpf, Usuario.rg, Cliente.data_nascimento, Cliente.email, Cliente.telefone, Cliente.celular, Cliente.data_cadastro, Cliente.status, Cliente.estado_civil," +
-                            " Dependente.id_titular FROM Dependente JOIN Cliente ON Dependente.id_cliente = Cliente.id JOIN Usuario ON Cliente.id_usuario = Usuario.id WHERE Dependente.id = @idDependente";
-
-                      Dependente dependente = RetornarDependente(query, id);
-
-                      return dependente;
-
-                    }
-                    else if (tipoCliente == "PessoaFisica")
-                    {
-                        query = "SELECT Usuario.primeiroNome, Usuario.sobrenome, Usuario.cpf, Usuario.rg, Cliente.data_nascimento, Cliente.email, Cliente.telefone, Cliente.celular, Cliente.data_cadastro, Cliente.status, Cliente.estado_civil, " +
-                            "PessoaFisica.profissao, PessoaFisica.rendaMensal FROM PessoaFisica JOIN Cliente ON PessoaFisica.id_cliente = Cliente.id JOIN Usuario ON Cliente.id_usuario = Usuario.id WHERE PessoaFisica.id = @idPessoaFisica;";
-
-                        PessoaFisica pessoaFisica = RetornarPessoaFisica(query, id);
-
-                        return pessoaFisica;
-
-                    }
-                    else if (tipoCliente == "PessoaJuridica")
-                    {
-                        query = "SELECT Usuario.primeiroNome, Usuario.sobrenome, Usuario.cpf, Usuario.rg, Cliente.data_nascimento, Cliente.email, Cliente.telefone, Cliente.celular, Cliente.data_cadastro, Cliente.status, Cliente.estado_civil, " +
-                            "PessoaJuridica.cnpj, PessoaJuridica.razaoSocial, PessoaJuridica.tipo FROM PessoaJuridica JOIN Cliente ON PessoaJuridica.id_cliente = Cliente.id JOIN Usuario ON Cliente.id_usuario = Usuario.id WHERE PessoaJuridica.id = @idPessoaJuridica;";
-
-                        PessoaJuridica pessoaJuridica = RetornarPessoaJuridica(query, id);
-
-                        return pessoaJuridica;
-                    }
-
-                    //Executa a consulta caso as variaveis da mesma nao sao nulas
-                    if (query == "" && parametro == "")
-                    {
-                        return null; //erro
-                    }
-                }
-                else
+                //Determina a consulta adequada para retornar TODOS os dados de cada tipo de cliente diferente 
+                if (tipoCliente == "Dependente")
                 {
-                    return null; //valor informado para identificador esta incorreto
+                    query = "SELECT Usuario.primeiroNome, Usuario.sobrenome, Usuario.cpf, Usuario.rg, Cliente.data_nascimento, Cliente.email, Cliente.telefone, Cliente.celular, Cliente.data_cadastro, Cliente.status, Cliente.estado_civil," +
+                        " Dependente.id_titular FROM Dependente JOIN Cliente ON Dependente.id_cliente = Cliente.id JOIN Usuario ON Cliente.id_usuario = Usuario.id WHERE Dependente.id = @idDependente";
+
+                    Dependente dependente = RetornarDependente(query, idCli);
+
+                    return dependente;
+
                 }
+                else if (tipoCliente == "PessoaFisica")
+                {
+                    query = "SELECT Usuario.primeiroNome, Usuario.sobrenome, Usuario.cpf, Usuario.rg, Cliente.data_nascimento, Cliente.email, Cliente.telefone, Cliente.celular, Cliente.data_cadastro, Cliente.status, Cliente.estado_civil, " +
+                        "PessoaFisica.profissao, PessoaFisica.rendaMensal FROM PessoaFisica JOIN Cliente ON PessoaFisica.id_cliente = Cliente.id JOIN Usuario ON Cliente.id_usuario = Usuario.id WHERE PessoaFisica.id = @idPessoaFisica;";
+
+                    PessoaFisica pessoaFisica = RetornarPessoaFisica(query, idCli);
+
+                    return pessoaFisica;
+
+                }
+                else if (tipoCliente == "PessoaJuridica")
+                {
+                    query = "SELECT Usuario.primeiroNome, Usuario.sobrenome, Usuario.cpf, Usuario.rg, Cliente.data_nascimento, Cliente.email, Cliente.telefone, Cliente.celular, Cliente.data_cadastro, Cliente.status, Cliente.estado_civil, " +
+                        "PessoaJuridica.cnpj, PessoaJuridica.razaoSocial, PessoaJuridica.tipo FROM PessoaJuridica JOIN Cliente ON PessoaJuridica.id_cliente = Cliente.id JOIN Usuario ON Cliente.id_usuario = Usuario.id WHERE PessoaJuridica.id = @idPessoaJuridica;";
+
+                    PessoaJuridica pessoaJuridica = RetornarPessoaJuridica(query, idCli);
+
+                    return pessoaJuridica;
+                }
+
+                //Executa a consulta caso as variaveis da mesma nao sao nulas
+                if (query == "" && parametro == "")
+                {
+                    return null; //erro
+                }
+            else
+            {
+                return null; //valor informado para identificador esta incorreto
+            }
             }
             catch (MySqlException exception)
             {
@@ -425,8 +421,6 @@ namespace SistemaBancario.Models
             {
                 connection.Close();
             }
-
-            return null;
         }
 
         //Retorna um objeto dependente de acordo com a query passada e o id deste
@@ -644,29 +638,30 @@ namespace SistemaBancario.Models
         }
 
         //Exibir resultado da busca por uma aplicacao
-        static public void /*Aplicacao*/ RetornarAplicacao(int id)
+        static public Aplicacao RetornarAplicacao(int id)
        {
+            Aplicacao aplicacao = new Aplicacao();
             try
             {
                 if (connection.State == ConnectionState.Closed)
                     connection.Open();
 
-                //Recupera o titular
+                //Recupera o id de conta corrente
+                var idContaCorrente = connection.ExecuteScalar<int>("SELECT id_contacorrente FROM Aplicacao WHERE Aplicacao.id = @id", new { @id = id });
 
-               // RetornarPessoaFisica(string query, int id)
+                ContaCorrente contaCorrente = RetornarContaCorrente(idContaCorrente);
 
-                //Recupera a agencia
-                
-                //Recupera a conta
+                var queryResult = connection.Query<Aplicacao>("SELECT tipoAplicacao, status, valorMinimo, valorInicial, taxaRendimento, resgateMinimo, vencimento, valorIOF, impostoRenda FROM Aplicacao WHERE id = @id", new { @id = id });
+                aplicacao = queryResult.First();
 
-                //var queryResult = connection.Query<Dependente>("", new { @idDependente = id });
-                //Aplicacao aplicacao = queryResult.First();
+                aplicacao.contaCorrente = contaCorrente;
 
+                return aplicacao;
             }
             catch (MySqlException exception)
             {
                 Console.WriteLine(exception.ToString());
-                //return null;
+                return null;
             }
             finally
             {
@@ -993,33 +988,31 @@ namespace SistemaBancario.Models
         }
 
         //Retorna um objeto do tipo conta
-        static public ContaCorrente RetornarConta(int id)
+        static public ContaCorrente RetornarContaCorrente(int id)
         {
             try
             {
                 if (connection.State == ConnectionState.Closed)
                     connection.Open();
 
-                //Busca pela agencia da conta
-                var queryAgencia = connection.Query<Agencia>("", new { @idDependente = id });
+                //Recupera o id de conta
+                var idConta = connection.ExecuteScalar<int>("SELECT id_conta FROM ContaCorrente WHERE ContaCorrente.id = @id", new { @id = id });
 
-                Agencia agencia = queryAgencia.First();
+                //Recupera o id da agencia da conta
+                var idAgencia = connection.ExecuteScalar<int>("SELECT Conta.id_agencia FROM Conta JOIN ContaCorrente ON Conta.id = ContaCorrente.id_conta WHERE ContaCorrente.id = @id", new { @id = id });
 
-                //Busca pelo cliente responsavel pela conta
-                var queryCliente = connection.Query<Cliente>("", new { @idDependente = id });
+                //Recupera o id do cliente da conta
+                var idCliente = connection.ExecuteScalar<int>("SELECT Conta.id_cliente FROM Conta JOIN ContaCorrente ON Conta.id = ContaCorrente.id_conta WHERE ContaCorrente.id = @id", new { @id = id });
 
-                Cliente cliente = queryCliente.First();
-
-                //Busca pela classe Conta 
-
-                var queryConta = connection.Query<Conta>("", new { @idDependente = id });
-
-                Conta conta = queryConta.First();
+                //Cria a classe conta
+                Conta conta = RetornarConta(idConta, idAgencia, idCliente);
 
                 //Associa o objeto endereco buscado ao objeto dependente criado
-                var queryContaCorrente = connection.Query<ContaCorrente>("", new { @idDependente = id });
+                var queryResult = connection.Query<ContaCorrente>("SELECT taxa, limite FROM ContaCorrente WHERE id = @id", new { @id = id });
 
-                ContaCorrente contaCorrente = queryContaCorrente.First();
+                ContaCorrente contaCorrente = queryResult.First();
+
+                contaCorrente.Conta = conta;
 
                 return contaCorrente;
             }
@@ -1033,6 +1026,88 @@ namespace SistemaBancario.Models
                 connection.Close();
             }
 
+        }
+
+        //Retorna um objeto do tipo Conta
+        static public Conta RetornarConta(int idConta, int idAgencia, int idCliente)
+        {
+            try
+            {
+                if (connection.State == ConnectionState.Closed)
+                    connection.Open();
+
+                //Retorna o cliente responsavel pela conta
+                 Cliente cliente = RetornarCliente(idCliente);
+
+                    //Confere se o cliente nao eh um dependente
+                    if (cliente is Dependente)
+                {
+                    return null;
+
+                }
+                else
+                 {
+                    //Retorna a agencia da conta
+                    Agencia agencia = RetornarAgencia(idAgencia);
+
+                    //Retorna o objeto conta
+                    var queryResult = connection.Query<Conta>("SELECT numero, saldo, senha, status FROM Conta WHERE id = @id", new { @id = idConta });
+
+                    Conta conta = queryResult.First();
+
+                    //Associa agencia e cliente a conta
+                    conta.Cliente = cliente;
+                    conta.Agencia = agencia;
+
+                    return conta;
+                }
+
+            }
+            catch (MySqlException exception)
+            {
+                Console.WriteLine(exception.ToString());
+                return null;
+            }
+            finally
+            {
+                connection.Close();
+            }
+        }
+
+        //Retorna um objeto do tipo Conta
+        static public Agencia RetornarAgencia(int id)
+        {
+            try
+            {
+                if (connection.State == ConnectionState.Closed)
+                    connection.Open();
+
+                //Busca pelo endereco da agencia
+                var queryResultFirst = connection.Query<Endereco>("SELECT Endereco.tipo, Endereco.logradouro, Endereco.numero, Endereco.bairro, Endereco.complemento, Endereco.cep, Endereco.cidade, Endereco.estado FROM Endereco " +
+                    "JOIN Agencia on Agencia.id_endereco = Endereco.id WHERE Agencia.id = @id", new { @id = id });
+
+                Endereco endereco = queryResultFirst.First();
+
+                //Busca pela agencia da conta
+                var queryAgencia = connection.Query<Agencia>("SELECT numero FROM Agencia WHERE id = @id", new { @id = id });
+
+                Agencia agencia = queryAgencia.First();
+
+                //Associa o endereco da agencia ao objeto da agencia
+                agencia.Endereco = endereco;
+
+                return agencia;
+
+            }
+            catch (MySqlException exception)
+            {
+                Console.WriteLine(exception.ToString());
+                return null;
+            }
+            finally
+            {
+                connection.Close();
+            }
         }
 
     }

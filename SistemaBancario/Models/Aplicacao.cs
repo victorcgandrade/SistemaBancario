@@ -19,7 +19,7 @@ namespace SistemaBancario.Models
         public string vencimento;
         public decimal valorIOF;
         public decimal impostoRenda;
-        public ContaCorrente conta;
+        public ContaCorrente contaCorrente;
 
         public Aplicacao() { }
 
@@ -34,7 +34,7 @@ namespace SistemaBancario.Models
             this.vencimento = vencimento;
             this.valorIOF = valorIOF;
             this.impostoRenda = impostoRenda;
-            this.conta = conta;
+            this.contaCorrente = conta;
         }
 
         public string TipoAplicacao
@@ -145,15 +145,15 @@ namespace SistemaBancario.Models
             }
         }
 
-        public ContaCorrente Conta
+        public ContaCorrente ContaCorrente
         {
             get
             {
-                return conta;
+                return contaCorrente;
             }
             set
             {
-                conta = value;
+                contaCorrente = value;
             }
         }
     }

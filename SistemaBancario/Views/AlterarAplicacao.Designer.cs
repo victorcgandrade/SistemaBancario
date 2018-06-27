@@ -1,6 +1,6 @@
 ﻿namespace SistemaBancario.Views
 {
-    partial class AtualizarAplicacao
+    partial class AlterarAplicacao
     {
         /// <summary>
         /// Required designer variable.
@@ -31,7 +31,7 @@
             this.cb_TipoAplicacao = new System.Windows.Forms.ComboBox();
             this.lb_TipoAplicacao = new System.Windows.Forms.Label();
             this.lb_InformacaoGeral = new System.Windows.Forms.Label();
-            this.lb_TituloAtualizarAplicacao = new System.Windows.Forms.Label();
+            this.lb_TituloAlterarAplicacao = new System.Windows.Forms.Label();
             this.btn_Limpar = new System.Windows.Forms.Button();
             this.btn_Cancelar = new System.Windows.Forms.Button();
             this.lb_ValorInicial = new System.Windows.Forms.Label();
@@ -69,7 +69,7 @@
             this.p_Content.Controls.Add(this.tb_ValorInicial);
             this.p_Content.Controls.Add(this.btn_Limpar);
             this.p_Content.Controls.Add(this.btn_Cancelar);
-            this.p_Content.Controls.Add(this.lb_TituloAtualizarAplicacao);
+            this.p_Content.Controls.Add(this.lb_TituloAlterarAplicacao);
             this.p_Content.Controls.Add(this.cb_TipoAplicacao);
             this.p_Content.Controls.Add(this.lb_TipoAplicacao);
             this.p_Content.Controls.Add(this.lb_InformacaoGeral);
@@ -141,17 +141,17 @@
             this.lb_InformacaoGeral.TabIndex = 91;
             this.lb_InformacaoGeral.Text = "Informações Gerais";
             // 
-            // lb_TituloAtualizarAplicacao
+            // lb_TituloAlterarAplicacao
             // 
-            this.lb_TituloAtualizarAplicacao.AutoSize = true;
-            this.lb_TituloAtualizarAplicacao.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(246)))), ((int)(((byte)(246)))), ((int)(((byte)(246)))));
-            this.lb_TituloAtualizarAplicacao.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lb_TituloAtualizarAplicacao.ForeColor = System.Drawing.SystemColors.GrayText;
-            this.lb_TituloAtualizarAplicacao.Location = new System.Drawing.Point(30, 30);
-            this.lb_TituloAtualizarAplicacao.Name = "lb_TituloAtualizarAplicacao";
-            this.lb_TituloAtualizarAplicacao.Size = new System.Drawing.Size(192, 21);
-            this.lb_TituloAtualizarAplicacao.TabIndex = 96;
-            this.lb_TituloAtualizarAplicacao.Text = "ATUALIZAR  APLICAÇÃO";
+            this.lb_TituloAlterarAplicacao.AutoSize = true;
+            this.lb_TituloAlterarAplicacao.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(246)))), ((int)(((byte)(246)))), ((int)(((byte)(246)))));
+            this.lb_TituloAlterarAplicacao.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lb_TituloAlterarAplicacao.ForeColor = System.Drawing.SystemColors.GrayText;
+            this.lb_TituloAlterarAplicacao.Location = new System.Drawing.Point(30, 30);
+            this.lb_TituloAlterarAplicacao.Name = "lb_TituloAlterarAplicacao";
+            this.lb_TituloAlterarAplicacao.Size = new System.Drawing.Size(173, 21);
+            this.lb_TituloAlterarAplicacao.TabIndex = 96;
+            this.lb_TituloAlterarAplicacao.Text = "ALTERAR  APLICAÇÃO";
             // 
             // btn_Limpar
             // 
@@ -345,11 +345,11 @@
             this.button1.Text = "Confirmar";
             this.button1.UseVisualStyleBackColor = false;
             // 
-            // AtualizarAplicacao
+            // AlterarAplicacao
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.ClientSize = new System.Drawing.Size(1325, 694);
-            this.Name = "AtualizarAplicacao";
+            this.Name = "AlterarAplicacao";
             this.p_Content.ResumeLayout(false);
             this.p_Content.PerformLayout();
             this.ResumeLayout(false);
@@ -360,7 +360,7 @@
         protected System.Windows.Forms.ComboBox cb_TipoAplicacao;
         protected System.Windows.Forms.Label lb_TipoAplicacao;
         protected System.Windows.Forms.Label lb_InformacaoGeral;
-        private System.Windows.Forms.Label lb_TituloAtualizarAplicacao;
+        private System.Windows.Forms.Label lb_TituloAlterarAplicacao;
         protected System.Windows.Forms.Button btn_Limpar;
         protected System.Windows.Forms.Button btn_Cancelar;
         protected System.Windows.Forms.Label lb_ValorInicial;

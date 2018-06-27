@@ -11,19 +11,54 @@ namespace SistemaBancario.Views
 {
     public partial class VisualizarAplicacao : SistemaBancario.Views.TemplateInicialAdministrador
     {
-        public VisualizarAplicacao(string idAplicacao)
+        private Aplicacao aplicacao; //variavel global para ser reaproveitada ao longo do codigo
+
+        public VisualizarAplicacao(string idBusca)
         {
             InitializeComponent();
+            carregarAplicacao(idBusca);
+        }
 
-          /*  DataTable dadosAplicacao = MySQLFunctions.RetornarAplicacao(idAplicacao); //obtem todos os dados de um cliente
+        private void carregarAplicacao(string idBusca)
+        {
+            aplicacao = MySQLFunctions.RetornarAplicacao(Convert.ToInt32(idBusca)); //obtem todos os dados de um cliente
 
-            if (dadosAplicacao != null) //se nao ocorreu erro na chamada da funcao acima
+            lb_IdentificadorAplicacao.Text = "Aplicação " + aplicacao.tipoAplicacao + " Conta " + aplicacao.contaCorrente.Conta.Numero;
+
+            if (aplicacao != null)
             {
+                tb_Visualizar_TpAplicacao.Text = aplicacao.tipoAplicacao;
+                tb_Visualizar_StatusAplicacao.Text = aplicacao.status;
+                tb_Visualizar_ValorMin.Text = aplicacao.valorMinimo.ToString();
+                tb_Visualizar_ResgMin.Text = aplicacao.resgateMinimo.ToString();
+                tb_Visualizar_ValorInicial.Text = aplicacao.valorInicial.ToString();
+                tb_Visualizar_Vencimento.Text = aplicacao.vencimento.ToString() + " %";
+
+                if (tb_Visualizar_TpAplicacao.Text == "Pré-Fixada")
+                {
+                    tb_Visualizar_Taxa.Text = aplicacao.taxaRendimento.ToString(); //taxa pre-definida
+
+                } else if (tb_Visualizar_TpAplicacao.Text == "Pós-Fixada")
+                {
+                    tb_Visualizar_Taxa.Text = aplicacao.taxaRendimento.ToString(); //taxa Selic do dia
+
+                    lb_Asterisco.Visible = true;
+                    lb_InformacaoTaxaSelic.Visible = true;
+                    lb_DataAtual.Visible = true;
+                    lb_DataAtual.Text = DateTime.Today.Date.ToString();
+
+                    lb_Tributos.Visible = true;
+                    lb_IOF.Visible = true;
+                    lb_ImpostoRenda.Visible = true;
+                    tb_Visualizar_IOF.Text = aplicacao.valorIOF.ToString();
+                    tb_Visualizar_ImpostoRenda.Text = aplicacao.impostoRenda.ToString();
+                }
+
             }
             else
             {
-                MessageBox.Show("Algo deu errado. Tente novamente.");
-            }*/
+                MessageBox.Show("Aplicação não carregada!");
+            }
         }
 
         private void btn_RemoverAplicacao_Click(object sender, EventArgs e)

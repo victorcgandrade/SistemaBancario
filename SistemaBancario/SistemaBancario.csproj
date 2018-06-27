@@ -145,11 +145,11 @@
     <Compile Include="Views\TelaSenhaCliente.Designer.cs">
       <DependentUpon>TelaSenhaCliente.cs</DependentUpon>
     </Compile>
-    <Compile Include="Views\AtualizarAplicacao.cs">
+    <Compile Include="Views\AlterarAplicacao.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Views\AtualizarAplicacao.Designer.cs">
-      <DependentUpon>AtualizarAplicacao.cs</DependentUpon>
+    <Compile Include="Views\AlterarAplicacao.Designer.cs">
+      <DependentUpon>AlterarAplicacao.cs</DependentUpon>
     </Compile>
     <Compile Include="Views\FormularioCliente.cs">
       <SubType>Form</SubType>
@@ -269,8 +269,8 @@
     <EmbeddedResource Include="Views\TelaSenhaCliente.resx">
       <DependentUpon>TelaSenhaCliente.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Views\AtualizarAplicacao.resx">
-      <DependentUpon>AtualizarAplicacao.cs</DependentUpon>
+    <EmbeddedResource Include="Views\AlterarAplicacao.resx">
+      <DependentUpon>AlterarAplicacao.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Views\FormularioCliente.resx">
       <DependentUpon>FormularioCliente.cs</DependentUpon>
