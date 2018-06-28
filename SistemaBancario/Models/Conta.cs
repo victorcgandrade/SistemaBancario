@@ -7,26 +7,87 @@ using SistemaBancario.Models;
 
 namespace SistemaBancario.Models
 {
-    class Conta
+    public class Conta
     {
-        private int id { get; set; }
-        private long numero { get; set; }
-        private decimal saldo { get; set; }
-        private int id_agencia { get; set; }
-        private int senha { get; set; }
-        private EstadoConta.Estado_Conta estadoConta { get; set; }
-        private int id_cliente { get; set; }
+        private int numero;
+        private Agencia agencia;
+        private decimal saldo;
+        private string status;
+        private Cliente cliente;
 
-        public Conta(int id,long numero,decimal saldo,int id_agencia,int senha, int id_cliente)
+        public Conta()
         {
-            this.id = id;
-            this.numero = numero;
-            this.saldo = saldo;
-            this.id_agencia = id_agencia;
-            this.senha = senha;
-            this.estadoConta = EstadoConta.Estado_Conta.Criada;
-            this.id_cliente = id_cliente;
-            
+
         }
+
+        public Conta(int numero, Agencia agencia, decimal saldo, string status, Cliente cliente)
+        {
+            this.numero = numero;
+            this.agencia = agencia;
+            this.saldo = saldo;
+            this.status = status;
+            this.cliente = cliente;
+        }
+
+        public int Numero
+        {
+            get
+            {
+                return numero;
+            }
+            set
+            {
+                numero = value;
+            }
+        }
+
+        public Agencia Agencia
+        {
+            get
+            {
+                return agencia;
+            }
+            set
+            {
+                agencia = value;
+            }
+        }
+
+        public decimal Saldo
+        {
+            get
+            {
+                return saldo;
+            }
+            set
+            {
+                saldo = value;
+            }
+        }
+
+        public string Status
+        {
+            get
+            {
+                return status;
+            }
+            set
+            {
+                status = value;
+            }
+        }
+
+        public Cliente Cliente
+        {
+            get
+            {
+                return cliente;
+            }
+            set
+            {
+                cliente = value;
+            }
+        }
+
     }
 }

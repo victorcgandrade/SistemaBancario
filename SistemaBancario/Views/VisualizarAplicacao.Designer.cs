@@ -33,27 +33,27 @@
             this.btn_AlterarAplicacao = new System.Windows.Forms.Button();
             this.btn_CancelarAplicacao = new System.Windows.Forms.Button();
             this.lb_TituloVisualizarAplicacao = new System.Windows.Forms.Label();
-            this.tb_Visualizar_Renda = new System.Windows.Forms.TextBox();
-            this.tb_Visualizar_Profissao = new System.Windows.Forms.TextBox();
-            this.tb_Visualizar_EstadoCivil = new System.Windows.Forms.TextBox();
-            this.tb_Visualizar_DataNasc = new System.Windows.Forms.TextBox();
-            this.tb_Visualizar_Sobrenome = new System.Windows.Forms.TextBox();
-            this.tb_Visualizar_Nome = new System.Windows.Forms.TextBox();
-            this.tb_Visualizar_TpCliente = new System.Windows.Forms.TextBox();
+            this.tb_Visualizar_ImpostoRenda = new System.Windows.Forms.TextBox();
+            this.tb_Visualizar_IOF = new System.Windows.Forms.TextBox();
+            this.tb_Visualizar_ValorInicial = new System.Windows.Forms.TextBox();
+            this.tb_Visualizar_ResgMin = new System.Windows.Forms.TextBox();
+            this.tb_Visualizar_ValorMin = new System.Windows.Forms.TextBox();
+            this.tb_Visualizar_StatusAplicacao = new System.Windows.Forms.TextBox();
+            this.tb_Visualizar_TpAplicacao = new System.Windows.Forms.TextBox();
             this.lb_TipoAplicacao = new System.Windows.Forms.Label();
             this.lb_ValorInicial = new System.Windows.Forms.Label();
             this.lb_ImpostoRenda = new System.Windows.Forms.Label();
-            this.lb_Profissao = new System.Windows.Forms.Label();
+            this.lb_IOF = new System.Windows.Forms.Label();
             this.lb_Tributos = new System.Windows.Forms.Label();
             this.lb_ValorMinimo = new System.Windows.Forms.Label();
             this.lb_Status_Aplicacao = new System.Windows.Forms.Label();
             this.lb_ResgateMinimo = new System.Windows.Forms.Label();
             this.lb_InformacaoAplicacao = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.tb_Visualizar_Vencimento = new System.Windows.Forms.TextBox();
             this.lb_Vencimento = new System.Windows.Forms.Label();
             this.lb_Asterisco = new System.Windows.Forms.Label();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.label1 = new System.Windows.Forms.Label();
+            this.tb_Visualizar_Taxa = new System.Windows.Forms.TextBox();
+            this.lb_TaxaRendimento = new System.Windows.Forms.Label();
             this.lb_InformacaoTaxaSelic = new System.Windows.Forms.Label();
             this.lb_DataAtual = new System.Windows.Forms.Label();
             this.p_Content.SuspendLayout();
@@ -64,22 +64,22 @@
             // 
             this.p_Content.Controls.Add(this.lb_DataAtual);
             this.p_Content.Controls.Add(this.lb_InformacaoTaxaSelic);
-            this.p_Content.Controls.Add(this.textBox2);
-            this.p_Content.Controls.Add(this.label1);
+            this.p_Content.Controls.Add(this.tb_Visualizar_Taxa);
+            this.p_Content.Controls.Add(this.lb_TaxaRendimento);
             this.p_Content.Controls.Add(this.lb_Asterisco);
-            this.p_Content.Controls.Add(this.textBox1);
+            this.p_Content.Controls.Add(this.tb_Visualizar_Vencimento);
             this.p_Content.Controls.Add(this.lb_Vencimento);
-            this.p_Content.Controls.Add(this.tb_Visualizar_Renda);
-            this.p_Content.Controls.Add(this.tb_Visualizar_Profissao);
-            this.p_Content.Controls.Add(this.tb_Visualizar_EstadoCivil);
-            this.p_Content.Controls.Add(this.tb_Visualizar_DataNasc);
-            this.p_Content.Controls.Add(this.tb_Visualizar_Sobrenome);
-            this.p_Content.Controls.Add(this.tb_Visualizar_Nome);
-            this.p_Content.Controls.Add(this.tb_Visualizar_TpCliente);
+            this.p_Content.Controls.Add(this.tb_Visualizar_ImpostoRenda);
+            this.p_Content.Controls.Add(this.tb_Visualizar_IOF);
+            this.p_Content.Controls.Add(this.tb_Visualizar_ValorInicial);
+            this.p_Content.Controls.Add(this.tb_Visualizar_ResgMin);
+            this.p_Content.Controls.Add(this.tb_Visualizar_ValorMin);
+            this.p_Content.Controls.Add(this.tb_Visualizar_StatusAplicacao);
+            this.p_Content.Controls.Add(this.tb_Visualizar_TpAplicacao);
             this.p_Content.Controls.Add(this.lb_TipoAplicacao);
             this.p_Content.Controls.Add(this.lb_ValorInicial);
             this.p_Content.Controls.Add(this.lb_ImpostoRenda);
-            this.p_Content.Controls.Add(this.lb_Profissao);
+            this.p_Content.Controls.Add(this.lb_IOF);
             this.p_Content.Controls.Add(this.lb_Tributos);
             this.p_Content.Controls.Add(this.lb_ValorMinimo);
             this.p_Content.Controls.Add(this.lb_Status_Aplicacao);
@@ -181,77 +181,84 @@
             this.lb_TituloVisualizarAplicacao.TabIndex = 91;
             this.lb_TituloVisualizarAplicacao.Text = "VISUALIZAR  APLICAÇÃO";
             // 
-            // tb_Visualizar_Renda
+            // tb_Visualizar_ImpostoRenda
             // 
-            this.tb_Visualizar_Renda.BackColor = System.Drawing.SystemColors.InactiveCaption;
-            this.tb_Visualizar_Renda.Enabled = false;
-            this.tb_Visualizar_Renda.Location = new System.Drawing.Point(685, 210);
-            this.tb_Visualizar_Renda.Name = "tb_Visualizar_Renda";
-            this.tb_Visualizar_Renda.ReadOnly = true;
-            this.tb_Visualizar_Renda.Size = new System.Drawing.Size(135, 20);
-            this.tb_Visualizar_Renda.TabIndex = 198;
-            this.tb_Visualizar_Renda.Visible = false;
+            this.tb_Visualizar_ImpostoRenda.BackColor = System.Drawing.SystemColors.InactiveCaption;
+            this.tb_Visualizar_ImpostoRenda.Enabled = false;
+            this.tb_Visualizar_ImpostoRenda.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.tb_Visualizar_ImpostoRenda.Location = new System.Drawing.Point(685, 210);
+            this.tb_Visualizar_ImpostoRenda.Name = "tb_Visualizar_ImpostoRenda";
+            this.tb_Visualizar_ImpostoRenda.ReadOnly = true;
+            this.tb_Visualizar_ImpostoRenda.Size = new System.Drawing.Size(135, 20);
+            this.tb_Visualizar_ImpostoRenda.TabIndex = 198;
+            this.tb_Visualizar_ImpostoRenda.Visible = false;
             // 
-            // tb_Visualizar_Profissao
+            // tb_Visualizar_IOF
             // 
-            this.tb_Visualizar_Profissao.BackColor = System.Drawing.SystemColors.InactiveCaption;
-            this.tb_Visualizar_Profissao.Enabled = false;
-            this.tb_Visualizar_Profissao.Location = new System.Drawing.Point(685, 189);
-            this.tb_Visualizar_Profissao.Name = "tb_Visualizar_Profissao";
-            this.tb_Visualizar_Profissao.ReadOnly = true;
-            this.tb_Visualizar_Profissao.Size = new System.Drawing.Size(135, 20);
-            this.tb_Visualizar_Profissao.TabIndex = 197;
-            this.tb_Visualizar_Profissao.Visible = false;
+            this.tb_Visualizar_IOF.BackColor = System.Drawing.SystemColors.InactiveCaption;
+            this.tb_Visualizar_IOF.Enabled = false;
+            this.tb_Visualizar_IOF.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.tb_Visualizar_IOF.Location = new System.Drawing.Point(685, 189);
+            this.tb_Visualizar_IOF.Name = "tb_Visualizar_IOF";
+            this.tb_Visualizar_IOF.ReadOnly = true;
+            this.tb_Visualizar_IOF.Size = new System.Drawing.Size(135, 20);
+            this.tb_Visualizar_IOF.TabIndex = 197;
+            this.tb_Visualizar_IOF.Visible = false;
             // 
-            // tb_Visualizar_EstadoCivil
+            // tb_Visualizar_ValorInicial
             // 
-            this.tb_Visualizar_EstadoCivil.BackColor = System.Drawing.SystemColors.InactiveCaption;
-            this.tb_Visualizar_EstadoCivil.Enabled = false;
-            this.tb_Visualizar_EstadoCivil.Location = new System.Drawing.Point(337, 321);
-            this.tb_Visualizar_EstadoCivil.Name = "tb_Visualizar_EstadoCivil";
-            this.tb_Visualizar_EstadoCivil.ReadOnly = true;
-            this.tb_Visualizar_EstadoCivil.Size = new System.Drawing.Size(135, 20);
-            this.tb_Visualizar_EstadoCivil.TabIndex = 191;
+            this.tb_Visualizar_ValorInicial.BackColor = System.Drawing.SystemColors.InactiveCaption;
+            this.tb_Visualizar_ValorInicial.Enabled = false;
+            this.tb_Visualizar_ValorInicial.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.tb_Visualizar_ValorInicial.Location = new System.Drawing.Point(337, 321);
+            this.tb_Visualizar_ValorInicial.Name = "tb_Visualizar_ValorInicial";
+            this.tb_Visualizar_ValorInicial.ReadOnly = true;
+            this.tb_Visualizar_ValorInicial.Size = new System.Drawing.Size(135, 20);
+            this.tb_Visualizar_ValorInicial.TabIndex = 191;
             // 
-            // tb_Visualizar_DataNasc
+            // tb_Visualizar_ResgMin
             // 
-            this.tb_Visualizar_DataNasc.BackColor = System.Drawing.SystemColors.InactiveCaption;
-            this.tb_Visualizar_DataNasc.Enabled = false;
-            this.tb_Visualizar_DataNasc.Location = new System.Drawing.Point(337, 300);
-            this.tb_Visualizar_DataNasc.Name = "tb_Visualizar_DataNasc";
-            this.tb_Visualizar_DataNasc.ReadOnly = true;
-            this.tb_Visualizar_DataNasc.Size = new System.Drawing.Size(135, 20);
-            this.tb_Visualizar_DataNasc.TabIndex = 190;
+            this.tb_Visualizar_ResgMin.BackColor = System.Drawing.SystemColors.InactiveCaption;
+            this.tb_Visualizar_ResgMin.Enabled = false;
+            this.tb_Visualizar_ResgMin.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.tb_Visualizar_ResgMin.Location = new System.Drawing.Point(337, 300);
+            this.tb_Visualizar_ResgMin.Name = "tb_Visualizar_ResgMin";
+            this.tb_Visualizar_ResgMin.ReadOnly = true;
+            this.tb_Visualizar_ResgMin.Size = new System.Drawing.Size(135, 20);
+            this.tb_Visualizar_ResgMin.TabIndex = 190;
             // 
-            // tb_Visualizar_Sobrenome
+            // tb_Visualizar_ValorMin
             // 
-            this.tb_Visualizar_Sobrenome.BackColor = System.Drawing.SystemColors.InactiveCaption;
-            this.tb_Visualizar_Sobrenome.Enabled = false;
-            this.tb_Visualizar_Sobrenome.Location = new System.Drawing.Point(337, 279);
-            this.tb_Visualizar_Sobrenome.Name = "tb_Visualizar_Sobrenome";
-            this.tb_Visualizar_Sobrenome.ReadOnly = true;
-            this.tb_Visualizar_Sobrenome.Size = new System.Drawing.Size(135, 20);
-            this.tb_Visualizar_Sobrenome.TabIndex = 189;
+            this.tb_Visualizar_ValorMin.BackColor = System.Drawing.SystemColors.InactiveCaption;
+            this.tb_Visualizar_ValorMin.Enabled = false;
+            this.tb_Visualizar_ValorMin.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.tb_Visualizar_ValorMin.Location = new System.Drawing.Point(337, 279);
+            this.tb_Visualizar_ValorMin.Name = "tb_Visualizar_ValorMin";
+            this.tb_Visualizar_ValorMin.ReadOnly = true;
+            this.tb_Visualizar_ValorMin.Size = new System.Drawing.Size(135, 20);
+            this.tb_Visualizar_ValorMin.TabIndex = 189;
             // 
-            // tb_Visualizar_Nome
+            // tb_Visualizar_StatusAplicacao
             // 
-            this.tb_Visualizar_Nome.BackColor = System.Drawing.SystemColors.InactiveCaption;
-            this.tb_Visualizar_Nome.Enabled = false;
-            this.tb_Visualizar_Nome.Location = new System.Drawing.Point(337, 258);
-            this.tb_Visualizar_Nome.Name = "tb_Visualizar_Nome";
-            this.tb_Visualizar_Nome.ReadOnly = true;
-            this.tb_Visualizar_Nome.Size = new System.Drawing.Size(135, 20);
-            this.tb_Visualizar_Nome.TabIndex = 188;
+            this.tb_Visualizar_StatusAplicacao.BackColor = System.Drawing.SystemColors.InactiveCaption;
+            this.tb_Visualizar_StatusAplicacao.Enabled = false;
+            this.tb_Visualizar_StatusAplicacao.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.tb_Visualizar_StatusAplicacao.Location = new System.Drawing.Point(337, 258);
+            this.tb_Visualizar_StatusAplicacao.Name = "tb_Visualizar_StatusAplicacao";
+            this.tb_Visualizar_StatusAplicacao.ReadOnly = true;
+            this.tb_Visualizar_StatusAplicacao.Size = new System.Drawing.Size(135, 20);
+            this.tb_Visualizar_StatusAplicacao.TabIndex = 188;
             // 
-            // tb_Visualizar_TpCliente
+            // tb_Visualizar_TpAplicacao
             // 
-            this.tb_Visualizar_TpCliente.BackColor = System.Drawing.SystemColors.InactiveCaption;
-            this.tb_Visualizar_TpCliente.Enabled = false;
-            this.tb_Visualizar_TpCliente.Location = new System.Drawing.Point(223, 190);
-            this.tb_Visualizar_TpCliente.Name = "tb_Visualizar_TpCliente";
-            this.tb_Visualizar_TpCliente.ReadOnly = true;
-            this.tb_Visualizar_TpCliente.Size = new System.Drawing.Size(105, 20);
-            this.tb_Visualizar_TpCliente.TabIndex = 186;
+            this.tb_Visualizar_TpAplicacao.BackColor = System.Drawing.SystemColors.InactiveCaption;
+            this.tb_Visualizar_TpAplicacao.Enabled = false;
+            this.tb_Visualizar_TpAplicacao.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.tb_Visualizar_TpAplicacao.Location = new System.Drawing.Point(223, 190);
+            this.tb_Visualizar_TpAplicacao.Name = "tb_Visualizar_TpAplicacao";
+            this.tb_Visualizar_TpAplicacao.ReadOnly = true;
+            this.tb_Visualizar_TpAplicacao.Size = new System.Drawing.Size(105, 20);
+            this.tb_Visualizar_TpAplicacao.TabIndex = 186;
             // 
             // lb_TipoAplicacao
             // 
@@ -287,17 +294,17 @@
             this.lb_ImpostoRenda.Text = "Imposto de renda:";
             this.lb_ImpostoRenda.Visible = false;
             // 
-            // lb_Profissao
+            // lb_IOF
             // 
-            this.lb_Profissao.AutoSize = true;
-            this.lb_Profissao.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lb_Profissao.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.lb_Profissao.Location = new System.Drawing.Point(575, 193);
-            this.lb_Profissao.Name = "lb_Profissao";
-            this.lb_Profissao.Size = new System.Drawing.Size(73, 13);
-            this.lb_Profissao.TabIndex = 164;
-            this.lb_Profissao.Text = "Valor de IOF:";
-            this.lb_Profissao.Visible = false;
+            this.lb_IOF.AutoSize = true;
+            this.lb_IOF.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lb_IOF.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.lb_IOF.Location = new System.Drawing.Point(575, 193);
+            this.lb_IOF.Name = "lb_IOF";
+            this.lb_IOF.Size = new System.Drawing.Size(73, 13);
+            this.lb_IOF.TabIndex = 164;
+            this.lb_IOF.Text = "Valor de IOF:";
+            this.lb_IOF.Visible = false;
             // 
             // lb_Tributos
             // 
@@ -356,15 +363,16 @@
             this.lb_InformacaoAplicacao.TabIndex = 152;
             this.lb_InformacaoAplicacao.Text = "Informações Gerais";
             // 
-            // textBox1
+            // tb_Visualizar_Vencimento
             // 
-            this.textBox1.BackColor = System.Drawing.SystemColors.InactiveCaption;
-            this.textBox1.Enabled = false;
-            this.textBox1.Location = new System.Drawing.Point(337, 342);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.ReadOnly = true;
-            this.textBox1.Size = new System.Drawing.Size(135, 20);
-            this.textBox1.TabIndex = 200;
+            this.tb_Visualizar_Vencimento.BackColor = System.Drawing.SystemColors.InactiveCaption;
+            this.tb_Visualizar_Vencimento.Enabled = false;
+            this.tb_Visualizar_Vencimento.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.tb_Visualizar_Vencimento.Location = new System.Drawing.Point(337, 342);
+            this.tb_Visualizar_Vencimento.Name = "tb_Visualizar_Vencimento";
+            this.tb_Visualizar_Vencimento.ReadOnly = true;
+            this.tb_Visualizar_Vencimento.Size = new System.Drawing.Size(135, 20);
+            this.tb_Visualizar_Vencimento.TabIndex = 200;
             // 
             // lb_Vencimento
             // 
@@ -387,27 +395,29 @@
             this.lb_Asterisco.Size = new System.Drawing.Size(13, 17);
             this.lb_Asterisco.TabIndex = 201;
             this.lb_Asterisco.Text = "*";
+            this.lb_Asterisco.Visible = false;
             // 
-            // textBox2
+            // tb_Visualizar_Taxa
             // 
-            this.textBox2.BackColor = System.Drawing.SystemColors.InactiveCaption;
-            this.textBox2.Enabled = false;
-            this.textBox2.Location = new System.Drawing.Point(337, 363);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.ReadOnly = true;
-            this.textBox2.Size = new System.Drawing.Size(135, 20);
-            this.textBox2.TabIndex = 203;
+            this.tb_Visualizar_Taxa.BackColor = System.Drawing.SystemColors.InactiveCaption;
+            this.tb_Visualizar_Taxa.Enabled = false;
+            this.tb_Visualizar_Taxa.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.tb_Visualizar_Taxa.Location = new System.Drawing.Point(337, 363);
+            this.tb_Visualizar_Taxa.Name = "tb_Visualizar_Taxa";
+            this.tb_Visualizar_Taxa.ReadOnly = true;
+            this.tb_Visualizar_Taxa.Size = new System.Drawing.Size(135, 20);
+            this.tb_Visualizar_Taxa.TabIndex = 203;
             // 
-            // label1
+            // lb_TaxaRendimento
             // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.label1.Location = new System.Drawing.Point(220, 367);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(110, 13);
-            this.label1.TabIndex = 202;
-            this.label1.Text = "Taxa de rendimento:";
+            this.lb_TaxaRendimento.AutoSize = true;
+            this.lb_TaxaRendimento.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lb_TaxaRendimento.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.lb_TaxaRendimento.Location = new System.Drawing.Point(220, 367);
+            this.lb_TaxaRendimento.Name = "lb_TaxaRendimento";
+            this.lb_TaxaRendimento.Size = new System.Drawing.Size(110, 13);
+            this.lb_TaxaRendimento.TabIndex = 202;
+            this.lb_TaxaRendimento.Text = "Taxa de rendimento:";
             // 
             // lb_InformacaoTaxaSelic
             // 
@@ -419,6 +429,7 @@
             this.lb_InformacaoTaxaSelic.Size = new System.Drawing.Size(362, 15);
             this.lb_InformacaoTaxaSelic.TabIndex = 204;
             this.lb_InformacaoTaxaSelic.Text = "*A taxa de rendimento está atualizada conforme a taxa Selic de hoje";
+            this.lb_InformacaoTaxaSelic.Visible = false;
             // 
             // lb_DataAtual
             // 
@@ -430,6 +441,7 @@
             this.lb_DataAtual.Size = new System.Drawing.Size(39, 15);
             this.lb_DataAtual.TabIndex = 205;
             this.lb_DataAtual.Text = "(Data)";
+            this.lb_DataAtual.Visible = false;
             // 
             // VisualizarAplicacao
             // 
@@ -450,19 +462,19 @@
         private System.Windows.Forms.Button btn_CancelarAplicacao;
         private System.Windows.Forms.Label lb_TituloVisualizarAplicacao;
         private System.Windows.Forms.Label lb_Asterisco;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox tb_Visualizar_Vencimento;
         protected System.Windows.Forms.Label lb_Vencimento;
-        private System.Windows.Forms.TextBox tb_Visualizar_Renda;
-        private System.Windows.Forms.TextBox tb_Visualizar_Profissao;
-        private System.Windows.Forms.TextBox tb_Visualizar_EstadoCivil;
-        private System.Windows.Forms.TextBox tb_Visualizar_DataNasc;
-        private System.Windows.Forms.TextBox tb_Visualizar_Sobrenome;
-        private System.Windows.Forms.TextBox tb_Visualizar_Nome;
-        private System.Windows.Forms.TextBox tb_Visualizar_TpCliente;
+        private System.Windows.Forms.TextBox tb_Visualizar_ImpostoRenda;
+        private System.Windows.Forms.TextBox tb_Visualizar_IOF;
+        private System.Windows.Forms.TextBox tb_Visualizar_ValorInicial;
+        private System.Windows.Forms.TextBox tb_Visualizar_ResgMin;
+        private System.Windows.Forms.TextBox tb_Visualizar_ValorMin;
+        private System.Windows.Forms.TextBox tb_Visualizar_StatusAplicacao;
+        private System.Windows.Forms.TextBox tb_Visualizar_TpAplicacao;
         protected System.Windows.Forms.Label lb_TipoAplicacao;
         protected System.Windows.Forms.Label lb_ValorInicial;
         protected System.Windows.Forms.Label lb_ImpostoRenda;
-        protected System.Windows.Forms.Label lb_Profissao;
+        protected System.Windows.Forms.Label lb_IOF;
         protected System.Windows.Forms.Label lb_Tributos;
         protected System.Windows.Forms.Label lb_ValorMinimo;
         protected System.Windows.Forms.Label lb_Status_Aplicacao;
@@ -470,7 +482,7 @@
         protected System.Windows.Forms.Label lb_InformacaoAplicacao;
         private System.Windows.Forms.Label lb_DataAtual;
         private System.Windows.Forms.Label lb_InformacaoTaxaSelic;
-        private System.Windows.Forms.TextBox textBox2;
-        protected System.Windows.Forms.Label label1;
+        private System.Windows.Forms.TextBox tb_Visualizar_Taxa;
+        protected System.Windows.Forms.Label lb_TaxaRendimento;
     }
 }

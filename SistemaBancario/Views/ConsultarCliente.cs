@@ -28,6 +28,7 @@ namespace SistemaBancario.Views
                 if(MySQLFunctions.BuscarCliente(dgv_ResultadoBuscaCliente, cpfBusca))
                 {
                     dgv_ResultadoBuscaCliente.Visible = true;
+                    lb_InformativoVisualizarCliente.Visible = true;
                     btn_VisualizarCliente.Visible = true;
                 }
                 else
@@ -49,7 +50,7 @@ namespace SistemaBancario.Views
 
             string idCliente = cur_row.Cells[0].Value.ToString();
 
-            VisualizarCliente visualizarCliente = new VisualizarCliente(idCliente);
+            VisualizarCliente visualizarCliente = new VisualizarCliente(Convert.ToInt32(idCliente));
             visualizarCliente.FormClosed += new FormClosedEventHandler(visualizarCliente_FormClosed);
             visualizarCliente.Show();
             this.Hide();
@@ -60,5 +61,6 @@ namespace SistemaBancario.Views
         {
             this.Close();
         }
+
     }
 }

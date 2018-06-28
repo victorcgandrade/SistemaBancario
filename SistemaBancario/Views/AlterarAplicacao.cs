@@ -8,9 +8,9 @@ using System.Windows.Forms;
 
 namespace SistemaBancario.Views
 {
-    public partial class AtualizarAplicacao : SistemaBancario.Views.TemplateInicialAdministrador
+    public partial class AlterarAplicacao : SistemaBancario.Views.TemplateInicialAdministrador
     {
-        public AtualizarAplicacao()
+        public AlterarAplicacao()
         {
             InitializeComponent();
         }

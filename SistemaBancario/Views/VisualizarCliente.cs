@@ -14,13 +14,13 @@ namespace SistemaBancario.Views
 
         private Cliente cliente; //variavel global para ser reaproveitada ao longo do codigo
 
-        public VisualizarCliente(string idBusca)
+        public VisualizarCliente(int idBusca)
         {
             InitializeComponent();
             carregarCliente(idBusca);
         }
 
-        private void carregarCliente(string idBusca)
+        private void carregarCliente(int idBusca)
         {
             cliente = MySQLFunctions.RetornarCliente(idBusca); //obtem todos os dados de um cliente
 

@@ -34,21 +34,21 @@ namespace Main
             this.lblIdentificacao = new System.Windows.Forms.Label();
             this.cmbBoxTipoUser = new System.Windows.Forms.ComboBox();
             this.btnAcessar = new System.Windows.Forms.Button();
-            this.picBoxIcone = new System.Windows.Forms.PictureBox();
             this.pnlDadosUser = new System.Windows.Forms.Panel();
-            this.tlpDadosCliente = new System.Windows.Forms.TableLayoutPanel();
-            this.txtBoxConta = new System.Windows.Forms.TextBox();
-            this.txtBoxAgencia = new System.Windows.Forms.TextBox();
             this.tlpDadosAdm = new System.Windows.Forms.TableLayoutPanel();
             this.txtBoxLogin = new System.Windows.Forms.TextBox();
             this.txtBoxSenha = new System.Windows.Forms.TextBox();
+            this.tlpDadosCliente = new System.Windows.Forms.TableLayoutPanel();
+            this.txtBoxConta = new System.Windows.Forms.TextBox();
+            this.txtBoxAgencia = new System.Windows.Forms.TextBox();
+            this.picBoxIcone = new System.Windows.Forms.PictureBox();
             this.tlpFooter = new System.Windows.Forms.TableLayoutPanel();
             this.tlpHeader = new System.Windows.Forms.TableLayoutPanel();
             this.tlpMenu.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.picBoxIcone)).BeginInit();
             this.pnlDadosUser.SuspendLayout();
-            this.tlpDadosCliente.SuspendLayout();
             this.tlpDadosAdm.SuspendLayout();
+            this.tlpDadosCliente.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.picBoxIcone)).BeginInit();
             this.SuspendLayout();
             // 
             // tlpMenu
@@ -79,12 +79,12 @@ namespace Main
             // 
             this.lblIdentificacao.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.lblIdentificacao.AutoSize = true;
-            this.lblIdentificacao.Font = new System.Drawing.Font("Candara", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblIdentificacao.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblIdentificacao.ForeColor = System.Drawing.Color.White;
             this.lblIdentificacao.ImageAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.lblIdentificacao.Location = new System.Drawing.Point(3, 155);
             this.lblIdentificacao.Name = "lblIdentificacao";
-            this.lblIdentificacao.Size = new System.Drawing.Size(194, 19);
+            this.lblIdentificacao.Size = new System.Drawing.Size(194, 20);
             this.lblIdentificacao.TabIndex = 1;
             this.lblIdentificacao.Text = "Identificação";
             this.lblIdentificacao.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -105,6 +105,7 @@ namespace Main
             // 
             this.btnAcessar.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.btnAcessar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnAcessar.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnAcessar.ForeColor = System.Drawing.SystemColors.ButtonFace;
             this.btnAcessar.Location = new System.Drawing.Point(62, 268);
             this.btnAcessar.Name = "btnAcessar";
@@ -113,16 +114,6 @@ namespace Main
             this.btnAcessar.Text = "Acessar";
             this.btnAcessar.UseVisualStyleBackColor = true;
             this.btnAcessar.Click += new System.EventHandler(this.btnAcessar_Click_1);
-            // 
-            // picBoxIcone
-            // 
-            this.picBoxIcone.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.picBoxIcone.Image = global::SistemaBancario.Properties.Resources.logo;
-            this.picBoxIcone.Location = new System.Drawing.Point(30, 5);
-            this.picBoxIcone.Name = "picBoxIcone";
-            this.picBoxIcone.Size = new System.Drawing.Size(147, 147);
-            this.picBoxIcone.TabIndex = 0;
-            this.picBoxIcone.TabStop = false;
             // 
             // pnlDadosUser
             // 
@@ -133,6 +124,44 @@ namespace Main
             this.pnlDadosUser.Name = "pnlDadosUser";
             this.pnlDadosUser.Size = new System.Drawing.Size(200, 40);
             this.pnlDadosUser.TabIndex = 5;
+            // 
+            // tlpDadosAdm
+            // 
+            this.tlpDadosAdm.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(33)))), ((int)(((byte)(35)))));
+            this.tlpDadosAdm.ColumnCount = 2;
+            this.tlpDadosAdm.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tlpDadosAdm.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tlpDadosAdm.Controls.Add(this.txtBoxLogin, 0, 0);
+            this.tlpDadosAdm.Controls.Add(this.txtBoxSenha, 1, 0);
+            this.tlpDadosAdm.Location = new System.Drawing.Point(0, 10);
+            this.tlpDadosAdm.Margin = new System.Windows.Forms.Padding(0);
+            this.tlpDadosAdm.Name = "tlpDadosAdm";
+            this.tlpDadosAdm.RowCount = 1;
+            this.tlpDadosAdm.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tlpDadosAdm.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 30F));
+            this.tlpDadosAdm.Size = new System.Drawing.Size(200, 30);
+            this.tlpDadosAdm.TabIndex = 3;
+            // 
+            // txtBoxLogin
+            // 
+            this.txtBoxLogin.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtBoxLogin.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtBoxLogin.Location = new System.Drawing.Point(3, 3);
+            this.txtBoxLogin.Name = "txtBoxLogin";
+            this.txtBoxLogin.Size = new System.Drawing.Size(94, 25);
+            this.txtBoxLogin.TabIndex = 0;
+            this.txtBoxLogin.Text = "Login";
+            // 
+            // txtBoxSenha
+            // 
+            this.txtBoxSenha.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtBoxSenha.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtBoxSenha.Location = new System.Drawing.Point(103, 3);
+            this.txtBoxSenha.Name = "txtBoxSenha";
+            this.txtBoxSenha.Size = new System.Drawing.Size(94, 25);
+            this.txtBoxSenha.TabIndex = 1;
+            this.txtBoxSenha.Text = "Senha";
+            this.txtBoxSenha.UseSystemPasswordChar = true;
             // 
             // tlpDadosCliente
             // 
@@ -170,42 +199,15 @@ namespace Main
             this.txtBoxAgencia.TabIndex = 0;
             this.txtBoxAgencia.Text = "Agência";
             // 
-            // tlpDadosAdm
+            // picBoxIcone
             // 
-            this.tlpDadosAdm.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(33)))), ((int)(((byte)(35)))));
-            this.tlpDadosAdm.ColumnCount = 2;
-            this.tlpDadosAdm.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tlpDadosAdm.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tlpDadosAdm.Controls.Add(this.txtBoxLogin, 0, 0);
-            this.tlpDadosAdm.Controls.Add(this.txtBoxSenha, 1, 0);
-            this.tlpDadosAdm.Location = new System.Drawing.Point(0, 10);
-            this.tlpDadosAdm.Margin = new System.Windows.Forms.Padding(0);
-            this.tlpDadosAdm.Name = "tlpDadosAdm";
-            this.tlpDadosAdm.RowCount = 1;
-            this.tlpDadosAdm.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tlpDadosAdm.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 30F));
-            this.tlpDadosAdm.Size = new System.Drawing.Size(200, 30);
-            this.tlpDadosAdm.TabIndex = 3;
-            // 
-            // txtBoxLogin
-            // 
-            this.txtBoxLogin.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtBoxLogin.Font = new System.Drawing.Font("Candara", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtBoxLogin.Location = new System.Drawing.Point(3, 3);
-            this.txtBoxLogin.Name = "txtBoxLogin";
-            this.txtBoxLogin.Size = new System.Drawing.Size(94, 23);
-            this.txtBoxLogin.TabIndex = 0;
-            this.txtBoxLogin.Text = "Login";
-            // 
-            // txtBoxSenha
-            // 
-            this.txtBoxSenha.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtBoxSenha.Font = new System.Drawing.Font("Candara", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtBoxSenha.Location = new System.Drawing.Point(103, 3);
-            this.txtBoxSenha.Name = "txtBoxSenha";
-            this.txtBoxSenha.Size = new System.Drawing.Size(94, 23);
-            this.txtBoxSenha.TabIndex = 1;
-            this.txtBoxSenha.Text = "Senha";
+            this.picBoxIcone.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.picBoxIcone.Image = global::SistemaBancario.Properties.Resources.logo;
+            this.picBoxIcone.Location = new System.Drawing.Point(26, 3);
+            this.picBoxIcone.Name = "picBoxIcone";
+            this.picBoxIcone.Size = new System.Drawing.Size(147, 144);
+            this.picBoxIcone.TabIndex = 0;
+            this.picBoxIcone.TabStop = false;
             // 
             // tlpFooter
             // 
@@ -249,14 +251,15 @@ namespace Main
             this.Name = "TelaLogin";
             this.ShowIcon = false;
             this.Text = "A&A Desktop";
+            this.Load += new System.EventHandler(this.TelaLogin_Load);
             this.tlpMenu.ResumeLayout(false);
             this.tlpMenu.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.picBoxIcone)).EndInit();
             this.pnlDadosUser.ResumeLayout(false);
-            this.tlpDadosCliente.ResumeLayout(false);
-            this.tlpDadosCliente.PerformLayout();
             this.tlpDadosAdm.ResumeLayout(false);
             this.tlpDadosAdm.PerformLayout();
+            this.tlpDadosCliente.ResumeLayout(false);
+            this.tlpDadosCliente.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.picBoxIcone)).EndInit();
             this.ResumeLayout(false);
 
         }
