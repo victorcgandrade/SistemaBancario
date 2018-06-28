@@ -165,6 +165,7 @@
             this.btn_InativarConta.TabIndex = 155;
             this.btn_InativarConta.Text = "Inativar";
             this.btn_InativarConta.UseVisualStyleBackColor = false;
+            this.btn_InativarConta.Click += new System.EventHandler(this.btn_InativarConta_Click);
             // 
             // tb_CPFCliente
             // 

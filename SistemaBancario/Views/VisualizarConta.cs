@@ -53,5 +53,23 @@ namespace SistemaBancario.Views
         {
             this.Close();
         }
+
+        private void btn_InativarConta_Click(object sender, EventArgs e)
+        {
+            string numeroConta = tb_NumConta.Text;
+
+            if (MessageBox.Show("Tem certeza que deseja inativar esta conta?", "Confirmacao", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+            {
+                if (MySQLFunctions.InativarConta(Convert.ToInt32(numeroConta)))
+                {
+                    MessageBox.Show("Conta inativada com sucesso!");
+                    this.Refresh();
+                }
+                else
+                {
+                    MessageBox.Show("Não foi possível inativar a conta!");
+                }
+            }
+        }
     }
 }

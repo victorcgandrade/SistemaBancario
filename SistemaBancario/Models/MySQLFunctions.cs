@@ -559,11 +559,11 @@ namespace SistemaBancario.Models
             {
                 if (connection.State == ConnectionState.Closed)
                     connection.Open();
-                MySqlCommand removerCliente = new MySqlCommand("UPDATE Cliente JOIN Usuario on Cliente.id_usuario = Usuario.id SET Cliente.status = 'Inativo' WHERE Usuario.cpf = @identificador", connection);
-                removerCliente.Parameters.AddWithValue("@identificador", identificador);
+                MySqlCommand inativarCliente = new MySqlCommand("UPDATE Cliente JOIN Usuario on Cliente.id_usuario = Usuario.id SET Cliente.status = 'Inativo' WHERE Usuario.cpf = @identificador", connection);
+                inativarCliente.Parameters.AddWithValue("@identificador", identificador);
 
-                removerCliente.ExecuteNonQuery();
-                removerCliente.Parameters.Clear();
+                inativarCliente.ExecuteNonQuery();
+                inativarCliente.Parameters.Clear();
 
                 sucesso = true;
             }
@@ -1233,7 +1233,36 @@ namespace SistemaBancario.Models
             }
         }
 
+        //Inativar uma determinada conta
+        static public Boolean InativarConta(int numero)
+        {
+            try
+            {
+                if (connection.State == ConnectionState.Closed)
+                    connection.Open();
 
+                int linhasAfetadasConta = connection.Execute("UPDATE Conta SET status = 'Inativo' WHERE Conta.numero = @numero",
+                new { @numero = numero });
+
+                if (linhasAfetadasConta == 1) //uma linha atualizada
+                {
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
+            }
+            catch (MySqlException exception)
+            {
+                Console.WriteLine(exception.ToString());
+                return false;
+            }
+            finally
+            {
+                connection.Close();
+            }
+        }
     }
 }
 

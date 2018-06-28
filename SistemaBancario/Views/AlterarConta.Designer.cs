@@ -260,7 +260,6 @@
             this.cb_Status.Items.AddRange(new object[] {
             "Criada",
             "Ativada",
-            "Inativada",
             "Com pendências"});
             this.cb_Status.Location = new System.Drawing.Point(239, 349);
             this.cb_Status.Name = "cb_Status";
