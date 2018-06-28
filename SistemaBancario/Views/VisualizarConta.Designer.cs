@@ -151,6 +151,7 @@
             this.btn_AlterarConta.TabIndex = 154;
             this.btn_AlterarConta.Text = "Alterar";
             this.btn_AlterarConta.UseVisualStyleBackColor = false;
+            this.btn_AlterarConta.Click += new System.EventHandler(this.btn_AlterarConta_Click);
             // 
             // btn_InativarConta
             // 

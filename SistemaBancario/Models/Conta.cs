@@ -12,6 +12,7 @@ namespace SistemaBancario.Models
         private int numero;
         private Agencia agencia;
         private decimal saldo;
+        private string senha;
         private string status;
         private Cliente cliente;
 
@@ -20,7 +21,7 @@ namespace SistemaBancario.Models
 
         }
 
-        public Conta(int numero, Agencia agencia, decimal saldo, string status, Cliente cliente)
+        public Conta(int numero, Agencia agencia, decimal saldo, string senha, string status, Cliente cliente)
         {
             this.numero = numero;
             this.agencia = agencia;
@@ -86,6 +87,18 @@ namespace SistemaBancario.Models
             set
             {
                 cliente = value;
+            }
+        }
+
+        public string Senha
+        {
+            get
+            {
+                return senha;
+            }
+            set
+            {
+                senha = value;
             }
         }
 

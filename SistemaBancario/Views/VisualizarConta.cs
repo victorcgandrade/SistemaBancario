@@ -40,5 +40,18 @@ namespace SistemaBancario.Views
             }
         }
 
+        private void btn_AlterarConta_Click(object sender, EventArgs e)
+        {
+            AlterarConta alterarConta = new AlterarConta(contaCorrente);
+            alterarConta.FormClosed += new FormClosedEventHandler(alterarConta_FormClosed);
+            alterarConta.Show();
+            this.Hide();
+        }
+
+        //Quando a tela de for fechada, fecha-se tambem a tela que lhe deu origem
+        private void alterarConta_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            this.Close();
+        }
     }
 }
