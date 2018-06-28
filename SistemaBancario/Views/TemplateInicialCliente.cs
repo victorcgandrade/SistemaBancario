@@ -41,5 +41,12 @@ namespace SistemaBancario.Views
                 btnSaldo.Text = "Saldo";
             }
         }
+
+        private void btn_Atendimento_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            TelaAtendimento ta = new TelaAtendimento();
+            ta.Show();
+        }
     }
 }

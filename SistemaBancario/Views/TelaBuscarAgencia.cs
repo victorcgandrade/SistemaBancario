@@ -21,10 +21,10 @@ namespace SistemaBancario.Views
         public void CarregarAgencias()
         {
             List<String> listaConcatenada = new List<String>();
-            foreach (var agencia in MySQLFunctions.ListaAgencias())
-            {
-                MySQLFunctions.SelecionaEndereco(agencia.Id);
-            }
+            dgvAgencias.DataSource = MySQLFunctions.ListaAgencias();
+            
+
         }
+
     }
 }

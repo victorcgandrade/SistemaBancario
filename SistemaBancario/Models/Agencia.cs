@@ -10,18 +10,18 @@ namespace SistemaBancario.Models
     {
         private int id;
         private int numero;
-        private Endereco endereco;
+        private int id_endereco;
 
         public Agencia()
         {
 
         }
 
-        public Agencia(int id,int numero, Endereco endereco)
+        public Agencia(int id,int numero, int id_endereco)
         {
             this.id = id;
             this.numero = numero;
-            this.endereco = endereco;
+            this.id_endereco = id_endereco;
         }
 
         public int Id
@@ -47,15 +47,15 @@ namespace SistemaBancario.Models
             }
         }
 
-        public Endereco Endereco
+        public int Id_endereco
         {
             get
             {
-                return endereco;
+                return id_endereco;
             }
             set
             {
-                endereco = value;
+                Id_endereco = value;
             }
         }
 

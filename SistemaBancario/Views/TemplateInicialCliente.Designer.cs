@@ -175,6 +175,7 @@ namespace SistemaBancario.Views
             this.btn_Atendimento.Text = "   Atendimento";
             this.btn_Atendimento.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btn_Atendimento.UseVisualStyleBackColor = false;
+            this.btn_Atendimento.Click += new System.EventHandler(this.btn_Atendimento_Click);
             // 
             // panel4
             // 

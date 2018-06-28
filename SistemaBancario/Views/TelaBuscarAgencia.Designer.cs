@@ -101,11 +101,13 @@
             // 
             // dgvAgencias
             // 
+            this.dgvAgencias.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvAgencias.BackgroundColor = System.Drawing.SystemColors.ButtonFace;
             this.dgvAgencias.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvAgencias.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgvAgencias.Location = new System.Drawing.Point(3, 3);
             this.dgvAgencias.Name = "dgvAgencias";
+            this.dgvAgencias.ReadOnly = true;
             this.dgvAgencias.Size = new System.Drawing.Size(1006, 502);
             this.dgvAgencias.TabIndex = 0;
             // 
