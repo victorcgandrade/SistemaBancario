@@ -31,7 +31,7 @@
             this.lb_TituloPagamento = new System.Windows.Forms.Label();
             this.lb_TextoExplicativoListarCliente = new System.Windows.Forms.Label();
             this.lb_SubtituloListarCliente = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.tb_Boleto = new System.Windows.Forms.TextBox();
             this.lb_ContaOrigem = new System.Windows.Forms.Label();
             this.lb_BancoDestino = new System.Windows.Forms.Label();
             this.tb_NumeroAgencia = new System.Windows.Forms.TextBox();
@@ -39,27 +39,21 @@
             this.lb_Agencia = new System.Windows.Forms.Label();
             this.tb_NumeroConta = new System.Windows.Forms.TextBox();
             this.cb_BancoDestino = new System.Windows.Forms.ComboBox();
-            this.lb_DadosPagamento = new System.Windows.Forms.Label();
-            this.tb_Valor = new System.Windows.Forms.TextBox();
-            this.lb_Valor = new System.Windows.Forms.Label();
-            this.lb_DataDebito = new System.Windows.Forms.Label();
-            this.dtp_DataDebito = new System.Windows.Forms.DateTimePicker();
-            this.btn_RealizarPagamento = new System.Windows.Forms.Button();
+            this.lb_ValorBoleto = new System.Windows.Forms.Label();
+            this.btn_AvancarResumoPagamento = new System.Windows.Forms.Button();
             this.btn_Limpar = new System.Windows.Forms.Button();
             this.btn_Cancelar = new System.Windows.Forms.Button();
+            this.tb_Valor = new System.Windows.Forms.TextBox();
             this.p_Content.SuspendLayout();
             this.SuspendLayout();
             // 
             // p_Content
             // 
-            this.p_Content.Controls.Add(this.btn_RealizarPagamento);
+            this.p_Content.Controls.Add(this.btn_AvancarResumoPagamento);
             this.p_Content.Controls.Add(this.btn_Limpar);
             this.p_Content.Controls.Add(this.btn_Cancelar);
-            this.p_Content.Controls.Add(this.lb_DataDebito);
-            this.p_Content.Controls.Add(this.dtp_DataDebito);
             this.p_Content.Controls.Add(this.tb_Valor);
-            this.p_Content.Controls.Add(this.lb_Valor);
-            this.p_Content.Controls.Add(this.lb_DadosPagamento);
+            this.p_Content.Controls.Add(this.lb_ValorBoleto);
             this.p_Content.Controls.Add(this.cb_BancoDestino);
             this.p_Content.Controls.Add(this.tb_NumeroAgencia);
             this.p_Content.Controls.Add(this.lb_NumeroConta);
@@ -67,7 +61,7 @@
             this.p_Content.Controls.Add(this.tb_NumeroConta);
             this.p_Content.Controls.Add(this.lb_BancoDestino);
             this.p_Content.Controls.Add(this.lb_ContaOrigem);
-            this.p_Content.Controls.Add(this.textBox1);
+            this.p_Content.Controls.Add(this.tb_Boleto);
             this.p_Content.Controls.Add(this.lb_TextoExplicativoListarCliente);
             this.p_Content.Controls.Add(this.lb_SubtituloListarCliente);
             this.p_Content.Controls.Add(this.lb_TituloPagamento);
@@ -141,12 +135,12 @@
             this.lb_SubtituloListarCliente.TabIndex = 88;
             this.lb_SubtituloListarCliente.Text = "Boleto de pagamento";
             // 
-            // textBox1
+            // tb_Boleto
             // 
-            this.textBox1.Location = new System.Drawing.Point(381, 149);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(354, 20);
-            this.textBox1.TabIndex = 90;
+            this.tb_Boleto.Location = new System.Drawing.Point(381, 149);
+            this.tb_Boleto.Name = "tb_Boleto";
+            this.tb_Boleto.Size = new System.Drawing.Size(354, 20);
+            this.tb_Boleto.TabIndex = 90;
             // 
             // lb_ContaOrigem
             // 
@@ -220,79 +214,29 @@
             this.cb_BancoDestino.Size = new System.Drawing.Size(121, 21);
             this.cb_BancoDestino.TabIndex = 107;
             // 
-            // lb_DadosPagamento
+            // lb_ValorBoleto
             // 
-            this.lb_DadosPagamento.AutoSize = true;
-            this.lb_DadosPagamento.Font = new System.Drawing.Font("Segoe UI Semibold", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lb_DadosPagamento.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
-            this.lb_DadosPagamento.Location = new System.Drawing.Point(692, 223);
-            this.lb_DadosPagamento.Name = "lb_DadosPagamento";
-            this.lb_DadosPagamento.Size = new System.Drawing.Size(156, 20);
-            this.lb_DadosPagamento.TabIndex = 108;
-            this.lb_DadosPagamento.Text = "Dados do pagamento";
+            this.lb_ValorBoleto.AutoSize = true;
+            this.lb_ValorBoleto.Font = new System.Drawing.Font("Segoe UI Semibold", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lb_ValorBoleto.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
+            this.lb_ValorBoleto.Location = new System.Drawing.Point(692, 223);
+            this.lb_ValorBoleto.Name = "lb_ValorBoleto";
+            this.lb_ValorBoleto.Size = new System.Drawing.Size(146, 20);
+            this.lb_ValorBoleto.TabIndex = 108;
+            this.lb_ValorBoleto.Text = "Valor do boleto (R$)";
             // 
-            // tb_Valor
+            // btn_AvancarResumoPagamento
             // 
-            this.tb_Valor.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.tb_Valor.Location = new System.Drawing.Point(696, 268);
-            this.tb_Valor.Name = "tb_Valor";
-            this.tb_Valor.Size = new System.Drawing.Size(121, 20);
-            this.tb_Valor.TabIndex = 110;
-            // 
-            // lb_Valor
-            // 
-            this.lb_Valor.AutoSize = true;
-            this.lb_Valor.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lb_Valor.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.lb_Valor.Location = new System.Drawing.Point(693, 252);
-            this.lb_Valor.Name = "lb_Valor";
-            this.lb_Valor.Size = new System.Drawing.Size(90, 13);
-            this.lb_Valor.TabIndex = 109;
-            this.lb_Valor.Text = "Valor do boleto:";
-            // 
-            // lb_DataDebito
-            // 
-            this.lb_DataDebito.AutoSize = true;
-            this.lb_DataDebito.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(246)))), ((int)(((byte)(246)))), ((int)(((byte)(246)))));
-            this.lb_DataDebito.Font = new System.Drawing.Font("Segoe UI Semibold", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lb_DataDebito.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.lb_DataDebito.Location = new System.Drawing.Point(693, 310);
-            this.lb_DataDebito.Name = "lb_DataDebito";
-            this.lb_DataDebito.Size = new System.Drawing.Size(88, 13);
-            this.lb_DataDebito.TabIndex = 112;
-            this.lb_DataDebito.Text = "Data do débito:";
-            // 
-            // dtp_DataDebito
-            // 
-            this.dtp_DataDebito.CalendarFont = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dtp_DataDebito.CalendarForeColor = System.Drawing.SystemColors.MenuText;
-            this.dtp_DataDebito.CalendarTitleForeColor = System.Drawing.SystemColors.MenuText;
-            this.dtp_DataDebito.CalendarTrailingForeColor = System.Drawing.SystemColors.GradientActiveCaption;
-            this.dtp_DataDebito.Checked = false;
-            this.dtp_DataDebito.DropDownAlign = System.Windows.Forms.LeftRightAlignment.Right;
-            this.dtp_DataDebito.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dtp_DataDebito.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dtp_DataDebito.ImeMode = System.Windows.Forms.ImeMode.On;
-            this.dtp_DataDebito.Location = new System.Drawing.Point(696, 325);
-            this.dtp_DataDebito.MaxDate = new System.DateTime(2018, 5, 23, 0, 0, 0, 0);
-            this.dtp_DataDebito.MinDate = new System.DateTime(1920, 1, 1, 0, 0, 0, 0);
-            this.dtp_DataDebito.Name = "dtp_DataDebito";
-            this.dtp_DataDebito.Size = new System.Drawing.Size(94, 22);
-            this.dtp_DataDebito.TabIndex = 111;
-            this.dtp_DataDebito.Value = new System.DateTime(2018, 5, 23, 0, 0, 0, 0);
-            // 
-            // btn_RealizarPagamento
-            // 
-            this.btn_RealizarPagamento.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(187)))), ((int)(((byte)(117)))));
-            this.btn_RealizarPagamento.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btn_RealizarPagamento.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_RealizarPagamento.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.btn_RealizarPagamento.Location = new System.Drawing.Point(607, 488);
-            this.btn_RealizarPagamento.Name = "btn_RealizarPagamento";
-            this.btn_RealizarPagamento.Size = new System.Drawing.Size(90, 29);
-            this.btn_RealizarPagamento.TabIndex = 115;
-            this.btn_RealizarPagamento.Text = "Confirmar";
-            this.btn_RealizarPagamento.UseVisualStyleBackColor = false;
+            this.btn_AvancarResumoPagamento.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(187)))), ((int)(((byte)(117)))));
+            this.btn_AvancarResumoPagamento.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btn_AvancarResumoPagamento.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_AvancarResumoPagamento.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.btn_AvancarResumoPagamento.Location = new System.Drawing.Point(607, 488);
+            this.btn_AvancarResumoPagamento.Name = "btn_AvancarResumoPagamento";
+            this.btn_AvancarResumoPagamento.Size = new System.Drawing.Size(90, 29);
+            this.btn_AvancarResumoPagamento.TabIndex = 115;
+            this.btn_AvancarResumoPagamento.Text = "Avançar";
+            this.btn_AvancarResumoPagamento.UseVisualStyleBackColor = false;
             // 
             // btn_Limpar
             // 
@@ -320,6 +264,14 @@
             this.btn_Cancelar.Text = "Cancelar";
             this.btn_Cancelar.UseVisualStyleBackColor = false;
             // 
+            // tb_Valor
+            // 
+            this.tb_Valor.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.tb_Valor.Location = new System.Drawing.Point(696, 254);
+            this.tb_Valor.Name = "tb_Valor";
+            this.tb_Valor.Size = new System.Drawing.Size(142, 20);
+            this.tb_Valor.TabIndex = 110;
+            // 
             // RealizarPagamento
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -338,19 +290,16 @@
         private System.Windows.Forms.Label lb_SubtituloListarCliente;
         private System.Windows.Forms.Label lb_BancoDestino;
         private System.Windows.Forms.Label lb_ContaOrigem;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox tb_Boleto;
         private System.Windows.Forms.ComboBox cb_BancoDestino;
         private System.Windows.Forms.TextBox tb_NumeroAgencia;
         protected System.Windows.Forms.Label lb_NumeroConta;
         protected System.Windows.Forms.Label lb_Agencia;
         private System.Windows.Forms.TextBox tb_NumeroConta;
-        private System.Windows.Forms.Label lb_DadosPagamento;
-        private System.Windows.Forms.TextBox tb_Valor;
-        protected System.Windows.Forms.Label lb_Valor;
-        protected System.Windows.Forms.Label lb_DataDebito;
-        protected System.Windows.Forms.DateTimePicker dtp_DataDebito;
-        protected System.Windows.Forms.Button btn_RealizarPagamento;
+        private System.Windows.Forms.Label lb_ValorBoleto;
+        protected System.Windows.Forms.Button btn_AvancarResumoPagamento;
         protected System.Windows.Forms.Button btn_Limpar;
         protected System.Windows.Forms.Button btn_Cancelar;
+        private System.Windows.Forms.TextBox tb_Valor;
     }
 }

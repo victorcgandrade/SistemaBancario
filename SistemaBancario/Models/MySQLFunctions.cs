@@ -1186,6 +1186,24 @@ namespace SistemaBancario.Models
 
         }
 
+       /* static public Pagamento RealizarPagamento(string numBoleto, decimal valor, DateTime dataProgramada, int numeroConta, string codBancoDestino)
+        {
+            Pagamento pagamento;
+
+            //Recupera o id da conta corrente envolvida
+            var idContaCorrente = connection.ExecuteScalar<int>("SELECT ContaCorrente.id FROM ContaCorrente JOIN Conta ON ContaCorrente.id_conta = Conta.id WHERE Conta.numero = @numero", new { @numero = numeroConta });
+
+            //Retornar conta 
+            ContaCorrente conta = RetornarContaCorrente(idContaCorrente);
+
+            int linhasAfetadasPag = connection.Execute("INSERT INTO Pagamento(numeroBoleto, valor, id_contaOrigem, cod_bancoDestino) VALUES(@numeroBoleto, @valor, @id_contaOrigem, @cod_bancoDestino)",
+                    new { @numeroBoleto = numBoleto, @valor = valor, @id_contaOrigem = idContaCorrente, @cod_bancoDestino = codBancoDestino });
+
+            else
+            {
+                pagamento = null;
+            }
+        }*/
     }
 }
 
