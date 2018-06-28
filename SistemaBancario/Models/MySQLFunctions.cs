@@ -1137,10 +1137,54 @@ namespace SistemaBancario.Models
                 connection.Close();
             }
             return saldoCliente;
-        } 
+        }
 
-        
+        static public List<Agencia> ListaAgencias()
+        {
+            List<Agencia> agencias = new List<Agencia>();
+            try
+            {
+                if (connection.State == ConnectionState.Closed)
+                    connection.Open();
+                var query= connection.Query<Agencia>("SELECT * FROM Agencia");
+                agencias = query.ToList();
+            }
+            catch (MySqlException exception)
+            {
+                Console.WriteLine(exception.ToString());
 
+            }
+            finally
+            {
+                connection.Close();
+            }
+            return agencias;
+        }
+
+        static public Endereco SelecionaEndereco(int id)
+        {
+            Endereco endereco = new Endereco();
+            try
+            {
+                if (connection.State == ConnectionState.Closed)
+                    connection.Open();
+                var query = connection.Query<Endereco>("SELECT Endereco.tipo, Endereco.logradouro, Endereco.numero, Endereco.bairro, Endereco.complemento, Endereco.cep, Endereco.cidade, Endereco.estado FROM Endereco " +
+                    "JOIN Agencia on Agencia.id_endereco = Endereco.id WHERE Agencia.id = @id", new { @id = id });
+                endereco = query.First();
+            }
+            catch (MySqlException exception)
+            {
+                Console.WriteLine(exception.ToString());
+
+            }
+            finally
+            {
+                connection.Close();
+            }
+            return endereco;
+
+
+        }
 
     }
 }

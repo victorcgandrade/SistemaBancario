@@ -8,6 +8,7 @@ namespace SistemaBancario.Models
 {
     public class Agencia
     {
+        private int id;
         private int numero;
         private Endereco endereco;
 
@@ -16,12 +17,24 @@ namespace SistemaBancario.Models
 
         }
 
-        public Agencia(int numero, Endereco endereco)
+        public Agencia(int id,int numero, Endereco endereco)
         {
+            this.id = id;
             this.numero = numero;
             this.endereco = endereco;
         }
 
+        public int Id
+        {
+            get
+            {
+                return id;
+            }
+            set
+            {
+                id = value;
+            }
+        }
         public int Numero
         {
             get

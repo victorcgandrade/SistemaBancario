@@ -1,4 +1,5 @@
-﻿using System;
+﻿using SistemaBancario.Models;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -15,6 +16,15 @@ namespace SistemaBancario.Views
         public TelaBuscarAgencia()
         {
             InitializeComponent();
+            CarregarAgencias();
+        }
+        public void CarregarAgencias()
+        {
+            List<String> listaConcatenada = new List<String>();
+            foreach (var agencia in MySQLFunctions.ListaAgencias())
+            {
+                MySQLFunctions.SelecionaEndereco(agencia.Id);
+            }
         }
     }
 }
