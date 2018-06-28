@@ -243,6 +243,16 @@ namespace SistemaBancario.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap map {
+            get {
+                object obj = ResourceManager.GetObject("map", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap money_bag {
             get {
                 object obj = ResourceManager.GetObject("money-bag", resourceCulture);
@@ -276,6 +286,16 @@ namespace SistemaBancario.Properties {
         internal static System.Drawing.Bitmap questions_circular_button_1 {
             get {
                 object obj = ResourceManager.GetObject("questions-circular-button_1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap raise_your_hand_to_ask {
+            get {
+                object obj = ResourceManager.GetObject("raise-your-hand-to-ask", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

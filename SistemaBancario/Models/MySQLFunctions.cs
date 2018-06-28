@@ -979,12 +979,21 @@ namespace SistemaBancario.Models
                     connection.Open();
                 saldoCliente= connection.ExecuteScalar<decimal>("SELECT saldo FROM Conta WHERE numero = @conta", new { @conta = conta });
             }
-            catch
+            catch (MySqlException exception)
             {
+                Console.WriteLine(exception.ToString());
 
+            }
+            finally
+            {
+                connection.Close();
             }
             return saldoCliente;
         } 
+
+        
+
+
     }
 }
 

@@ -122,6 +122,18 @@
     <Compile Include="Views\SistemaBancarioTela.Designer.cs">
       <DependentUpon>SistemaBancarioTela.cs</DependentUpon>
     </Compile>
+    <Compile Include="Views\TelaAtendimento.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\TelaAtendimento.Designer.cs">
+      <DependentUpon>TelaAtendimento.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\TelaBuscarAgencia.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\TelaBuscarAgencia.Designer.cs">
+      <DependentUpon>TelaBuscarAgencia.cs</DependentUpon>
+    </Compile>
     <Compile Include="Views\TelaInicialAdministradorConta.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -252,6 +264,12 @@
     <EmbeddedResource Include="Views\AdicionarConta.resx">
       <DependentUpon>AdicionarConta.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Views\TelaAtendimento.resx">
+      <DependentUpon>TelaAtendimento.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\TelaBuscarAgencia.resx">
+      <DependentUpon>TelaBuscarAgencia.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Views\TelaInicialAdministradorConta.resx">
       <DependentUpon>TelaInicialAdministradorConta.cs</DependentUpon>
     </EmbeddedResource>
@@ -328,6 +346,8 @@
   <ItemGroup />
   <ItemGroup>
     <Content Include="obj\Debug\TempPE\Properties.Resources.Designer.cs.dll" />
+    <None Include="Resources\map.png" />
+    <None Include="Resources\raise-your-hand-to-ask.png" />
     <None Include="Resources\questions-circular-button_1.png" />
     <None Include="Resources\info.png" />
     <None Include="Resources\profits.png" />
