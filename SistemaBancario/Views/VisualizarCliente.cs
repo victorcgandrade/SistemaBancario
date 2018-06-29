@@ -31,7 +31,7 @@ namespace SistemaBancario.Views
                 //campos comuns a todos os clientes
                 tb_Visualizar_Nome.Text = cliente.PrimeiroNome;
                 tb_Visualizar_Sobrenome.Text = cliente.Sobrenome;
-                tb_Visualizar_DataNasc.Text = cliente.DataNascimento;
+                tb_Visualizar_DataNasc.Text = cliente.DataNascimento.Date.ToString();
                 tb_Visualizar_EstadoCivil.Text = cliente.Estado_civil;
 
                 tb_Visualizar_CPF.Text = cliente.Cpf;

@@ -15,7 +15,7 @@ namespace SistemaBancario.Models
 
         }
 
-        public Dependente(string primeiroNome, string sobrenome, string cpf, string rg, string data_nascimento, string email, string telefone,
+        public Dependente(string primeiroNome, string sobrenome, string cpf, string rg, DateTime data_nascimento, string email, string telefone,
             string celular, DateTime data_cadastro, Endereco endereco, string status, string estado_civil, PessoaFisica titular)
         {
             this.PrimeiroNome = primeiroNome;

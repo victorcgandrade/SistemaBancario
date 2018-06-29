@@ -10,7 +10,7 @@ namespace SistemaBancario.Models
     public class Cliente : Usuario
     {
 
-        private string data_nascimento;
+        private DateTime data_nascimento;
         private string email;
         private string telefone;
         private string celular;
@@ -24,7 +24,7 @@ namespace SistemaBancario.Models
 
         }
 
-        public Cliente(string data_nascimento, string email, string telefone, string celular, DateTime data_cadastro, Endereco endereco, string status, string estado_civil)
+        public Cliente(DateTime data_nascimento, string email, string telefone, string celular, DateTime data_cadastro, Endereco endereco, string status, string estado_civil)
         {
             this.data_nascimento = data_nascimento;
             this.email = email;
@@ -36,7 +36,7 @@ namespace SistemaBancario.Models
             this.estado_civil = estado_civil;
         }
 
-        public string DataNascimento
+        public DateTime DataNascimento
         {
             get
             {

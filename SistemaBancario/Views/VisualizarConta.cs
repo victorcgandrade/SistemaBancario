@@ -40,5 +40,36 @@ namespace SistemaBancario.Views
             }
         }
 
+        private void btn_AlterarConta_Click(object sender, EventArgs e)
+        {
+            AlterarConta alterarConta = new AlterarConta(contaCorrente);
+            alterarConta.FormClosed += new FormClosedEventHandler(alterarConta_FormClosed);
+            alterarConta.Show();
+            this.Hide();
+        }
+
+        //Quando a tela de for fechada, fecha-se tambem a tela que lhe deu origem
+        private void alterarConta_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            this.Close();
+        }
+
+        private void btn_InativarConta_Click(object sender, EventArgs e)
+        {
+            string numeroConta = tb_NumConta.Text;
+
+            if (MessageBox.Show("Tem certeza que deseja inativar esta conta?", "Confirmacao", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+            {
+                if (MySQLFunctions.InativarConta(Convert.ToInt32(numeroConta)))
+                {
+                    MessageBox.Show("Conta inativada com sucesso!");
+                    this.Refresh();
+                }
+                else
+                {
+                    MessageBox.Show("Não foi possível inativar a conta!");
+                }
+            }
+        }
     }
 }

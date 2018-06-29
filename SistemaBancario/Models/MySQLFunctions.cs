@@ -559,11 +559,11 @@ namespace SistemaBancario.Models
             {
                 if (connection.State == ConnectionState.Closed)
                     connection.Open();
-                MySqlCommand removerCliente = new MySqlCommand("UPDATE Cliente JOIN Usuario on Cliente.id_usuario = Usuario.id SET Cliente.status = 'Inativo' WHERE Usuario.cpf = @identificador", connection);
-                removerCliente.Parameters.AddWithValue("@identificador", identificador);
+                MySqlCommand inativarCliente = new MySqlCommand("UPDATE Cliente JOIN Usuario on Cliente.id_usuario = Usuario.id SET Cliente.status = 'Inativo' WHERE Usuario.cpf = @identificador", connection);
+                inativarCliente.Parameters.AddWithValue("@identificador", identificador);
 
-                removerCliente.ExecuteNonQuery();
-                removerCliente.Parameters.Clear();
+                inativarCliente.ExecuteNonQuery();
+                inativarCliente.Parameters.Clear();
 
                 sucesso = true;
             }
@@ -783,7 +783,6 @@ namespace SistemaBancario.Models
         //Atualizacao de PessoaFisica
         static public Boolean AtualizarPF(string profissaoAtual, decimal rendaMensal, string cpf)
         {
-
             try
             {
                 if (connection.State == ConnectionState.Closed)
@@ -1016,6 +1015,7 @@ namespace SistemaBancario.Models
                 contaCorrente.Cliente = conta.Cliente;
                 contaCorrente.Numero = conta.Numero;
                 contaCorrente.Saldo = conta.Saldo;
+                contaCorrente.Senha = conta.Senha;
                 contaCorrente.Status = conta.Status;
 
                 contaCorrente = queryResult.First();
@@ -1081,6 +1081,95 @@ namespace SistemaBancario.Models
             }
         }
 
+        //Atualiza uma conta corrente
+        static public Boolean AtualizarContaCorrente(int numeroConta, string novaSenha, string novoStatus, int novoNumeroAgencia)
+        {
+            try
+            {
+                //Realiza a atualizacao de conta e agencia relacionadas a conta corrente informada
+                if (AtualizarConta(numeroConta, novaSenha, novoStatus) && AtualizarAgencia(novoNumeroAgencia, numeroConta))
+                {
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
+            }
+            catch (MySqlException exception)
+            {
+                Console.WriteLine(exception.ToString());
+                return false;
+            }
+            finally
+            {
+                connection.Close();
+            }
+        }
+
+        //Atualiza uma conta 
+        static public Boolean AtualizarConta(int numero, string novaSenha, string novoStatus)
+        {
+            try
+            {
+                if (connection.State == ConnectionState.Closed)
+                    connection.Open();
+
+                int linhasAfetadasConta = connection.Execute("UPDATE Conta SET senha = @senha, status = @status WHERE Conta.numero = @numero",
+                    new { @senha = novaSenha, @status = novoStatus, @numero = numero });
+
+                if (linhasAfetadasConta == 1) //uma linha atualizada
+                {
+                    return true;
+                } else
+                {
+                    return false;
+                }
+ 
+            }
+            catch (MySqlException exception)
+            {
+                Console.WriteLine(exception.ToString());
+                return false;
+            }
+            finally
+            {
+                connection.Close();
+            }
+        }
+
+        //Atualiza uma agencia
+        static public Boolean AtualizarAgencia(int novoNumeroAgencia, int numeroConta)
+        {
+            try
+            {
+                if (connection.State == ConnectionState.Closed)
+                    connection.Open();
+
+                int linhasAfetadasAgencia = connection.Execute("UPDATE Conta SET Conta.id_agencia = (SELECT id FROM Agencia WHERE numero = @numeroAgencia) WHERE Conta.numero = @numeroConta",
+                    new { @numeroAgencia = novoNumeroAgencia, @numeroConta = numeroConta });
+
+                if (linhasAfetadasAgencia == 1) //uma linha atualizada
+                {
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
+
+            }
+            catch (MySqlException exception)
+            {
+                Console.WriteLine(exception.ToString());
+                return false;
+            }
+            finally
+            {
+                connection.Close();
+            }
+        }
+
         //Retorna um objeto do tipo Conta
         static public Agencia RetornarAgencia(int id)
         {
@@ -1117,15 +1206,72 @@ namespace SistemaBancario.Models
             }
         }
 
-        static public Decimal ConsultarSaldo(InstanciaLogin login)
+        //Retorna uma lista do numero das agencia cadastradas para inserir em um combobox
+        static public List<String> RetornarNumAgencias()
         {
-            decimal saldoCliente=0;
-            string conta = login.conta;
             try
             {
                 if (connection.State == ConnectionState.Closed)
                     connection.Open();
-                saldoCliente= connection.ExecuteScalar<decimal>("SELECT saldo FROM Conta WHERE numero = @conta", new { @conta = conta });
+
+                //Retorna um objeto que contem o numero e bairro de cada agencia cadastrada 
+                var queryResult = connection.Query<String>("SELECT Agencia.numero FROM Agencia JOIN Endereco ON Agencia.id_endereco = Endereco.id");
+
+                List <String> agencias = queryResult.ToList();
+
+                return agencias;
+
+            }
+            catch (MySqlException exception)
+            {
+                Console.WriteLine(exception.ToString());
+                return null;
+            }
+            finally
+            {
+                connection.Close();
+            }
+        }
+
+        //Inativar uma determinada conta
+        static public Boolean InativarConta(int numero)
+        {
+            try
+            {
+                if (connection.State == ConnectionState.Closed)
+                    connection.Open();
+
+                int linhasAfetadasConta = connection.Execute("UPDATE Conta SET status = 'Inativo' WHERE Conta.numero = @numero",
+                new { @numero = numero });
+
+                if (linhasAfetadasConta == 1) //uma linha atualizada
+                {
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
+            }
+            catch (MySqlException exception)
+            {
+                Console.WriteLine(exception.ToString());
+                return false;
+            }
+            finally
+            {
+                connection.Close();
+            }
+        }
+        static public Decimal ConsultarSaldo(string numeroConta)
+        {
+            decimal saldoCliente = 0;
+
+            try
+            {
+                if (connection.State == ConnectionState.Closed)
+                    connection.Open();
+                saldoCliente= connection.ExecuteScalar<decimal>("SELECT saldo FROM Conta WHERE numero = @conta", new { @conta = numeroConta });
             }
             catch (MySqlException exception)
             {
@@ -1193,6 +1339,106 @@ namespace SistemaBancario.Models
 
         }
 
+        //Funcao que realiza o pagamento de um determinado boleto bancario de cobranca - Efetua a atualizacao de saldo na conta do cliente
+        static public Boolean RealizarPagamento(string numBoleto, decimal valor, int numeroConta, string codBancoDestino)
+        {
+            try
+            {
+                if (connection.State == ConnectionState.Closed)
+                    connection.Open();
+
+                //Recupera o id da conta corrente envolvida
+                var idContaCorrente = connection.ExecuteScalar<int>("SELECT ContaCorrente.id FROM ContaCorrente JOIN Conta ON ContaCorrente.id_conta = Conta.id WHERE Conta.numero = @numero", new { @numero = numeroConta });
+
+                //Retornar conta 
+                ContaCorrente conta = RetornarContaCorrente(idContaCorrente);
+
+                DateTime dataAtual = DateTime.Now;
+
+                //Insere o registro de pagamento na tabela de Pagamentos
+                int linhasAfetadasPag = connection.Execute("INSERT INTO Pagamento(dataHoraTransacao, numeroBoleto, valor, id_contaOrigem, cod_bancoDestino) VALUES(@dataHoraTransacao, @numeroBoleto, @valor, @id_contaOrigem, @cod_bancoDestino)",
+                        new { @dataHoraTransacao = dataAtual, @numeroBoleto = numBoleto, @valor = valor, @id_contaOrigem = idContaCorrente, @cod_bancoDestino = codBancoDestino });
+
+                Pagamento pagamento = new Pagamento(dataAtual, numBoleto, valor, conta, codBancoDestino);
+
+                //Calcula o novo saldo da conta
+                decimal saldoAtualizado = conta.Saldo - valor;
+
+                //Atualiza a tabela conta com o novo saldo
+                int linhasAfetadasConta = connection.Execute("UPDATE Conta JOIN ContaCorrente ON ContaCorrente.id_conta = Conta.id SET saldo = @saldoAtualizado WHERE ContaCorrente.id = @idCC",
+                    new { @saldoAtualizado = saldoAtualizado, @idCC = idContaCorrente });
+
+                if (linhasAfetadasPag == 1 && linhasAfetadasConta == 1)
+                {
+                    return true;
+                } else
+                {
+                    return false;
+                }
+            }
+            catch (MySqlException exception)
+            {
+                Console.WriteLine(exception.ToString());
+                return false;
+            }
+            finally
+            {
+                connection.Close();
+            }
+        }
+
+      /*  static public Boolean RealizarTransfOB()
+        {
+            try
+            {
+                if (connection.State == ConnectionState.Closed)
+                    connection.Open();
+
+                //Recupera o id da conta corrente envolvida
+                var idContaCorrente = connection.ExecuteScalar<int>("SELECT ContaCorrente.id FROM ContaCorrente JOIN Conta ON ContaCorrente.id_conta = Conta.id WHERE Conta.numero = @numero", new { @numero = numeroConta });
+
+                //Retornar conta 
+                ContaCorrente conta = RetornarContaCorrente(idContaCorrente);
+
+                DateTime dataAtual = DateTime.Now;
+
+                //Insere o registro de pagamento na tabela de Pagamentos
+                int linhasAfetadasPag = connection.Execute("INSERT INTO Transferencia(dataHoraTransacao, tipo, valor, id_contaOrigem, num_contaDest, agencia_contaDest, cod_bancoDestino) VALUES(@dataHoraTransacao, @tipo, @valor, @id_contaOrigem, @cod_bancoDestino)",
+                        new { @dataHoraTransacao = dataAtual, @numeroBoleto = numBoleto, @valor = valor, @id_contaOrigem = idContaCorrente, @cod_bancoDestino = codBancoDestino });
+
+                Pagamento pagamento = new Pagamento(dataAtual, numBoleto, valor, conta, codBancoDestino);
+
+                //Calcula o novo saldo da conta
+                decimal saldoAtualizado = conta.Saldo - valor;
+
+                //Atualiza a tabela conta com o novo saldo
+                int linhasAfetadasConta = connection.Execute("UPDATE Conta JOIN ContaCorrente ON ContaCorrente.id_conta = Conta.id SET saldo = @saldoAtualizado WHERE ContaCorrente.id = @idCC",
+                    new { @saldoAtualizado = saldoAtualizado, @idCC = idContaCorrente });
+
+                if (linhasAfetadasPag == 1 && linhasAfetadasConta == 1)
+                {
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
+            }
+            catch (MySqlException exception)
+            {
+                Console.WriteLine(exception.ToString());
+                return false;
+            }
+            finally
+            {
+                connection.Close();
+            }
+        }*/
+
+        /*static public Boolean RealizarTransfEC()
+        {
+
+        }*/
     }
 }
 
