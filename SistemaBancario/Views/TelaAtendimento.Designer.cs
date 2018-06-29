@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(TelaAtendimento));
             this.btnFAQ = new System.Windows.Forms.Button();
             this.btnAgencias = new System.Windows.Forms.Button();
             this.p_Content.SuspendLayout();
@@ -78,7 +79,7 @@
             this.btnFAQ.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(191)))), ((int)(((byte)(0)))));
             this.btnFAQ.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold);
             this.btnFAQ.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.btnFAQ.Image = global::SistemaBancario.Properties.Resources.raise_your_hand_to_ask;
+            this.btnFAQ.Image = ((System.Drawing.Image)(resources.GetObject("btnFAQ.Image")));
             this.btnFAQ.Location = new System.Drawing.Point(391, 219);
             this.btnFAQ.Name = "btnFAQ";
             this.btnFAQ.Size = new System.Drawing.Size(156, 136);
@@ -87,13 +88,14 @@
             this.btnFAQ.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.btnFAQ.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.btnFAQ.UseVisualStyleBackColor = false;
+            this.btnFAQ.Click += new System.EventHandler(this.btnFAQ_Click);
             // 
             // btnAgencias
             // 
             this.btnAgencias.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(191)))), ((int)(((byte)(0)))));
             this.btnAgencias.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold);
             this.btnAgencias.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.btnAgencias.Image = global::SistemaBancario.Properties.Resources.map;
+            this.btnAgencias.Image = ((System.Drawing.Image)(resources.GetObject("btnAgencias.Image")));
             this.btnAgencias.Location = new System.Drawing.Point(563, 219);
             this.btnAgencias.Name = "btnAgencias";
             this.btnAgencias.Size = new System.Drawing.Size(156, 136);

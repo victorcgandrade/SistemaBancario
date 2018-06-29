@@ -23,5 +23,12 @@ namespace SistemaBancario.Views
             TelaBuscarAgencia tba = new TelaBuscarAgencia();
             tba.Show();
         }
+
+        private void btnFAQ_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            TelaFAQ tf = new TelaFAQ();
+            tf.Show();
+        }
     }
 }
