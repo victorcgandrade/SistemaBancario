@@ -6,24 +6,20 @@ using System.Threading.Tasks;
 
 namespace SistemaBancario.Models
 {
-    public class Pagamento
+    public class Transferencia
     {
-        private int id;
+        int id;
         private DateTime dataHoraTransacao;
-        private string numeroBoleto;
         private decimal valor;
-        private Conta contaOrigem;
         private string cod_bancoDestino;
+        private string tipo;
+        private Conta contaOrigem;
+        private string num_contaDest;
+        private string agencia_contaDest;
 
-        public Pagamento() { }
-
-        public Pagamento(DateTime dataHoraTransacao, string numeroBoleto, decimal valor, Conta contaOrigem, string bancoDestino)
+        public Transferencia()
         {
-            this.dataHoraTransacao = dataHoraTransacao;
-            this.numeroBoleto = numeroBoleto;
-            this.valor = valor;
-            this.contaOrigem = contaOrigem;
-            this.cod_bancoDestino = bancoDestino;
+
         }
 
         public DateTime DataHoraTransacao
@@ -35,18 +31,6 @@ namespace SistemaBancario.Models
             set
             {
                 dataHoraTransacao = value;
-            }
-        }
-
-        public string NumeroBoleto
-        {
-            get
-            {
-                return numeroBoleto;
-            }
-            set
-            {
-                numeroBoleto = value;
             }
         }
 
@@ -86,17 +70,40 @@ namespace SistemaBancario.Models
             }
         }
 
-        public int Id
+        public string Tipo
         {
             get
             {
-                return id;
+                return tipo;
             }
             set
             {
-                id = value;
+                tipo = value;
             }
         }
 
+        public string Num_contaDest
+        {
+            get
+            {
+                return num_contaDest;
+            }
+            set
+            {
+                num_contaDest = value;
+            }
+        }
+
+        public string Agencia_contaDest
+        {
+            get
+            {
+                return agencia_contaDest;
+            }
+            set
+            {
+                agencia_contaDest = value;
+            }
+        }
     }
 }
