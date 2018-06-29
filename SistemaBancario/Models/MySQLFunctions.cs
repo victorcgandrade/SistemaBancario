@@ -1117,15 +1117,15 @@ namespace SistemaBancario.Models
             }
         }
 
-        static public Decimal ConsultarSaldo(InstanciaLogin login)
+        static public Decimal ConsultarSaldo(string numeroConta)
         {
             decimal saldoCliente = 0;
-            string conta = login.conta;
+
             try
             {
                 if (connection.State == ConnectionState.Closed)
                     connection.Open();
-                saldoCliente= connection.ExecuteScalar<decimal>("SELECT saldo FROM Conta WHERE numero = @conta", new { @conta = conta });
+                saldoCliente= connection.ExecuteScalar<decimal>("SELECT saldo FROM Conta WHERE numero = @conta", new { @conta = numeroConta });
             }
             catch (MySqlException exception)
             {

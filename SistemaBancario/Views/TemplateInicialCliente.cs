@@ -24,7 +24,7 @@ namespace SistemaBancario.Views
 
         public TemplateInicialCliente(InstanciaLogin il)
         {
-            saldo = MySQLFunctions.ConsultarSaldo(il);
+            saldo = MySQLFunctions.ConsultarSaldo(il.conta);
             InitializeComponent();
             this.il = il;
             toolTipSaldo.SetToolTip(btnSaldo, "Exibe/Esconde saldo");
@@ -34,7 +34,7 @@ namespace SistemaBancario.Views
         private void btnSaldo_Click(object sender, EventArgs e)
         {
 
-            saldo = MySQLFunctions.ConsultarSaldo(il);
+            saldo = MySQLFunctions.ConsultarSaldo(il.conta);
 
             if (btnSaldo.Text == "Saldo") { 
             btnSaldo.Text = "R$ " + saldo.ToString();
