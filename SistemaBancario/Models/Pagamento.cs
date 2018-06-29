@@ -12,20 +12,16 @@ namespace SistemaBancario.Models
         private DateTime dataHoraTransacao;
         private string numeroBoleto;
         private decimal valor;
-        private DateTime dataProgramada;
-        private DateTime dataEfetivada;
         private Conta contaOrigem;
         private string bancoDestino;
 
         public Pagamento() { }
 
-        public Pagamento(DateTime dataHoraTransacao, string numeroBoleto, decimal valor, DateTime dataProgramada, DateTime dataEfetivada, Conta contaOrigem, string bancoDestino)
+        public Pagamento(DateTime dataHoraTransacao, string numeroBoleto, decimal valor, Conta contaOrigem, string bancoDestino)
         {
             this.dataHoraTransacao = dataHoraTransacao;
             this.numeroBoleto = numeroBoleto;
             this.valor = valor;
-            this.dataProgramada = dataProgramada;
-            this.dataEfetivada = dataEfetivada;
             this.contaOrigem = contaOrigem;
             this.bancoDestino = bancoDestino;
         }
@@ -63,30 +59,6 @@ namespace SistemaBancario.Models
             set
             {
                 valor = value;
-            }
-        }
-
-        public DateTime DataProgramada
-        {
-            get
-            {
-                return dataProgramada;
-            }
-            set
-            {
-                dataProgramada = value;
-            }
-        }
-
-        public DateTime DataEfetivada
-        {
-            get
-            {
-                return dataEfetivada;
-            }
-            set
-            {
-                dataEfetivada = value;
             }
         }
 

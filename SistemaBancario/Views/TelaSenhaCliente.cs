@@ -15,18 +15,14 @@ namespace SistemaBancario.Views
 {
     public partial class TelaSenhaCliente : Form
     {
-        string senha;
-        string _numeroConta;
-        public TelaSenhaCliente()
+        private string senha;
+        private InstanciaLogin LoginAtual;
+
+        public TelaSenhaCliente(InstanciaLogin il)
         {
             InitializeComponent();
+            LoginAtual = il;
 
-        }
-
-        public TelaSenhaCliente(string numeroConta)
-        {
-            InitializeComponent();
-            _numeroConta = numeroConta;
         }
 
         public void preencheNome()
@@ -123,12 +119,11 @@ namespace SistemaBancario.Views
         {
 
 
-            if (SistemaBancario.Models.MySQLFunctions.LoginCliente(_numeroConta, senha))
+            if (SistemaBancario.Models.MySQLFunctions.LoginCliente(LoginAtual.conta, senha))
             {
                 MessageBox.Show("Logado com sucesso");
                 this.Hide();
-                InstanciaLogin il = new InstanciaLogin(_numeroConta);
-                TemplateInicialCliente tic=new TemplateInicialCliente(il);
+                TemplateInicialCliente tic = new TemplateInicialCliente(LoginAtual);
                 tic.Show();
 
             }

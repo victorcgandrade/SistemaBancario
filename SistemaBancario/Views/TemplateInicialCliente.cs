@@ -33,6 +33,9 @@ namespace SistemaBancario.Views
    
         private void btnSaldo_Click(object sender, EventArgs e)
         {
+
+            saldo = MySQLFunctions.ConsultarSaldo(il);
+
             if (btnSaldo.Text == "Saldo") { 
             btnSaldo.Text = "R$ " + saldo.ToString();
             }
@@ -40,6 +43,20 @@ namespace SistemaBancario.Views
             {
                 btnSaldo.Text = "Saldo";
             }
+        }
+
+        private void btn_Pagamentos_Click(object sender, EventArgs e)
+        {
+            RealizarPagamento realizarPag = new RealizarPagamento(il);
+            realizarPag.FormClosed += new FormClosedEventHandler(realizarPag_FormClosed);
+            realizarPag.Show();
+            this.Hide();
+        }
+
+        //Quando a tela de for fechada, fecha-se tambem a tela que lhe deu origem
+        private void realizarPag_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            this.Close();
         }
     }
 }

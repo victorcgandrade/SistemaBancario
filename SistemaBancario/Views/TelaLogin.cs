@@ -9,11 +9,15 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 //using MySql.Data.MySqlClient;
 using SistemaBancario.Views;
+using SistemaBancario.Models;
 
 namespace Main
 {
     public partial class TelaLogin : Form
     {
+
+        InstanciaLogin il = new InstanciaLogin();
+
         public TelaLogin()
         {
             InitializeComponent();
@@ -37,6 +41,7 @@ namespace Main
                     if (SistemaBancario.Models.MySQLFunctions.SelecionarCliente(agencia, conta))
                     {
                         sucessoCliente = true;
+                        il = new InstanciaLogin(agencia, conta);
                     }
                 }
             }
@@ -64,7 +69,7 @@ namespace Main
                 if (cmbBoxTipoUser.SelectedItem == "Cliente")
                 {
                     this.Hide();
-                    TelaSenhaCliente tsc = new TelaSenhaCliente(txtBoxConta.Text);
+                    TelaSenhaCliente tsc = new TelaSenhaCliente(il);
                     tsc.Show();
                 }
                 else

@@ -166,6 +166,8 @@
             // 
             // tb_NumeroAgencia
             // 
+            this.tb_NumeroAgencia.BackColor = System.Drawing.SystemColors.InactiveCaption;
+            this.tb_NumeroAgencia.Enabled = false;
             this.tb_NumeroAgencia.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.tb_NumeroAgencia.Location = new System.Drawing.Point(298, 268);
             this.tb_NumeroAgencia.Name = "tb_NumeroAgencia";
@@ -196,6 +198,8 @@
             // 
             // tb_NumeroConta
             // 
+            this.tb_NumeroConta.BackColor = System.Drawing.SystemColors.InactiveCaption;
+            this.tb_NumeroConta.Enabled = false;
             this.tb_NumeroConta.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.tb_NumeroConta.Location = new System.Drawing.Point(298, 327);
             this.tb_NumeroConta.Name = "tb_NumeroConta";
@@ -237,6 +241,7 @@
             this.btn_AvancarResumoPagamento.TabIndex = 115;
             this.btn_AvancarResumoPagamento.Text = "Avançar";
             this.btn_AvancarResumoPagamento.UseVisualStyleBackColor = false;
+            this.btn_AvancarResumoPagamento.Click += new System.EventHandler(this.btn_AvancarResumoPagamento_Click);
             // 
             // btn_Limpar
             // 

@@ -235,7 +235,7 @@ namespace SistemaBancario.Views
             this.btn_Pagamentos.Text = "   Pagamentos";
             this.btn_Pagamentos.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btn_Pagamentos.UseVisualStyleBackColor = false;
-            this.btn_Pagamentos.Click += new System.EventHandler(this.btn_Contas_Click);
+            this.btn_Pagamentos.Click += new System.EventHandler(this.btn_Pagamentos_Click);
             // 
             // btn_Extrato
             // 
@@ -256,7 +256,6 @@ namespace SistemaBancario.Views
             this.btn_Extrato.Text = "   Extrato";
             this.btn_Extrato.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btn_Extrato.UseVisualStyleBackColor = false;
-            this.btn_Extrato.Click += new System.EventHandler(this.btn_Aplicacoes_Click);
             // 
             // btn_AgendamentoSaque
             // 
@@ -277,7 +276,6 @@ namespace SistemaBancario.Views
             this.btn_AgendamentoSaque.Text = "     Saque";
             this.btn_AgendamentoSaque.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btn_AgendamentoSaque.UseVisualStyleBackColor = false;
-            this.btn_AgendamentoSaque.Click += new System.EventHandler(this.btn_Agencias_Click);
             // 
             // btn_Investimentos
             // 
@@ -327,7 +325,6 @@ namespace SistemaBancario.Views
             this.btn_Tranferencias.Text = "   Transferência";
             this.btn_Tranferencias.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btn_Tranferencias.UseVisualStyleBackColor = false;
-            this.btn_Tranferencias.Click += new System.EventHandler(this.btn_Clientes_Click);
             // 
             // p_Header
             // 
@@ -348,7 +345,7 @@ namespace SistemaBancario.Views
             this.lb_Versao.ForeColor = System.Drawing.SystemColors.ButtonFace;
             this.lb_Versao.Location = new System.Drawing.Point(11, 6);
             this.lb_Versao.Name = "lb_Versao";
-            this.lb_Versao.Size = new System.Drawing.Size(66, 15);
+            this.lb_Versao.Size = new System.Drawing.Size(63, 15);
             this.lb_Versao.TabIndex = 3;
             this.lb_Versao.Text = "Versão 0.1 ";
             // 
@@ -359,7 +356,7 @@ namespace SistemaBancario.Views
             this.lb_DataHoraAtual.ForeColor = System.Drawing.SystemColors.ButtonFace;
             this.lb_DataHoraAtual.Location = new System.Drawing.Point(74, 6);
             this.lb_DataHoraAtual.Name = "lb_DataHoraAtual";
-            this.lb_DataHoraAtual.Size = new System.Drawing.Size(110, 15);
+            this.lb_DataHoraAtual.Size = new System.Drawing.Size(106, 15);
             this.lb_DataHoraAtual.TabIndex = 1;
             this.lb_DataHoraAtual.Text = "22/05/2018 12:55 ";
             // 
@@ -403,26 +400,6 @@ namespace SistemaBancario.Views
             this.p_Header.PerformLayout();
             this.ResumeLayout(false);
 
-        }
-
-        private void btn_Agencias_Click(object sender, EventArgs e)
-        {
-            
-        }
-
-        private void btn_Aplicacoes_Click(object sender, EventArgs e)
-        {
-            
-        }
-
-        private void btn_Contas_Click(object sender, EventArgs e)
-        {
-           
-        }
-
-        private void btn_Clientes_Click(object sender, EventArgs e)
-        {
-            
         }
 
         private void btn_Sair_Click(object sender, EventArgs e)

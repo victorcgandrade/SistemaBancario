@@ -1119,7 +1119,7 @@ namespace SistemaBancario.Models
 
         static public Decimal ConsultarSaldo(InstanciaLogin login)
         {
-            decimal saldoCliente=0;
+            decimal saldoCliente = 0;
             string conta = login.conta;
             try
             {
@@ -1186,24 +1186,53 @@ namespace SistemaBancario.Models
 
         }
 
-       /* static public Pagamento RealizarPagamento(string numBoleto, decimal valor, DateTime dataProgramada, int numeroConta, string codBancoDestino)
+        //Funcao que realiza o pagamento de um determinado boleto bancario de cobranca - Efetua a atualizacao de saldo na conta do cliente
+        static public Boolean RealizarPagamento(string numBoleto, decimal valor, int numeroConta, string codBancoDestino)
         {
-            Pagamento pagamento;
-
-            //Recupera o id da conta corrente envolvida
-            var idContaCorrente = connection.ExecuteScalar<int>("SELECT ContaCorrente.id FROM ContaCorrente JOIN Conta ON ContaCorrente.id_conta = Conta.id WHERE Conta.numero = @numero", new { @numero = numeroConta });
-
-            //Retornar conta 
-            ContaCorrente conta = RetornarContaCorrente(idContaCorrente);
-
-            int linhasAfetadasPag = connection.Execute("INSERT INTO Pagamento(numeroBoleto, valor, id_contaOrigem, cod_bancoDestino) VALUES(@numeroBoleto, @valor, @id_contaOrigem, @cod_bancoDestino)",
-                    new { @numeroBoleto = numBoleto, @valor = valor, @id_contaOrigem = idContaCorrente, @cod_bancoDestino = codBancoDestino });
-
-            else
+            try
             {
-                pagamento = null;
+                if (connection.State == ConnectionState.Closed)
+                    connection.Open();
+
+                //Recupera o id da conta corrente envolvida
+                var idContaCorrente = connection.ExecuteScalar<int>("SELECT ContaCorrente.id FROM ContaCorrente JOIN Conta ON ContaCorrente.id_conta = Conta.id WHERE Conta.numero = @numero", new { @numero = numeroConta });
+
+                //Retornar conta 
+                ContaCorrente conta = RetornarContaCorrente(idContaCorrente);
+
+                DateTime dataAtual = DateTime.Now;
+
+                //Insere o registro de pagamento na tabela de Pagamentos
+                int linhasAfetadasPag = connection.Execute("INSERT INTO Pagamento(dataHoraTransacao, numeroBoleto, valor, id_contaOrigem, cod_bancoDestino) VALUES(@dataHoraTransacao, @numeroBoleto, @valor, @id_contaOrigem, @cod_bancoDestino)",
+                        new { @dataHoraTransacao = dataAtual, @numeroBoleto = numBoleto, @valor = valor, @id_contaOrigem = idContaCorrente, @cod_bancoDestino = codBancoDestino });
+
+                Pagamento pagamento = new Pagamento(dataAtual, numBoleto, valor, conta, codBancoDestino);
+
+                //Calcula o novo saldo da conta
+                decimal saldoAtualizado = conta.Saldo - valor;
+
+                //Atualiza a tabela conta com o novo saldo
+                int linhasAfetadasConta = connection.Execute("UPDATE Conta JOIN ContaCorrente ON ContaCorrente.id_conta = Conta.id SET saldo = @saldoAtualizado WHERE ContaCorrente.id = @idCC",
+                    new { @saldoAtualizado = saldoAtualizado, @idCC = idContaCorrente });
+
+                if (linhasAfetadasPag == 1 && linhasAfetadasConta == 1)
+                {
+                    return true;
+                } else
+                {
+                    return false;
+                }
             }
-        }*/
+            catch (MySqlException exception)
+            {
+                Console.WriteLine(exception.ToString());
+                return false;
+            }
+            finally
+            {
+                connection.Close();
+            }
+        }
     }
 }
 
