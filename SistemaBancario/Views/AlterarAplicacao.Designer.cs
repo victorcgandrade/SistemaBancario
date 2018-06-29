@@ -1,6 +1,6 @@
 ﻿namespace SistemaBancario.Views
 {
-    partial class AtualizarAplicacao
+    partial class AlterarAplicacao
     {
         /// <summary>
         /// Required designer variable.
@@ -31,7 +31,7 @@
             this.cb_TipoAplicacao = new System.Windows.Forms.ComboBox();
             this.lb_TipoAplicacao = new System.Windows.Forms.Label();
             this.lb_InformacaoGeral = new System.Windows.Forms.Label();
-            this.lb_TituloAtualizarAplicacao = new System.Windows.Forms.Label();
+            this.lb_TituloAlterarAplicacao = new System.Windows.Forms.Label();
             this.btn_Limpar = new System.Windows.Forms.Button();
             this.btn_Cancelar = new System.Windows.Forms.Button();
             this.lb_ValorInicial = new System.Windows.Forms.Label();
@@ -47,13 +47,13 @@
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.lb_ValorIOF = new System.Windows.Forms.Label();
             this.textBox2 = new System.Windows.Forms.TextBox();
-            this.button1 = new System.Windows.Forms.Button();
+            this.btn_Confirmar_AlterarAplicacao = new System.Windows.Forms.Button();
             this.p_Content.SuspendLayout();
             this.SuspendLayout();
             // 
             // p_Content
             // 
-            this.p_Content.Controls.Add(this.button1);
+            this.p_Content.Controls.Add(this.btn_Confirmar_AlterarAplicacao);
             this.p_Content.Controls.Add(this.lb_ImpostoRenda);
             this.p_Content.Controls.Add(this.textBox1);
             this.p_Content.Controls.Add(this.lb_ValorIOF);
@@ -69,7 +69,7 @@
             this.p_Content.Controls.Add(this.tb_ValorInicial);
             this.p_Content.Controls.Add(this.btn_Limpar);
             this.p_Content.Controls.Add(this.btn_Cancelar);
-            this.p_Content.Controls.Add(this.lb_TituloAtualizarAplicacao);
+            this.p_Content.Controls.Add(this.lb_TituloAlterarAplicacao);
             this.p_Content.Controls.Add(this.cb_TipoAplicacao);
             this.p_Content.Controls.Add(this.lb_TipoAplicacao);
             this.p_Content.Controls.Add(this.lb_InformacaoGeral);
@@ -141,17 +141,17 @@
             this.lb_InformacaoGeral.TabIndex = 91;
             this.lb_InformacaoGeral.Text = "Informações Gerais";
             // 
-            // lb_TituloAtualizarAplicacao
+            // lb_TituloAlterarAplicacao
             // 
-            this.lb_TituloAtualizarAplicacao.AutoSize = true;
-            this.lb_TituloAtualizarAplicacao.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(246)))), ((int)(((byte)(246)))), ((int)(((byte)(246)))));
-            this.lb_TituloAtualizarAplicacao.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lb_TituloAtualizarAplicacao.ForeColor = System.Drawing.SystemColors.GrayText;
-            this.lb_TituloAtualizarAplicacao.Location = new System.Drawing.Point(30, 30);
-            this.lb_TituloAtualizarAplicacao.Name = "lb_TituloAtualizarAplicacao";
-            this.lb_TituloAtualizarAplicacao.Size = new System.Drawing.Size(192, 21);
-            this.lb_TituloAtualizarAplicacao.TabIndex = 96;
-            this.lb_TituloAtualizarAplicacao.Text = "ATUALIZAR  APLICAÇÃO";
+            this.lb_TituloAlterarAplicacao.AutoSize = true;
+            this.lb_TituloAlterarAplicacao.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(246)))), ((int)(((byte)(246)))), ((int)(((byte)(246)))));
+            this.lb_TituloAlterarAplicacao.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lb_TituloAlterarAplicacao.ForeColor = System.Drawing.SystemColors.GrayText;
+            this.lb_TituloAlterarAplicacao.Location = new System.Drawing.Point(30, 30);
+            this.lb_TituloAlterarAplicacao.Name = "lb_TituloAlterarAplicacao";
+            this.lb_TituloAlterarAplicacao.Size = new System.Drawing.Size(173, 21);
+            this.lb_TituloAlterarAplicacao.TabIndex = 96;
+            this.lb_TituloAlterarAplicacao.Text = "ALTERAR  APLICAÇÃO";
             // 
             // btn_Limpar
             // 
@@ -332,24 +332,24 @@
             this.textBox2.TabIndex = 109;
             this.textBox2.Visible = false;
             // 
-            // button1
+            // btn_Confirmar_AlterarAplicacao
             // 
-            this.button1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(187)))), ((int)(((byte)(117)))));
-            this.button1.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.button1.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.button1.Location = new System.Drawing.Point(598, 488);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(90, 29);
-            this.button1.TabIndex = 113;
-            this.button1.Text = "Confirmar";
-            this.button1.UseVisualStyleBackColor = false;
+            this.btn_Confirmar_AlterarAplicacao.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(187)))), ((int)(((byte)(117)))));
+            this.btn_Confirmar_AlterarAplicacao.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btn_Confirmar_AlterarAplicacao.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_Confirmar_AlterarAplicacao.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.btn_Confirmar_AlterarAplicacao.Location = new System.Drawing.Point(598, 488);
+            this.btn_Confirmar_AlterarAplicacao.Name = "btn_Confirmar_AlterarAplicacao";
+            this.btn_Confirmar_AlterarAplicacao.Size = new System.Drawing.Size(90, 29);
+            this.btn_Confirmar_AlterarAplicacao.TabIndex = 113;
+            this.btn_Confirmar_AlterarAplicacao.Text = "Confirmar";
+            this.btn_Confirmar_AlterarAplicacao.UseVisualStyleBackColor = false;
             // 
-            // AtualizarAplicacao
+            // AlterarAplicacao
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.ClientSize = new System.Drawing.Size(1325, 694);
-            this.Name = "AtualizarAplicacao";
+            this.Name = "AlterarAplicacao";
             this.p_Content.ResumeLayout(false);
             this.p_Content.PerformLayout();
             this.ResumeLayout(false);
@@ -360,7 +360,7 @@
         protected System.Windows.Forms.ComboBox cb_TipoAplicacao;
         protected System.Windows.Forms.Label lb_TipoAplicacao;
         protected System.Windows.Forms.Label lb_InformacaoGeral;
-        private System.Windows.Forms.Label lb_TituloAtualizarAplicacao;
+        private System.Windows.Forms.Label lb_TituloAlterarAplicacao;
         protected System.Windows.Forms.Button btn_Limpar;
         protected System.Windows.Forms.Button btn_Cancelar;
         protected System.Windows.Forms.Label lb_ValorInicial;
@@ -376,6 +376,6 @@
         protected System.Windows.Forms.Label lb_ValorIOF;
         protected System.Windows.Forms.TextBox textBox2;
         protected System.Windows.Forms.Label lb_Tributario;
-        protected System.Windows.Forms.Button button1;
+        protected System.Windows.Forms.Button btn_Confirmar_AlterarAplicacao;
     }
 }

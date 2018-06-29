@@ -165,6 +165,7 @@
             this.btn_Clientes.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(41)))), ((int)(((byte)(43)))));
             this.btn_Clientes.FlatAppearance.BorderSize = 0;
             this.btn_Clientes.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(41)))), ((int)(((byte)(43)))));
+            this.btn_Clientes.Text = " Clientes";
             // 
             // btn_Contas
             // 
@@ -358,8 +359,7 @@
             this.cb_Status.FormattingEnabled = true;
             this.cb_Status.Items.AddRange(new object[] {
             "Ativo",
-            "Bloqueado",
-            "Inativo"});
+            "Bloqueado"});
             this.cb_Status.Location = new System.Drawing.Point(565, 347);
             this.cb_Status.Name = "cb_Status";
             this.cb_Status.Size = new System.Drawing.Size(121, 21);
@@ -559,7 +559,7 @@
             // 
             this.tb_CpfCliente.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tb_CpfCliente.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.tb_CpfCliente.Location = new System.Drawing.Point(139, 336);
+            this.tb_CpfCliente.Location = new System.Drawing.Point(140, 336);
             this.tb_CpfCliente.Name = "tb_CpfCliente";
             this.tb_CpfCliente.Size = new System.Drawing.Size(166, 22);
             this.tb_CpfCliente.TabIndex = 52;

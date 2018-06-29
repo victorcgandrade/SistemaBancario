@@ -14,13 +14,13 @@ namespace SistemaBancario.Views
 
         private Cliente cliente; //variavel global para ser reaproveitada ao longo do codigo
 
-        public VisualizarCliente(string idBusca)
+        public VisualizarCliente(int idBusca)
         {
             InitializeComponent();
             carregarCliente(idBusca);
         }
 
-        private void carregarCliente(string idBusca)
+        private void carregarCliente(int idBusca)
         {
             cliente = MySQLFunctions.RetornarCliente(idBusca); //obtem todos os dados de um cliente
 
@@ -31,7 +31,7 @@ namespace SistemaBancario.Views
                 //campos comuns a todos os clientes
                 tb_Visualizar_Nome.Text = cliente.PrimeiroNome;
                 tb_Visualizar_Sobrenome.Text = cliente.Sobrenome;
-                tb_Visualizar_DataNasc.Text = cliente.DataNascimento;
+                tb_Visualizar_DataNasc.Text = cliente.DataNascimento.Date.ToString();
                 tb_Visualizar_EstadoCivil.Text = cliente.Estado_civil;
 
                 tb_Visualizar_CPF.Text = cliente.Cpf;
