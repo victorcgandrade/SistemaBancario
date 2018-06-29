@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace SistemaBancario.Models
 {
-    class ContaCorrente : Conta
+    public class ContaCorrente : Conta
     {
         private decimal taxa;
         private decimal limite;

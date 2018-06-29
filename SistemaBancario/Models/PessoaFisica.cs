@@ -17,7 +17,7 @@ namespace SistemaBancario.Models
         }
 
         //Construtor contendo todos os atributos de Usuario e Cliente, alem de PessoaFisica.
-        public PessoaFisica(string primeiroNome, string sobrenome, string cpf, string rg, string data_nascimento, string email, string telefone, 
+        public PessoaFisica(string primeiroNome, string sobrenome, string cpf, string rg, DateTime data_nascimento, string email, string telefone, 
             string celular, DateTime data_cadastro, Endereco endereco, string status, string estado_civil, string profissao, decimal rendaMensal)
         {
             this.PrimeiroNome = primeiroNome;

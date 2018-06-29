@@ -30,11 +30,10 @@
         {
             this.lb_InformativoCliente = new System.Windows.Forms.Label();
             this.lb_Asterisco = new System.Windows.Forms.Label();
-            this.tb_NumeroAgencia = new System.Windows.Forms.TextBox();
             this.tb_TipoConta = new System.Windows.Forms.TextBox();
-            this.label2 = new System.Windows.Forms.Label();
+            this.lb_CPFCliente = new System.Windows.Forms.Label();
             this.tb_CpfCliente = new System.Windows.Forms.TextBox();
-            this.label1 = new System.Windows.Forms.Label();
+            this.lb_InformacoesCliente = new System.Windows.Forms.Label();
             this.lb_TipoConta = new System.Windows.Forms.Label();
             this.lb_Senha = new System.Windows.Forms.Label();
             this.lb_NumeroConta = new System.Windows.Forms.Label();
@@ -48,11 +47,13 @@
             this.btn_Confirmar_AlterarConta = new System.Windows.Forms.Button();
             this.btn_Limpar = new System.Windows.Forms.Button();
             this.btn_Cancelar = new System.Windows.Forms.Button();
+            this.cb_NumAgencia = new System.Windows.Forms.ComboBox();
             this.p_Content.SuspendLayout();
             this.SuspendLayout();
             // 
             // p_Content
             // 
+            this.p_Content.Controls.Add(this.cb_NumAgencia);
             this.p_Content.Controls.Add(this.btn_Confirmar_AlterarConta);
             this.p_Content.Controls.Add(this.btn_Limpar);
             this.p_Content.Controls.Add(this.btn_Cancelar);
@@ -60,11 +61,10 @@
             this.p_Content.Controls.Add(this.lb_Status);
             this.p_Content.Controls.Add(this.lb_InformativoCliente);
             this.p_Content.Controls.Add(this.lb_Asterisco);
-            this.p_Content.Controls.Add(this.tb_NumeroAgencia);
             this.p_Content.Controls.Add(this.tb_TipoConta);
-            this.p_Content.Controls.Add(this.label2);
+            this.p_Content.Controls.Add(this.lb_CPFCliente);
             this.p_Content.Controls.Add(this.tb_CpfCliente);
-            this.p_Content.Controls.Add(this.label1);
+            this.p_Content.Controls.Add(this.lb_InformacoesCliente);
             this.p_Content.Controls.Add(this.lb_TipoConta);
             this.p_Content.Controls.Add(this.lb_Senha);
             this.p_Content.Controls.Add(this.lb_NumeroConta);
@@ -126,17 +126,10 @@
             this.lb_Asterisco.TabIndex = 118;
             this.lb_Asterisco.Text = "*";
             // 
-            // tb_NumeroAgencia
-            // 
-            this.tb_NumeroAgencia.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.tb_NumeroAgencia.Location = new System.Drawing.Point(239, 234);
-            this.tb_NumeroAgencia.Name = "tb_NumeroAgencia";
-            this.tb_NumeroAgencia.Size = new System.Drawing.Size(121, 20);
-            this.tb_NumeroAgencia.TabIndex = 117;
-            // 
             // tb_TipoConta
             // 
             this.tb_TipoConta.BackColor = System.Drawing.SystemColors.InactiveCaption;
+            this.tb_TipoConta.Enabled = false;
             this.tb_TipoConta.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.tb_TipoConta.Location = new System.Drawing.Point(239, 121);
             this.tb_TipoConta.Name = "tb_TipoConta";
@@ -144,16 +137,16 @@
             this.tb_TipoConta.TabIndex = 116;
             this.tb_TipoConta.Text = "Conta Corrente";
             // 
-            // label2
+            // lb_CPFCliente
             // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.label2.Location = new System.Drawing.Point(570, 218);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(124, 13);
-            this.label2.TabIndex = 115;
-            this.label2.Text = "CPF (Apenas números):";
+            this.lb_CPFCliente.AutoSize = true;
+            this.lb_CPFCliente.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lb_CPFCliente.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.lb_CPFCliente.Location = new System.Drawing.Point(570, 218);
+            this.lb_CPFCliente.Name = "lb_CPFCliente";
+            this.lb_CPFCliente.Size = new System.Drawing.Size(124, 13);
+            this.lb_CPFCliente.TabIndex = 115;
+            this.lb_CPFCliente.Text = "CPF (Apenas números):";
             // 
             // tb_CpfCliente
             // 
@@ -165,16 +158,16 @@
             this.tb_CpfCliente.Size = new System.Drawing.Size(146, 20);
             this.tb_CpfCliente.TabIndex = 114;
             // 
-            // label1
+            // lb_InformacoesCliente
             // 
-            this.label1.AutoSize = true;
-            this.label1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(246)))), ((int)(((byte)(246)))), ((int)(((byte)(246)))));
-            this.label1.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(570, 188);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(222, 17);
-            this.label1.TabIndex = 113;
-            this.label1.Text = "Informações do cliente responsável";
+            this.lb_InformacoesCliente.AutoSize = true;
+            this.lb_InformacoesCliente.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(246)))), ((int)(((byte)(246)))), ((int)(((byte)(246)))));
+            this.lb_InformacoesCliente.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lb_InformacoesCliente.Location = new System.Drawing.Point(570, 188);
+            this.lb_InformacoesCliente.Name = "lb_InformacoesCliente";
+            this.lb_InformacoesCliente.Size = new System.Drawing.Size(222, 17);
+            this.lb_InformacoesCliente.TabIndex = 113;
+            this.lb_InformacoesCliente.Text = "Informações do cliente responsável";
             // 
             // lb_TipoConta
             // 
@@ -192,7 +185,7 @@
             this.lb_Senha.AutoSize = true;
             this.lb_Senha.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lb_Senha.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.lb_Senha.Location = new System.Drawing.Point(365, 277);
+            this.lb_Senha.Location = new System.Drawing.Point(350, 277);
             this.lb_Senha.Name = "lb_Senha";
             this.lb_Senha.Size = new System.Drawing.Size(106, 13);
             this.lb_Senha.TabIndex = 111;
@@ -234,7 +227,7 @@
             // tb_Senha
             // 
             this.tb_Senha.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.tb_Senha.Location = new System.Drawing.Point(368, 293);
+            this.tb_Senha.Location = new System.Drawing.Point(353, 293);
             this.tb_Senha.Name = "tb_Senha";
             this.tb_Senha.Size = new System.Drawing.Size(121, 20);
             this.tb_Senha.TabIndex = 107;
@@ -247,7 +240,7 @@
             this.tb_NumeroConta.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.tb_NumeroConta.Location = new System.Drawing.Point(239, 293);
             this.tb_NumeroConta.Name = "tb_NumeroConta";
-            this.tb_NumeroConta.Size = new System.Drawing.Size(122, 20);
+            this.tb_NumeroConta.Size = new System.Drawing.Size(108, 20);
             this.tb_NumeroConta.TabIndex = 106;
             // 
             // lb_TituloAlterarConta
@@ -267,7 +260,6 @@
             this.cb_Status.Items.AddRange(new object[] {
             "Criada",
             "Ativada",
-            "Inativada",
             "Com pendências"});
             this.cb_Status.Location = new System.Drawing.Point(239, 349);
             this.cb_Status.Name = "cb_Status";
@@ -325,6 +317,14 @@
             this.btn_Cancelar.Text = "Cancelar";
             this.btn_Cancelar.UseVisualStyleBackColor = false;
             // 
+            // cb_NumAgencia
+            // 
+            this.cb_NumAgencia.FormattingEnabled = true;
+            this.cb_NumAgencia.Location = new System.Drawing.Point(239, 234);
+            this.cb_NumAgencia.Name = "cb_NumAgencia";
+            this.cb_NumAgencia.Size = new System.Drawing.Size(107, 21);
+            this.cb_NumAgencia.TabIndex = 126;
+            // 
             // AlterarConta
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -342,11 +342,10 @@
         protected System.Windows.Forms.Label lb_Status;
         private System.Windows.Forms.Label lb_InformativoCliente;
         private System.Windows.Forms.Label lb_Asterisco;
-        private System.Windows.Forms.TextBox tb_NumeroAgencia;
         private System.Windows.Forms.TextBox tb_TipoConta;
-        protected System.Windows.Forms.Label label2;
+        protected System.Windows.Forms.Label lb_CPFCliente;
         private System.Windows.Forms.TextBox tb_CpfCliente;
-        protected System.Windows.Forms.Label label1;
+        protected System.Windows.Forms.Label lb_InformacoesCliente;
         protected System.Windows.Forms.Label lb_TipoConta;
         protected System.Windows.Forms.Label lb_Senha;
         protected System.Windows.Forms.Label lb_NumeroConta;
@@ -358,5 +357,6 @@
         protected System.Windows.Forms.Button btn_Confirmar_AlterarConta;
         protected System.Windows.Forms.Button btn_Limpar;
         protected System.Windows.Forms.Button btn_Cancelar;
+        private System.Windows.Forms.ComboBox cb_NumAgencia;
     }
 }
