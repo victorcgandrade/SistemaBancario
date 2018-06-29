@@ -100,6 +100,7 @@
             this.btn_VisualizarComprovantes.Text = "VISUALIZAR COMPROVANTES";
             this.btn_VisualizarComprovantes.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.btn_VisualizarComprovantes.UseVisualStyleBackColor = false;
+            this.btn_VisualizarComprovantes.Click += new System.EventHandler(this.btn_VisualizarComprovantes_Click);
             // 
             // Extrato
             // 

@@ -38,8 +38,20 @@
     <Reference Include="Google.Protobuf, Version=3.6.0.0, Culture=neutral, PublicKeyToken=a7d26565bac4d604, processorArchitecture=MSIL">
       <HintPath>..\packages\Google.Protobuf.3.6.0\lib\net45\Google.Protobuf.dll</HintPath>
     </Reference>
+    <Reference Include="Microsoft.IdentityModel.JsonWebTokens, Version=5.2.4.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.IdentityModel.JsonWebTokens.5.2.4\lib\net451\Microsoft.IdentityModel.JsonWebTokens.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.IdentityModel.Logging, Version=5.2.4.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.IdentityModel.Logging.5.2.4\lib\net451\Microsoft.IdentityModel.Logging.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.IdentityModel.Tokens, Version=5.2.4.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.IdentityModel.Tokens.5.2.4\lib\net451\Microsoft.IdentityModel.Tokens.dll</HintPath>
+    </Reference>
     <Reference Include="MySql.Data, Version=8.0.11.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL">
       <HintPath>..\packages\MySql.Data.8.0.11\lib\net452\MySql.Data.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=11.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.11.0.2\lib\net45\Newtonsoft.Json.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.ComponentModel" />
@@ -48,7 +60,12 @@
     <Reference Include="System.Configuration.Install" />
     <Reference Include="System.Core" />
     <Reference Include="System.Drawing.Design" />
+    <Reference Include="System.IdentityModel.Tokens.Jwt, Version=5.2.4.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.IdentityModel.Tokens.Jwt.5.2.4\lib\net451\System.IdentityModel.Tokens.Jwt.dll</HintPath>
+    </Reference>
     <Reference Include="System.Management" />
+    <Reference Include="System.Net" />
+    <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.Transactions" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -59,11 +76,15 @@
     <Reference Include="System.Net.Http" />
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
+    <Reference Include="Twilio, Version=5.13.5.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Twilio.5.13.5\lib\net451\Twilio.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Controllers\Program.cs" />
     <Compile Include="Models\Agencia.cs" />
     <Compile Include="Models\AgendamentoSaque.cs" />
+    <Compile Include="Models\ComprovantePagamento.cs" />
     <Compile Include="Models\InstanciaLogin.cs" />
     <Compile Include="Models\MySQLFunction.cs" />
     <Compile Include="Models\Pagamento.cs" />
@@ -89,6 +110,12 @@
     <Compile Include="Views\AlterarConta.Designer.cs">
       <DependentUpon>AlterarConta.cs</DependentUpon>
     </Compile>
+    <Compile Include="Views\TelaComprovantePagamento.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\TelaComprovantePagamento.Designer.cs">
+      <DependentUpon>TelaComprovantePagamento.cs</DependentUpon>
+    </Compile>
     <Compile Include="Views\ConsultarConta.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -112,6 +139,12 @@
     </Compile>
     <Compile Include="Views\ListarAgencia.Designer.cs">
       <DependentUpon>ListarAgencia.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\ListarPagamentos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\ListarPagamentos.Designer.cs">
+      <DependentUpon>ListarPagamentos.cs</DependentUpon>
     </Compile>
     <Compile Include="Views\RealizarAgendamentoSaque.cs">
       <SubType>Form</SubType>
@@ -306,6 +339,9 @@
     <EmbeddedResource Include="Views\AlterarConta.resx">
       <DependentUpon>AlterarConta.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Views\TelaComprovantePagamento.resx">
+      <DependentUpon>TelaComprovantePagamento.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Views\ConsultarConta.resx">
       <DependentUpon>ConsultarConta.cs</DependentUpon>
     </EmbeddedResource>
@@ -317,6 +353,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Views\ListarAgencia.resx">
       <DependentUpon>ListarAgencia.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\ListarPagamentos.resx">
+      <DependentUpon>ListarPagamentos.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Views\RealizarAgendamentoSaque.resx">
       <DependentUpon>RealizarAgendamentoSaque.cs</DependentUpon>

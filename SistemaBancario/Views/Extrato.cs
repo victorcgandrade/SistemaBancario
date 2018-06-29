@@ -16,5 +16,11 @@ namespace SistemaBancario.Views
         {
             InitializeComponent();
         }
+
+        private void btn_VisualizarComprovantes_Click(object sender, EventArgs e)
+        {
+            ListarPagamentos listarPagamentos = new ListarPagamentos();
+            listarPagamentos.Show();
+        }
     }
 }
