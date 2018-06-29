@@ -276,6 +276,7 @@ namespace SistemaBancario.Views
             this.btn_AgendamentoSaque.Text = "     Saque";
             this.btn_AgendamentoSaque.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btn_AgendamentoSaque.UseVisualStyleBackColor = false;
+            this.btn_AgendamentoSaque.Click += new System.EventHandler(this.btn_AgendamentoSaque_Click);
             // 
             // btn_Investimentos
             // 
