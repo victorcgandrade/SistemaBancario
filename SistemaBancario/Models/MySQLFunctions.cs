@@ -1282,10 +1282,10 @@ namespace SistemaBancario.Models
             }
         }*/
 
-        static public Boolean RealizarTransfEC()
+        /*static public Boolean RealizarTransfEC()
         {
 
-        }
+        }*/
     }
 }
 
