@@ -55,7 +55,7 @@ namespace SistemaBancario.Models
             }
             set
             {
-                Id_endereco = value;
+                id_endereco = value;
             }
         }
 

@@ -673,8 +673,8 @@ namespace SistemaBancario.Models
         static public Boolean CancelarAplicacao(string identificador)
         {
             bool sucesso;
-
-            if (Int32.TryParse(identificador, out int idBusca)) //tenta converter a string informada em numero
+            int idBusca;
+            if (Int32.TryParse(identificador, out idBusca)) //tenta converter a string informada em numero
             {
                 try
                 {

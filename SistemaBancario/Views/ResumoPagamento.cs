@@ -31,7 +31,7 @@ namespace SistemaBancario.Views
             {
                 string numBoleto = lb_CodBarras.Text;
                 decimal valor = Convert.ToDecimal(lb_Valor.Text);
-                int numeroConta = Convert.ToInt32(lb_NumAgenciaConta.Text.Substring(0, 5));
+                int numeroConta = Convert.ToInt32(lb_NumAgenciaConta.Text.Substring(0, 2).ToString());
                 string codBanco = lb_NumBancoDest.Text.Substring(0, 3);
 
                 if (MySQLFunctions.RealizarPagamento(numBoleto, valor, numeroConta, codBanco))
