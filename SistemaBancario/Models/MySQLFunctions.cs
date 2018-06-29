@@ -1403,8 +1403,8 @@ namespace SistemaBancario.Models
                 DateTime dataAtual = DateTime.Now;
 
                 //Insere o registro de pagamento na tabela de Pagamentos
-                int linhasAfetadasPag = connection.Execute("INSERT INTO Transferencia(dataHoraTransacao, tipo, valor, id_contaOrigem, num_contaDest, agencia_contaDest, cod_bancoDestino) VALUES(@dataHoraTransacao, @tipo, @valor, @id_contaOrigem, @cod_bancoDestino)",
-                        new { @dataHoraTransacao = dataAtual, @numeroBoleto = numBoleto, @valor = valor, @id_contaOrigem = idContaCorrente, @cod_bancoDestino = codBancoDestino });
+                int linhasAfetadasPag = connection.Execute("INSERT INTO Transferencia(dataHoraTransacao, tipo, valor, id_contaOrigem, cod_bancoDestino, num_contaOB, agencia_contaOB) VALUES(@dataHoraTransacao, @tipo, @valor, @id_contaOrigem, @cod_bancoDestino, @num_contaOB, @agencia_contaOB)",
+                        new { @dataHoraTransacao = dataAtual, @tipo = tipo, @valor = valor, @id_contaOrigem = idContaCorrente, @cod_bancoDestino = codBancoDestino });
 
                 Pagamento pagamento = new Pagamento(dataAtual, numBoleto, valor, conta, codBancoDestino);
 
@@ -1433,12 +1433,52 @@ namespace SistemaBancario.Models
             {
                 connection.Close();
             }
-        }*/
+        }
 
-        /*static public Boolean RealizarTransfEC()
+        static public Boolean RealizarTransfEC()
         {
 
         }*/
+
+        static public Boolean RealizarAgendamentoSaque(decimal valor, int numeroConta, DateTime dataAgendamento, string beneficiario)
+        {
+            try
+            {
+                if (connection.State == ConnectionState.Closed)
+                    connection.Open();
+
+                //Recupera o id da conta corrente envolvida
+                var idContaCorrente = connection.ExecuteScalar<int>("SELECT ContaCorrente.id FROM ContaCorrente JOIN Conta ON ContaCorrente.id_conta = Conta.id WHERE Conta.numero = @numero", new { @numero = numeroConta });
+
+                //Retornar conta 
+                ContaCorrente conta = RetornarContaCorrente(idContaCorrente);
+
+                DateTime dataAtual = DateTime.Now;
+
+                //Insere o registro de pagamento na tabela de Pagamentos
+                int linhasAfetadasSaque = connection.Execute("INSERT INTO AgendamentoSaque(dataHoraTransacao, valor, id_contaOrigem, dataAgendamento, beneficiario) VALUES(@dataHoraTransacao, @valor, @id_contaOrigem, @dataAgendamento, @beneficiario)",
+                        new { @dataHoraTransacao = dataAtual, @valor = valor, @id_contaOrigem = idContaCorrente, @dataAgendamento = dataAgendamento, @beneficiario = beneficiario });
+
+                if (linhasAfetadasSaque == 1)
+                {
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
+
+            }
+            catch (MySqlException exception)
+            {
+                Console.WriteLine(exception.ToString());
+                return false;
+            }
+            finally
+            {
+                connection.Close();
+            }
+        }
     }
 }
 

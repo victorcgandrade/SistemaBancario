@@ -72,5 +72,19 @@ namespace SistemaBancario.Views
             extrato.Show();
             this.Hide();
         }
+
+        private void btn_AgendamentoSaque_Click(object sender, EventArgs e)
+        {
+            RealizarAgendamentoSaque realizarSaque = new RealizarAgendamentoSaque();
+            realizarSaque.FormClosed += new FormClosedEventHandler(realizarSaque_FormClosed);
+            realizarSaque.Show();
+            this.Hide();
+        }
+
+        //Quando a tela de for fechada, fecha-se tambem a tela que lhe deu origem
+        private void realizarSaque_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            this.Close();
+        }
     }
 }
