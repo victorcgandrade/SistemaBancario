@@ -359,8 +359,7 @@
             this.cb_Status.FormattingEnabled = true;
             this.cb_Status.Items.AddRange(new object[] {
             "Ativo",
-            "Bloqueado",
-            "Inativo"});
+            "Bloqueado"});
             this.cb_Status.Location = new System.Drawing.Point(565, 347);
             this.cb_Status.Name = "cb_Status";
             this.cb_Status.Size = new System.Drawing.Size(121, 21);

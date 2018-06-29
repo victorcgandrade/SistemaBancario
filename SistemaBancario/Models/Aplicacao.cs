@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace SistemaBancario.Models
 {
-    class Aplicacao
+    public class Aplicacao
     {
         //Enumeracoes para tipos de Aplicacao
 
