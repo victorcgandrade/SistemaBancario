@@ -1234,7 +1234,7 @@ namespace SistemaBancario.Models
             }
         }
 
-      /*  static public Boolean RealizarTransfOB()
+        static public Boolean RealizarTransfOB()
         {
             try
             {
@@ -1280,12 +1280,12 @@ namespace SistemaBancario.Models
             {
                 connection.Close();
             }
-        }*/
+        }
 
-        /*static public Boolean RealizarTransfEC()
+        static public Boolean RealizarTransfEC()
         {
 
-        }*/
+        }
     }
 }
 

@@ -8,18 +8,31 @@ namespace SistemaBancario.Models
 {
     public class Transferencia
     {
-        int id;
+        private int id;
         private DateTime dataHoraTransacao;
         private decimal valor;
         private string cod_bancoDestino;
         private string tipo;
         private Conta contaOrigem;
-        private string num_contaDest;
-        private string agencia_contaDest;
+        private Conta contaDest;
+        private string num_contaOB;
+        private string agencia_contaOB;
 
         public Transferencia()
         {
 
+        }
+
+        public int Id
+        {
+            get
+            {
+                return id;
+            }
+            set
+            {
+                id = value;
+            }
         }
 
         public DateTime DataHoraTransacao
@@ -58,6 +71,18 @@ namespace SistemaBancario.Models
             }
         }
 
+        public Conta ContaDest
+        {
+            get
+            {
+                return contaDest;
+            }
+            set
+            {
+                contaDest = value;
+            }
+        }
+
         public string BancoDestino
         {
             get
@@ -82,27 +107,27 @@ namespace SistemaBancario.Models
             }
         }
 
-        public string Num_contaDest
+        public string NumeroContaOB
         {
             get
             {
-                return num_contaDest;
+                return num_contaOB;
             }
             set
             {
-                num_contaDest = value;
+                num_contaOB = value;
             }
         }
 
-        public string Agencia_contaDest
+        public string AgenciaContaOB
         {
             get
             {
-                return agencia_contaDest;
+                return agencia_contaOB;
             }
             set
             {
-                agencia_contaDest = value;
+                agencia_contaOB = value;
             }
         }
     }
