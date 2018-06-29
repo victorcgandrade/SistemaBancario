@@ -1234,7 +1234,7 @@ namespace SistemaBancario.Models
             }
         }
 
-        static public Boolean RealizarTransfOB()
+        /*static public Boolean RealizarTransfOB()
         {
             try
             {
@@ -1285,7 +1285,7 @@ namespace SistemaBancario.Models
         static public Boolean RealizarTransfEC()
         {
 
-        }
+        }*/
     }
 }
 
