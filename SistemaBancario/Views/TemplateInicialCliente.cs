@@ -65,5 +65,12 @@ namespace SistemaBancario.Views
             TelaAtendimento ta = new TelaAtendimento();
             ta.Show();
         }
+
+        private void btn_Extrato_Click(object sender, EventArgs e)
+        {
+            Extrato extrato = new Extrato();
+            extrato.Show();
+            this.Hide();
+        }
     }
 }

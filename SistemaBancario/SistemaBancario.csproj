@@ -100,6 +100,12 @@
     <Compile Include="Views\CriarAgencia.Designer.cs">
       <DependentUpon>CriarAgencia.cs</DependentUpon>
     </Compile>
+    <Compile Include="Views\Extrato.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\Extrato.Designer.cs">
+      <DependentUpon>Extrato.cs</DependentUpon>
+    </Compile>
     <Compile Include="Views\ListarAgencia.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -298,6 +304,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Views\CriarAgencia.resx">
       <DependentUpon>CriarAgencia.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Extrato.resx">
+      <DependentUpon>Extrato.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Views\ListarAgencia.resx">
       <DependentUpon>ListarAgencia.cs</DependentUpon>

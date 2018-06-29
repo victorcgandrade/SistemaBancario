@@ -257,6 +257,7 @@ namespace SistemaBancario.Views
             this.btn_Extrato.Text = "   Extrato";
             this.btn_Extrato.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btn_Extrato.UseVisualStyleBackColor = false;
+            this.btn_Extrato.Click += new System.EventHandler(this.btn_Extrato_Click);
             // 
             // btn_AgendamentoSaque
             // 
