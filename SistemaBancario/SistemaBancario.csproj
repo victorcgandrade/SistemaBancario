@@ -53,6 +53,12 @@
     <Reference Include="Newtonsoft.Json, Version=11.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
       <HintPath>..\packages\Newtonsoft.Json.11.0.2\lib\net45\Newtonsoft.Json.dll</HintPath>
     </Reference>
+    <Reference Include="Serilog, Version=2.0.0.0, Culture=neutral, PublicKeyToken=24c2f752a8e58a10, processorArchitecture=MSIL">
+      <HintPath>..\packages\Serilog.2.7.2-dev-01005\lib\net46\Serilog.dll</HintPath>
+    </Reference>
+    <Reference Include="Serilog.Sinks.File, Version=2.0.0.0, Culture=neutral, PublicKeyToken=24c2f752a8e58a10, processorArchitecture=MSIL">
+      <HintPath>..\packages\Serilog.Sinks.File.4.0.1-dev-00796\lib\net45\Serilog.Sinks.File.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.ComponentModel" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
@@ -82,6 +88,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Controllers\Program.cs" />
+    <Compile Include="Log\Logger.cs" />
     <Compile Include="Models\Agencia.cs" />
     <Compile Include="Models\AgendamentoSaque.cs" />
     <Compile Include="Models\ComprovantePagamento.cs" />
@@ -109,6 +116,12 @@
     </Compile>
     <Compile Include="Views\AlterarConta.Designer.cs">
       <DependentUpon>AlterarConta.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\LogAtividades.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\LogAtividades.Designer.cs">
+      <DependentUpon>LogAtividades.cs</DependentUpon>
     </Compile>
     <Compile Include="Views\TelaComprovantePagamento.cs">
       <SubType>Form</SubType>
@@ -338,6 +351,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Views\AlterarConta.resx">
       <DependentUpon>AlterarConta.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\LogAtividades.resx">
+      <DependentUpon>LogAtividades.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Views\TelaComprovantePagamento.resx">
       <DependentUpon>TelaComprovantePagamento.cs</DependentUpon>

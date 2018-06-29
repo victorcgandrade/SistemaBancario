@@ -10,6 +10,7 @@ using System.Windows.Forms;
 //using MySql.Data.MySqlClient;
 using SistemaBancario.Views;
 using SistemaBancario.Models;
+using SistemaBancario.Log;
 
 namespace Main
 {
@@ -40,6 +41,7 @@ namespace Main
                 {
                     if (SistemaBancario.Models.MySQLFunctions.SelecionarCliente(agencia, conta))
                     {
+                        Logger.logger.Information("Cliente logado com sucesso.");
                         sucessoCliente = true;
                         il = new InstanciaLogin(agencia, conta);
                     }
@@ -53,12 +55,14 @@ namespace Main
                 {
                     if (SistemaBancario.Models.MySQLFunctions.SelecionarAdministrador(login, senha))
                     {
+                        Logger.logger.Information("Administrador logado com sucesso.");
                         sucessoAdministrador = true;
                     }
                 }
             }
             if (sucessoCliente == false && sucessoAdministrador == false)
             {
+                Logger.logger.Information("Falha ao tentar logar.");
                 MessageBox.Show("Dados inválidos");
                 return false;
             }
