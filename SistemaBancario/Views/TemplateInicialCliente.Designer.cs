@@ -289,10 +289,10 @@ namespace SistemaBancario.Views
             this.btn_Investimentos.ForeColor = System.Drawing.SystemColors.ButtonFace;
             this.btn_Investimentos.Image = global::SistemaBancario.Properties.Resources.profits;
             this.btn_Investimentos.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btn_Investimentos.Location = new System.Drawing.Point(9, 465);
+            this.btn_Investimentos.Location = new System.Drawing.Point(0, 465);
             this.btn_Investimentos.Margin = new System.Windows.Forms.Padding(0);
             this.btn_Investimentos.Name = "btn_Investimentos";
-            this.btn_Investimentos.Size = new System.Drawing.Size(206, 45);
+            this.btn_Investimentos.Size = new System.Drawing.Size(215, 45);
             this.btn_Investimentos.TabIndex = 9;
             this.btn_Investimentos.Text = "    Investimentos";
             this.btn_Investimentos.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;

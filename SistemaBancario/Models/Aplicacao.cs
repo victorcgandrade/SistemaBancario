@@ -9,22 +9,23 @@ namespace SistemaBancario.Models
     public class Aplicacao
     {
         //Enumeracoes para tipos de Aplicacao
-
-        public string tipoAplicacao;
-        public string status;
-        public decimal valorMinimo;
-        public decimal valorInicial;
-        public decimal taxaRendimento;
-        public decimal resgateMinimo;
-        public string vencimento;
-        public decimal valorIOF;
-        public decimal impostoRenda;
-        public ContaCorrente contaCorrente;
+        private int id;
+        private string tipoAplicacao;
+        private string status;
+        private decimal valorMinimo;
+        private decimal valorInicial;
+        private decimal taxaRendimento;
+        private decimal resgateMinimo;
+        private string vencimento;
+        private decimal valorIOF;
+        private decimal impostoRenda;
+        private ContaCorrente contaCorrente;
 
         public Aplicacao() { }
 
-        public Aplicacao(string tipoAplicacao, string status, decimal valorMinimo, decimal valorInicial, decimal taxaRendimento, decimal resgateMinimo, string vencimento, decimal valorIOF, decimal impostoRenda, ContaCorrente conta)
+        public Aplicacao(int id, string tipoAplicacao, string status, decimal valorMinimo, decimal valorInicial, decimal taxaRendimento, decimal resgateMinimo, string vencimento, decimal valorIOF, decimal impostoRenda, ContaCorrente conta)
         {
+            this.id = id;
             this.tipoAplicacao = tipoAplicacao;
             this.status = status;
             this.valorMinimo = valorMinimo;
@@ -35,6 +36,18 @@ namespace SistemaBancario.Models
             this.valorIOF = valorIOF;
             this.impostoRenda = impostoRenda;
             this.contaCorrente = conta;
+        }
+
+        public int Id
+        {
+            get
+            {
+                return id;
+            }
+            set
+            {
+                id = value;
+            }
         }
 
         public string TipoAplicacao

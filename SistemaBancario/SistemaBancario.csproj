@@ -89,6 +89,12 @@
     <Compile Include="Views\AlterarConta.Designer.cs">
       <DependentUpon>AlterarConta.cs</DependentUpon>
     </Compile>
+    <Compile Include="Views\AplicacoesCliente.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\AplicacoesCliente.Designer.cs">
+      <DependentUpon>AplicacoesCliente.cs</DependentUpon>
+    </Compile>
     <Compile Include="Views\ConsultarConta.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -100,6 +106,12 @@
     </Compile>
     <Compile Include="Views\CriarAgencia.Designer.cs">
       <DependentUpon>CriarAgencia.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Investimentos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\Investimentos.Designer.cs">
+      <DependentUpon>Investimentos.cs</DependentUpon>
     </Compile>
     <Compile Include="Views\ListarAgencia.cs">
       <SubType>Form</SubType>
@@ -294,11 +306,17 @@
     <EmbeddedResource Include="Views\AlterarConta.resx">
       <DependentUpon>AlterarConta.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Views\AplicacoesCliente.resx">
+      <DependentUpon>AplicacoesCliente.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Views\ConsultarConta.resx">
       <DependentUpon>ConsultarConta.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Views\CriarAgencia.resx">
       <DependentUpon>CriarAgencia.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Investimentos.resx">
+      <DependentUpon>Investimentos.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Views\ListarAgencia.resx">
       <DependentUpon>ListarAgencia.cs</DependentUpon>

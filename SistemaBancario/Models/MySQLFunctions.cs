@@ -654,7 +654,7 @@ namespace SistemaBancario.Models
                 var queryResult = connection.Query<Aplicacao>("SELECT tipoAplicacao, status, valorMinimo, valorInicial, taxaRendimento, resgateMinimo, vencimento, valorIOF, impostoRenda FROM Aplicacao WHERE id = @id", new { @id = id });
                 aplicacao = queryResult.First();
 
-                aplicacao.contaCorrente = contaCorrente;
+                aplicacao.ContaCorrente = contaCorrente;
 
                 return aplicacao;
             }
@@ -1263,6 +1263,8 @@ namespace SistemaBancario.Models
                 connection.Close();
             }
         }
+
+        //Retorna o saldo de uma conta
         static public Decimal ConsultarSaldo(string numeroConta)
         {
             decimal saldoCliente = 0;
@@ -1380,59 +1382,7 @@ namespace SistemaBancario.Models
             }
         }
 
-      /*  static public Boolean RealizarTransfOB()
-        {
-            try
-            {
-                if (connection.State == ConnectionState.Closed)
-                    connection.Open();
-
-                //Recupera o id da conta corrente envolvida
-                var idContaCorrente = connection.ExecuteScalar<int>("SELECT ContaCorrente.id FROM ContaCorrente JOIN Conta ON ContaCorrente.id_conta = Conta.id WHERE Conta.numero = @numero", new { @numero = numeroConta });
-
-                //Retornar conta 
-                ContaCorrente conta = RetornarContaCorrente(idContaCorrente);
-
-                DateTime dataAtual = DateTime.Now;
-
-                //Insere o registro de pagamento na tabela de Pagamentos
-                int linhasAfetadasPag = connection.Execute("INSERT INTO Transferencia(dataHoraTransacao, tipo, valor, id_contaOrigem, cod_bancoDestino, num_contaOB, agencia_contaOB) VALUES(@dataHoraTransacao, @tipo, @valor, @id_contaOrigem, @cod_bancoDestino, @num_contaOB, @agencia_contaOB)",
-                        new { @dataHoraTransacao = dataAtual, @tipo = tipo, @valor = valor, @id_contaOrigem = idContaCorrente, @cod_bancoDestino = codBancoDestino });
-
-                Pagamento pagamento = new Pagamento(dataAtual, numBoleto, valor, conta, codBancoDestino);
-
-                //Calcula o novo saldo da conta
-                decimal saldoAtualizado = conta.Saldo - valor;
-
-                //Atualiza a tabela conta com o novo saldo
-                int linhasAfetadasConta = connection.Execute("UPDATE Conta JOIN ContaCorrente ON ContaCorrente.id_conta = Conta.id SET saldo = @saldoAtualizado WHERE ContaCorrente.id = @idCC",
-                    new { @saldoAtualizado = saldoAtualizado, @idCC = idContaCorrente });
-
-                if (linhasAfetadasPag == 1 && linhasAfetadasConta == 1)
-                {
-                    return true;
-                }
-                else
-                {
-                    return false;
-                }
-            }
-            catch (MySqlException exception)
-            {
-                Console.WriteLine(exception.ToString());
-                return false;
-            }
-            finally
-            {
-                connection.Close();
-            }
-        }
-
-        static public Boolean RealizarTransfEC()
-        {
-
-        }*/
-
+        //Apenas registra um agendamento de saque. Aplicacao nao possui controle quando/se o cliente ira efetuar o saque.
         static public Boolean RealizarAgendamentoSaque(decimal valor, int numeroConta, DateTime dataAgendamento, string beneficiario)
         {
             try
@@ -1472,6 +1422,11 @@ namespace SistemaBancario.Models
                 connection.Close();
             }
         }
+
+     /*   static public Boolean CriarAplicacao()
+        {
+
+        }*/
     }
 }
 
