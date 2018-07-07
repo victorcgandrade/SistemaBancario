@@ -79,9 +79,9 @@
             this.btn_Aplicacoes.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btn_Aplicacoes.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_Aplicacoes.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.btn_Aplicacoes.Image = global::SistemaBancario.Properties.Resources.add;
+            this.btn_Aplicacoes.Image = global::SistemaBancario.Properties.Resources.investment__1_;
             this.btn_Aplicacoes.ImageAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.btn_Aplicacoes.Location = new System.Drawing.Point(424, 219);
+            this.btn_Aplicacoes.Location = new System.Drawing.Point(421, 219);
             this.btn_Aplicacoes.Name = "btn_Aplicacoes";
             this.btn_Aplicacoes.Size = new System.Drawing.Size(156, 136);
             this.btn_Aplicacoes.TabIndex = 1;
@@ -95,9 +95,9 @@
             this.btn_Resgate.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btn_Resgate.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_Resgate.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.btn_Resgate.Image = global::SistemaBancario.Properties.Resources.add;
+            this.btn_Resgate.Image = global::SistemaBancario.Properties.Resources.give_money__1_;
             this.btn_Resgate.ImageAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.btn_Resgate.Location = new System.Drawing.Point(599, 219);
+            this.btn_Resgate.Location = new System.Drawing.Point(596, 219);
             this.btn_Resgate.Name = "btn_Resgate";
             this.btn_Resgate.Size = new System.Drawing.Size(156, 136);
             this.btn_Resgate.TabIndex = 2;

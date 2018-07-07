@@ -421,6 +421,8 @@
   <ItemGroup />
   <ItemGroup>
     <Content Include="obj\Debug\TempPE\Properties.Resources.Designer.cs.dll" />
+    <None Include="Resources\give-money %281%291.png" />
+    <None Include="Resources\investment %281%29.png" />
     <None Include="Resources\map.png" />
     <None Include="Resources\raise-your-hand-to-ask.png" />
     <None Include="Resources\questions-circular-button_1.png" />

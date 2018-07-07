@@ -95,7 +95,7 @@
             this.btn_ConsultarAplicacao.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btn_ConsultarAplicacao.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold);
             this.btn_ConsultarAplicacao.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.btn_ConsultarAplicacao.Image = global::SistemaBancario.Properties.Resources.magnifying_glass;
+            this.btn_ConsultarAplicacao.Image = global::SistemaBancario.Properties.Resources.list;
             this.btn_ConsultarAplicacao.ImageAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.btn_ConsultarAplicacao.Location = new System.Drawing.Point(583, 219);
             this.btn_ConsultarAplicacao.Name = "btn_ConsultarAplicacao";
