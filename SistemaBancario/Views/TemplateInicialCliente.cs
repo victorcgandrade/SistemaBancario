@@ -115,7 +115,7 @@ namespace SistemaBancario.Views
 
         private void btn_Investimentos_Click(object sender, EventArgs e)
         {
-            Investimentos investimentos = new Investimentos();
+            Investimentos investimentos = new Investimentos(this.il);
             investimentos.FormClosed += new FormClosedEventHandler(investimentos_FormClosed);
             investimentos.Show();
             this.Hide();

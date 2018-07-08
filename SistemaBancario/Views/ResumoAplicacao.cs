@@ -29,7 +29,7 @@ namespace SistemaBancario.Views
             {
                 Decimal valorInicial = Convert.ToDecimal(lb_ValorInicial.Text);
                 DateTime vencimento = Convert.ToDateTime(lb_Vencimento.Text);
-                int numeroConta = Convert.ToInt32(lb_NumConta.Text);
+                int numeroConta = Convert.ToInt32(lblConta.Text);
 
                 if (MySQLFunctions.CriarAplicacao(valorInicial, vencimento, numeroConta))
                 {

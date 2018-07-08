@@ -1,4 +1,5 @@
-﻿using System;
+﻿using SistemaBancario.Models;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -12,14 +13,11 @@ namespace SistemaBancario.Views
 {
     public partial class Investimentos : TemplateInicialCliente
     {
-        public Investimentos()
+        public Investimentos(InstanciaLogin il)
         {
             InitializeComponent();
-        }
-
-        private void Investimentos_Load(object sender, EventArgs e)
-        {
-
+            LabelAgencia = il.agencia;
+            LabelConta = il.conta;
         }
 
         private void btn_Aplicacoes_Click(object sender, EventArgs e)

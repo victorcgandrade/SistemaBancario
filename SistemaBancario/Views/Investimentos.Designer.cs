@@ -55,8 +55,8 @@
             // 
             // btn_Tranferencias
             // 
-            this.btn_Tranferencias.FlatAppearance.BorderSize = 0;
-            this.btn_Tranferencias.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(41)))), ((int)(((byte)(43)))));
+            this.lb_Conta.FlatAppearance.BorderSize = 0;
+            this.lb_Conta.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(41)))), ((int)(((byte)(43)))));
             // 
             // btn_Pagamentos
             // 
@@ -114,7 +114,6 @@
             this.ClientSize = new System.Drawing.Size(1325, 694);
             this.Name = "Investimentos";
             this.Text = "Investimentos";
-            this.Load += new System.EventHandler(this.Investimentos_Load);
             this.p_Content.ResumeLayout(false);
             this.ResumeLayout(false);
 
