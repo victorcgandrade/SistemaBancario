@@ -172,15 +172,15 @@ namespace SistemaBancario.Views
             // 
             // lb_NomeAdmin
             // 
-            this.lb_NomeAdmin.AutoSize = true;
-            this.lb_NomeAdmin.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(19)))), ((int)(((byte)(19)))), ((int)(((byte)(19)))));
-            this.lb_NomeAdmin.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lb_NomeAdmin.ForeColor = System.Drawing.SystemColors.Menu;
-            this.lb_NomeAdmin.Location = new System.Drawing.Point(728, 3);
-            this.lb_NomeAdmin.Name = "lb_NomeAdmin";
-            this.lb_NomeAdmin.Size = new System.Drawing.Size(121, 17);
-            this.lb_NomeAdmin.TabIndex = 1;
-            this.lb_NomeAdmin.Text = "Olá, Carlos Alberto";
+            //this.lb_NomeAdmin.AutoSize = true;
+            //this.lb_NomeAdmin.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(19)))), ((int)(((byte)(19)))), ((int)(((byte)(19)))));
+            //this.lb_NomeAdmin.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            //this.lb_NomeAdmin.ForeColor = System.Drawing.SystemColors.Menu;
+            //this.lb_NomeAdmin.Location = new System.Drawing.Point(728, 3);
+            //this.lb_NomeAdmin.Name = "lb_NomeAdmin";
+            //this.lb_NomeAdmin.Size = new System.Drawing.Size(121, 17);
+            //this.lb_NomeAdmin.TabIndex = 1;
+            //this.lb_NomeAdmin.Text = "Olá, Carlos Alberto";
             // 
             // p_SideMenu
             // 
