@@ -31,10 +31,10 @@
             this.tb_TipoAplicacao = new System.Windows.Forms.TextBox();
             this.lb_TipoAplicacao = new System.Windows.Forms.Label();
             this.lb_TituloAdicionarConta = new System.Windows.Forms.Label();
-            this.dtp_DataAgendamento = new System.Windows.Forms.DateTimePicker();
+            this.dtp_DataVencimento = new System.Windows.Forms.DateTimePicker();
             this.lb_Prazo = new System.Windows.Forms.Label();
             this.lb_ValorInicialAplicado = new System.Windows.Forms.Label();
-            this.tb_Valor = new System.Windows.Forms.TextBox();
+            this.tb_ValorInicial = new System.Windows.Forms.TextBox();
             this.btn_Confirmar_Aplicar = new System.Windows.Forms.Button();
             this.btn_Limpar = new System.Windows.Forms.Button();
             this.btn_Cancelar = new System.Windows.Forms.Button();
@@ -54,10 +54,10 @@
             this.p_Content.Controls.Add(this.btn_Confirmar_Aplicar);
             this.p_Content.Controls.Add(this.btn_Limpar);
             this.p_Content.Controls.Add(this.btn_Cancelar);
-            this.p_Content.Controls.Add(this.dtp_DataAgendamento);
+            this.p_Content.Controls.Add(this.dtp_DataVencimento);
             this.p_Content.Controls.Add(this.lb_Prazo);
             this.p_Content.Controls.Add(this.lb_ValorInicialAplicado);
-            this.p_Content.Controls.Add(this.tb_Valor);
+            this.p_Content.Controls.Add(this.tb_ValorInicial);
             this.p_Content.Controls.Add(this.tb_TipoAplicacao);
             this.p_Content.Controls.Add(this.lb_TipoAplicacao);
             this.p_Content.Controls.Add(this.lb_TituloAdicionarConta);
@@ -130,24 +130,24 @@
             this.lb_TituloAdicionarConta.TabIndex = 103;
             this.lb_TituloAdicionarConta.Text = "CRIAR APLICAÇÃO";
             // 
-            // dtp_DataAgendamento
+            // dtp_DataVencimento
             // 
-            this.dtp_DataAgendamento.CalendarFont = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dtp_DataAgendamento.CalendarForeColor = System.Drawing.SystemColors.MenuText;
-            this.dtp_DataAgendamento.CalendarTitleForeColor = System.Drawing.SystemColors.MenuText;
-            this.dtp_DataAgendamento.CalendarTrailingForeColor = System.Drawing.SystemColors.GradientActiveCaption;
-            this.dtp_DataAgendamento.Checked = false;
-            this.dtp_DataAgendamento.DropDownAlign = System.Windows.Forms.LeftRightAlignment.Right;
-            this.dtp_DataAgendamento.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dtp_DataAgendamento.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dtp_DataAgendamento.ImeMode = System.Windows.Forms.ImeMode.On;
-            this.dtp_DataAgendamento.Location = new System.Drawing.Point(605, 350);
-            this.dtp_DataAgendamento.MaxDate = new System.DateTime(2018, 5, 23, 0, 0, 0, 0);
-            this.dtp_DataAgendamento.MinDate = new System.DateTime(1920, 1, 1, 0, 0, 0, 0);
-            this.dtp_DataAgendamento.Name = "dtp_DataAgendamento";
-            this.dtp_DataAgendamento.Size = new System.Drawing.Size(144, 22);
-            this.dtp_DataAgendamento.TabIndex = 114;
-            this.dtp_DataAgendamento.Value = new System.DateTime(2018, 5, 23, 0, 0, 0, 0);
+            this.dtp_DataVencimento.CalendarFont = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dtp_DataVencimento.CalendarForeColor = System.Drawing.SystemColors.MenuText;
+            this.dtp_DataVencimento.CalendarTitleForeColor = System.Drawing.SystemColors.MenuText;
+            this.dtp_DataVencimento.CalendarTrailingForeColor = System.Drawing.SystemColors.GradientActiveCaption;
+            this.dtp_DataVencimento.Checked = false;
+            this.dtp_DataVencimento.DropDownAlign = System.Windows.Forms.LeftRightAlignment.Right;
+            this.dtp_DataVencimento.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dtp_DataVencimento.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dtp_DataVencimento.ImeMode = System.Windows.Forms.ImeMode.On;
+            this.dtp_DataVencimento.Location = new System.Drawing.Point(605, 350);
+            this.dtp_DataVencimento.MaxDate = new System.DateTime(2018, 5, 23, 0, 0, 0, 0);
+            this.dtp_DataVencimento.MinDate = new System.DateTime(1920, 1, 1, 0, 0, 0, 0);
+            this.dtp_DataVencimento.Name = "dtp_DataVencimento";
+            this.dtp_DataVencimento.Size = new System.Drawing.Size(144, 22);
+            this.dtp_DataVencimento.TabIndex = 114;
+            this.dtp_DataVencimento.Value = new System.DateTime(2018, 5, 23, 0, 0, 0, 0);
             // 
             // lb_Prazo
             // 
@@ -171,14 +171,14 @@
             this.lb_ValorInicialAplicado.TabIndex = 112;
             this.lb_ValorInicialAplicado.Text = "Valor a ser investido:";
             // 
-            // tb_Valor
+            // tb_ValorInicial
             // 
-            this.tb_Valor.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tb_Valor.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.tb_Valor.Location = new System.Drawing.Point(377, 350);
-            this.tb_Valor.Name = "tb_Valor";
-            this.tb_Valor.Size = new System.Drawing.Size(120, 22);
-            this.tb_Valor.TabIndex = 111;
+            this.tb_ValorInicial.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tb_ValorInicial.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.tb_ValorInicial.Location = new System.Drawing.Point(377, 350);
+            this.tb_ValorInicial.Name = "tb_ValorInicial";
+            this.tb_ValorInicial.Size = new System.Drawing.Size(120, 22);
+            this.tb_ValorInicial.TabIndex = 111;
             // 
             // btn_Confirmar_Aplicar
             // 
@@ -192,6 +192,7 @@
             this.btn_Confirmar_Aplicar.TabIndex = 119;
             this.btn_Confirmar_Aplicar.Text = "Confirmar";
             this.btn_Confirmar_Aplicar.UseVisualStyleBackColor = false;
+            this.btn_Confirmar_Aplicar.Click += new System.EventHandler(this.btn_Confirmar_Aplicar_Click);
             // 
             // btn_Limpar
             // 
@@ -260,10 +261,9 @@
             this.lb_AvisoCriarAp.ForeColor = System.Drawing.Color.Red;
             this.lb_AvisoCriarAp.Location = new System.Drawing.Point(287, 161);
             this.lb_AvisoCriarAp.Name = "lb_AvisoCriarAp";
-            this.lb_AvisoCriarAp.Size = new System.Drawing.Size(477, 15);
+            this.lb_AvisoCriarAp.Size = new System.Drawing.Size(312, 15);
             this.lb_AvisoCriarAp.TabIndex = 123;
-            this.lb_AvisoCriarAp.Text = "A taxa de rendimento estabelecida pelo AeA é de 12% a.a. É cobrado apenas valor d" +
-    "e IOF.";
+            this.lb_AvisoCriarAp.Text = "A taxa de rendimento estabelecida pelo AeA é de 12% a.a.";
             // 
             // CriarAplicacao
             // 
@@ -280,10 +280,10 @@
         private System.Windows.Forms.TextBox tb_TipoAplicacao;
         protected System.Windows.Forms.Label lb_TipoAplicacao;
         private System.Windows.Forms.Label lb_TituloAdicionarConta;
-        protected System.Windows.Forms.DateTimePicker dtp_DataAgendamento;
+        protected System.Windows.Forms.DateTimePicker dtp_DataVencimento;
         protected System.Windows.Forms.Label lb_Prazo;
         protected System.Windows.Forms.Label lb_ValorInicialAplicado;
-        protected System.Windows.Forms.TextBox tb_Valor;
+        protected System.Windows.Forms.TextBox tb_ValorInicial;
         protected System.Windows.Forms.Button btn_Confirmar_Aplicar;
         protected System.Windows.Forms.Button btn_Limpar;
         protected System.Windows.Forms.Button btn_Cancelar;

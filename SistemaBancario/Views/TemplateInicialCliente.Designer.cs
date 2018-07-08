@@ -33,7 +33,10 @@ namespace SistemaBancario.Views
         {
             this.components = new System.ComponentModel.Container();
             this.p_Footer = new System.Windows.Forms.Panel();
+            this.lb_NumConta = new System.Windows.Forms.Label();
+            this.lb_NumAgencia = new System.Windows.Forms.Label();
             this.btnSaldo = new System.Windows.Forms.Button();
+            this.lb_NomeCliente = new System.Windows.Forms.Label();
             this.pb_IconeUsuario = new System.Windows.Forms.PictureBox();
             this.btn_Sair = new System.Windows.Forms.Button();
             this.p_SideMenu = new System.Windows.Forms.Panel();
@@ -56,9 +59,6 @@ namespace SistemaBancario.Views
             this.lb_DuvidasApp = new System.Windows.Forms.Label();
             this.p_Content = new System.Windows.Forms.Panel();
             this.toolTipSaldo = new System.Windows.Forms.ToolTip(this.components);
-            this.lb_NumConta = new System.Windows.Forms.Label();
-            this.lb_NomeCliente = new System.Windows.Forms.Label();
-            this.lb_NumAgencia = new System.Windows.Forms.Label();
             this.p_Footer.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pb_IconeUsuario)).BeginInit();
             this.p_SideMenu.SuspendLayout();
@@ -81,6 +81,28 @@ namespace SistemaBancario.Views
             this.p_Footer.Size = new System.Drawing.Size(1110, 43);
             this.p_Footer.TabIndex = 12;
             // 
+            // lb_NumConta
+            // 
+            this.lb_NumConta.AutoSize = true;
+            this.lb_NumConta.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lb_NumConta.ForeColor = System.Drawing.SystemColors.ScrollBar;
+            this.lb_NumConta.Location = new System.Drawing.Point(834, 24);
+            this.lb_NumConta.Name = "lb_NumConta";
+            this.lb_NumConta.Size = new System.Drawing.Size(35, 13);
+            this.lb_NumConta.TabIndex = 4;
+            this.lb_NumConta.Text = "XXXX";
+            // 
+            // lb_NumAgencia
+            // 
+            this.lb_NumAgencia.AutoSize = true;
+            this.lb_NumAgencia.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lb_NumAgencia.ForeColor = System.Drawing.SystemColors.ScrollBar;
+            this.lb_NumAgencia.Location = new System.Drawing.Point(809, 24);
+            this.lb_NumAgencia.Name = "lb_NumAgencia";
+            this.lb_NumAgencia.Size = new System.Drawing.Size(28, 13);
+            this.lb_NumAgencia.TabIndex = 5;
+            this.lb_NumAgencia.Text = "XXX";
+            // 
             // btnSaldo
             // 
             this.btnSaldo.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(169)))), ((int)(((byte)(0)))));
@@ -94,6 +116,18 @@ namespace SistemaBancario.Views
             this.btnSaldo.Text = "Saldo";
             this.btnSaldo.UseVisualStyleBackColor = false;
             this.btnSaldo.Click += new System.EventHandler(this.btnSaldo_Click);
+            // 
+            // lb_NomeCliente
+            // 
+            this.lb_NomeCliente.AutoSize = true;
+            this.lb_NomeCliente.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(19)))), ((int)(((byte)(19)))), ((int)(((byte)(19)))));
+            this.lb_NomeCliente.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lb_NomeCliente.ForeColor = System.Drawing.SystemColors.Menu;
+            this.lb_NomeCliente.Location = new System.Drawing.Point(795, 7);
+            this.lb_NomeCliente.Name = "lb_NomeCliente";
+            this.lb_NomeCliente.Size = new System.Drawing.Size(94, 17);
+            this.lb_NomeCliente.TabIndex = 3;
+            this.lb_NomeCliente.Text = "Carlos Alberto";
             // 
             // pb_IconeUsuario
             // 
@@ -289,6 +323,7 @@ namespace SistemaBancario.Views
             this.btn_Investimentos.Text = "    Investimentos";
             this.btn_Investimentos.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btn_Investimentos.UseVisualStyleBackColor = false;
+            this.btn_Investimentos.Click += new System.EventHandler(this.btn_Investimentos_Click);
             // 
             // pb_Logo
             // 
@@ -372,40 +407,6 @@ namespace SistemaBancario.Views
             this.p_Content.Name = "p_Content";
             this.p_Content.Size = new System.Drawing.Size(1110, 624);
             this.p_Content.TabIndex = 13;
-            // 
-            // lb_NumConta
-            // 
-            this.lb_NumConta.AutoSize = true;
-            this.lb_NumConta.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lb_NumConta.ForeColor = System.Drawing.SystemColors.ScrollBar;
-            this.lb_NumConta.Location = new System.Drawing.Point(834, 24);
-            this.lb_NumConta.Name = "lb_NumConta";
-            this.lb_NumConta.Size = new System.Drawing.Size(35, 13);
-            this.lb_NumConta.TabIndex = 4;
-            this.lb_NumConta.Text = "XXXX";
-            // 
-            // lb_NomeCliente
-            // 
-            this.lb_NomeCliente.AutoSize = true;
-            this.lb_NomeCliente.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(19)))), ((int)(((byte)(19)))), ((int)(((byte)(19)))));
-            this.lb_NomeCliente.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lb_NomeCliente.ForeColor = System.Drawing.SystemColors.Menu;
-            this.lb_NomeCliente.Location = new System.Drawing.Point(795, 7);
-            this.lb_NomeCliente.Name = "lb_NomeCliente";
-            this.lb_NomeCliente.Size = new System.Drawing.Size(94, 17);
-            this.lb_NomeCliente.TabIndex = 3;
-            this.lb_NomeCliente.Text = "Carlos Alberto";
-            // 
-            // lb_NumAgencia
-            // 
-            this.lb_NumAgencia.AutoSize = true;
-            this.lb_NumAgencia.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lb_NumAgencia.ForeColor = System.Drawing.SystemColors.ScrollBar;
-            this.lb_NumAgencia.Location = new System.Drawing.Point(809, 24);
-            this.lb_NumAgencia.Name = "lb_NumAgencia";
-            this.lb_NumAgencia.Size = new System.Drawing.Size(28, 13);
-            this.lb_NumAgencia.TabIndex = 5;
-            this.lb_NumAgencia.Text = "XXX";
             // 
             // TemplateInicialCliente
             // 

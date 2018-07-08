@@ -79,5 +79,19 @@ namespace SistemaBancario.Views
         {
             this.Close();
         }
+
+        private void btn_Investimentos_Click(object sender, EventArgs e)
+        {
+            Investimentos investimentos = new Investimentos();
+            investimentos.FormClosed += new FormClosedEventHandler(investimentos_FormClosed);
+            investimentos.Show();
+            this.Hide();
+        }
+
+        //Quando a tela de for fechada, fecha-se tambem a tela que lhe deu origem
+        private void investimentos_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            this.Close();
+        }
     }
 }

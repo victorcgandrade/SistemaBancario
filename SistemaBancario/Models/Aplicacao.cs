@@ -8,13 +8,17 @@ namespace SistemaBancario.Models
 {
     public class Aplicacao
     {
+        //Cada indice somado 1 corresponde ao valor de IOF que deve ser cobrado de acordo com a quantidade de dias do resgate
+        private readonly int[] VALORES_IOF_DIA = { 96, 96, 90, 86, 83, 80, 76, 73, 70, 66, 63, 60, 56, 53, 50,
+                                                    46, 43, 40, 36, 33, 30, 26, 23, 20, 16, 13, 10, 6, 3, 0};
+
         private int id;
-        private string tipoAplicacao;
-        private string status;
-        private decimal valorMinimo;
+        private string tipoAplicacao = "Pré-Fixada";
+        private string status = "Em rendimento";
+        private decimal valorMinimo = 50;
         private decimal valorInicial;
-        private decimal taxaRendimento;
-        private decimal resgateMinimo;
+        private decimal taxaRendimento = 12;
+        private decimal resgateMinimo = 150;
         private string vencimento;
         private decimal valorIOF;
         private ContaCorrente contaCorrente;
@@ -22,18 +26,13 @@ namespace SistemaBancario.Models
 
         public Aplicacao() { }
 
-        public Aplicacao(int id, string tipoAplicacao, string status, decimal valorMinimo, decimal valorInicial, decimal taxaRendimento, decimal resgateMinimo, string vencimento, decimal valorIOF, ContaCorrente conta)
+        public Aplicacao(int id, decimal valorInicial, string vencimento, DateTime dataInicio, ContaCorrente conta)
         {
             this.id = id;
-            this.tipoAplicacao = tipoAplicacao;
-            this.status = status;
-            this.valorMinimo = valorMinimo;
             this.valorInicial = valorInicial;
-            this.taxaRendimento = taxaRendimento;
-            this.resgateMinimo = resgateMinimo;
             this.vencimento = vencimento;
-            this.valorIOF = valorIOF;
             this.contaCorrente = conta;
+            this.dataInicio = dataInicio;
         }
 
         public int Id
@@ -156,9 +155,22 @@ namespace SistemaBancario.Models
             }
         }
 
+        public DateTime DataInicio
+        {
+            get
+            {
+                return dataInicio;
+            }
+            set
+            {
+                dataInicio = value;
+            }
+        }
+
         public decimal RetornarRendimento()
         {
             DateTime dataAtual = DateTime.Now;
+            Decimal valorRendido = 0;
 
             if (tipoAplicacao == "Pré-Fixada")
             {
@@ -170,14 +182,22 @@ namespace SistemaBancario.Models
 
                 Decimal valorBruto = valorInicial * taxaDia;
 
-                Decimal valorRendido = valorBruto - (valorBruto - (valorIOF/100));
+                valorRendido = valorBruto;
 
-                return valorRendido;
+                //Apenas cobrado taxa de IOF se o resgate for feito com 30 ou menos dias
+
+                if (diasCorridos <= 30)
+                {
+                    Decimal taxaIOF = VALORES_IOF_DIA[diasCorridos-1];
+                    valorRendido = valorBruto - (valorBruto * (taxaIOF/100));
+                }
             }
             else
             {
-                return -1;
+                valorRendido = - 1;
             }
+
+            return valorRendido;
         }
     }
 }

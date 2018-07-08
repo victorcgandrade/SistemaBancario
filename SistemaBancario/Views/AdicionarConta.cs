@@ -42,13 +42,17 @@ namespace SistemaBancario.Views
 
         private void btn_AdicionarConta_Click(object sender, EventArgs e)
         {
-            if (CriarConta())
+            if (MessageBox.Show("Tem certeza que deseja criar essa conta?", "Confirmacao", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
             {
-                MessageBox.Show("Ok");
+                if (CriarConta())
+                {
+                    MessageBox.Show("Conta Corrente criada com sucesso!");
 
-            } else
-            {
-                MessageBox.Show("Nok");
+                }
+                else
+                {
+                    MessageBox.Show("Não foi possível criar esta conta corrente!");
+                }
             }
         }
     }

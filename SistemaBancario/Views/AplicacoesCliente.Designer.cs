@@ -88,6 +88,7 @@
             this.btn_CriarAplicacao.Text = "NOVA APLICAÇÃO";
             this.btn_CriarAplicacao.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.btn_CriarAplicacao.UseVisualStyleBackColor = false;
+            this.btn_CriarAplicacao.Click += new System.EventHandler(this.btn_CriarAplicacao_Click);
             // 
             // btn_ConsultarAplicacao
             // 

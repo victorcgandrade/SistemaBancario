@@ -88,6 +88,7 @@
             this.btn_Aplicacoes.Text = "APLICAÇÕES";
             this.btn_Aplicacoes.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.btn_Aplicacoes.UseVisualStyleBackColor = false;
+            this.btn_Aplicacoes.Click += new System.EventHandler(this.btn_Aplicacoes_Click);
             // 
             // btn_Resgate
             // 
@@ -104,6 +105,7 @@
             this.btn_Resgate.Text = "RESGATE";
             this.btn_Resgate.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.btn_Resgate.UseVisualStyleBackColor = false;
+            this.btn_Resgate.Click += new System.EventHandler(this.btn_Resgate_Click);
             // 
             // Investimentos
             // 
