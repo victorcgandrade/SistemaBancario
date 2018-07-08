@@ -8,6 +8,7 @@ namespace SistemaBancario.Models
 {
     public class Endereco
     {
+        private int id;
         private string tipo;
         private string logradouro;
         private int numero;
@@ -22,8 +23,9 @@ namespace SistemaBancario.Models
 
         }
 
-        public Endereco(string tipo, string logradouro, int numero, string bairro, string complemento, string cep, string cidade, string estado)
+        public Endereco(int id,string tipo, string logradouro, int numero, string bairro, string complemento, string cep, string cidade, string estado)
         {
+            this.id = id;
             this.tipo = tipo;
             this.logradouro = logradouro;
             this.numero = numero;
@@ -32,6 +34,18 @@ namespace SistemaBancario.Models
             this.cep = cep;
             this.cidade = cidade;
             this.estado = estado;
+        }
+
+        public int Id
+        {
+            get
+            {
+                return id;
+            }
+            set
+            {
+                id = value;
+            }
         }
 
         public string Logradouro

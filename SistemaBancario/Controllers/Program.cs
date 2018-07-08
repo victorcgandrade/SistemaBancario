@@ -1,9 +1,7 @@
 ﻿using Main;
 using SistemaBancario.Views;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+//using SistemaBancario.Log;
 using System.Windows.Forms;
 
 namespace SistemaBancario
@@ -16,6 +14,7 @@ namespace SistemaBancario
         [STAThread]
         static void Main()
         {
+            //Logger.logger.Information("Iniciando o programa.");
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new TelaLogin());

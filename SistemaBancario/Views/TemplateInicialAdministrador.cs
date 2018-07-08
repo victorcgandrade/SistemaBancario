@@ -59,5 +59,13 @@ namespace SistemaBancario.Views
             Agencia a = new Agencia();
             a.Show();
         }
+
+        private void btn_LogDados_Click(object sender, EventArgs e)
+        {
+            LogAtividades logForm = new LogAtividades();
+            logForm.FormClosed += new FormClosedEventHandler(inicialAplicacao_FormClosed);
+            logForm.Show();
+            this.Hide();
+        }
     }
 }

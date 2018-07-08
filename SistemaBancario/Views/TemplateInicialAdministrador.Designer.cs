@@ -279,6 +279,7 @@
             this.btn_LogDados.Text = "  Log de Dados";
             this.btn_LogDados.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btn_LogDados.UseVisualStyleBackColor = false;
+            this.btn_LogDados.Click += new System.EventHandler(this.btn_LogDados_Click);
             // 
             // pb_Logo
             // 

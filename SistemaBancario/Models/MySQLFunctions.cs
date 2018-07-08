@@ -673,8 +673,8 @@ namespace SistemaBancario.Models
         static public Boolean CancelarAplicacao(string identificador)
         {
             bool sucesso;
-
-            if (Int32.TryParse(identificador, out int idBusca)) //tenta converter a string informada em numero
+            int idBusca;
+            if (Int32.TryParse(identificador, out idBusca)) //tenta converter a string informada em numero
             {
                 try
                 {
@@ -856,8 +856,15 @@ namespace SistemaBancario.Models
 
                     }
                     reader3.Close();
-                    if (treatment != "Sem alteração") sucesso = true;
-                    else sucesso = false;
+                    if (senha.Equals(treatment))
+                    {
+                        sucesso = true;
+                    }
+                    else
+                    {
+                        MessageBox.Show("Senha incorreta");
+                        sucesso = false;
+                    }
                 }
                 else
                 {
@@ -1190,7 +1197,7 @@ namespace SistemaBancario.Models
                 Agencia agencia = queryAgencia.First();
 
                 //Associa o endereco da agencia ao objeto da agencia
-                agencia.Endereco = endereco;
+                agencia.Id_endereco = endereco.Id;
 
                 return agencia;
 
@@ -1287,26 +1294,33 @@ namespace SistemaBancario.Models
             return saldoCliente;
         }
 
-        static public List<Agencia> ListaAgencias()
+        static public DataTable ListaAgencias()
         {
-            List<Agencia> agencias = new List<Agencia>();
+            DataTable listagemAgencia = new DataTable();
+
             try
             {
                 if (connection.State == ConnectionState.Closed)
                     connection.Open();
-                var query= connection.Query<Agencia>("SELECT * FROM Agencia");
-                agencias = query.ToList();
+                MySqlDataAdapter dataAdapter = new MySqlDataAdapter("SELECT Agencia.numero, Endereco.tipo, Endereco.logradouro, Endereco.numero, Endereco.bairro, Endereco.complemento, Endereco.cep, Endereco.cidade, Endereco.estado FROM Endereco " +
+                    "JOIN Agencia on Agencia.id_endereco = Endereco.id",connection);
+
+                
+                //Todos os dados retornados em formato de tabela para variavel dadosCliente
+                dataAdapter.Fill(listagemAgencia);
+
             }
             catch (MySqlException exception)
             {
+                listagemAgencia = null;
                 Console.WriteLine(exception.ToString());
-
             }
             finally
             {
                 connection.Close();
             }
-            return agencias;
+
+            return listagemAgencia;
         }
 
         static public Endereco SelecionaEndereco(int id)
@@ -1463,6 +1477,11 @@ namespace SistemaBancario.Models
                 connection.Close();
             }
         }
+
+        //public string SelecionaCliente()
+        //{
+
+        //}
     }
 }
 

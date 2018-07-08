@@ -12,7 +12,7 @@ namespace SistemaBancario.Models
         private DateTime dataHoraTransacao;
         private string numeroBoleto;
         private decimal valor;
-        private Conta contaOrigem;
+        private Conta id_contaOrigem;
         private string cod_bancoDestino;
 
         public Pagamento() { }
@@ -22,7 +22,7 @@ namespace SistemaBancario.Models
             this.dataHoraTransacao = dataHoraTransacao;
             this.numeroBoleto = numeroBoleto;
             this.valor = valor;
-            this.contaOrigem = contaOrigem;
+            this.id_contaOrigem = contaOrigem;
             this.cod_bancoDestino = bancoDestino;
         }
 
@@ -66,11 +66,11 @@ namespace SistemaBancario.Models
         {
             get
             {
-                return contaOrigem;
+                return id_contaOrigem;
             }
             set
             {
-                contaOrigem = value;
+                id_contaOrigem = value;
             }
         }
 

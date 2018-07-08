@@ -32,10 +32,15 @@
             this.tpLista = new System.Windows.Forms.TabPage();
             this.dgvAgencias = new System.Windows.Forms.DataGridView();
             this.tpAgencias = new System.Windows.Forms.TabPage();
+            this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
+            this.wbAgencias = new System.Windows.Forms.WebBrowser();
+            this.cmbBoxAgencias = new System.Windows.Forms.ComboBox();
             this.p_Content.SuspendLayout();
             this.tcAtendimento.SuspendLayout();
             this.tpLista.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvAgencias)).BeginInit();
+            this.tpAgencias.SuspendLayout();
+            this.tableLayoutPanel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // p_Content
@@ -101,16 +106,19 @@
             // 
             // dgvAgencias
             // 
+            this.dgvAgencias.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvAgencias.BackgroundColor = System.Drawing.SystemColors.ButtonFace;
             this.dgvAgencias.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvAgencias.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgvAgencias.Location = new System.Drawing.Point(3, 3);
             this.dgvAgencias.Name = "dgvAgencias";
+            this.dgvAgencias.ReadOnly = true;
             this.dgvAgencias.Size = new System.Drawing.Size(1006, 502);
             this.dgvAgencias.TabIndex = 0;
             // 
             // tpAgencias
             // 
+            this.tpAgencias.Controls.Add(this.tableLayoutPanel1);
             this.tpAgencias.Location = new System.Drawing.Point(4, 26);
             this.tpAgencias.Name = "tpAgencias";
             this.tpAgencias.Padding = new System.Windows.Forms.Padding(3);
@@ -118,6 +126,41 @@
             this.tpAgencias.TabIndex = 1;
             this.tpAgencias.Text = "Mapa";
             this.tpAgencias.UseVisualStyleBackColor = true;
+            // 
+            // tableLayoutPanel1
+            // 
+            this.tableLayoutPanel1.ColumnCount = 1;
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableLayoutPanel1.Controls.Add(this.wbAgencias, 0, 1);
+            this.tableLayoutPanel1.Controls.Add(this.cmbBoxAgencias, 0, 0);
+            this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanel1.Location = new System.Drawing.Point(3, 3);
+            this.tableLayoutPanel1.Name = "tableLayoutPanel1";
+            this.tableLayoutPanel1.RowCount = 2;
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 9.960159F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 90.03984F));
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(1006, 502);
+            this.tableLayoutPanel1.TabIndex = 0;
+            // 
+            // wbAgencias
+            // 
+            this.wbAgencias.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.wbAgencias.Location = new System.Drawing.Point(3, 52);
+            this.wbAgencias.MinimumSize = new System.Drawing.Size(20, 20);
+            this.wbAgencias.Name = "wbAgencias";
+            this.wbAgencias.Size = new System.Drawing.Size(1000, 447);
+            this.wbAgencias.TabIndex = 0;
+            // 
+            // cmbBoxAgencias
+            // 
+            this.cmbBoxAgencias.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.cmbBoxAgencias.FormattingEnabled = true;
+            this.cmbBoxAgencias.Location = new System.Drawing.Point(355, 14);
+            this.cmbBoxAgencias.Name = "cmbBoxAgencias";
+            this.cmbBoxAgencias.Size = new System.Drawing.Size(295, 25);
+            this.cmbBoxAgencias.TabIndex = 1;
+            this.cmbBoxAgencias.SelectedValueChanged += new System.EventHandler(this.cmbBoxAgencias_SelectedValueChanged);
             // 
             // TelaBuscarAgencia
             // 
@@ -130,6 +173,8 @@
             this.tcAtendimento.ResumeLayout(false);
             this.tpLista.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgvAgencias)).EndInit();
+            this.tpAgencias.ResumeLayout(false);
+            this.tableLayoutPanel1.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -140,5 +185,8 @@
         private System.Windows.Forms.TabPage tpLista;
         private System.Windows.Forms.TabPage tpAgencias;
         private System.Windows.Forms.DataGridView dgvAgencias;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
+        private System.Windows.Forms.WebBrowser wbAgencias;
+        private System.Windows.Forms.ComboBox cmbBoxAgencias;
     }
 }

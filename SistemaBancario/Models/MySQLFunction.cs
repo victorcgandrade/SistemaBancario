@@ -1,8 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using Dapper;
 using System.Data;
 using MySql.Data.MySqlClient;
 using System.Windows.Forms;
@@ -454,6 +451,59 @@ namespace SistemaBancario.Models
         }
 
         #endregion
+
+        static public void ListarPagamentos(DataGridView dataGridView, string conta)
+        {
+            try
+            {
+                if (connection.State == ConnectionState.Closed)
+                    connection.Open();
+                //numero as 'Número da Agência', id_endereco as 'Código do Endereço', E.cep  
+                MySqlDataAdapter dataAdapter = new MySqlDataAdapter(
+                    "SELECT dataHoraTransacao AS Dia, numeroBoleto AS Nome, valor as Valor FROM Pagamento WHERE id_contaOrigem = 1 UNION " +
+                    "SELECT dataInicio AS Dia, tipoAplicacao AS Nome, valorInicial as Valor FROM Aplicacao WHERE id_contacorrente = 1 UNION " +
+                    "SELECT dataHoraTransacao AS Dia, tipo AS Nome, valor as Valor FROM Transferencia WHERE id_contaOrigem = 1 ORDER BY Dia", connection);
+                DataTable dataTable = new DataTable();
+                dataAdapter.Fill(dataTable);
+                dataGridView.DataSource = dataTable;
+            }
+            catch (MySqlException exception)
+            {
+                MessageBox.Show(exception.ToString());
+            }
+            finally
+            {
+                connection.Close();
+            }
+        }
+
+        static public ComprovantePagamento BuscarComprovantePagamento(int pagamentoId)
+        {
+            try
+            {
+                if (connection.State == ConnectionState.Closed)
+                    connection.Open();
+
+                var dataHoraTransacao = connection.ExecuteScalar<DateTime>("SELECT dataHoraTransacao FROM Pagamento WHERE id = @id", new { @id = pagamentoId });
+                var numeroBoleto = connection.ExecuteScalar<string>("SELECT numeroBoleto FROM Pagamento WHERE id = @id", new { @id = pagamentoId });
+                var valor = connection.ExecuteScalar<decimal>("SELECT valor FROM Pagamento WHERE id = @id", new { @id = pagamentoId });
+                var id_contaOrigem = connection.ExecuteScalar<int>("SELECT id_contaOrigem FROM Pagamento WHERE id = @id", new { @id = pagamentoId });
+                var cod_bancoDestino = connection.ExecuteScalar<string>("SELECT cod_bancoDestino FROM Pagamento WHERE id = @id", new { @id = pagamentoId });
+
+                var result = new ComprovantePagamento(pagamentoId, dataHoraTransacao, numeroBoleto, valor, id_contaOrigem, cod_bancoDestino);
+
+                return result;
+            }
+            catch(Exception e)
+            {
+                MessageBox.Show(e.Message);
+                return null;
+            }
+            finally
+            {
+                connection.Close();
+            }
+        }
 
     }
 }

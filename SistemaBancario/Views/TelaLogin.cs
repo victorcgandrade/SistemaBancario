@@ -10,6 +10,7 @@ using System.Windows.Forms;
 //using MySql.Data.MySqlClient;
 using SistemaBancario.Views;
 using SistemaBancario.Models;
+//using SistemaBancario.Log;
 
 namespace Main
 {
@@ -17,7 +18,8 @@ namespace Main
     {
 
         InstanciaLogin il = new InstanciaLogin();
-
+        public static string _agenciaContext { get; set; }
+        public static string _contaContext { get; set; }
         public TelaLogin()
         {
             InitializeComponent();
@@ -32,12 +34,16 @@ namespace Main
 
             if (cmbBoxTipoUser.SelectedItem == "Cliente")
             {
+                _agenciaContext = txtBoxAgencia.Text;
+                _contaContext = txtBoxConta.Text;
+
                 string agencia = txtBoxAgencia.Text;
                 string conta = txtBoxConta.Text;
                 if (agencia != "" && conta != "")
                 {
                     if (SistemaBancario.Models.MySQLFunctions.SelecionarCliente(agencia, conta))
                     {
+                        //Logger.logger.Information("Cliente logado com sucesso.");
                         sucessoCliente = true;
                         il = new InstanciaLogin(agencia, conta);
                     }
@@ -51,12 +57,14 @@ namespace Main
                 {
                     if (SistemaBancario.Models.MySQLFunctions.SelecionarAdministrador(login, senha))
                     {
+                        //Logger.logger.Information("Administrador logado com sucesso.");
                         sucessoAdministrador = true;
                     }
                 }
             }
             if (sucessoCliente == false && sucessoAdministrador == false)
             {
+                //Logger.logger.Information("Falha ao tentar logar.");
                 MessageBox.Show("Dados inválidos");
                 return false;
             }
