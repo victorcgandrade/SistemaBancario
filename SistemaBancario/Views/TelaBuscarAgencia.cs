@@ -15,12 +15,13 @@ namespace SistemaBancario.Views
     {
         List<StringBuilder> enderecos = new List<StringBuilder>();
         DataRowCollection agencias = MySQLFunctions.ListaAgencias().Rows;
-        public TelaBuscarAgencia()
+        public TelaBuscarAgencia(InstanciaLogin il)
         {
             InitializeComponent();
             CarregarAgencias();
             ConstroiMapa();
-            
+            LabelAgencia = il.agencia;
+            LabelConta = il.conta;
         }
         public void CarregarAgencias()
         {

@@ -856,8 +856,15 @@ namespace SistemaBancario.Models
 
                     }
                     reader3.Close();
-                    if (treatment != "Sem alteração") sucesso = true;
-                    else sucesso = false;
+                    if (senha.Equals(treatment))
+                    {
+                        sucesso = true;
+                    }
+                    else
+                    {
+                        MessageBox.Show("Senha incorreta");
+                        sucesso = false;
+                    }
                 }
                 else
                 {
@@ -1479,6 +1486,11 @@ namespace SistemaBancario.Models
                 connection.Close();
             }
         }
+
+        //public string SelecionaCliente()
+        //{
+
+        //}
     }
 }
 

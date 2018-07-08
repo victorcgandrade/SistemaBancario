@@ -452,7 +452,7 @@ namespace SistemaBancario.Models
 
         #endregion
 
-        static public void ListarPagamentos(DataGridView dataGridView)
+        static public void ListarPagamentos(DataGridView dataGridView, string conta)
         {
             try
             {
@@ -460,7 +460,9 @@ namespace SistemaBancario.Models
                     connection.Open();
                 //numero as 'Número da Agência', id_endereco as 'Código do Endereço', E.cep  
                 MySqlDataAdapter dataAdapter = new MySqlDataAdapter(
-                    "SELECT id, dataHoraTransacao, numeroBoleto, valor, id_contaOrigem, cod_bancoDestino FROM Pagamento", connection);
+                    "SELECT dataHoraTransacao AS Dia, numeroBoleto AS Nome, valor as Valor FROM Pagamento WHERE id_contaOrigem = 1 UNION " +
+                    "SELECT dataInicio AS Dia, tipoAplicacao AS Nome, valorInicial as Valor FROM Aplicacao WHERE id_contacorrente = 1 UNION " +
+                    "SELECT dataHoraTransacao AS Dia, tipo AS Nome, valor as Valor FROM Transferencia WHERE id_contaOrigem = 1 ORDER BY Dia", connection);
                 DataTable dataTable = new DataTable();
                 dataAdapter.Fill(dataTable);
                 dataGridView.DataSource = dataTable;

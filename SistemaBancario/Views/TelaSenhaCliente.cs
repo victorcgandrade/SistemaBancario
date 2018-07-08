@@ -16,7 +16,7 @@ namespace SistemaBancario.Views
     public partial class TelaSenhaCliente : Form
     {
         private string senha;
-        private InstanciaLogin LoginAtual;
+        private InstanciaLogin LoginAtual = new InstanciaLogin();
 
         public TelaSenhaCliente(InstanciaLogin il)
         {
@@ -49,6 +49,33 @@ namespace SistemaBancario.Views
             else if (txtQuartoCaracter.Text == "")
             {
                 txtQuartoCaracter.Text = "*";
+                return true;
+            }
+
+            return true;
+        }
+
+        public bool DesmarcaSenha()
+        {
+            if (txtQuartoCaracter.Text == "*")
+            {
+                txtQuartoCaracter.Text = "";
+                senha=senha.Substring(0, 3);
+            }
+            else if (txtTerceiroCaracter.Text == "*")
+            {
+                txtTerceiroCaracter.Text = "";
+                senha = senha.Substring(0, 2);
+            }
+            else if (txtSegundoCaracter.Text == "*")
+            {
+                txtSegundoCaracter.Text = "";
+                senha = senha.Substring(0, 1);
+            }
+            else if (txtPrimeiroCaracter.Text == "*")
+            {
+                txtPrimeiroCaracter.Text = "";
+                senha = String.Empty;
                 return true;
             }
 
@@ -118,7 +145,6 @@ namespace SistemaBancario.Views
         private void btnAvancar_Click(object sender, EventArgs e)
         {
 
-
             if (SistemaBancario.Models.MySQLFunctions.LoginCliente(LoginAtual.conta, senha))
             {
                 MessageBox.Show("Logado com sucesso");
@@ -143,6 +169,11 @@ namespace SistemaBancario.Views
             this.Hide();
             TelaLogin tl = new TelaLogin();
             tl.Show();
+        }
+
+        private void btnLimpar_Click(object sender, EventArgs e)
+        {
+            DesmarcaSenha();
         }
     }
 }

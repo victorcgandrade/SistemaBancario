@@ -1,4 +1,5 @@
-﻿using SistemaBancario.Models;
+﻿using Main;
+using SistemaBancario.Models;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -14,7 +15,7 @@ namespace SistemaBancario.Views
     public partial class TemplateInicialCliente : Form
     {
         
-        InstanciaLogin il;
+        InstanciaLogin il= new InstanciaLogin(TelaLogin._agenciaContext, TelaLogin._contaContext);
         decimal saldo;
         public TemplateInicialCliente()
         {
@@ -26,11 +27,36 @@ namespace SistemaBancario.Views
         {
             saldo = MySQLFunctions.ConsultarSaldo(il.conta);
             InitializeComponent();
-            this.il = il;
             toolTipSaldo.SetToolTip(btnSaldo, "Exibe/Esconde saldo");
+            lblConta.Text = il.conta;
+            lblAgencia.Text = il.agencia;
         }
 
-   
+        public string LabelConta
+        {
+            get
+            {
+                return lblConta.Text;
+            }
+            set
+            {
+                lblConta.Text = value;
+            }
+        }
+
+        public string LabelAgencia
+        {
+            get
+            {
+                return lblAgencia.Text;
+            }
+            set
+            {
+                lblAgencia.Text = value;
+            }
+        }
+
+
         private void btnSaldo_Click(object sender, EventArgs e)
         {
 
@@ -47,7 +73,7 @@ namespace SistemaBancario.Views
 
         private void btn_Pagamentos_Click(object sender, EventArgs e)
         {
-            RealizarPagamento realizarPag = new RealizarPagamento(il);
+            RealizarPagamento realizarPag = new RealizarPagamento(this.il);
             realizarPag.FormClosed += new FormClosedEventHandler(realizarPag_FormClosed);
             realizarPag.Show();
             this.Hide();
@@ -62,20 +88,20 @@ namespace SistemaBancario.Views
         private void btn_Atendimento_Click(object sender, EventArgs e)
         {
             this.Hide();
-            TelaAtendimento ta = new TelaAtendimento();
+            TelaAtendimento ta = new TelaAtendimento(this.il);
             ta.Show();
         }
 
         private void btn_Extrato_Click(object sender, EventArgs e)
         {
-            Extrato extrato = new Extrato();
-            extrato.Show();
+            ListarPagamentos l = new ListarPagamentos(this.il);
+            l.Show();
             this.Hide();
         }
 
         private void btn_AgendamentoSaque_Click(object sender, EventArgs e)
         {
-            RealizarAgendamentoSaque realizarSaque = new RealizarAgendamentoSaque();
+            RealizarAgendamentoSaque realizarSaque = new RealizarAgendamentoSaque(this.il);
             realizarSaque.FormClosed += new FormClosedEventHandler(realizarSaque_FormClosed);
             realizarSaque.Show();
             this.Hide();

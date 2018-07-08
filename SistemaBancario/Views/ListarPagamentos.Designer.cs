@@ -90,12 +90,14 @@
             this.lb_TituloPagamentos.ForeColor = System.Drawing.SystemColors.GrayText;
             this.lb_TituloPagamentos.Location = new System.Drawing.Point(169, 91);
             this.lb_TituloPagamentos.Name = "lb_TituloPagamentos";
-            this.lb_TituloPagamentos.Size = new System.Drawing.Size(373, 21);
+            this.lb_TituloPagamentos.Size = new System.Drawing.Size(376, 21);
             this.lb_TituloPagamentos.TabIndex = 86;
             this.lb_TituloPagamentos.Text = "VISUALIZAR COMPROVANTES DE PAGAMENTOS";
             // 
             // dataGridView_Pagamentos
             // 
+            this.dataGridView_Pagamentos.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dataGridView_Pagamentos.BackgroundColor = System.Drawing.SystemColors.ControlLight;
             this.dataGridView_Pagamentos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView_Pagamentos.Location = new System.Drawing.Point(173, 161);
             this.dataGridView_Pagamentos.Name = "dataGridView_Pagamentos";
@@ -146,6 +148,7 @@
             this.button_Confirmar.TabIndex = 105;
             this.button_Confirmar.Text = "Confirmar";
             this.button_Confirmar.UseVisualStyleBackColor = false;
+            this.button_Confirmar.Click += new System.EventHandler(this.button_Confirmar_Click);
             // 
             // ListarPagamentos
             // 
