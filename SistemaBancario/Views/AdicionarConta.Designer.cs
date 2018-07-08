@@ -247,6 +247,7 @@
             // tb_TipoConta
             // 
             this.tb_TipoConta.BackColor = System.Drawing.SystemColors.InactiveCaption;
+            this.tb_TipoConta.Enabled = false;
             this.tb_TipoConta.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.tb_TipoConta.Location = new System.Drawing.Point(201, 130);
             this.tb_TipoConta.Name = "tb_TipoConta";

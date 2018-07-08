@@ -1423,10 +1423,47 @@ namespace SistemaBancario.Models
             }
         }
 
-     /*   static public Boolean CriarAplicacao()
+        static public Boolean CriarAplicacao(string tipoAplicacao, string status, decimal valorMinimo, decimal valorInicial, decimal taxaRendimento, decimal resgateMinimo, string vencimento, decimal valorIOF, decimal impostoRenda, int numeroContaCorrente)
         {
+            try
+            {
+                if (connection.State == ConnectionState.Closed)
+                    connection.Open();
 
-        }*/
+                //Recupera o id da conta corrente envolvida
+                var idContaCorrente = connection.ExecuteScalar<int>("SELECT ContaCorrente.id FROM ContaCorrente JOIN Conta ON ContaCorrente.id_conta = Conta.id WHERE Conta.numero = @numero", new { @numero = numeroContaCorrente });
+
+                //Retornar conta 
+                ContaCorrente conta = RetornarContaCorrente(idContaCorrente);
+
+                DateTime dataAtual = DateTime.Now;
+
+                //Insere o registro da criacao da aplicacao na tabela Aplicacao
+                int linhasAfetadasAplicacao = connection.Execute("INSERT INTO Aplicacao(tipoAplicacao, status, valorMinimo, valorInicial, taxaRendimento, resgateMinimo, vencimento, valorIOF, impostoRenda, id_contacorrente, dataInicio) " +
+                    "VALUES(@tipoAplicacao, @status, @valorMinimo, @valorInicial, @taxaRendimento, @resgateMinimo, @vencimento, @valorIOF, @id_contacorrente, @dataInicio)",
+                        new { @tipoAplicacao = tipoAplicacao, @status = status, @valorMinimo = valorMinimo, @valorInicial = valorInicial, @taxaRendimento = taxaRendimento,
+                            @resgateMinimo = resgateMinimo, @vencimento = vencimento, @valorIOF = valorIOF, @id_contacorrente = idContaCorrente, @dataInicio = dataAtual });
+
+                if (linhasAfetadasAplicacao == 1)
+                {
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
+
+            }
+            catch (MySqlException exception)
+            {
+                Console.WriteLine(exception.ToString());
+                return false;
+            }
+            finally
+            {
+                connection.Close();
+            }
+        }
     }
 }
 

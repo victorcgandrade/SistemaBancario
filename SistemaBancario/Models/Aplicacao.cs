@@ -8,7 +8,6 @@ namespace SistemaBancario.Models
 {
     public class Aplicacao
     {
-        //Enumeracoes para tipos de Aplicacao
         private int id;
         private string tipoAplicacao;
         private string status;
@@ -18,12 +17,12 @@ namespace SistemaBancario.Models
         private decimal resgateMinimo;
         private string vencimento;
         private decimal valorIOF;
-        private decimal impostoRenda;
         private ContaCorrente contaCorrente;
+        private DateTime dataInicio;
 
         public Aplicacao() { }
 
-        public Aplicacao(int id, string tipoAplicacao, string status, decimal valorMinimo, decimal valorInicial, decimal taxaRendimento, decimal resgateMinimo, string vencimento, decimal valorIOF, decimal impostoRenda, ContaCorrente conta)
+        public Aplicacao(int id, string tipoAplicacao, string status, decimal valorMinimo, decimal valorInicial, decimal taxaRendimento, decimal resgateMinimo, string vencimento, decimal valorIOF, ContaCorrente conta)
         {
             this.id = id;
             this.tipoAplicacao = tipoAplicacao;
@@ -34,7 +33,6 @@ namespace SistemaBancario.Models
             this.resgateMinimo = resgateMinimo;
             this.vencimento = vencimento;
             this.valorIOF = valorIOF;
-            this.impostoRenda = impostoRenda;
             this.contaCorrente = conta;
         }
 
@@ -146,18 +144,6 @@ namespace SistemaBancario.Models
             }
         }
 
-        public decimal ImpostoRenda
-        {
-            get
-            {
-                return impostoRenda;
-            }
-            set
-            {
-                impostoRenda = value;
-            }
-        }
-
         public ContaCorrente ContaCorrente
         {
             get
@@ -167,6 +153,30 @@ namespace SistemaBancario.Models
             set
             {
                 contaCorrente = value;
+            }
+        }
+
+        public decimal RetornarRendimento()
+        {
+            DateTime dataAtual = DateTime.Now;
+
+            if (tipoAplicacao == "Pré-Fixada")
+            {
+                int diasCorridos = (dataAtual.Date - dataInicio.Date).Days;
+
+                Double taxa = Convert.ToDouble(taxaRendimento);
+
+                Decimal taxaDia = Convert.ToDecimal(Math.Pow((1 + (taxa / 100)), (diasCorridos / 360))); //considerando taxa com base 360 dias corridos
+
+                Decimal valorBruto = valorInicial * taxaDia;
+
+                Decimal valorRendido = valorBruto - (valorBruto - (valorIOF/100));
+
+                return valorRendido;
+            }
+            else
+            {
+                return -1;
             }
         }
     }
