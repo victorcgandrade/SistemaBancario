@@ -30,12 +30,12 @@
         {
             this.tb_TipoAplicacao = new System.Windows.Forms.TextBox();
             this.lb_TipoAplicacao = new System.Windows.Forms.Label();
-            this.lb_TituloAdicionarConta = new System.Windows.Forms.Label();
+            this.lb_TituloCriarAplicacao = new System.Windows.Forms.Label();
             this.dtp_DataVencimento = new System.Windows.Forms.DateTimePicker();
             this.lb_Prazo = new System.Windows.Forms.Label();
             this.lb_ValorInicialAplicado = new System.Windows.Forms.Label();
             this.tb_ValorInicial = new System.Windows.Forms.TextBox();
-            this.btn_Confirmar_Aplicar = new System.Windows.Forms.Button();
+            this.btn_Avancar_CriarAplicar = new System.Windows.Forms.Button();
             this.btn_Limpar = new System.Windows.Forms.Button();
             this.btn_Cancelar = new System.Windows.Forms.Button();
             this.lb_TextoExplicativoCriarAp = new System.Windows.Forms.Label();
@@ -51,7 +51,7 @@
             this.p_Content.Controls.Add(this.lb_TextoExplicativo2CriarAp);
             this.p_Content.Controls.Add(this.lb_TextoExplicativoCriarAp);
             this.p_Content.Controls.Add(this.lb_SubtituloAplicarValor);
-            this.p_Content.Controls.Add(this.btn_Confirmar_Aplicar);
+            this.p_Content.Controls.Add(this.btn_Avancar_CriarAplicar);
             this.p_Content.Controls.Add(this.btn_Limpar);
             this.p_Content.Controls.Add(this.btn_Cancelar);
             this.p_Content.Controls.Add(this.dtp_DataVencimento);
@@ -60,7 +60,7 @@
             this.p_Content.Controls.Add(this.tb_ValorInicial);
             this.p_Content.Controls.Add(this.tb_TipoAplicacao);
             this.p_Content.Controls.Add(this.lb_TipoAplicacao);
-            this.p_Content.Controls.Add(this.lb_TituloAdicionarConta);
+            this.p_Content.Controls.Add(this.lb_TituloCriarAplicacao);
             // 
             // panel4
             // 
@@ -119,16 +119,16 @@
             this.lb_TipoAplicacao.TabIndex = 109;
             this.lb_TipoAplicacao.Text = "Tipo de aplicação";
             // 
-            // lb_TituloAdicionarConta
+            // lb_TituloCriarAplicacao
             // 
-            this.lb_TituloAdicionarConta.AutoSize = true;
-            this.lb_TituloAdicionarConta.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold);
-            this.lb_TituloAdicionarConta.ForeColor = System.Drawing.SystemColors.GrayText;
-            this.lb_TituloAdicionarConta.Location = new System.Drawing.Point(30, 30);
-            this.lb_TituloAdicionarConta.Name = "lb_TituloAdicionarConta";
-            this.lb_TituloAdicionarConta.Size = new System.Drawing.Size(148, 21);
-            this.lb_TituloAdicionarConta.TabIndex = 103;
-            this.lb_TituloAdicionarConta.Text = "CRIAR APLICAÇÃO";
+            this.lb_TituloCriarAplicacao.AutoSize = true;
+            this.lb_TituloCriarAplicacao.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold);
+            this.lb_TituloCriarAplicacao.ForeColor = System.Drawing.SystemColors.GrayText;
+            this.lb_TituloCriarAplicacao.Location = new System.Drawing.Point(30, 30);
+            this.lb_TituloCriarAplicacao.Name = "lb_TituloCriarAplicacao";
+            this.lb_TituloCriarAplicacao.Size = new System.Drawing.Size(148, 21);
+            this.lb_TituloCriarAplicacao.TabIndex = 103;
+            this.lb_TituloCriarAplicacao.Text = "CRIAR APLICAÇÃO";
             // 
             // dtp_DataVencimento
             // 
@@ -180,19 +180,19 @@
             this.tb_ValorInicial.Size = new System.Drawing.Size(120, 22);
             this.tb_ValorInicial.TabIndex = 111;
             // 
-            // btn_Confirmar_Aplicar
+            // btn_Avancar_CriarAplicar
             // 
-            this.btn_Confirmar_Aplicar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(187)))), ((int)(((byte)(117)))));
-            this.btn_Confirmar_Aplicar.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btn_Confirmar_Aplicar.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_Confirmar_Aplicar.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.btn_Confirmar_Aplicar.Location = new System.Drawing.Point(605, 480);
-            this.btn_Confirmar_Aplicar.Name = "btn_Confirmar_Aplicar";
-            this.btn_Confirmar_Aplicar.Size = new System.Drawing.Size(90, 29);
-            this.btn_Confirmar_Aplicar.TabIndex = 119;
-            this.btn_Confirmar_Aplicar.Text = "Confirmar";
-            this.btn_Confirmar_Aplicar.UseVisualStyleBackColor = false;
-            this.btn_Confirmar_Aplicar.Click += new System.EventHandler(this.btn_Confirmar_Aplicar_Click);
+            this.btn_Avancar_CriarAplicar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(187)))), ((int)(((byte)(117)))));
+            this.btn_Avancar_CriarAplicar.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btn_Avancar_CriarAplicar.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_Avancar_CriarAplicar.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.btn_Avancar_CriarAplicar.Location = new System.Drawing.Point(605, 480);
+            this.btn_Avancar_CriarAplicar.Name = "btn_Avancar_CriarAplicar";
+            this.btn_Avancar_CriarAplicar.Size = new System.Drawing.Size(90, 29);
+            this.btn_Avancar_CriarAplicar.TabIndex = 119;
+            this.btn_Avancar_CriarAplicar.Text = "Avançar";
+            this.btn_Avancar_CriarAplicar.UseVisualStyleBackColor = false;
+            this.btn_Avancar_CriarAplicar.Click += new System.EventHandler(this.btn_Avancar_CriarAplicar_Click);
             // 
             // btn_Limpar
             // 
@@ -261,9 +261,9 @@
             this.lb_AvisoCriarAp.ForeColor = System.Drawing.Color.Red;
             this.lb_AvisoCriarAp.Location = new System.Drawing.Point(287, 161);
             this.lb_AvisoCriarAp.Name = "lb_AvisoCriarAp";
-            this.lb_AvisoCriarAp.Size = new System.Drawing.Size(312, 15);
+            this.lb_AvisoCriarAp.Size = new System.Drawing.Size(359, 15);
             this.lb_AvisoCriarAp.TabIndex = 123;
-            this.lb_AvisoCriarAp.Text = "A taxa de rendimento estabelecida pelo AeA é de 12% a.a.";
+            this.lb_AvisoCriarAp.Text = "A taxa de rendimento estabelecida pelo AeA é de 12% a.a (ao ano).";
             // 
             // CriarAplicacao
             // 
@@ -279,12 +279,12 @@
         #endregion
         private System.Windows.Forms.TextBox tb_TipoAplicacao;
         protected System.Windows.Forms.Label lb_TipoAplicacao;
-        private System.Windows.Forms.Label lb_TituloAdicionarConta;
+        private System.Windows.Forms.Label lb_TituloCriarAplicacao;
         protected System.Windows.Forms.DateTimePicker dtp_DataVencimento;
         protected System.Windows.Forms.Label lb_Prazo;
         protected System.Windows.Forms.Label lb_ValorInicialAplicado;
         protected System.Windows.Forms.TextBox tb_ValorInicial;
-        protected System.Windows.Forms.Button btn_Confirmar_Aplicar;
+        protected System.Windows.Forms.Button btn_Avancar_CriarAplicar;
         protected System.Windows.Forms.Button btn_Limpar;
         protected System.Windows.Forms.Button btn_Cancelar;
         private System.Windows.Forms.Label lb_TextoExplicativoCriarAp;

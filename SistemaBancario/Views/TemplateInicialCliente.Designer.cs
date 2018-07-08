@@ -462,8 +462,8 @@ namespace SistemaBancario.Views
         protected System.Windows.Forms.Button btn_Atendimento;
         private System.Windows.Forms.Button btnSaldo;
         private System.Windows.Forms.ToolTip toolTipSaldo;
-        private System.Windows.Forms.Label lb_NumConta;
-        private System.Windows.Forms.Label lb_NomeCliente;
-        private System.Windows.Forms.Label lb_NumAgencia;
+        protected System.Windows.Forms.Label lb_NumConta;
+        protected System.Windows.Forms.Label lb_NomeCliente;
+        protected System.Windows.Forms.Label lb_NumAgencia;
     }
 }

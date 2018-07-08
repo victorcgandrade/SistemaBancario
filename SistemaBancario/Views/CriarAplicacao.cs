@@ -16,40 +16,25 @@ namespace SistemaBancario.Views
             InitializeComponent();
         }
 
-        private Boolean AdicionarAplicacao()
+        private void btn_Avancar_CriarAplicar_Click(object sender, EventArgs e)
         {
-            bool sucesso = false;
+            List<Object> informacoes = new List<Object>();
 
-            Decimal valorInicial = Convert.ToDecimal(tb_ValorInicial.Text);
             DateTime vencimento = Convert.ToDateTime(dtp_DataVencimento.Text);
-            int idConta = 1; //CORRIGIR
 
-            if (MySQLFunctions.CriarAplicacao(valorInicial, vencimento, idConta))
-            {
+            informacoes.Add(tb_ValorInicial.Text);
+            informacoes.Add(vencimento);
 
-                sucesso = true;
-            }
-            else
-            {
-                sucesso = false;
-            }
-
-            return sucesso;
+            ResumoAplicacao resumoAplicacao = new ResumoAplicacao(informacoes);
+            resumoAplicacao.FormClosed += new FormClosedEventHandler(resumoAplicacao_FormClosed);
+            resumoAplicacao.Show();
+            this.Hide();
         }
 
-        private void btn_Confirmar_Aplicar_Click(object sender, EventArgs e)
+        //Quando a tela de for fechada, fecha-se tambem a tela que lhe deu origem
+        private void resumoAplicacao_FormClosed(object sender, FormClosedEventArgs e)
         {
-            if (MessageBox.Show("Tem certeza que deseja criar essa aplicação?", "Confirmacao", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
-            {
-                if (AdicionarAplicacao())
-                {
-                    MessageBox.Show("Aplicação criada com sucesso!");
-                }
-                else
-                {
-                    MessageBox.Show("Não foi possível criar a aplicação!");
-                }
-            }
+            this.Close();
         }
     }
 }

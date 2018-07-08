@@ -22,11 +22,10 @@ namespace SistemaBancario.Views
             //Lista de informacoes do pagamento para, posteriormente, exibir na tela do resumo 
             List<String> informacoes = new List<string>();
             informacoes.Add(tb_Boleto.Text);
-          //  informacoes.Add();
-          //  informacoes.Add();
             informacoes.Add(cb_BancoDestino.Text);
             informacoes.Add(tb_Valor.Text);
 
+            //Chama tela de resumo de pagamento
           //  ResumoPagamento resumoPag = new ResumoPagamento(informacoes);
          //   resumoPag.FormClosed += new FormClosedEventHandler(resumoPag_FormClosed);
          //   resumoPag.Show();
