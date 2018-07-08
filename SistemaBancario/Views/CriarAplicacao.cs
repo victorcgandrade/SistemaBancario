@@ -11,21 +11,26 @@ namespace SistemaBancario.Views
 {
     public partial class CriarAplicacao : SistemaBancario.Views.TemplateInicialCliente
     {
-        public CriarAplicacao()
+        InstanciaLogin il = new InstanciaLogin();
+
+        public CriarAplicacao(InstanciaLogin il)
         {
             InitializeComponent();
+            this.il = il;
+            LabelAgencia = il.agencia;
+            LabelConta = il.conta;
         }
 
         private void btn_Avancar_CriarAplicar_Click(object sender, EventArgs e)
         {
             List<Object> informacoes = new List<Object>();
 
-            DateTime vencimento = Convert.ToDateTime(dtp_DataVencimento.Text);
+            DateTime vencimento = Convert.ToDateTime(dtp_DataVencimento.Text).Date;
 
             informacoes.Add(tb_ValorInicial.Text);
             informacoes.Add(vencimento);
 
-            ResumoAplicacao resumoAplicacao = new ResumoAplicacao(informacoes);
+            ResumoAplicacao resumoAplicacao = new ResumoAplicacao(informacoes, this.il);
             resumoAplicacao.FormClosed += new FormClosedEventHandler(resumoAplicacao_FormClosed);
             resumoAplicacao.Show();
             this.Hide();

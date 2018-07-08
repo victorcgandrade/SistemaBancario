@@ -609,7 +609,7 @@ namespace SistemaBancario.Models
             return buscaAplicacao;
         }
 
-        //Exibir todas aplicacoes cadastradas no banco de dados
+        //Exibir todas aplicacoes cadastradas no banco de dados para um Administrador
         static public DataTable ListarAplicacao()
         {
             DataTable listagemAplicacao = new DataTable();
@@ -1478,10 +1478,35 @@ namespace SistemaBancario.Models
             }
         }
 
-        //public string SelecionaCliente()
-        //{
+        //Exibir todas aplicacoes cadastradas no banco de dados para um cliente
+        static public DataTable ListarAplicacaoCliente(int numeroContaCorrente)
+        {
+            DataTable listagemAplicacao = new DataTable();
 
-        //}
+            try
+            {
+                if (connection.State == ConnectionState.Closed)
+                    connection.Open();
+
+                MySqlCommand listarAplicacao = new MySqlCommand("SELECT dataInicio AS 'Data de início', valorInicial AS 'Valor inicialmente investido', vencimento AS 'Data de vencimento', tipoAplicacao AS 'Tipo de aplicação' FROM Aplicacao JOIN ContaCorrente ON Aplicacao.id_contacorrente = ContaCorrente.id JOIN Conta ON ContaCorrente.id_conta = Conta.id WHERE Conta.numero = @numero", connection);
+                listarAplicacao.Parameters.AddWithValue("@numero", numeroContaCorrente);
+
+                MySqlDataAdapter dataAdapter = new MySqlDataAdapter(listarAplicacao);
+                dataAdapter.Fill(listagemAplicacao);
+
+            }
+            catch (MySqlException exception)
+            {
+                listagemAplicacao = null;
+                Console.WriteLine(exception.ToString());
+            }
+            finally
+            {
+                connection.Close();
+            }
+
+            return listagemAplicacao;
+        }
     }
 }
 

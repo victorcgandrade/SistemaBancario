@@ -60,7 +60,7 @@
             this.btn_AgendamentoSaque.FlatAppearance.BorderSize = 0;
             this.btn_AgendamentoSaque.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(41)))), ((int)(((byte)(43)))));
             // 
-            // btn_Tranferencias
+            // lb_Conta
             // 
             this.lb_Conta.FlatAppearance.BorderSize = 0;
             this.lb_Conta.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(41)))), ((int)(((byte)(43)))));
@@ -128,6 +128,7 @@
             this.btn_VisualizarAplicacaoCliente.Text = "Visualizar";
             this.btn_VisualizarAplicacaoCliente.UseVisualStyleBackColor = false;
             this.btn_VisualizarAplicacaoCliente.Visible = false;
+            this.btn_VisualizarAplicacaoCliente.Click += new System.EventHandler(this.btn_VisualizarAplicacaoCliente_Click);
             // 
             // dgv_ResultadoAplicacoesCliente
             // 

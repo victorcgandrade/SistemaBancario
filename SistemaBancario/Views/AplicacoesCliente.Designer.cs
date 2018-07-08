@@ -53,7 +53,7 @@
             this.btn_AgendamentoSaque.FlatAppearance.BorderSize = 0;
             this.btn_AgendamentoSaque.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(41)))), ((int)(((byte)(43)))));
             // 
-            // btn_Tranferencias
+            // lb_Conta
             // 
             this.lb_Conta.FlatAppearance.BorderSize = 0;
             this.lb_Conta.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(41)))), ((int)(((byte)(43)))));
@@ -105,6 +105,7 @@
             this.btn_ConsultarAplicacao.Text = "MINHAS APLICAÇÕES";
             this.btn_ConsultarAplicacao.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.btn_ConsultarAplicacao.UseVisualStyleBackColor = false;
+            this.btn_ConsultarAplicacao.Click += new System.EventHandler(this.btn_ConsultarAplicacao_Click);
             // 
             // AplicacoesCliente
             // 

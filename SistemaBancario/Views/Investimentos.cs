@@ -13,16 +13,19 @@ namespace SistemaBancario.Views
 {
     public partial class Investimentos : TemplateInicialCliente
     {
+        public InstanciaLogin il = new InstanciaLogin();
+
         public Investimentos(InstanciaLogin il)
         {
             InitializeComponent();
+            this.il = il;
             LabelAgencia = il.agencia;
             LabelConta = il.conta;
         }
 
         private void btn_Aplicacoes_Click(object sender, EventArgs e)
         {
-            AplicacoesCliente aplicacoes = new AplicacoesCliente();
+            AplicacoesCliente aplicacoes = new AplicacoesCliente(this.il);
             aplicacoes.FormClosed += new FormClosedEventHandler(aplicacoes_FormClosed);
             aplicacoes.Show();
             this.Hide();
