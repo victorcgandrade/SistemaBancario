@@ -18,7 +18,8 @@ namespace Main
     {
 
         InstanciaLogin il = new InstanciaLogin();
-
+        public static string _agenciaContext { get; set; }
+        public static string _contaContext { get; set; }
         public TelaLogin()
         {
             InitializeComponent();
@@ -33,7 +34,8 @@ namespace Main
 
             if (cmbBoxTipoUser.SelectedItem == "Cliente")
             {
-
+                _agenciaContext = txtBoxAgencia.Text;
+                _contaContext = txtBoxConta.Text;
 
                 string agencia = txtBoxAgencia.Text;
                 string conta = txtBoxConta.Text;

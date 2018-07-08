@@ -1,4 +1,5 @@
-﻿using System;
+﻿using SistemaBancario.Models;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -12,9 +13,11 @@ namespace SistemaBancario.Views
 {
     public partial class TelaFAQ : TemplateInicialCliente
     {
-        public TelaFAQ()
+        public TelaFAQ(InstanciaLogin il)
         {
             InitializeComponent();
+            LabelAgencia = il.agencia;
+            LabelConta = il.conta;
         }
     }
 }

@@ -11,9 +11,11 @@ namespace SistemaBancario.Views
 {
     public partial class RealizarAgendamentoSaque : SistemaBancario.Views.TemplateInicialCliente
     {
-        public RealizarAgendamentoSaque()
+        public RealizarAgendamentoSaque(InstanciaLogin il)
         {
             InitializeComponent();
+            LabelAgencia = il.agencia;
+            LabelConta = il.conta;
         }
 
         private void btn_Confirmar_AgendarSaque_Click(object sender, EventArgs e)

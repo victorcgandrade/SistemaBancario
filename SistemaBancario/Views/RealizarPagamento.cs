@@ -12,13 +12,15 @@ namespace SistemaBancario.Views
     public partial class RealizarPagamento : SistemaBancario.Views.TemplateInicialCliente
     {
         InstanciaLogin LoginAtual; //refere-se a sessao atual de login 
-
+        
         public RealizarPagamento(InstanciaLogin il)
         {
             InitializeComponent();
             LoginAtual = il;
             tb_NumeroAgencia.Text = LoginAtual.agencia;
             tb_NumeroConta.Text = LoginAtual.conta;
+            LabelConta = il.conta;
+            LabelAgencia = il.agencia;
         }
 
         private void btn_AvancarResumoPagamento_Click(object sender, EventArgs e)

@@ -15,6 +15,8 @@ namespace SistemaBancario.Views
         {
             InitializeComponent();
             carregarPagamento(informacoes, il);
+            LabelAgencia = il.agencia;
+            LabelConta = il.conta;
         }
 
         private void carregarPagamento(List<String> informacoes, InstanciaLogin il)

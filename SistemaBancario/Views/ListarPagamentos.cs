@@ -1,4 +1,5 @@
-﻿using System;
+﻿using SistemaBancario.Models;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -7,14 +8,20 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Twilio;
+using Twilio.Rest.Api.V2010.Account;
+using Twilio.Types;
 
 namespace SistemaBancario.Views
 {
     public partial class ListarPagamentos : TemplateInicialCliente
     {
-        public ListarPagamentos()
+
+        public ListarPagamentos(InstanciaLogin il)
         {
             InitializeComponent();
+            LabelConta = il.conta;
+            LabelAgencia = il.agencia;
             BuscarPagamentos();
         }
 
@@ -22,7 +29,7 @@ namespace SistemaBancario.Views
         {
             try
             {
-                Models.MySQLFunction.ListarPagamentos(dataGridView_Pagamentos);
+                Models.MySQLFunction.ListarPagamentos(dataGridView_Pagamentos, LabelConta);
                 dataGridView_Pagamentos.AutoResizeColumns(DataGridViewAutoSizeColumnsMode.AllCells);
             }
             catch (Exception ex)
@@ -34,6 +41,31 @@ namespace SistemaBancario.Views
         private void btn_Retornar_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void EnviarComprovantePagamentoSMS()
+        {
+            int id = Convert.ToInt16(textBox_VisualizarPagamento.Text);
+            var comprovantePagamento = MySQLFunction.BuscarComprovantePagamento(id);
+
+            TwilioClient.Init(
+                "ACde2b9e4a1819220a7f99c105dd9a8936",
+                "724c13ba84e0c418762082427284e315");
+
+            MessageResource.Create(
+                to: new PhoneNumber("+5521974950367"),
+                from: new PhoneNumber("18123591194"),
+                body: $"Comprovante de Pagamento:" +
+                $"\r\nID: {comprovantePagamento.id}" +
+                $"\r\nBoleto: {comprovantePagamento.numeroBoleto}" +
+                $"\r\nValor: {comprovantePagamento.valor}" +
+                $"\r\nOrigem: {comprovantePagamento.id_contaOrigem}" +
+                $"\r\nDestino: {comprovantePagamento.cod_bancoDestino}");
+        }
+
+        private void button_Confirmar_Click(object sender, EventArgs e)
+        {
+            EnviarComprovantePagamentoSMS();
         }
     }
 }

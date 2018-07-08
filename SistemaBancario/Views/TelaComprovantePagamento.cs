@@ -8,10 +8,12 @@ namespace SistemaBancario.Views
 {
     public partial class TelaComprovantePagamento : TemplateInicialCliente
     {
-        public TelaComprovantePagamento()
+        public TelaComprovantePagamento(InstanciaLogin il)
         {
             InitializeComponent();
-            MySQLFunction.ListarPagamentos(dataGridView_Pagamentos);
+            LabelConta = il.conta;
+            LabelAgencia = il.agencia;
+            MySQLFunction.ListarPagamentos(dataGridView_Pagamentos, LabelConta);
         }
 
         private void EnviarComprovantePagamentoSMS()
@@ -24,7 +26,7 @@ namespace SistemaBancario.Views
                 "724c13ba84e0c418762082427284e315");
 
             MessageResource.Create(
-                to: new PhoneNumber("+5521974950367"),
+                to: new PhoneNumber("+5521999053734"),
                 from: new PhoneNumber("18123591194"),
                 body: $"Comprovante de Pagamento:" +
                 $"\r\nID: {comprovantePagamento.id}" +
