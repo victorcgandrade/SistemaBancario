@@ -51,7 +51,6 @@ namespace SistemaBancario.Views
                     lb_IOF.Visible = true;
                     lb_ImpostoRenda.Visible = true;
                     tb_Visualizar_IOF.Text = aplicacao.ValorIOF.ToString();
-                    tb_Visualizar_ImpostoRenda.Text = aplicacao.ImpostoRenda.ToString();
                 }
 
             }

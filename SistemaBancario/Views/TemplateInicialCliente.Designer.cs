@@ -36,7 +36,6 @@ namespace SistemaBancario.Views
             this.btnSaldo = new System.Windows.Forms.Button();
             this.pb_IconeUsuario = new System.Windows.Forms.PictureBox();
             this.btn_Sair = new System.Windows.Forms.Button();
-            this.lb_NomeAdmin = new System.Windows.Forms.Label();
             this.p_SideMenu = new System.Windows.Forms.Panel();
             this.panel5 = new System.Windows.Forms.Panel();
             this.btn_Atendimento = new System.Windows.Forms.Button();
@@ -57,6 +56,9 @@ namespace SistemaBancario.Views
             this.lb_DuvidasApp = new System.Windows.Forms.Label();
             this.p_Content = new System.Windows.Forms.Panel();
             this.toolTipSaldo = new System.Windows.Forms.ToolTip(this.components);
+            this.lb_NumConta = new System.Windows.Forms.Label();
+            this.lb_NomeCliente = new System.Windows.Forms.Label();
+            this.lb_NumAgencia = new System.Windows.Forms.Label();
             this.p_Footer.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pb_IconeUsuario)).BeginInit();
             this.p_SideMenu.SuspendLayout();
@@ -67,10 +69,12 @@ namespace SistemaBancario.Views
             // p_Footer
             // 
             this.p_Footer.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(19)))), ((int)(((byte)(19)))), ((int)(((byte)(19)))));
+            this.p_Footer.Controls.Add(this.lb_NumConta);
+            this.p_Footer.Controls.Add(this.lb_NumAgencia);
             this.p_Footer.Controls.Add(this.btnSaldo);
+            this.p_Footer.Controls.Add(this.lb_NomeCliente);
             this.p_Footer.Controls.Add(this.pb_IconeUsuario);
             this.p_Footer.Controls.Add(this.btn_Sair);
-            this.p_Footer.Controls.Add(this.lb_NomeAdmin);
             this.p_Footer.Dock = System.Windows.Forms.DockStyle.Top;
             this.p_Footer.Location = new System.Drawing.Point(215, 0);
             this.p_Footer.Name = "p_Footer";
@@ -113,18 +117,6 @@ namespace SistemaBancario.Views
             this.btn_Sair.Text = "Sair";
             this.btn_Sair.UseVisualStyleBackColor = false;
             this.btn_Sair.Click += new System.EventHandler(this.btn_Sair_Click);
-            // 
-            // lb_NomeAdmin
-            // 
-            this.lb_NomeAdmin.AutoSize = true;
-            this.lb_NomeAdmin.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(19)))), ((int)(((byte)(19)))), ((int)(((byte)(19)))));
-            this.lb_NomeAdmin.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lb_NomeAdmin.ForeColor = System.Drawing.SystemColors.Menu;
-            this.lb_NomeAdmin.Location = new System.Drawing.Point(795, 14);
-            this.lb_NomeAdmin.Name = "lb_NomeAdmin";
-            this.lb_NomeAdmin.Size = new System.Drawing.Size(121, 17);
-            this.lb_NomeAdmin.TabIndex = 1;
-            this.lb_NomeAdmin.Text = "Olá, Carlos Alberto";
             // 
             // p_SideMenu
             // 
@@ -381,6 +373,40 @@ namespace SistemaBancario.Views
             this.p_Content.Size = new System.Drawing.Size(1110, 624);
             this.p_Content.TabIndex = 13;
             // 
+            // lb_NumConta
+            // 
+            this.lb_NumConta.AutoSize = true;
+            this.lb_NumConta.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lb_NumConta.ForeColor = System.Drawing.SystemColors.ScrollBar;
+            this.lb_NumConta.Location = new System.Drawing.Point(834, 24);
+            this.lb_NumConta.Name = "lb_NumConta";
+            this.lb_NumConta.Size = new System.Drawing.Size(35, 13);
+            this.lb_NumConta.TabIndex = 4;
+            this.lb_NumConta.Text = "XXXX";
+            // 
+            // lb_NomeCliente
+            // 
+            this.lb_NomeCliente.AutoSize = true;
+            this.lb_NomeCliente.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(19)))), ((int)(((byte)(19)))), ((int)(((byte)(19)))));
+            this.lb_NomeCliente.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lb_NomeCliente.ForeColor = System.Drawing.SystemColors.Menu;
+            this.lb_NomeCliente.Location = new System.Drawing.Point(795, 7);
+            this.lb_NomeCliente.Name = "lb_NomeCliente";
+            this.lb_NomeCliente.Size = new System.Drawing.Size(94, 17);
+            this.lb_NomeCliente.TabIndex = 3;
+            this.lb_NomeCliente.Text = "Carlos Alberto";
+            // 
+            // lb_NumAgencia
+            // 
+            this.lb_NumAgencia.AutoSize = true;
+            this.lb_NumAgencia.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lb_NumAgencia.ForeColor = System.Drawing.SystemColors.ScrollBar;
+            this.lb_NumAgencia.Location = new System.Drawing.Point(809, 24);
+            this.lb_NumAgencia.Name = "lb_NumAgencia";
+            this.lb_NumAgencia.Size = new System.Drawing.Size(28, 13);
+            this.lb_NumAgencia.TabIndex = 5;
+            this.lb_NumAgencia.Text = "XXX";
+            // 
             // TemplateInicialCliente
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -413,7 +439,6 @@ namespace SistemaBancario.Views
         #endregion
         private System.Windows.Forms.PictureBox pb_IconeUsuario;
         private System.Windows.Forms.Button btn_Sair;
-        private System.Windows.Forms.Label lb_NomeAdmin;
         private System.Windows.Forms.PictureBox pb_Logo;
         private System.Windows.Forms.Label lb_DataHoraAtual;
         private System.Windows.Forms.Label lb_DuvidasApp;
@@ -436,5 +461,8 @@ namespace SistemaBancario.Views
         protected System.Windows.Forms.Button btn_Atendimento;
         private System.Windows.Forms.Button btnSaldo;
         private System.Windows.Forms.ToolTip toolTipSaldo;
+        private System.Windows.Forms.Label lb_NumConta;
+        private System.Windows.Forms.Label lb_NomeCliente;
+        private System.Windows.Forms.Label lb_NumAgencia;
     }
 }

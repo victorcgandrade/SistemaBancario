@@ -43,8 +43,6 @@
             this.lb_Status_Aplicacao = new System.Windows.Forms.Label();
             this.cb_Status_Aplicacao = new System.Windows.Forms.ComboBox();
             this.lb_Tributario = new System.Windows.Forms.Label();
-            this.lb_ImpostoRenda = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
             this.lb_ValorIOF = new System.Windows.Forms.Label();
             this.textBox2 = new System.Windows.Forms.TextBox();
             this.btn_Confirmar_AlterarAplicacao = new System.Windows.Forms.Button();
@@ -54,8 +52,6 @@
             // p_Content
             // 
             this.p_Content.Controls.Add(this.btn_Confirmar_AlterarAplicacao);
-            this.p_Content.Controls.Add(this.lb_ImpostoRenda);
-            this.p_Content.Controls.Add(this.textBox1);
             this.p_Content.Controls.Add(this.lb_ValorIOF);
             this.p_Content.Controls.Add(this.textBox2);
             this.p_Content.Controls.Add(this.lb_Tributario);
@@ -288,28 +284,6 @@
             this.lb_Tributario.Text = "Informações Tributárias";
             this.lb_Tributario.Visible = false;
             // 
-            // lb_ImpostoRenda
-            // 
-            this.lb_ImpostoRenda.AutoSize = true;
-            this.lb_ImpostoRenda.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lb_ImpostoRenda.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.lb_ImpostoRenda.Location = new System.Drawing.Point(615, 282);
-            this.lb_ImpostoRenda.Name = "lb_ImpostoRenda";
-            this.lb_ImpostoRenda.Size = new System.Drawing.Size(101, 13);
-            this.lb_ImpostoRenda.TabIndex = 112;
-            this.lb_ImpostoRenda.Text = "Imposto de renda:";
-            this.lb_ImpostoRenda.Visible = false;
-            // 
-            // textBox1
-            // 
-            this.textBox1.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.textBox1.Location = new System.Drawing.Point(618, 298);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(122, 22);
-            this.textBox1.TabIndex = 111;
-            this.textBox1.Visible = false;
-            // 
             // lb_ValorIOF
             // 
             this.lb_ValorIOF.AutoSize = true;
@@ -371,8 +345,6 @@
         protected System.Windows.Forms.DateTimePicker dtp_Vencimento;
         protected System.Windows.Forms.ComboBox cb_Status_Aplicacao;
         protected System.Windows.Forms.Label lb_Status_Aplicacao;
-        protected System.Windows.Forms.Label lb_ImpostoRenda;
-        protected System.Windows.Forms.TextBox textBox1;
         protected System.Windows.Forms.Label lb_ValorIOF;
         protected System.Windows.Forms.TextBox textBox2;
         protected System.Windows.Forms.Label lb_Tributario;
