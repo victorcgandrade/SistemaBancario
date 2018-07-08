@@ -11,14 +11,10 @@ namespace SistemaBancario.Views
 {
     public partial class RealizarPagamento : SistemaBancario.Views.TemplateInicialCliente
     {
-        InstanciaLogin LoginAtual; //refere-se a sessao atual de login 
 
-        public RealizarPagamento(InstanciaLogin il)
+        public RealizarPagamento()
         {
             InitializeComponent();
-            LoginAtual = il;
-            tb_NumeroAgencia.Text = LoginAtual.agencia;
-            tb_NumeroConta.Text = LoginAtual.conta;
         }
 
         private void btn_AvancarResumoPagamento_Click(object sender, EventArgs e)
@@ -26,15 +22,15 @@ namespace SistemaBancario.Views
             //Lista de informacoes do pagamento para, posteriormente, exibir na tela do resumo 
             List<String> informacoes = new List<string>();
             informacoes.Add(tb_Boleto.Text);
-            informacoes.Add(LoginAtual.agencia);
-            informacoes.Add(LoginAtual.conta);
+          //  informacoes.Add();
+          //  informacoes.Add();
             informacoes.Add(cb_BancoDestino.Text);
             informacoes.Add(tb_Valor.Text);
 
-            ResumoPagamento resumoPag = new ResumoPagamento(informacoes, LoginAtual);
-            resumoPag.FormClosed += new FormClosedEventHandler(resumoPag_FormClosed);
-            resumoPag.Show();
-            this.Hide();
+          //  ResumoPagamento resumoPag = new ResumoPagamento(informacoes);
+         //   resumoPag.FormClosed += new FormClosedEventHandler(resumoPag_FormClosed);
+         //   resumoPag.Show();
+        //    this.Hide();
         }
 
         //Quando a tela de for fechada, fecha-se tambem a tela que lhe deu origem

@@ -32,8 +32,6 @@ namespace Main
 
             if (cmbBoxTipoUser.SelectedItem == "Cliente")
             {
-
-
                 string agencia = txtBoxAgencia.Text;
                 string conta = txtBoxConta.Text;
                 if (agencia != "" && conta != "")
@@ -106,4 +104,4 @@ namespace Main
 
         }
     }
-    }
+}

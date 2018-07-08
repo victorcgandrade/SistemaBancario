@@ -27,7 +27,14 @@ namespace SistemaBancario.Views
             saldo = MySQLFunctions.ConsultarSaldo(il.conta);
             InitializeComponent();
             this.il = il;
+            preencheInformacaoCliente();
             toolTipSaldo.SetToolTip(btnSaldo, "Exibe/Esconde saldo");
+        }
+
+        private void preencheInformacaoCliente()
+        {
+            lb_NumAgencia.Text = il.agencia;
+            lb_NumConta.Text = il.conta;
         }
 
    
@@ -47,7 +54,7 @@ namespace SistemaBancario.Views
 
         private void btn_Pagamentos_Click(object sender, EventArgs e)
         {
-            RealizarPagamento realizarPag = new RealizarPagamento(il);
+            RealizarPagamento realizarPag = new RealizarPagamento();
             realizarPag.FormClosed += new FormClosedEventHandler(realizarPag_FormClosed);
             realizarPag.Show();
             this.Hide();
