@@ -651,7 +651,7 @@ namespace SistemaBancario.Models
 
                 ContaCorrente contaCorrente = RetornarContaCorrente(idContaCorrente);
 
-                var queryResult = connection.Query<Aplicacao>("SELECT tipoAplicacao, status, valorMinimo, valorInicial, taxaRendimento, resgateMinimo, vencimento, valorIOF, impostoRenda FROM Aplicacao WHERE id = @id", new { @id = id });
+                var queryResult = connection.Query<Aplicacao>("SELECT id, tipoAplicacao, status, valorMinimo, valorInicial, taxaRendimento, resgateMinimo, vencimento, valorIOF, dataInicio FROM Aplicacao WHERE id = @id", new { @id = id });
                 aplicacao = queryResult.First();
 
                 aplicacao.ContaCorrente = contaCorrente;

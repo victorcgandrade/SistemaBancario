@@ -30,17 +30,15 @@
         {
             this.lb_TituloMinhasAplicacoes = new System.Windows.Forms.Label();
             this.lb_SubtituloMinhasAplicacoes = new System.Windows.Forms.Label();
-            this.lb_InformativoVisualizarAp = new System.Windows.Forms.Label();
-            this.btn_VisualizarAplicacaoCliente = new System.Windows.Forms.Button();
             this.dgv_ResultadoAplicacoesCliente = new System.Windows.Forms.DataGridView();
+            this.btn_Retornar = new System.Windows.Forms.Button();
             this.p_Content.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_ResultadoAplicacoesCliente)).BeginInit();
             this.SuspendLayout();
             // 
             // p_Content
             // 
-            this.p_Content.Controls.Add(this.lb_InformativoVisualizarAp);
-            this.p_Content.Controls.Add(this.btn_VisualizarAplicacaoCliente);
+            this.p_Content.Controls.Add(this.btn_Retornar);
             this.p_Content.Controls.Add(this.dgv_ResultadoAplicacoesCliente);
             this.p_Content.Controls.Add(this.lb_SubtituloMinhasAplicacoes);
             this.p_Content.Controls.Add(this.lb_TituloMinhasAplicacoes);
@@ -103,33 +101,6 @@
             this.lb_SubtituloMinhasAplicacoes.TabIndex = 87;
             this.lb_SubtituloMinhasAplicacoes.Text = "Aplicações realizadas";
             // 
-            // lb_InformativoVisualizarAp
-            // 
-            this.lb_InformativoVisualizarAp.AutoSize = true;
-            this.lb_InformativoVisualizarAp.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lb_InformativoVisualizarAp.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(74)))), ((int)(((byte)(74)))), ((int)(((byte)(74)))));
-            this.lb_InformativoVisualizarAp.Location = new System.Drawing.Point(341, 383);
-            this.lb_InformativoVisualizarAp.Name = "lb_InformativoVisualizarAp";
-            this.lb_InformativoVisualizarAp.Size = new System.Drawing.Size(482, 15);
-            this.lb_InformativoVisualizarAp.TabIndex = 94;
-            this.lb_InformativoVisualizarAp.Text = "Selecione uma linha da tabela acima e clique em Visualizar  para saber mais da ap" +
-    "licação.";
-            this.lb_InformativoVisualizarAp.Visible = false;
-            // 
-            // btn_VisualizarAplicacaoCliente
-            // 
-            this.btn_VisualizarAplicacaoCliente.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(191)))), ((int)(((byte)(0)))));
-            this.btn_VisualizarAplicacaoCliente.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_VisualizarAplicacaoCliente.ForeColor = System.Drawing.SystemColors.HighlightText;
-            this.btn_VisualizarAplicacaoCliente.Location = new System.Drawing.Point(522, 445);
-            this.btn_VisualizarAplicacaoCliente.Name = "btn_VisualizarAplicacaoCliente";
-            this.btn_VisualizarAplicacaoCliente.Size = new System.Drawing.Size(125, 32);
-            this.btn_VisualizarAplicacaoCliente.TabIndex = 93;
-            this.btn_VisualizarAplicacaoCliente.Text = "Visualizar";
-            this.btn_VisualizarAplicacaoCliente.UseVisualStyleBackColor = false;
-            this.btn_VisualizarAplicacaoCliente.Visible = false;
-            this.btn_VisualizarAplicacaoCliente.Click += new System.EventHandler(this.btn_VisualizarAplicacaoCliente_Click);
-            // 
             // dgv_ResultadoAplicacoesCliente
             // 
             this.dgv_ResultadoAplicacoesCliente.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
@@ -143,6 +114,20 @@
             this.dgv_ResultadoAplicacoesCliente.Size = new System.Drawing.Size(542, 248);
             this.dgv_ResultadoAplicacoesCliente.TabIndex = 92;
             this.dgv_ResultadoAplicacoesCliente.Visible = false;
+            // 
+            // btn_Retornar
+            // 
+            this.btn_Retornar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(191)))), ((int)(((byte)(0)))));
+            this.btn_Retornar.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_Retornar.ForeColor = System.Drawing.SystemColors.HighlightText;
+            this.btn_Retornar.Location = new System.Drawing.Point(520, 445);
+            this.btn_Retornar.Name = "btn_Retornar";
+            this.btn_Retornar.Size = new System.Drawing.Size(125, 32);
+            this.btn_Retornar.TabIndex = 95;
+            this.btn_Retornar.Text = "Retornar";
+            this.btn_Retornar.UseVisualStyleBackColor = false;
+            this.btn_Retornar.Visible = false;
+            this.btn_Retornar.Click += new System.EventHandler(this.btn_Retornar_Click);
             // 
             // ListarAplicacoesCliente
             // 
@@ -160,8 +145,7 @@
 
         private System.Windows.Forms.Label lb_TituloMinhasAplicacoes;
         private System.Windows.Forms.Label lb_SubtituloMinhasAplicacoes;
-        private System.Windows.Forms.Label lb_InformativoVisualizarAp;
-        private System.Windows.Forms.Button btn_VisualizarAplicacaoCliente;
         private System.Windows.Forms.DataGridView dgv_ResultadoAplicacoesCliente;
+        private System.Windows.Forms.Button btn_Retornar;
     }
 }

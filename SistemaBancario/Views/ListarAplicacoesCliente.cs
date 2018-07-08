@@ -11,9 +11,12 @@ namespace SistemaBancario.Views
 {
     public partial class ListarAplicacoesCliente : SistemaBancario.Views.TemplateInicialCliente
     {
+        InstanciaLogin il = new InstanciaLogin();
+
         public ListarAplicacoesCliente(InstanciaLogin il)
         {
             InitializeComponent();
+            this.il = il;
             LabelAgencia = il.agencia;
             LabelConta = il.conta;
             carregarTabelaAplicacoes();
@@ -30,8 +33,7 @@ namespace SistemaBancario.Views
                 dgv_ResultadoAplicacoesCliente.DataSource = listagemAplicacoes;
 
                 dgv_ResultadoAplicacoesCliente.Visible = true;
-                lb_InformativoVisualizarAp.Visible = true;
-                btn_VisualizarAplicacaoCliente.Visible = true;
+                btn_Retornar.Visible = true;
 
             }
             else
@@ -40,9 +42,18 @@ namespace SistemaBancario.Views
             }
         }
 
-        private void btn_VisualizarAplicacaoCliente_Click(object sender, EventArgs e)
+        private void btn_Retornar_Click(object sender, EventArgs e)
         {
+            AplicacoesCliente aplicacoes = new AplicacoesCliente(this.il);
+            aplicacoes.FormClosed += new FormClosedEventHandler(aplicacoes_FormClosed);
+            aplicacoes.Show();
+            this.Hide();
+        }
 
+        //Quando a tela de for fechada, fecha-se tambem a tela que lhe deu origem
+        private void aplicacoes_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            this.Close();
         }
     }
 }

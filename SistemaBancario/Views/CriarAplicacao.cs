@@ -41,5 +41,25 @@ namespace SistemaBancario.Views
         {
             this.Close();
         }
+
+        private void btn_Cancelar_Click(object sender, EventArgs e)
+        {
+            AplicacoesCliente aplicacoes = new AplicacoesCliente(this.il);
+            aplicacoes.FormClosed += new FormClosedEventHandler(aplicacoes_FormClosed);
+            aplicacoes.Show();
+            this.Hide();
+        }
+
+        //Quando a tela de for fechada, fecha-se tambem a tela que lhe deu origem
+        private void aplicacoes_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            this.Close();
+        }
+
+        private void btn_Limpar_Click(object sender, EventArgs e)
+        {
+            tb_ValorInicial.Text = "";
+            dtp_DataVencimento.Value = DateTime.Today;
+        }
     }
 }

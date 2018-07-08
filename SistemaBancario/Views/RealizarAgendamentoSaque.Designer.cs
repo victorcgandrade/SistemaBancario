@@ -79,7 +79,7 @@
             this.btn_AgendamentoSaque.FlatAppearance.BorderSize = 0;
             this.btn_AgendamentoSaque.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(41)))), ((int)(((byte)(43)))));
             // 
-            // btn_Tranferencias
+            // lb_Conta
             // 
             this.lb_Conta.FlatAppearance.BorderSize = 0;
             this.lb_Conta.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(41)))), ((int)(((byte)(43)))));
@@ -107,7 +107,7 @@
             this.lb_TituloSaque.ForeColor = System.Drawing.SystemColors.GrayText;
             this.lb_TituloSaque.Location = new System.Drawing.Point(30, 30);
             this.lb_TituloSaque.Name = "lb_TituloSaque";
-            this.lb_TituloSaque.Size = new System.Drawing.Size(295, 21);
+            this.lb_TituloSaque.Size = new System.Drawing.Size(294, 21);
             this.lb_TituloSaque.TabIndex = 87;
             this.lb_TituloSaque.Text = "REALIZAR AGENDAMENTO DE SAQUE";
             // 
@@ -141,7 +141,7 @@
             this.lb_ValorInicial.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.lb_ValorInicial.Location = new System.Drawing.Point(366, 207);
             this.lb_ValorInicial.Name = "lb_ValorInicial";
-            this.lb_ValorInicial.Size = new System.Drawing.Size(88, 13);
+            this.lb_ValorInicial.Size = new System.Drawing.Size(87, 13);
             this.lb_ValorInicial.TabIndex = 102;
             this.lb_ValorInicial.Text = "Valor do saque:";
             // 
@@ -172,7 +172,7 @@
             this.label3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.label3.Location = new System.Drawing.Point(625, 277);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(122, 13);
+            this.label3.Size = new System.Drawing.Size(121, 13);
             this.label3.TabIndex = 108;
             this.label3.Text = "CPF/CNPJ Beneficiário:";
             // 
@@ -187,7 +187,7 @@
             this.dtp_DataAgendamento.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dtp_DataAgendamento.Format = System.Windows.Forms.DateTimePickerFormat.Short;
             this.dtp_DataAgendamento.ImeMode = System.Windows.Forms.ImeMode.On;
-            this.dtp_DataAgendamento.Location = new System.Drawing.Point(582, 226);
+            this.dtp_DataAgendamento.Location = new System.Drawing.Point(616, 224);
             this.dtp_DataAgendamento.MaxDate = new System.DateTime(2018, 12, 31, 0, 0, 0, 0);
             this.dtp_DataAgendamento.MinDate = new System.DateTime(2018, 7, 8, 0, 0, 0, 0);
             this.dtp_DataAgendamento.Name = "dtp_DataAgendamento";

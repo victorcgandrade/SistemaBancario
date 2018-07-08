@@ -77,7 +77,7 @@
             this.btn_AgendamentoSaque.FlatAppearance.BorderSize = 0;
             this.btn_AgendamentoSaque.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(41)))), ((int)(((byte)(43)))));
             // 
-            // btn_Tranferencias
+            // lb_Conta
             // 
             this.lb_Conta.FlatAppearance.BorderSize = 0;
             this.lb_Conta.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(41)))), ((int)(((byte)(43)))));
@@ -142,7 +142,7 @@
             this.dtp_DataVencimento.Format = System.Windows.Forms.DateTimePickerFormat.Short;
             this.dtp_DataVencimento.ImeMode = System.Windows.Forms.ImeMode.On;
             this.dtp_DataVencimento.Location = new System.Drawing.Point(605, 350);
-            this.dtp_DataVencimento.MaxDate = new System.DateTime(2018, 5, 23, 0, 0, 0, 0);
+            this.dtp_DataVencimento.MaxDate = new System.DateTime(2018, 12, 31, 0, 0, 0, 0);
             this.dtp_DataVencimento.MinDate = new System.DateTime(1920, 1, 1, 0, 0, 0, 0);
             this.dtp_DataVencimento.Name = "dtp_DataVencimento";
             this.dtp_DataVencimento.Size = new System.Drawing.Size(144, 22);
@@ -206,6 +206,7 @@
             this.btn_Limpar.TabIndex = 117;
             this.btn_Limpar.Text = "Limpar";
             this.btn_Limpar.UseVisualStyleBackColor = false;
+            this.btn_Limpar.Click += new System.EventHandler(this.btn_Limpar_Click);
             // 
             // btn_Cancelar
             // 
@@ -219,6 +220,7 @@
             this.btn_Cancelar.TabIndex = 118;
             this.btn_Cancelar.Text = "Cancelar";
             this.btn_Cancelar.UseVisualStyleBackColor = false;
+            this.btn_Cancelar.Click += new System.EventHandler(this.btn_Cancelar_Click);
             // 
             // lb_TextoExplicativoCriarAp
             // 
