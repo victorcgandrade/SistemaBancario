@@ -112,5 +112,12 @@ namespace SistemaBancario.Views
         {
             this.Close();
         }
+
+        private void btn_Tranferencias_Click(object sender, EventArgs e)
+        {
+            TelaTransferencia tt = new TelaTransferencia(this.il);
+            this.Hide();
+            tt.Show();
+        }
     }
 }

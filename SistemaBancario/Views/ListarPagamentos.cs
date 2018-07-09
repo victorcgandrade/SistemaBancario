@@ -16,10 +16,11 @@ namespace SistemaBancario.Views
 {
     public partial class ListarPagamentos : TemplateInicialCliente
     {
-
+        InstanciaLogin LoginAtual = new InstanciaLogin();
         public ListarPagamentos(InstanciaLogin il)
         {
             InitializeComponent();
+            LoginAtual = il;
             LabelConta = il.conta;
             LabelAgencia = il.agencia;
             BuscarPagamentos();
@@ -41,6 +42,8 @@ namespace SistemaBancario.Views
         private void btn_Retornar_Click(object sender, EventArgs e)
         {
             this.Close();
+            TemplateInicialCliente tic = new TemplateInicialCliente(LoginAtual);
+            tic.Show();
         }
 
         private void EnviarComprovantePagamentoSMS()

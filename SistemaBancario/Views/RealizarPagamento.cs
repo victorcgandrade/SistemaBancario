@@ -43,6 +43,8 @@ namespace SistemaBancario.Views
         private void resumoPag_FormClosed(object sender, FormClosedEventArgs e)
         {
             this.Close();
+            TemplateInicialCliente tic = new TemplateInicialCliente(LoginAtual);
+            tic.Show();
         }
 }
 }
