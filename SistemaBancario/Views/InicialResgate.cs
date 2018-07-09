@@ -9,11 +9,11 @@ using System.Windows.Forms;
 
 namespace SistemaBancario.Views
 {
-    public partial class ListarAplicacoesCliente : SistemaBancario.Views.TemplateInicialCliente
+    public partial class InicialResgate : SistemaBancario.Views.TemplateInicialCliente
     {
         InstanciaLogin il = new InstanciaLogin();
 
-        public ListarAplicacoesCliente(InstanciaLogin il)
+        public InicialResgate(InstanciaLogin il)
         {
             InitializeComponent();
             this.il = il;
@@ -30,11 +30,8 @@ namespace SistemaBancario.Views
 
             if (listagemAplicacoes != null)
             {
-                dgv_ResultadoAplicacoesCliente.DataSource = listagemAplicacoes;
-                dgv_ResultadoAplicacoesCliente.Columns["Identificador"].Visible = false;
-
-                dgv_ResultadoAplicacoesCliente.Visible = true;
-                btn_Retornar.Visible = true;
+                dgv_AplicacoesCliente.DataSource = listagemAplicacoes;
+                dgv_AplicacoesCliente.Columns["Identificador"].Visible = false;
 
             }
             else
@@ -43,16 +40,21 @@ namespace SistemaBancario.Views
             }
         }
 
-        private void btn_Retornar_Click(object sender, EventArgs e)
+        private void btn_Avancar_Resgate_Click(object sender, EventArgs e)
         {
-            AplicacoesCliente aplicacoes = new AplicacoesCliente(this.il);
-            aplicacoes.FormClosed += new FormClosedEventHandler(aplicacoes_FormClosed);
-            aplicacoes.Show();
+            int index_cur_row = dgv_AplicacoesCliente.CurrentRow.Index; //capturando o indice da linha selecionada
+            DataGridViewRow cur_row = dgv_AplicacoesCliente.Rows[index_cur_row]; //variavel dessa linha
+
+            string idAplicacao = cur_row.Cells["Identificador"].Value.ToString();
+
+            RealizarResgate realizarResgate = new RealizarResgate(Convert.ToInt32(idAplicacao), this.il);
+            realizarResgate.FormClosed += new FormClosedEventHandler(realizarResgate_FormClosed);
+            realizarResgate.Show();
             this.Hide();
         }
 
         //Quando a tela de for fechada, fecha-se tambem a tela que lhe deu origem
-        private void aplicacoes_FormClosed(object sender, FormClosedEventArgs e)
+        private void realizarResgate_FormClosed(object sender, FormClosedEventArgs e)
         {
             this.Close();
         }

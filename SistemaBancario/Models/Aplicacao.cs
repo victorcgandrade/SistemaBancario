@@ -17,6 +17,7 @@ namespace SistemaBancario.Models
         private string status = "Em rendimento";
         private decimal valorMinimo = 50;
         private decimal valorInicial;
+        private decimal valorResgate;
         private decimal taxaRendimento = 12;
         private decimal resgateMinimo = 150;
         private string vencimento;
@@ -30,6 +31,7 @@ namespace SistemaBancario.Models
         {
             this.id = id;
             this.valorInicial = valorInicial;
+            this.valorResgate = valorInicial;
             this.vencimento = vencimento;
             this.contaCorrente = conta;
             this.dataInicio = dataInicio;
@@ -92,6 +94,18 @@ namespace SistemaBancario.Models
             set
             {
                 valorInicial = value;
+            }
+        }
+
+        public decimal ValorResgate
+        {
+            get
+            {
+                return this.valorInicial + RetornarRendimento();
+            }
+            set
+            {
+                valorResgate = value;
             }
         }
 
@@ -169,32 +183,54 @@ namespace SistemaBancario.Models
 
         public decimal RetornarRendimento()
         {
-            DateTime dataAtual = DateTime.Now;
+            DateTime dataAtual = DateTime.Today;
             Decimal valorRendido = 0;
 
             if (tipoAplicacao == "Pré-Fixada")
             {
                 int diasCorridos = (dataAtual.Date - dataInicio.Date).Days;
 
-                Double taxa = Convert.ToDouble(taxaRendimento);
-
-                Decimal taxaDia = Convert.ToDecimal(Math.Pow((1 + (taxa / 100)), (diasCorridos / 360))); //considerando taxa com base 360 dias corridos
-
-                Decimal valorBruto = valorInicial * taxaDia;
-
-                valorRendido = valorBruto;
-
-                //Apenas cobrado taxa de IOF se o resgate for feito com 30 ou menos dias
-
-                if (diasCorridos <= 30)
+                if (diasCorridos >= 1)
                 {
-                    Decimal taxaIOF = VALORES_IOF_DIA[diasCorridos-1];
-                    valorRendido = valorBruto - (valorBruto * (taxaIOF/100));
+                    Decimal valorBruto = 0;
+
+                    if (valorResgate <= valorInicial)
+                    {
+                        Double taxa = Convert.ToDouble(taxaRendimento);
+
+                        Decimal taxaDia = Convert.ToDecimal(Math.Pow((1 + (taxa / 100)), (diasCorridos / 360))); //considerando taxa com base 360 dias corridos
+
+                        valorBruto = valorInicial * taxaDia;
+                    }
+                    else
+                    {
+                        Double taxa = Convert.ToDouble(taxaRendimento);
+
+                        Decimal taxaDia = Convert.ToDecimal(Math.Pow((1 + (taxa / 100)), (diasCorridos / 360))); //considerando taxa com base 360 dias corridos
+
+                        valorBruto = ValorResgate * taxaDia;
+                    }
+
+                    if (diasCorridos <= 30)
+                    {
+                        //Apenas cobrado taxa de IOF se o resgate for feito com 30 ou menos dias
+                        Decimal taxaIOF = VALORES_IOF_DIA[diasCorridos - 1];
+                        valorRendido = valorBruto - (valorBruto * (taxaIOF / 100));
+                    }
+                    else
+                    { 
+                        valorRendido = valorBruto;
+                    }
                 }
+                else
+                {
+                    valorRendido = this.valorResgate;
+                }
+
             }
             else
             {
-                valorRendido = - 1;
+                valorRendido = this.valorResgate;
             }
 
             return valorRendido;

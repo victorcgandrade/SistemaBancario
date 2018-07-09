@@ -651,7 +651,7 @@ namespace SistemaBancario.Models
 
                 ContaCorrente contaCorrente = RetornarContaCorrente(idContaCorrente);
 
-                var queryResult = connection.Query<Aplicacao>("SELECT id, tipoAplicacao, status, valorMinimo, valorInicial, taxaRendimento, resgateMinimo, vencimento, valorIOF, dataInicio FROM Aplicacao WHERE id = @id", new { @id = id });
+                var queryResult = connection.Query<Aplicacao>("SELECT id, tipoAplicacao, status, valorMinimo, valorInicial, valorResgate, taxaRendimento, resgateMinimo, vencimento, dataInicio FROM Aplicacao WHERE id = @id", new { @id = id });
                 aplicacao = queryResult.First();
 
                 aplicacao.ContaCorrente = contaCorrente;
@@ -1453,9 +1453,9 @@ namespace SistemaBancario.Models
                 DateTime dataAtual = DateTime.Now;
 
                 //Insere o registro da criacao da aplicacao na tabela Aplicacao
-                int linhasAfetadasAplicacao = connection.Execute("INSERT INTO Aplicacao(valorInicial, vencimento, id_contacorrente, dataInicio) " +
+                int linhasAfetadasAplicacao = connection.Execute("INSERT INTO Aplicacao(valorInicial, valorResgate, vencimento, id_contacorrente, dataInicio) " +
                     "VALUES(@valorInicial, @vencimento, @id_contacorrente, @dataInicio)",
-                        new { @valorInicial = valorInicial, @vencimento = vencimento, @id_contacorrente = idContaCorrente, @dataInicio = dataAtual });
+                        new { @valorInicial = valorInicial, @valorResgate = valorInicial, @vencimento = vencimento, @id_contacorrente = idContaCorrente, @dataInicio = dataAtual });
 
                 if (linhasAfetadasAplicacao == 1)
                 {
@@ -1488,7 +1488,7 @@ namespace SistemaBancario.Models
                 if (connection.State == ConnectionState.Closed)
                     connection.Open();
 
-                MySqlCommand listarAplicacao = new MySqlCommand("SELECT dataInicio AS 'Data de início', valorInicial AS 'Valor inicialmente investido', vencimento AS 'Data de vencimento', tipoAplicacao AS 'Tipo de aplicação' FROM Aplicacao JOIN ContaCorrente ON Aplicacao.id_contacorrente = ContaCorrente.id JOIN Conta ON ContaCorrente.id_conta = Conta.id WHERE Conta.numero = @numero", connection);
+                MySqlCommand listarAplicacao = new MySqlCommand("SELECT Aplicacao.id AS 'Identificador', dataInicio AS 'Data de início', valorInicial AS 'Valor inicialmente investido', vencimento AS 'Data de vencimento', tipoAplicacao AS 'Tipo de aplicação' FROM Aplicacao JOIN ContaCorrente ON Aplicacao.id_contacorrente = ContaCorrente.id JOIN Conta ON ContaCorrente.id_conta = Conta.id WHERE Conta.numero = @numero", connection);
                 listarAplicacao.Parameters.AddWithValue("@numero", numeroContaCorrente);
 
                 MySqlDataAdapter dataAdapter = new MySqlDataAdapter(listarAplicacao);
@@ -1506,6 +1506,75 @@ namespace SistemaBancario.Models
             }
 
             return listagemAplicacao;
+        }
+
+        static public Boolean AtualizarValorResgateAplicacao(int id, decimal novoValorResgate)
+        {
+            try
+            {
+                if (connection.State == ConnectionState.Closed)
+                    connection.Open();
+
+                int linhasAfetadasAgencia = connection.Execute("UPDATE Aplicacao SET Aplicacao.valorResgate = @novoValorResgate WHERE Aplicacao.id = @id",
+                    new { @novoValorResgate = novoValorResgate, @id = id});
+
+                if (linhasAfetadasAgencia == 1) //uma linha atualizada
+                {
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
+
+            }
+            catch (MySqlException exception)
+            {
+                Console.WriteLine(exception.ToString());
+                return false;
+            }
+            finally
+            {
+                connection.Close();
+            }
+        }
+
+        static public Boolean ResgatarValorAplicacao(int numeroConta, int idAplicacao, decimal valorResgate, decimal valorResgateFinal)
+        {
+            try
+            {
+                if (connection.State == ConnectionState.Closed)
+                    connection.Open();
+
+                Decimal saldoOriginal = connection.ExecuteScalar<Decimal>("SELECT saldo FROM Conta WHERE Conta.numero = @numero", new { @numero = numeroConta });
+
+                Decimal saldoFinal = saldoOriginal - valorResgate;
+
+                int linhasAfetadasConta = connection.Execute("UPDATE Conta SET Conta.saldo = @saldoFinal WHERE Conta.numero = @numeroConta",
+                    new { @saldoFinal = saldoFinal, @numeroConta = numeroConta});
+
+                int linhasAfetadasAplicacao = connection.Execute("UPDATE Aplicacao SET Aplicacao.valorResgate = @valorResgateFinal WHERE Aplicacao.id = @idAplicacao",
+                    new { @valorResgateFinal = valorResgateFinal, @idAplicacao = idAplicacao });
+
+                if (linhasAfetadasConta == 1 && linhasAfetadasAplicacao == 1) //uma linha atualizada
+                {
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
+
+            }
+            catch (MySqlException exception)
+            {
+                Console.WriteLine(exception.ToString());
+                return false;
+            }
+            finally
+            {
+                connection.Close();
+            }
         }
     }
 }

@@ -122,6 +122,24 @@
     <Compile Include="Views\LogAtividades.Designer.cs">
       <DependentUpon>LogAtividades.cs</DependentUpon>
     </Compile>
+    <Compile Include="Views\InicialResgate.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\InicialResgate.Designer.cs">
+      <DependentUpon>InicialResgate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\RealizarResgate.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\RealizarResgate.Designer.cs">
+      <DependentUpon>RealizarResgate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\ResumoResgate.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\ResumoResgate.Designer.cs">
+      <DependentUpon>ResumoResgate.cs</DependentUpon>
+    </Compile>
     <Compile Include="Views\TelaComprovantePagamento.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -383,6 +401,15 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Views\LogAtividades.resx">
       <DependentUpon>LogAtividades.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\InicialResgate.resx">
+      <DependentUpon>InicialResgate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\RealizarResgate.resx">
+      <DependentUpon>RealizarResgate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\ResumoResgate.resx">
+      <DependentUpon>ResumoResgate.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Views\TelaComprovantePagamento.resx">
       <DependentUpon>TelaComprovantePagamento.cs</DependentUpon>

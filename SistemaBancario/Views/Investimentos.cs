@@ -39,7 +39,16 @@ namespace SistemaBancario.Views
 
         private void btn_Resgate_Click(object sender, EventArgs e)
         {
+            InicialResgate resgate = new InicialResgate(this.il);
+            resgate.FormClosed += new FormClosedEventHandler(resgate_FormClosed);
+            resgate.Show();
+            this.Hide();
+        }
 
+        //Quando a tela de for fechada, fecha-se tambem a tela que lhe deu origem
+        private void resgate_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            this.Close();
         }
     }
 }

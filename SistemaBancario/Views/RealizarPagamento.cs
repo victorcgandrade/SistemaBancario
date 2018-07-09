@@ -11,14 +11,12 @@ namespace SistemaBancario.Views
 {
     public partial class RealizarPagamento : SistemaBancario.Views.TemplateInicialCliente
     {
-        InstanciaLogin LoginAtual; //refere-se a sessao atual de login 
+        InstanciaLogin il = new InstanciaLogin(); //refere-se a sessao atual de login 
         
         public RealizarPagamento(InstanciaLogin il)
         {
             InitializeComponent();
-            LoginAtual = il;
-            tb_NumeroAgencia.Text = LoginAtual.agencia;
-            tb_NumeroConta.Text = LoginAtual.conta;
+            this.il = il;
             LabelConta = il.conta;
             LabelAgencia = il.agencia;
         }
@@ -32,10 +30,10 @@ namespace SistemaBancario.Views
             informacoes.Add(tb_Valor.Text);
 
             //Chama tela de resumo de pagamento
-          //  ResumoPagamento resumoPag = new ResumoPagamento(informacoes);
-         //   resumoPag.FormClosed += new FormClosedEventHandler(resumoPag_FormClosed);
-         //   resumoPag.Show();
-        //    this.Hide();
+            ResumoPagamento resumoPag = new ResumoPagamento(informacoes, this.il);
+            resumoPag.FormClosed += new FormClosedEventHandler(resumoPag_FormClosed);
+            resumoPag.Show();
+            this.Hide();
         }
 
         //Quando a tela de for fechada, fecha-se tambem a tela que lhe deu origem

@@ -14,9 +14,9 @@ namespace SistemaBancario.Views
         public ResumoAplicacao(List<Object> informacoes, InstanciaLogin il)
         {
             InitializeComponent();
-            carregarAplicacao(informacoes);
             LabelAgencia = il.agencia;
             LabelConta = il.conta;
+            carregarAplicacao(informacoes);
         }
 
         private void carregarAplicacao(List<Object> informacoes)
