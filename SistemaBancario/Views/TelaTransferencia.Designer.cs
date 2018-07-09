@@ -170,8 +170,7 @@
             // 
             this.cmbBoxTipo.FormattingEnabled = true;
             this.cmbBoxTipo.Items.AddRange(new object[] {
-            "DOC",
-            "TED"});
+            "Pré-fixada"});
             this.cmbBoxTipo.Location = new System.Drawing.Point(294, 295);
             this.cmbBoxTipo.Name = "cmbBoxTipo";
             this.cmbBoxTipo.Size = new System.Drawing.Size(121, 21);
