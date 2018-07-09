@@ -41,15 +41,13 @@
             this.btn_Limpar = new System.Windows.Forms.Button();
             this.btn_Cancelar = new System.Windows.Forms.Button();
             this.label4 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
-            this.tb_NumConta = new System.Windows.Forms.TextBox();
+            this.cb_CriarEvento = new System.Windows.Forms.CheckBox();
             this.p_Content.SuspendLayout();
             this.SuspendLayout();
             // 
             // p_Content
             // 
-            this.p_Content.Controls.Add(this.label5);
-            this.p_Content.Controls.Add(this.tb_NumConta);
+            this.p_Content.Controls.Add(this.cb_CriarEvento);
             this.p_Content.Controls.Add(this.label4);
             this.p_Content.Controls.Add(this.btn_Confirmar_AgendarSaque);
             this.p_Content.Controls.Add(this.btn_Limpar);
@@ -79,10 +77,10 @@
             this.btn_AgendamentoSaque.FlatAppearance.BorderSize = 0;
             this.btn_AgendamentoSaque.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(41)))), ((int)(((byte)(43)))));
             // 
-            // btn_Tranferencias
+            // lb_Conta
             // 
-            this.btn_Tranferencias.FlatAppearance.BorderSize = 0;
-            this.btn_Tranferencias.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(41)))), ((int)(((byte)(43)))));
+            this.lb_Conta.FlatAppearance.BorderSize = 0;
+            this.lb_Conta.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(41)))), ((int)(((byte)(43)))));
             // 
             // btn_Pagamentos
             // 
@@ -107,7 +105,7 @@
             this.lb_TituloSaque.ForeColor = System.Drawing.SystemColors.GrayText;
             this.lb_TituloSaque.Location = new System.Drawing.Point(30, 30);
             this.lb_TituloSaque.Name = "lb_TituloSaque";
-            this.lb_TituloSaque.Size = new System.Drawing.Size(295, 21);
+            this.lb_TituloSaque.Size = new System.Drawing.Size(294, 21);
             this.lb_TituloSaque.TabIndex = 87;
             this.lb_TituloSaque.Text = "REALIZAR AGENDAMENTO DE SAQUE";
             // 
@@ -116,7 +114,7 @@
             this.lb_TextoExplicativoListarCliente.AutoSize = true;
             this.lb_TextoExplicativoListarCliente.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lb_TextoExplicativoListarCliente.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(74)))), ((int)(((byte)(74)))), ((int)(((byte)(74)))));
-            this.lb_TextoExplicativoListarCliente.Location = new System.Drawing.Point(276, 128);
+            this.lb_TextoExplicativoListarCliente.Location = new System.Drawing.Point(310, 126);
             this.lb_TextoExplicativoListarCliente.Name = "lb_TextoExplicativoListarCliente";
             this.lb_TextoExplicativoListarCliente.Size = new System.Drawing.Size(518, 15);
             this.lb_TextoExplicativoListarCliente.TabIndex = 92;
@@ -128,7 +126,7 @@
             this.lb_SubtituloListarCliente.AutoSize = true;
             this.lb_SubtituloListarCliente.Font = new System.Drawing.Font("Segoe UI Semibold", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lb_SubtituloListarCliente.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
-            this.lb_SubtituloListarCliente.Location = new System.Drawing.Point(467, 96);
+            this.lb_SubtituloListarCliente.Location = new System.Drawing.Point(501, 94);
             this.lb_SubtituloListarCliente.Name = "lb_SubtituloListarCliente";
             this.lb_SubtituloListarCliente.Size = new System.Drawing.Size(137, 20);
             this.lb_SubtituloListarCliente.TabIndex = 91;
@@ -139,9 +137,9 @@
             this.lb_ValorInicial.AutoSize = true;
             this.lb_ValorInicial.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lb_ValorInicial.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.lb_ValorInicial.Location = new System.Drawing.Point(332, 209);
+            this.lb_ValorInicial.Location = new System.Drawing.Point(366, 207);
             this.lb_ValorInicial.Name = "lb_ValorInicial";
-            this.lb_ValorInicial.Size = new System.Drawing.Size(88, 13);
+            this.lb_ValorInicial.Size = new System.Drawing.Size(87, 13);
             this.lb_ValorInicial.TabIndex = 102;
             this.lb_ValorInicial.Text = "Valor do saque:";
             // 
@@ -149,7 +147,7 @@
             // 
             this.tb_Valor.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tb_Valor.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.tb_Valor.Location = new System.Drawing.Point(332, 226);
+            this.tb_Valor.Location = new System.Drawing.Point(366, 224);
             this.tb_Valor.Name = "tb_Valor";
             this.tb_Valor.Size = new System.Drawing.Size(120, 22);
             this.tb_Valor.TabIndex = 101;
@@ -159,7 +157,7 @@
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.label2.Location = new System.Drawing.Point(579, 209);
+            this.label2.Location = new System.Drawing.Point(613, 207);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(147, 13);
             this.label2.TabIndex = 106;
@@ -170,9 +168,9 @@
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.label3.Location = new System.Drawing.Point(591, 279);
+            this.label3.Location = new System.Drawing.Point(363, 270);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(122, 13);
+            this.label3.Size = new System.Drawing.Size(121, 13);
             this.label3.TabIndex = 108;
             this.label3.Text = "CPF/CNPJ Beneficiário:";
             // 
@@ -187,7 +185,7 @@
             this.dtp_DataAgendamento.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dtp_DataAgendamento.Format = System.Windows.Forms.DateTimePickerFormat.Short;
             this.dtp_DataAgendamento.ImeMode = System.Windows.Forms.ImeMode.On;
-            this.dtp_DataAgendamento.Location = new System.Drawing.Point(582, 226);
+            this.dtp_DataAgendamento.Location = new System.Drawing.Point(616, 224);
             this.dtp_DataAgendamento.MaxDate = new System.DateTime(2018, 12, 31, 0, 0, 0, 0);
             this.dtp_DataAgendamento.MinDate = new System.DateTime(2018, 7, 8, 0, 0, 0, 0);
             this.dtp_DataAgendamento.Name = "dtp_DataAgendamento";
@@ -199,7 +197,7 @@
             // 
             this.tb_Beneficiario.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tb_Beneficiario.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.tb_Beneficiario.Location = new System.Drawing.Point(594, 296);
+            this.tb_Beneficiario.Location = new System.Drawing.Point(366, 287);
             this.tb_Beneficiario.Name = "tb_Beneficiario";
             this.tb_Beneficiario.Size = new System.Drawing.Size(120, 22);
             this.tb_Beneficiario.TabIndex = 112;
@@ -210,7 +208,7 @@
             this.btn_Confirmar_AgendarSaque.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btn_Confirmar_AgendarSaque.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_Confirmar_AgendarSaque.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.btn_Confirmar_AgendarSaque.Location = new System.Drawing.Point(582, 457);
+            this.btn_Confirmar_AgendarSaque.Location = new System.Drawing.Point(616, 455);
             this.btn_Confirmar_AgendarSaque.Name = "btn_Confirmar_AgendarSaque";
             this.btn_Confirmar_AgendarSaque.Size = new System.Drawing.Size(90, 29);
             this.btn_Confirmar_AgendarSaque.TabIndex = 116;
@@ -224,7 +222,7 @@
             this.btn_Limpar.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btn_Limpar.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_Limpar.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.btn_Limpar.Location = new System.Drawing.Point(486, 457);
+            this.btn_Limpar.Location = new System.Drawing.Point(520, 455);
             this.btn_Limpar.Name = "btn_Limpar";
             this.btn_Limpar.Size = new System.Drawing.Size(90, 29);
             this.btn_Limpar.TabIndex = 114;
@@ -237,7 +235,7 @@
             this.btn_Cancelar.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btn_Cancelar.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_Cancelar.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.btn_Cancelar.Location = new System.Drawing.Point(390, 457);
+            this.btn_Cancelar.Location = new System.Drawing.Point(424, 455);
             this.btn_Cancelar.Name = "btn_Cancelar";
             this.btn_Cancelar.Size = new System.Drawing.Size(90, 29);
             this.btn_Cancelar.TabIndex = 115;
@@ -249,32 +247,24 @@
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Italic);
             this.label4.ForeColor = System.Drawing.Color.Red;
-            this.label4.Location = new System.Drawing.Point(292, 143);
+            this.label4.Location = new System.Drawing.Point(326, 141);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(486, 15);
             this.label4.TabIndex = 117;
             this.label4.Text = "Direcionar-se a um atendente munido de documentação de identificação e cartão da " +
     "conta.";
             // 
-            // label5
+            // cb_CriarEvento
             // 
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.label5.Location = new System.Drawing.Point(332, 279);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(99, 13);
-            this.label5.TabIndex = 119;
-            this.label5.Text = "Número da conta:";
-            // 
-            // tb_NumConta
-            // 
-            this.tb_NumConta.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tb_NumConta.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.tb_NumConta.Location = new System.Drawing.Point(332, 296);
-            this.tb_NumConta.Name = "tb_NumConta";
-            this.tb_NumConta.Size = new System.Drawing.Size(120, 22);
-            this.tb_NumConta.TabIndex = 118;
+            this.cb_CriarEvento.AutoSize = true;
+            this.cb_CriarEvento.Font = new System.Drawing.Font("Segoe UI", 8.25F);
+            this.cb_CriarEvento.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.cb_CriarEvento.Location = new System.Drawing.Point(366, 338);
+            this.cb_CriarEvento.Name = "cb_CriarEvento";
+            this.cb_CriarEvento.Size = new System.Drawing.Size(348, 17);
+            this.cb_CriarEvento.TabIndex = 118;
+            this.cb_CriarEvento.Text = "Criar um evento no Google Calendar sobre este agendamento.";
+            this.cb_CriarEvento.UseVisualStyleBackColor = true;
             // 
             // RealizarAgendamentoSaque
             // 
@@ -302,7 +292,6 @@
         protected System.Windows.Forms.Button btn_Limpar;
         protected System.Windows.Forms.Button btn_Cancelar;
         private System.Windows.Forms.Label label4;
-        protected System.Windows.Forms.Label label5;
-        protected System.Windows.Forms.TextBox tb_NumConta;
+        private System.Windows.Forms.CheckBox cb_CriarEvento;
     }
 }

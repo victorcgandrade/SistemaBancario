@@ -25,10 +25,6 @@ namespace SistemaBancario.Views
 
         }
 
-        public void preencheNome()
-        {
-
-        }
         public bool ChecaTextBoxes()
         {
             if (txtPrimeiroCaracter.Text == "")

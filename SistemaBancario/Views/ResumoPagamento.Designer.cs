@@ -29,8 +29,8 @@
         private void InitializeComponent()
         {
             this.lb_TituloPagamento = new System.Windows.Forms.Label();
-            this.lb_TextoExplicativoListarCliente = new System.Windows.Forms.Label();
-            this.lb_SubtituloListarCliente = new System.Windows.Forms.Label();
+            this.lb_TextoExplicativoResumoPag = new System.Windows.Forms.Label();
+            this.lb_SubtituloResumoPag = new System.Windows.Forms.Label();
             this.lb_Titulo_CodBarras = new System.Windows.Forms.Label();
             this.lb_Titulo_NumAgenciaConta = new System.Windows.Forms.Label();
             this.lb_Titulo_BancoDest = new System.Windows.Forms.Label();
@@ -56,8 +56,8 @@
             this.p_Content.Controls.Add(this.lb_Titulo_BancoDest);
             this.p_Content.Controls.Add(this.lb_Titulo_NumAgenciaConta);
             this.p_Content.Controls.Add(this.lb_Titulo_CodBarras);
-            this.p_Content.Controls.Add(this.lb_TextoExplicativoListarCliente);
-            this.p_Content.Controls.Add(this.lb_SubtituloListarCliente);
+            this.p_Content.Controls.Add(this.lb_TextoExplicativoResumoPag);
+            this.p_Content.Controls.Add(this.lb_SubtituloResumoPag);
             this.p_Content.Controls.Add(this.lb_TituloPagamento);
             // 
             // panel1
@@ -76,8 +76,8 @@
             // 
             // btn_Tranferencias
             // 
-            this.btn_Tranferencias.FlatAppearance.BorderSize = 0;
-            this.btn_Tranferencias.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(41)))), ((int)(((byte)(43)))));
+            this.lb_Conta.FlatAppearance.BorderSize = 0;
+            this.lb_Conta.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(41)))), ((int)(((byte)(43)))));
             // 
             // btn_Pagamentos
             // 
@@ -107,27 +107,27 @@
             this.lb_TituloPagamento.TabIndex = 87;
             this.lb_TituloPagamento.Text = "REALIZAR PAGAMENTO";
             // 
-            // lb_TextoExplicativoListarCliente
+            // lb_TextoExplicativoResumoPag
             // 
-            this.lb_TextoExplicativoListarCliente.AutoSize = true;
-            this.lb_TextoExplicativoListarCliente.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lb_TextoExplicativoListarCliente.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(74)))), ((int)(((byte)(74)))), ((int)(((byte)(74)))));
-            this.lb_TextoExplicativoListarCliente.Location = new System.Drawing.Point(378, 122);
-            this.lb_TextoExplicativoListarCliente.Name = "lb_TextoExplicativoListarCliente";
-            this.lb_TextoExplicativoListarCliente.Size = new System.Drawing.Size(387, 15);
-            this.lb_TextoExplicativoListarCliente.TabIndex = 91;
-            this.lb_TextoExplicativoListarCliente.Text = "Verifique se os dados abaixo estão corretos para confirmar o pagamento.";
+            this.lb_TextoExplicativoResumoPag.AutoSize = true;
+            this.lb_TextoExplicativoResumoPag.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lb_TextoExplicativoResumoPag.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(74)))), ((int)(((byte)(74)))), ((int)(((byte)(74)))));
+            this.lb_TextoExplicativoResumoPag.Location = new System.Drawing.Point(378, 122);
+            this.lb_TextoExplicativoResumoPag.Name = "lb_TextoExplicativoResumoPag";
+            this.lb_TextoExplicativoResumoPag.Size = new System.Drawing.Size(387, 15);
+            this.lb_TextoExplicativoResumoPag.TabIndex = 91;
+            this.lb_TextoExplicativoResumoPag.Text = "Verifique se os dados abaixo estão corretos para confirmar o pagamento.";
             // 
-            // lb_SubtituloListarCliente
+            // lb_SubtituloResumoPag
             // 
-            this.lb_SubtituloListarCliente.AutoSize = true;
-            this.lb_SubtituloListarCliente.Font = new System.Drawing.Font("Segoe UI Semibold", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lb_SubtituloListarCliente.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
-            this.lb_SubtituloListarCliente.Location = new System.Drawing.Point(488, 93);
-            this.lb_SubtituloListarCliente.Name = "lb_SubtituloListarCliente";
-            this.lb_SubtituloListarCliente.Size = new System.Drawing.Size(167, 20);
-            this.lb_SubtituloListarCliente.TabIndex = 90;
-            this.lb_SubtituloListarCliente.Text = "Resumo do pagamento";
+            this.lb_SubtituloResumoPag.AutoSize = true;
+            this.lb_SubtituloResumoPag.Font = new System.Drawing.Font("Segoe UI Semibold", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lb_SubtituloResumoPag.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
+            this.lb_SubtituloResumoPag.Location = new System.Drawing.Point(488, 93);
+            this.lb_SubtituloResumoPag.Name = "lb_SubtituloResumoPag";
+            this.lb_SubtituloResumoPag.Size = new System.Drawing.Size(167, 20);
+            this.lb_SubtituloResumoPag.TabIndex = 90;
+            this.lb_SubtituloResumoPag.Text = "Resumo do pagamento";
             // 
             // lb_Titulo_CodBarras
             // 
@@ -258,8 +258,8 @@
         #endregion
 
         private System.Windows.Forms.Label lb_TituloPagamento;
-        private System.Windows.Forms.Label lb_TextoExplicativoListarCliente;
-        private System.Windows.Forms.Label lb_SubtituloListarCliente;
+        private System.Windows.Forms.Label lb_TextoExplicativoResumoPag;
+        private System.Windows.Forms.Label lb_SubtituloResumoPag;
         protected System.Windows.Forms.Label lb_Titulo_Pag;
         protected System.Windows.Forms.Label lb_Titulo_BancoDest;
         protected System.Windows.Forms.Label lb_Titulo_NumAgenciaConta;

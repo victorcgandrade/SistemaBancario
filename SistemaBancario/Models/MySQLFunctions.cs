@@ -614,7 +614,7 @@ namespace SistemaBancario.Models
             return buscaAplicacao;
         }
 
-        //Exibir todas aplicacoes cadastradas no banco de dados
+        //Exibir todas aplicacoes cadastradas no banco de dados para um Administrador
         static public DataTable ListarAplicacao()
         {
             DataTable listagemAplicacao = new DataTable();
@@ -656,10 +656,10 @@ namespace SistemaBancario.Models
 
                 ContaCorrente contaCorrente = RetornarContaCorrente(idContaCorrente);
 
-                var queryResult = connection.Query<Aplicacao>("SELECT tipoAplicacao, status, valorMinimo, valorInicial, taxaRendimento, resgateMinimo, vencimento, valorIOF, impostoRenda FROM Aplicacao WHERE id = @id", new { @id = id });
+                var queryResult = connection.Query<Aplicacao>("SELECT id, tipoAplicacao, status, valorMinimo, valorInicial, valorResgate, taxaRendimento, resgateMinimo, vencimento, dataInicio FROM Aplicacao WHERE id = @id", new { @id = id });
                 aplicacao = queryResult.First();
 
-                aplicacao.contaCorrente = contaCorrente;
+                aplicacao.ContaCorrente = contaCorrente;
 
                 return aplicacao;
             }
@@ -1277,6 +1277,8 @@ namespace SistemaBancario.Models
                 connection.Close();
             }
         }
+
+        //Retorna o saldo de uma conta
         static public Decimal ConsultarSaldo(string numeroConta)
         {
             decimal saldoCliente = 0;
@@ -1402,12 +1404,13 @@ namespace SistemaBancario.Models
             }
         }
 
-        /*  static public Boolean RealizarTransfOB()
-          {
-              try
-              {
-                  if (connection.State == ConnectionState.Closed)
-                      connection.Open();
+        //Apenas registra um agendamento de saque. Aplicacao nao possui controle quando/se o cliente ira efetuar o saque.
+        static public Boolean RealizarAgendamentoSaque(decimal valor, int numeroConta, DateTime dataAgendamento, string beneficiario)
+        {
+            try
+            {
+                if (connection.State == ConnectionState.Closed)
+                    connection.Open();
 
                   //Recupera o id da conta corrente envolvida
                   var idContaCorrente = connection.ExecuteScalar<int>("SELECT ContaCorrente.id FROM ContaCorrente JOIN Conta ON ContaCorrente.id_conta = Conta.id WHERE Conta.numero = @numero", new { @numero = numeroConta });
@@ -1417,45 +1420,32 @@ namespace SistemaBancario.Models
 
                   DateTime dataAtual = DateTime.Now;
 
-                  //Insere o registro de pagamento na tabela de Pagamentos
-                  int linhasAfetadasPag = connection.Execute("INSERT INTO Transferencia(dataHoraTransacao, tipo, valor, id_contaOrigem, cod_bancoDestino, num_contaOB, agencia_contaOB) VALUES(@dataHoraTransacao, @tipo, @valor, @id_contaOrigem, @cod_bancoDestino, @num_contaOB, @agencia_contaOB)",
-                          new { @dataHoraTransacao = dataAtual, @tipo = tipo, @valor = valor, @id_contaOrigem = idContaCorrente, @cod_bancoDestino = codBancoDestino });
+                //Insere o registro de pagamento na tabela de Pagamentos
+                int linhasAfetadasSaque = connection.Execute("INSERT INTO AgendamentoSaque(dataHoraTransacao, valor, id_contaOrigem, dataAgendamento, beneficiario) VALUES(@dataHoraTransacao, @valor, @id_contaOrigem, @dataAgendamento, @beneficiario)",
+                        new { @dataHoraTransacao = dataAtual, @valor = valor, @id_contaOrigem = idContaCorrente, @dataAgendamento = dataAgendamento, @beneficiario = beneficiario });
 
-                  Pagamento pagamento = new Pagamento(dataAtual, numBoleto, valor, conta, codBancoDestino);
+                if (linhasAfetadasSaque == 1)
+                {
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
 
-                  //Calcula o novo saldo da conta
-                  decimal saldoAtualizado = conta.Saldo - valor;
+            }
+            catch (MySqlException exception)
+            {
+                Console.WriteLine(exception.ToString());
+                return false;
+            }
+            finally
+            {
+                connection.Close();
+            }
+        }
 
-                  //Atualiza a tabela conta com o novo saldo
-                  int linhasAfetadasConta = connection.Execute("UPDATE Conta JOIN ContaCorrente ON ContaCorrente.id_conta = Conta.id SET saldo = @saldoAtualizado WHERE ContaCorrente.id = @idCC",
-                      new { @saldoAtualizado = saldoAtualizado, @idCC = idContaCorrente });
-
-                  if (linhasAfetadasPag == 1 && linhasAfetadasConta == 1)
-                  {
-                      return true;
-                  }
-                  else
-                  {
-                      return false;
-                  }
-              }
-              catch (MySqlException exception)
-              {
-                  Console.WriteLine(exception.ToString());
-                  return false;
-              }
-              finally
-              {
-                  connection.Close();
-              }
-          }
-
-          static public Boolean RealizarTransfEC()
-          {
-
-          }*/
-
-        static public Boolean RealizarAgendamentoSaque(decimal valor, int numeroConta, DateTime dataAgendamento, string beneficiario)
+        static public Boolean CriarAplicacao(decimal valorInicial, DateTime vencimento, int numeroContaCorrente)
         {
             try
             {
@@ -1463,18 +1453,118 @@ namespace SistemaBancario.Models
                     connection.Open();
 
                 //Recupera o id da conta corrente envolvida
-                var idContaCorrente = connection.ExecuteScalar<int>("SELECT ContaCorrente.id FROM ContaCorrente JOIN Conta ON ContaCorrente.id_conta = Conta.id WHERE Conta.numero = @numero", new { @numero = numeroConta });
+                var idContaCorrente = connection.ExecuteScalar<int>("SELECT ContaCorrente.id FROM ContaCorrente JOIN Conta ON ContaCorrente.id_conta = Conta.id WHERE Conta.numero = @numero", new { @numero = numeroContaCorrente });
 
                 //Retornar conta 
                 ContaCorrente conta = RetornarContaCorrente(idContaCorrente);
 
                 DateTime dataAtual = DateTime.Now;
 
-                //Insere o registro de pagamento na tabela de Pagamentos
-                int linhasAfetadasSaque = connection.Execute("INSERT INTO AgendamentoSaque(dataHoraTransacao, valor, id_contaOrigem, dataAgendamento, beneficiario) VALUES(@dataHoraTransacao, @valor, @id_contaOrigem, @dataAgendamento, @beneficiario)",
-                        new { @dataHoraTransacao = dataAtual, @valor = valor, @id_contaOrigem = idContaCorrente, @dataAgendamento = dataAgendamento, @beneficiario = beneficiario });
+                //Insere o registro da criacao da aplicacao na tabela Aplicacao
+                int linhasAfetadasAplicacao = connection.Execute("INSERT INTO Aplicacao(valorInicial, valorResgate, vencimento, id_contacorrente, dataInicio) " +
+                    "VALUES(@valorInicial, @vencimento, @id_contacorrente, @dataInicio)",
+                        new { @valorInicial = valorInicial, @valorResgate = valorInicial, @vencimento = vencimento, @id_contacorrente = idContaCorrente, @dataInicio = dataAtual });
 
-                if (linhasAfetadasSaque == 1)
+                if (linhasAfetadasAplicacao == 1)
+                {
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
+
+            }
+            catch (MySqlException exception)
+            {
+                Console.WriteLine(exception.ToString());
+                return false;
+            }
+            finally
+            {
+                connection.Close();
+            }
+        }
+
+        //Exibir todas aplicacoes cadastradas no banco de dados para um cliente
+        static public DataTable ListarAplicacaoCliente(int numeroContaCorrente)
+        {
+            DataTable listagemAplicacao = new DataTable();
+
+            try
+            {
+                if (connection.State == ConnectionState.Closed)
+                    connection.Open();
+
+                MySqlCommand listarAplicacao = new MySqlCommand("SELECT Aplicacao.id AS 'Identificador', dataInicio AS 'Data de início', valorInicial AS 'Valor inicialmente investido', vencimento AS 'Data de vencimento', tipoAplicacao AS 'Tipo de aplicação' FROM Aplicacao JOIN ContaCorrente ON Aplicacao.id_contacorrente = ContaCorrente.id JOIN Conta ON ContaCorrente.id_conta = Conta.id WHERE Conta.numero = @numero", connection);
+                listarAplicacao.Parameters.AddWithValue("@numero", numeroContaCorrente);
+
+                MySqlDataAdapter dataAdapter = new MySqlDataAdapter(listarAplicacao);
+                dataAdapter.Fill(listagemAplicacao);
+
+            }
+            catch (MySqlException exception)
+            {
+                listagemAplicacao = null;
+                Console.WriteLine(exception.ToString());
+            }
+            finally
+            {
+                connection.Close();
+            }
+
+            return listagemAplicacao;
+        }
+
+        static public Boolean AtualizarValorResgateAplicacao(int id, decimal novoValorResgate)
+        {
+            try
+            {
+                if (connection.State == ConnectionState.Closed)
+                    connection.Open();
+
+                int linhasAfetadasAgencia = connection.Execute("UPDATE Aplicacao SET Aplicacao.valorResgate = @novoValorResgate WHERE Aplicacao.id = @id",
+                    new { @novoValorResgate = novoValorResgate, @id = id});
+
+                if (linhasAfetadasAgencia == 1) //uma linha atualizada
+                {
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
+
+            }
+            catch (MySqlException exception)
+            {
+                Console.WriteLine(exception.ToString());
+                return false;
+            }
+            finally
+            {
+                connection.Close();
+            }
+        }
+
+        static public Boolean ResgatarValorAplicacao(int numeroConta, int idAplicacao, decimal valorResgate, decimal valorResgateFinal)
+        {
+            try
+            {
+                if (connection.State == ConnectionState.Closed)
+                    connection.Open();
+
+                Decimal saldoOriginal = connection.ExecuteScalar<Decimal>("SELECT saldo FROM Conta WHERE Conta.numero = @numero", new { @numero = numeroConta });
+
+                Decimal saldoFinal = saldoOriginal - valorResgate;
+
+                int linhasAfetadasConta = connection.Execute("UPDATE Conta SET Conta.saldo = @saldoFinal WHERE Conta.numero = @numeroConta",
+                    new { @saldoFinal = saldoFinal, @numeroConta = numeroConta});
+
+                int linhasAfetadasAplicacao = connection.Execute("UPDATE Aplicacao SET Aplicacao.valorResgate = @valorResgateFinal WHERE Aplicacao.id = @idAplicacao",
+                    new { @valorResgateFinal = valorResgateFinal, @idAplicacao = idAplicacao });
+
+                if (linhasAfetadasConta == 1 && linhasAfetadasAplicacao == 1) //uma linha atualizada
                 {
                     return true;
                 }

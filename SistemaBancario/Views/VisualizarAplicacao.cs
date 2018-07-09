@@ -23,24 +23,24 @@ namespace SistemaBancario.Views
         {
             aplicacao = MySQLFunctions.RetornarAplicacao(Convert.ToInt32(idBusca)); //obtem todos os dados de um cliente
 
-            lb_IdentificadorAplicacao.Text = "Aplicação " + aplicacao.tipoAplicacao + " Conta " + aplicacao.contaCorrente.Numero;
+            lb_IdentificadorAplicacao.Text = "Aplicação " + aplicacao.TipoAplicacao + " Conta " + aplicacao.ContaCorrente.Numero;
 
             if (aplicacao != null)
             {
-                tb_Visualizar_TpAplicacao.Text = aplicacao.tipoAplicacao;
-                tb_Visualizar_StatusAplicacao.Text = aplicacao.status;
-                tb_Visualizar_ValorMin.Text = aplicacao.valorMinimo.ToString();
-                tb_Visualizar_ResgMin.Text = aplicacao.resgateMinimo.ToString();
-                tb_Visualizar_ValorInicial.Text = aplicacao.valorInicial.ToString();
-                tb_Visualizar_Vencimento.Text = aplicacao.vencimento.ToString() + " %";
+                tb_Visualizar_TpAplicacao.Text = aplicacao.TipoAplicacao;
+                tb_Visualizar_StatusAplicacao.Text = aplicacao.Status;
+                tb_Visualizar_ValorMin.Text = aplicacao.ValorMinimo.ToString();
+                tb_Visualizar_ResgMin.Text = aplicacao.ResgateMinimo.ToString();
+                tb_Visualizar_ValorInicial.Text = aplicacao.ValorInicial.ToString();
+                tb_Visualizar_Vencimento.Text = aplicacao.Vencimento.ToString() + " %";
 
                 if (tb_Visualizar_TpAplicacao.Text == "Pré-Fixada")
                 {
-                    tb_Visualizar_Taxa.Text = aplicacao.taxaRendimento.ToString(); //taxa pre-definida
+                    tb_Visualizar_Taxa.Text = aplicacao.TaxaRendimento.ToString(); //taxa pre-definida
 
                 } else if (tb_Visualizar_TpAplicacao.Text == "Pós-Fixada")
                 {
-                    tb_Visualizar_Taxa.Text = aplicacao.taxaRendimento.ToString(); //taxa Selic do dia
+                    tb_Visualizar_Taxa.Text = aplicacao.TaxaRendimento.ToString(); //taxa Selic do dia
 
                     lb_Asterisco.Visible = true;
                     lb_InformacaoTaxaSelic.Visible = true;
@@ -50,8 +50,7 @@ namespace SistemaBancario.Views
                     lb_Tributos.Visible = true;
                     lb_IOF.Visible = true;
                     lb_ImpostoRenda.Visible = true;
-                    tb_Visualizar_IOF.Text = aplicacao.valorIOF.ToString();
-                    tb_Visualizar_ImpostoRenda.Text = aplicacao.impostoRenda.ToString();
+                    tb_Visualizar_IOF.Text = aplicacao.ValorIOF.ToString();
                 }
 
             }
